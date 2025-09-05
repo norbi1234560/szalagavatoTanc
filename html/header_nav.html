@@ -1,0 +1,51 @@
+<nav class="navbar navbar-light bg-light navbar-expand-sm">
+
+	<!-- Container -->
+	<div class="container-fluid">
+
+		<!-- Hamburger icon -->
+		<button class="navbar-toggler" 
+						type="button" 
+						data-bs-toggle="collapse" 
+						data-bs-target="#navbar_content" 
+						aria-controls="navbar_content" 
+						aria-expanded="false">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar content -->
+		<div id="navbar_content" 
+				 class="collapse navbar-collapse mt-3 mt-lg-0">
+
+			<!-- Navbar content LEFT -->
+			<ul class="navbar-nav mx-auto">
+
+				<!-- Home -->
+				<li class="nav-item mx-1">
+					<a class="nav-link" 
+						 ui-sref="home" 
+						 ui-sref-active="active"
+						 data-bs-toggle="collapse" 
+						 data-bs-target=".navbar-collapse.show">
+						<span class="text-capitalize text-small-caps">
+							Home
+						</span>
+					</a>
+				</li>
+
+				<!-- Page1 -->
+				<li class="nav-item mx-1">
+					<a class="nav-link" 
+						 ui-sref="page1" 
+						 ui-sref-active="active"
+						 data-bs-toggle="collapse" 
+						 data-bs-target=".navbar-collapse.show">
+						<span class="text-capitalize text-small-caps">
+							Page1
+						</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
