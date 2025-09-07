@@ -32,7 +32,8 @@
 			.state('home', {
 				url: '/',
 				parent: 'root',
-				templateUrl: './html/home.html'
+				templateUrl: './html/home.html',
+        controller: 'homeController',
 			})
       .state('page1', {
 				url: '/page1',
@@ -52,6 +53,15 @@
       // Transaction events
 			trans.events();
     }
-  ]);
+  ])
+
+  .controller('homeController', [
+      '$scope',
+      '$http',
+      '$rootScope',
+      function ($scope, $http, $rootScope){
+        console.log("homecontroller")
+      }
+    ])
 
 })(window, angular);
