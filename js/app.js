@@ -75,7 +75,14 @@
       '$http',
       '$rootScope',
       function ($scope, $http, $rootScope){
-        console.log("reservecontroller")
+        console.log($rootScope.user);
+        $http.get("./php/get_data.php")
+        .then(function (response) {
+          $scope.students = response.data.records;
+        }, function (error) {
+          console.error("hiba az adat betöltésénél: ", error);
+          $scope.students = [];
+        });
       }
     ])
     .controller('eventController', [

@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="row">
+		<h1 class="text-center mt-5">Reserve</h1>
+	</div>
+  <div class="row justify-content-center mt-5">
+    <table class="w-auto">
+      <tbody>
+        <div class="col-12 col-sm-11 col-md-10 col-lg-8 mx-auto">
+    <table class="table table-bordered table-striped table-sm mt-3">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Teljes Név</th>
+          <th>Neme</th>
+          <th>Van-e párja</th>
+          <th>Képe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="x in students">
+          <td class="text-end">{{x.id}}</td>
+          <td class="text-start">{{x.name}}</td>
+          <td>{{x.gender}}</td>
+          <td>{{x.taken}}</td>
+          <td>{{x.image}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+  </div>
+      </tbody>
+    </table>
+  </div>
+</div>
