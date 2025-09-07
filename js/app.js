@@ -25,7 +25,7 @@
 						templateUrl: './html/header_nav.html'
 					},
 					'footer@root': {
-						templateUrl: './html/footer.html'
+						templateUrl: './html/footer.html',
 					}
 				}
       })
@@ -55,7 +55,10 @@
   // Application run
   .run([
     'trans',
-    (trans) => {
+    '$rootScope',
+    (trans, $rootScope) => {
+      $rootScope.currentDate = new Date();
+      $rootScope.currentYear = $rootScope.currentDate.getFullYear();
 
       // Transaction events
 			trans.events();
@@ -63,35 +66,37 @@
   ])
 
   .controller('homeController', [
-      '$scope',
-      '$http',
-      '$rootScope',
-      function ($scope, $http, $rootScope){
-        console.log("homecontroller")
-      }
-    ])
-    .controller('reserveController', [
-      '$scope',
-      '$http',
-      '$rootScope',
-      function ($scope, $http, $rootScope){
-        console.log($rootScope.user);
-        $http.get("./php/get_data.php")
-        .then(function (response) {
-          $scope.students = response.data.records;
-        }, function (error) {
-          console.error("hiba az adat betöltésénél: ", error);
-          $scope.students = [];
-        });
-      }
-    ])
-    .controller('eventController', [
-      '$scope',
-      '$http',
-      '$rootScope',
-      function ($scope, $http, $rootScope){
-        console.log("eventcontroller")
-      }
-    ])
+    '$scope',
+    '$http',
+    '$rootScope',
+    function ($scope, $http, $rootScope){
+      console.log("homecontroller")
+    }
+  ])
+
+  .controller('reserveController', [
+    '$scope',
+    '$http',
+    '$rootScope',
+    function ($scope, $http, $rootScope){
+      console.log($rootScope.user);
+      $http.get("./php/get_data.php")
+      .then(function (response) {
+        $scope.students = response.data.records;
+      }, function (error) {
+        console.error("hiba az adat betöltésénél: ", error);
+        $scope.students = [];
+      });
+    }
+  ])
+
+  .controller('eventController', [
+    '$scope',
+    '$http',
+    '$rootScope',
+    function ($scope, $http, $rootScope){
+      console.log("eventcontroller")
+    }
+  ])
 
 })(window, angular);
