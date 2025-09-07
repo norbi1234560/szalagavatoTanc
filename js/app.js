@@ -35,10 +35,17 @@
 				templateUrl: './html/home.html',
         controller: 'homeController',
 			})
-      .state('page1', {
-				url: '/page1',
+      .state('reserve', {
+				url: '/reserve',
 				parent: 'root',
-				templateUrl: './html/page1.html'
+				templateUrl: './html/reserve.html',
+        controller: 'reserveController',
+			})
+      .state('event', {
+				url: '/event',
+				parent: 'root',
+				templateUrl: './html/event.html',
+        controller: 'eventController',
 			});
       
       $urlRouterProvider.otherwise('/');
@@ -61,6 +68,22 @@
       '$rootScope',
       function ($scope, $http, $rootScope){
         console.log("homecontroller")
+      }
+    ])
+    .controller('reserveController', [
+      '$scope',
+      '$http',
+      '$rootScope',
+      function ($scope, $http, $rootScope){
+        console.log("reservecontroller")
+      }
+    ])
+    .controller('eventController', [
+      '$scope',
+      '$http',
+      '$rootScope',
+      function ($scope, $http, $rootScope){
+        console.log("eventcontroller")
       }
     ])
 
