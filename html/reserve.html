@@ -10,9 +10,9 @@
       <thead class="table-dark">
         <tr>
           <th>#</th>
-          <th>Teljes Név</th>
+          <th>Teljes Neve</th>
           <th>Neme</th>
-          <th>Van-e párja</th>
+          <th>Van-e párja?</th>
           <th>Képe</th>
         </tr>
       </thead>
@@ -20,9 +20,9 @@
         <tr ng-repeat="x in students">
           <td class="text-end">{{x.id}}</td>
           <td class="text-start">{{x.name}}</td>
-          <td>{{x.gender}}</td>
-          <td>{{x.taken}}</td>
-          <td>{{x.image}}</td>
+          <td>{{x.gender == "M" ? "Férfi" : "Nő"}}</td>
+          <td>{{x.taken == 0 ? 'Nem foglalt' : 'Foglalt'}}</td>
+          <td>{{x.image ? x.image : 'nincs'}}</td>
         </tr>
       </tbody>
     </table>

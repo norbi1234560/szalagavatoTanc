@@ -1,5 +1,4 @@
 ;(function(window, angular) {
-
   'use strict';
 
   // Application module
@@ -57,6 +56,8 @@
     'trans',
     '$rootScope',
     (trans, $rootScope) => {
+
+      // get year
       $rootScope.currentDate = new Date();
       $rootScope.currentYear = $rootScope.currentDate.getFullYear();
 
