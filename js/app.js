@@ -1,4 +1,5 @@
 ;(function(window, angular) {
+
   'use strict';
 
   // Application module
@@ -20,32 +21,17 @@
 					'@': {
 						templateUrl: './html/root.html'
 					},
-					'header_nav@root': {
-						templateUrl: './html/header_nav.html'
-					},
 					'footer@root': {
-						templateUrl: './html/footer.html',
+						templateUrl: './html/footer.html'
 					}
 				}
       })
 			.state('home', {
 				url: '/',
 				parent: 'root',
-				templateUrl: './html/home.html',
-        controller: 'homeController',
+        controller:'reserveController',
+				templateUrl: './html/reserve.html'
 			})
-      .state('reserve', {
-				url: '/reserve',
-				parent: 'root',
-				templateUrl: './html/reserve.html',
-        controller: 'reserveController',
-			})
-      .state('event', {
-				url: '/event',
-				parent: 'root',
-				templateUrl: './html/event.html',
-        controller: 'eventController',
-			});
       
       $urlRouterProvider.otherwise('/');
     }
@@ -53,50 +39,86 @@
 
   // Application run
   .run([
-    'trans',
     '$rootScope',
-    (trans, $rootScope) => {
+    ($rootScope) => {
 
       // get year
       $rootScope.currentDate = new Date();
       $rootScope.currentYear = $rootScope.currentDate.getFullYear();
-
-      // Transaction events
-			trans.events();
-    }
-  ])
-
-  .controller('homeController', [
-    '$scope',
-    '$http',
-    '$rootScope',
-    function ($scope, $http, $rootScope){
-      console.log("homecontroller")
     }
   ])
 
   .controller('reserveController', [
     '$scope',
     '$http',
-    '$rootScope',
-    function ($scope, $http, $rootScope){
-      console.log($rootScope.user);
-      $http.get("./php/get_data.php")
+    function ($scope, $http){
+
+      $scope.openBlockList = function(student){
+
+        let blockStudentID = prompt("Kérem adja meg annak a diáknak az id-ját, akit szeretne a tiltott listára felírni!");
+        if(blockStudentID == null || blockStudentID === ''){
+          alert("NEm változtattál a listán!");
+          return;
+        }
+        else if(isNaN(Number(blockStudentID))){
+          alert("Számot kell megadni!!");
+          return;
+        }
+        else if(blockStudentID< 0 || blockStudentID >= $scope.students.length){
+
+          alert("Az adott listából kell sorszámot választani!");
+          return;
+        }
+        else if(Number(blockStudentID) === student){
+
+          alert("Saját magát nem lehet választani!");
+          return;
+        }
+
+        $scope.students[student-1].blockList.push($scope.students[blockStudentID].name);
+
+        $http.post("./php/changeBlocklist.php", {user_id: student, blocked_user_id: blockStudentID})
+              .then(function(response){
+                alert(response.data.data);
+              }, function (error) {
+                  alert(error);
+              })}
+
+      $http.get("./php/getStudents.php")
       .then(function (response) {
-        $scope.students = response.data.records;
+
+        $scope.students = response.data.data;
+        for(let i = 0; i< $scope.students.length ; i++){
+          $scope.students[i].blockList = [];
+        }
+
       }, function (error) {
+
         console.error("hiba az adat betöltésénél: ", error);
         $scope.students = [];
       });
-    }
-  ])
 
-  .controller('eventController', [
-    '$scope',
-    '$http',
-    '$rootScope',
-    function ($scope, $http, $rootScope){
-      console.log("eventcontroller")
+       $http.get("./php/getBlocklist.php")
+      .then(function (response) {
+
+        $scope.blockList = response.data.data;
+
+      }, function (error) {
+
+        console.error("hiba az adat betöltésénél: ", error);
+        $scope.students = [];
+      });
+
+       $http.get("./php/getPairs.php")
+      .then(function (response) {
+
+        $scope.pairs = response.data.data;
+
+      }, function (error) {
+
+        console.error("hiba az adat betöltésénél: ", error);
+        $scope.students = [];
+      });
     }
   ])
 

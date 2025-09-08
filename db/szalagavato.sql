@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Sze 05. 09:36
+-- Létrehozás ideje: 2025. Sze 08. 19:08
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -20,6 +20,17 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `szalagavato`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `blocklist`
+--
+
+CREATE TABLE `blocklist` (
+  `user_id` int(11) NOT NULL,
+  `blocked_user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -51,36 +62,42 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`) VALUES
-(1, 'Badó-Gulácsi Dániel', 'M', 0, NULL),
-(2, 'Berta Barnabás', 'M', 0, NULL),
-(3, 'Bokor Richárd', 'M', 0, NULL),
-(4, 'Dani Benedek', 'M', 0, NULL),
-(5, 'Döme Zoltán', 'M', 0, NULL),
-(6, 'Esser Balázs Dávid', 'M', 0, NULL),
-(7, 'Fodor Adrián László', 'M', 0, NULL),
-(8, 'Guvat Bence József', 'M', 0, NULL),
-(9, 'Herczeg Máté János', 'M', 0, NULL),
-(10, 'Kardos Zoltán', 'M', 0, NULL),
-(11, 'Kis David Csaba', 'M', 0, NULL),
-(12, 'Kis Marcell Zsombor', 'M', 0, NULL),
-(13, 'Knoch Henrik', 'M', 0, NULL),
-(14, 'Kriván Balázs', 'M', 0, NULL),
-(15, 'Kulcsár Tamás Ámon', 'M', 0, NULL),
-(16, 'Miklós Martin', 'M', 0, NULL),
-(17, 'Oláh Zsigmond Sámuel', 'M', 0, NULL),
-(18, 'Répa Norbert', 'M', 0, NULL),
-(19, 'Sötét Ármin', 'M', 0, NULL),
-(20, 'Suba Benjamin', 'M', 0, NULL),
-(21, 'Suhajda Ádám Dominik', 'M', 0, NULL),
-(22, 'Szabó Bence', 'M', 0, NULL),
-(23, 'Szalontai László', 'M', 0, NULL),
-(24, 'Szántó Péter', 'M', 0, NULL),
-(25, 'Tokai Ádám', 'M', 0, NULL),
-(26, 'Tóth László Gábor', 'M', 0, NULL);
+(1, 'Badó-Gulácsi Dániel', 'M', 0, 'BadoGulacsiDani.jpg'),
+(2, 'Berta Barnabás', 'M', 0, 'BertaBarnabas.jpg'),
+(3, 'Bokor Richárd', 'M', 0, 'BokorRicsi.jpg'),
+(4, 'Dani Benedek', 'M', 0, 'DaniBenedek.jpg'),
+(5, 'Döme Zoltán', 'M', 0, 'DomeZoltan.jpg'),
+(6, 'Esser Balázs Dávid', 'M', 0, 'EsserBalazs.jpg'),
+(7, 'Fodor Adrián László', 'M', 0, 'FodorAdrian.jpg'),
+(8, 'Guvat Bence József', 'M', 0, 'GuvatBence.jpg'),
+(9, 'Herczeg Máté János', 'M', 0, 'HerczegMate.png'),
+(10, 'Kardos Zoltán', 'M', 0, 'KardosZoltan.jpg'),
+(11, 'Kis David Csaba', 'M', 0, 'KisDavid.png'),
+(12, 'Kis Marcell Zsombor', 'M', 0, 'KisMarcell.jpg'),
+(13, 'Knoch Henrik', 'M', 0, 'KnochHenrik.jpg'),
+(14, 'Kriván Balázs', 'M', 0, 'KrivanBalazs.jpg'),
+(15, 'Kulcsár Tamás Ámon', 'M', 0, 'KulcsarTamas.jpg'),
+(16, 'Miklós Martin', 'M', 0, 'MiklosMartin.jpg'),
+(17, 'Oláh Zsigmond Sámuel', 'M', 0, 'OlahZsigmond.jpg'),
+(18, 'Répa Norbert', 'M', 0, 'RepaNorbert.jpg'),
+(19, 'Sötét Ármin', 'M', 0, 'SotetArmin.png'),
+(20, 'Suba Benjamin', 'M', 0, 'SubaBenjamin.jpg'),
+(21, 'Suhajda Ádám Dominik', 'M', 0, 'SuhajdaAdam.jpg'),
+(22, 'Szabó Bence', 'M', 0, 'SzaboBence.jpg'),
+(23, 'Szalontai László', 'M', 0, 'SzalontaiLaszlo.jpg'),
+(24, 'Szántó Péter', 'M', 0, 'SzantoPeter.jpg'),
+(25, 'Tokai Ádám', 'M', 0, 'TokaiAdam.jpg'),
+(26, 'Tóth László Gábor', 'M', 0, 'TothLaszlo.jpg');
 
 --
 -- Indexek a kiírt táblákhoz
 --
+
+--
+-- A tábla indexei `blocklist`
+--
+ALTER TABLE `blocklist`
+  ADD UNIQUE KEY `user_id1` (`user_id`,`blocked_user_id`);
 
 --
 -- A tábla indexei `pairs`

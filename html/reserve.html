@@ -1,12 +1,12 @@
 <div class="container">
 	<div class="row">
-		<h1 class="text-center display-1 mt-5">Reserve</h1>
+		<h1 class="text-center display-1 mt-5">Pár összeállítás</h1>
 	</div>
-  <div class="row justify-content-center mt-5">
-    <table class="w-auto">
-      <tbody>
-        <div class="col-12 col-sm-11 col-md-10 col-lg-8 mx-auto">
-    <table class="table table-bordered table-striped table-sm mt-3">
+  <div class="row d-flex justify-content-center mt-5">
+
+    <button class="btn btn-dark col-3">Párok összeállítása</button>
+
+    <table class="table table-bordered table-striped table-sm mt-3 ">
       <thead class="table-dark">
         <tr>
           <th>#</th>
@@ -14,20 +14,28 @@
           <th>Neme</th>
           <th>Van-e párja?</th>
           <th>Képe</th>
+          <th>Tiltott lista személyei:</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="x in students" class="text-center">
-          <td class="text-end">{{x.id}}</td>
-          <td class="text-start">{{x.name}}</td>
+          <td >{{x.id}}.</td>
+          <td >{{x.name}}</td>
           <td>{{x.gender == "M" ? "Férfi" : "Nő"}}</td>
           <td>{{x.taken == 0 ? 'Nem foglalt' : 'Foglalt'}}</td>
-          <td>{{x.image ? x.image : 'nincs'}}</td>
+          <td>
+            <span ng-if="!x.image">Nincs</span>
+            <img ng-if="x.image" ng-src="./assets/pics/{{x.image}}">
+          </td>
+          <td>
+            <span ng-if="!x.blockList.length">Üres a lista</span>
+            <span ng-if="x.blockList.length">{{x.blockList}}</span>
+          </td>
+          <td>
+             <button class="btn btn-dark" ng-click="openBlockList(x.id)">Tiltottlista szerkesztése</button>
+          </td>
         </tr>
-      </tbody>
-    </table>
-    <hr>
-  </div>
       </tbody>
     </table>
   </div>
