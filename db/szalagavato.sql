@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Sze 08. 19:08
--- Kiszolgáló verziója: 10.4.32-MariaDB
--- PHP verzió: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Sep 08, 2025 at 11:02 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `szalagavato`
+-- Database: `szalagavato`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `blocklist`
+-- Table structure for table `blocklist`
 --
 
 CREATE TABLE `blocklist` (
@@ -32,10 +32,22 @@ CREATE TABLE `blocklist` (
   `blocked_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `blocklist`
+--
+
+INSERT INTO `blocklist` (`user_id`, `blocked_user_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 4),
+(1, 5),
+(2, 0),
+(2, 5);
+
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `pairs`
+-- Table structure for table `pairs`
 --
 
 CREATE TABLE `pairs` (
@@ -43,10 +55,18 @@ CREATE TABLE `pairs` (
   `user_id2` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `pairs`
+--
+
+INSERT INTO `pairs` (`user_id1`, `user_id2`) VALUES
+(5, 9),
+(8, 6);
+
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `students`
+-- Table structure for table `students`
 --
 
 CREATE TABLE `students` (
@@ -58,7 +78,7 @@ CREATE TABLE `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `students`
+-- Dumping data for table `students`
 --
 
 INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`) VALUES
@@ -90,33 +110,33 @@ INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`) VALUES
 (26, 'Tóth László Gábor', 'M', 0, 'TothLaszlo.jpg');
 
 --
--- Indexek a kiírt táblákhoz
+-- Indexes for dumped tables
 --
 
 --
--- A tábla indexei `blocklist`
+-- Indexes for table `blocklist`
 --
 ALTER TABLE `blocklist`
   ADD UNIQUE KEY `user_id1` (`user_id`,`blocked_user_id`);
 
 --
--- A tábla indexei `pairs`
+-- Indexes for table `pairs`
 --
 ALTER TABLE `pairs`
   ADD UNIQUE KEY `user_id1` (`user_id1`,`user_id2`);
 
 --
--- A tábla indexei `students`
+-- Indexes for table `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
 
 --
--- A kiírt táblák AUTO_INCREMENT értéke
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT a táblához `students`
+-- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;

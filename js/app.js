@@ -90,7 +90,6 @@
           return;
         }
 
-        //Problem
         $scope.students[student-1].blockList.push($scope.students[blockStudentID].name);
         
 
