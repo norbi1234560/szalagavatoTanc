@@ -53,6 +53,21 @@
     '$http',
     function ($scope, $http){
 
+      $scope.students = [];
+      $http.get("./php/getStudents.php")
+      .then(function (response) {
+
+        $scope.students = response.data.data;
+        for(let i = 0; i< $scope.students.length ; i++){
+          $scope.students[i].blockList = [];
+        }
+
+      }, function (error) {
+
+        console.error("hiba az adat betöltésénél: ", error);
+        $scope.students = [];
+      });
+
       $scope.openBlockList = function(student){
 
         let blockStudentID = prompt("Kérem adja meg annak a diáknak az id-ját, akit szeretne a tiltott listára felírni!");
@@ -69,12 +84,13 @@
           alert("Az adott listából kell sorszámot választani!");
           return;
         }
-        else if(Number(blockStudentID) === Number(student)-1){
+        else if(Number(blockStudentID) === student-1){
 
           alert("Saját magát nem lehet választani!");
           return;
         }
 
+        //Problem
         $scope.students[student-1].blockList.push($scope.students[blockStudentID].name);
         
 
@@ -85,19 +101,6 @@
                   alert(error);
               })}
 
-      $http.get("./php/getStudents.php")
-      .then(function (response) {
-
-        $scope.students = response.data.data;
-        for(let i = 0; i< $scope.students.length ; i++){
-          $scope.students[i].blockList = [];
-        }
-
-      }, function (error) {
-
-        console.error("hiba az adat betöltésénél: ", error);
-        $scope.students = [];
-      });
 
        $http.get("./php/getBlocklist.php")
       .then(function (response) {
