@@ -1,12 +1,12 @@
 <div class="container">
-	<div class="row">
-		<h1 class="text-center display-1 mt-5">Pár összeállítás</h1>
-	</div>
+    <div class="row">
+        <h1 class="text-center display-1 mt-5">Pár összeállítás</h1>
+    </div>
   <div class="row d-flex justify-content-center mt-5">
 
     <button class="btn btn-dark col-3">Párok összeállítása</button>
 
-    <table class="table table-bordered table-striped table-sm mt-3 ">
+    <table class="table table-bordered table-striped table-sm mt-3">
       <thead class="table-dark">
         <tr>
           <th>#</th>
@@ -35,6 +35,25 @@
           <td>
              <button class="btn btn-dark" ng-click="openBlockList(x.id)">Tiltottlista szerkesztése</button>
           </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table table-bordered table-striped table-sm mt-3 text-center">
+
+      <thead class="table-dark">
+        <tr>
+          <th colspan="2">Párok</th>
+        </tr>
+        <tr>
+          <th class="w-50">1. Tag</th>
+          <th class="w-50">2. Tag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="x in pairsNamed">
+          <td class="w-50">{{x.name1}}</td>
+          <td class="w-50">{{x.name2}}</td>
         </tr>
       </tbody>
     </table>

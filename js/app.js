@@ -57,25 +57,26 @@
 
         let blockStudentID = prompt("Kérem adja meg annak a diáknak az id-ját, akit szeretne a tiltott listára felírni!");
         if(blockStudentID == null || blockStudentID === ''){
-          alert("NEm változtattál a listán!");
+          alert("Nem változtattál a listán!");
           return;
         }
         else if(isNaN(Number(blockStudentID))){
           alert("Számot kell megadni!!");
           return;
         }
-        else if(blockStudentID< 0 || blockStudentID >= $scope.students.length){
+        else if(blockStudentID< 0 || blockStudentID >= $scope.students.length+1){
 
           alert("Az adott listából kell sorszámot választani!");
           return;
         }
-        else if(Number(blockStudentID) === student){
+        else if(Number(blockStudentID) === Number(student)-1){
 
           alert("Saját magát nem lehet választani!");
           return;
         }
 
         $scope.students[student-1].blockList.push($scope.students[blockStudentID].name);
+        
 
         $http.post("./php/changeBlocklist.php", {user_id: student, blocked_user_id: blockStudentID})
               .then(function(response){
@@ -109,16 +110,53 @@
         $scope.students = [];
       });
 
-       $http.get("./php/getPairs.php")
-      .then(function (response) {
-
-        $scope.pairs = response.data.data;
-
-      }, function (error) {
-
-        console.error("hiba az adat betöltésénél: ", error);
+      // A párok betöltése függvény
+      $scope.loadPairs = () =>  {
+        //Változók
         $scope.students = [];
-      });
+        $scope.pairs = [];
+        $scope.pairsNamed = [];
+
+        //Tanulók lekérése
+        $http.get("./php/getStudents.php")
+          .then(function (studentResponse) {
+
+            //Tanulók tömbjének adatot adunk az adatbázisból
+            $scope.students = studentResponse.data.data;
+
+            //Párok lekérése
+            $http.get("./php/getPairs.php")
+              .then(function (pairResponse) {
+
+                //Párok tömbjének adatot adunk az adatbázisból
+                $scope.pairs = pairResponse.data.data;
+
+
+                for(let i = 0; i < $scope.pairs.length; i++){
+                  //Jelenlegi pár neveinek inicializálása nullra
+                  let currPairName = {name1: null, name2: null};
+                  for(let j = 0; j < $scope.students.length; j++){
+
+                    //Ha a tanuló id-ja egyenlő a pár első tagjának id-jával, akkor a tanuló nevét betesszük a currPairName Objektumba
+                    if($scope.students[j].id == $scope.pairs[i].user_id1){
+                      currPairName.name1 = $scope.students[j].name;
+                    }
+                    //Ha a tanuló id-ja egyenlő a pár második tagjának id-jával, akkor a tanuló nevét betesszük a currPairName Objektumba
+                    if($scope.students[j].id == $scope.pairs[i].user_id2){
+                      currPairName.name2 = $scope.students[j].name;
+                    }
+                  }
+                  //A jelenlegi pár neveit betesszük a párokat tároló tömbbe
+                  $scope.pairsNamed.push(currPairName);
+                }
+              }, function (error) {
+                console.error("hiba az adat betöltésénél: ", error);
+              });
+          }, function (error) {
+            console.error("hiba az adat betöltésénél: ", error);
+          });
+      }
+      $scope.loadPairs();
     }
   ])
 
