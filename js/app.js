@@ -22,7 +22,7 @@
 						templateUrl: './html/root.html'
 					},
           'header@root': {
-            templateUrl: './html/header.html'
+            templateUrl: './html/header.html',
           },
 					'footer@root': {
 						templateUrl: './html/footer.html'
@@ -44,9 +44,10 @@
       
 
       .state('classes', {
-        url: '/',
+        url: '/classes:class',
         parent: 'root',
         controller: 'classesController',
+        params: {class: null},
         templateUrl: './html/classes.html'
       })
 
@@ -185,7 +186,13 @@
     }
   ])
 
-  .controller('classesController', [])
+  .controller('classesController', [
+    '$stateParams',
+    '$scope',
+    function ($stateParams,$scope){
+      console.log($stateParams.class) 
+    }
+  ])
 
   .controller('eventController', [])
 
