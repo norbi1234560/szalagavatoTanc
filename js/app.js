@@ -188,13 +188,15 @@
   ])
 
   .controller('classesController', [
+    '$scope',
     '$http',
     '$stateParams',
-    function($http,$stateParams){
+    function($scope,$http,$stateParams){
 
       $http.post("./php/getStudents.php",{class: $stateParams.class})
         .then(function(response){
-          console.log(response);
+          $scope.students = response.data.data;
+          $scope.$applyAsync();
         })
         .catch(error => {
           console.log("Hiba.:" + error)
