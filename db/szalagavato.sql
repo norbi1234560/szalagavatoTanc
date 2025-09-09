@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Sze 09. 12:12
+-- Létrehozás ideje: 2025. Sze 09. 14:44
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -83,33 +83,33 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`, `class`) VALUES
-(1, 'Badó-Gulácsi Dániel', 'M', 0, 'BadoGulacsiDani.jpg', '13/C'),
-(2, 'Berta Barnabás', 'M', 0, 'BertaBarnabas.jpg', '13/C'),
-(3, 'Bokor Richárd', 'M', 0, 'BokorRicsi.jpg', '13/C'),
-(4, 'Dani Benedek', 'M', 0, 'DaniBenedek.jpg', '13/C'),
-(5, 'Döme Zoltán', 'M', 0, 'DomeZoltan.jpg', '13/C'),
-(6, 'Esser Balázs Dávid', 'M', 0, 'EsserBalazs.jpg', '13/C'),
-(7, 'Fodor Adrián László', 'M', 0, 'FodorAdrian.jpg', '13/C'),
-(8, 'Guvat Bence József', 'M', 0, 'GuvatBence.jpg', '13/C'),
-(9, 'Herczeg Máté János', 'M', 0, 'HerczegMate.png', '13/C'),
-(10, 'Kardos Zoltán', 'M', 0, 'KardosZoltan.jpg', '13/C'),
-(11, 'Kis David Csaba', 'M', 0, 'KisDavid.png', '13/C'),
-(12, 'Kis Marcell Zsombor', 'M', 0, 'KisMarcell.jpg', '13/C'),
-(13, 'Knoch Henrik', 'M', 0, 'KnochHenrik.jpg', '13/C'),
-(14, 'Kriván Balázs', 'M', 0, 'KrivanBalazs.jpg', '13/C'),
-(15, 'Kulcsár Tamás Ámon', 'M', 0, 'KulcsarTamas.jpg', '13/C'),
-(16, 'Miklós Martin', 'M', 0, 'MiklosMartin.jpg', '13/C'),
-(17, 'Oláh Zsigmond Sámuel', 'M', 0, 'OlahZsigmond.jpg', '13/C'),
-(18, 'Répa Norbert', 'M', 0, 'RepaNorbert.jpg', '13/C'),
-(19, 'Sötét Ármin', 'M', 0, 'SotetArmin.png', '13/C'),
-(20, 'Suba Benjamin', 'M', 0, 'SubaBenjamin.jpg', '13/C'),
-(21, 'Suhajda Ádám Dominik', 'M', 0, 'SuhajdaAdam.jpg', '13/C'),
-(22, 'Szabó Bence', 'M', 0, 'SzaboBence.jpg', '13/C'),
-(23, 'Szalontai László', 'M', 0, 'SzalontaiLaszlo.jpg', '13/C'),
-(24, 'Szántó Péter', 'M', 0, 'SzantoPeter.jpg', '13/C'),
-(25, 'Tokai Ádám', 'M', 0, 'TokaiAdam.jpg', '13/C'),
+(1, 'Badó-Gulácsi Dániel', 'M', 0, 'BadoGulacsiDani.jpg', '13C'),
+(2, 'Berta Barnabás', 'M', 0, 'BertaBarnabas.jpg', '13C'),
+(3, 'Bokor Richárd', 'M', 0, 'BokorRicsi.jpg', '13C'),
+(4, 'Dani Benedek', 'M', 0, 'DaniBenedek.jpg', '13C'),
+(5, 'Döme Zoltán', 'M', 0, 'DomeZoltan.jpg', '13C'),
+(6, 'Esser Balázs Dávid', 'M', 0, 'EsserBalazs.jpg', '13C'),
+(7, 'Fodor Adrián László', 'M', 0, 'FodorAdrian.jpg', '13C'),
+(8, 'Guvat Bence József', 'M', 0, 'GuvatBence.jpg', '13C'),
+(9, 'Herczeg Máté János', 'M', 0, 'HerczegMate.png', '13C'),
+(10, 'Kardos Zoltán', 'M', 0, 'KardosZoltan.jpg', '13C'),
+(11, 'Kis David Csaba', 'M', 0, 'KisDavid.png', '13C'),
+(12, 'Kis Marcell Zsombor', 'M', 0, 'KisMarcell.jpg', '13C'),
+(13, 'Knoch Henrik', 'M', 0, 'KnochHenrik.jpg', '13C'),
+(14, 'Kriván Balázs', 'M', 0, 'KrivanBalazs.jpg', '13C'),
+(15, 'Kulcsár Tamás Ámon', 'M', 0, 'KulcsarTamas.jpg', '13C'),
+(16, 'Miklós Martin', 'M', 0, 'MiklosMartin.jpg', '13C'),
+(17, 'Oláh Zsigmond Sámuel', 'M', 0, 'OlahZsigmond.jpg', '13C'),
+(18, 'Répa Norbert', 'M', 0, 'RepaNorbert.jpg', '13C'),
+(19, 'Sötét Ármin', 'M', 0, 'SotetArmin.png', '13C'),
+(20, 'Suba Benjamin', 'M', 0, 'SubaBenjamin.jpg', '13C'),
+(21, 'Suhajda Ádám Dominik', 'M', 0, 'SuhajdaAdam.jpg', '13C'),
+(22, 'Szabó Bence', 'M', 0, 'SzaboBence.jpg', '13C'),
+(23, 'Szalontai László', 'M', 0, 'SzalontaiLaszlo.jpg', '13C'),
+(24, 'Szántó Péter', 'M', 0, 'SzantoPeter.jpg', '13C'),
+(25, 'Tokai Ádám', 'M', 0, 'TokaiAdam.jpg', '13C'),
 (26, 'Tóth László Gábor', 'M', 0, 'TothLaszlo.jpg', ''),
-(27, 'Berta Barnabás', 'M', 0, 'BertaBarnabas.jpg', '13/C');
+(27, 'Berta Barnabás', 'M', 0, 'BertaBarnabas.jpg', '13C');
 
 --
 -- Indexek a kiírt táblákhoz
