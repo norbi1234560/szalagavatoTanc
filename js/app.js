@@ -35,6 +35,20 @@
         controller:'reserveController',
 				templateUrl: './html/reserve.html'
 			})
+
+      .state('classes', {
+        url: '/',
+        parent: 'root',
+        controller: 'classesController',
+        templateUrl: './html/classes.html'
+      })
+
+      .state('event', {
+        url: '/',
+        parent: 'root',
+        controller: 'eventController',
+        templateUrl: './html/event.html'
+      })
       
       $urlRouterProvider.otherwise('/');
     }
@@ -94,9 +108,8 @@
         }
 
         $scope.students[student-1].blockList.push($scope.students[blockStudentID].name);
-        
 
-        $http.post("./php/changeBlocklist.php", {user_id: student, blocked_user_id: blockStudentID})
+        $http.post("./php/block.php", {user_id: student, blocked_user_id: blockStudentID})
               .then(function(response){
                 alert(response.data.data);
               }, function (error) {
@@ -164,5 +177,9 @@
       $scope.loadPairs();
     }
   ])
+
+  .controller('classesController', [])
+
+  .controller('eventController', [])
 
 })(window, angular);
