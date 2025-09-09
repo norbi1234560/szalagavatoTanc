@@ -21,6 +21,9 @@
 					'@': {
 						templateUrl: './html/root.html'
 					},
+          'header@root': {
+            templateUrl: './html/header.html'
+          },
 					'footer@root': {
 						templateUrl: './html/footer.html'
 					}
