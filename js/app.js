@@ -32,7 +32,7 @@
 			.state('home', {
 				url: '/',
 				parent: 'root',
-        controller: 'homeController',
+        // controller: 'homeController',
 				templateUrl: './html/home.html'
 			})
 
@@ -45,7 +45,7 @@
       
 
       .state('classes', {
-        url: '/classes:class',
+        url: '/classes/:class',
         parent: 'root',
         controller: 'classesController',
         params: {class: null},
@@ -80,7 +80,7 @@
     function ($scope, $http){
 
       $scope.students = [];
-      $http.get("./php/getStudents.php")
+      $http.post("./php/getStudents.php", {class: null})
       .then(function (response) {
 
         $scope.students = response.data.data;
@@ -187,7 +187,24 @@
     }
   ])
 
-  .controller('classesController', [])
+  .controller('classesController', [
+    '$http',
+    '$stateParams',
+    function($http,$stateParams){
+
+      $http.post("./php/getStudents.php",{class: $stateParams.class})
+        .then(function(response){
+          console.log(response);
+        })
+        .catch(error => {
+          console.log("Hiba.:" + error)
+        })
+
+      
+
+      // $stateParams.class
+    }
+  ])
 
   .controller('eventController', [
     '$scope',

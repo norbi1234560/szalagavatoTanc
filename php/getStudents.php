@@ -4,11 +4,14 @@ require_once("../../common/php/environment.php");
 
 $db = new Database();
 
+$args = Util::getArgs();
+
 $query ="SELECT `id`, `name`, `gender`, 
                 `taken`, `image`, `class`
-         FROM `students`";
+         FROM `students`
+         WHERE `class` = :class ";
 
-$result =$db->execute($query);
+$result =$db->execute($query,$args);
 
 $db = null;
 
