@@ -44,7 +44,7 @@
       
 
       .state('classes', {
-        url: '/',
+        url: '/classes',
         parent: 'root',
         controller: 'classesController',
         templateUrl: './html/classes.html'
@@ -185,8 +185,16 @@
     }
   ])
 
-  .controller('classesController', [])
+  .controller('classesController', [
+    '$scope',
+    '$http',
+    function ($scope, $http){}
+  ])
 
-  .controller('eventController', [])
+  .controller('eventController', [
+    '$scope',
+    '$http',
+    function ($scope, $http){}
+  ])
 
 })(window, angular);
