@@ -23,8 +23,7 @@
 					},
           'header@root': {
             templateUrl: './html/header.html'
-          }
-          ,
+          },
 					'footer@root': {
 						templateUrl: './html/footer.html'
 					}
