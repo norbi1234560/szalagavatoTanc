@@ -32,6 +32,20 @@
         controller:'reserveController',
 				templateUrl: './html/reserve.html'
 			})
+
+      .state('classes', {
+        url: '/',
+        parent: 'root',
+        controller: 'classesController',
+        templateUrl: './html/classes.html'
+      })
+
+      .state('event', {
+        url: '/',
+        parent: 'root',
+        controller: 'eventController',
+        templateUrl: './html/event.html'
+      })
       
       $urlRouterProvider.otherwise('/');
     }
@@ -161,5 +175,9 @@
       $scope.loadPairs();
     }
   ])
+
+  .controller('classesController', [])
+
+  .controller('eventController', [])
 
 })(window, angular);
