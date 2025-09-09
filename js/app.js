@@ -192,7 +192,7 @@
     '$http',
     '$stateParams',
     function($scope,$http,$stateParams){
-
+      $scope.className = $stateParams.class;
       $http.post("./php/getStudents.php",{class: $stateParams.class})
         .then(function(response){
           $scope.students = response.data.data;
@@ -201,10 +201,6 @@
         .catch(error => {
           console.log("Hiba.:" + error)
         })
-
-      
-
-      // $stateParams.class
     }
   ])
 
@@ -215,6 +211,5 @@
   ])
 
   .controller('homeController', [])
-
 
 })(window, angular);
