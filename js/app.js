@@ -32,6 +32,7 @@
 			.state('home', {
 				url: '/',
 				parent: 'root',
+        controller: 'homeController',
 				templateUrl: './html/home.html'
 			})
 
@@ -196,5 +197,8 @@
     '$http',
     function ($scope, $http){}
   ])
+
+  .controller('homeController', [])
+
 
 })(window, angular);
