@@ -21,6 +21,9 @@
 					'@': {
 						templateUrl: './html/root.html'
 					},
+          'header@root': {
+            templateUrl: './html/header.html'
+          },
 					'footer@root': {
 						templateUrl: './html/footer.html'
 					}
@@ -105,9 +108,8 @@
         }
 
         $scope.students[student-1].blockList.push($scope.students[blockStudentID].name);
-        
 
-        $http.post("./php/changeBlocklist.php", {user_id: student, blocked_user_id: blockStudentID})
+        $http.post("./php/block.php", {user_id: student, blocked_user_id: blockStudentID})
               .then(function(response){
                 alert(response.data.data);
               }, function (error) {
