@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 08, 2025 at 11:02 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2025. Sze 09. 12:12
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `szalagavato`
+-- Adatbázis: `szalagavato`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blocklist`
+-- Tábla szerkezet ehhez a táblához `blocklist`
 --
 
 CREATE TABLE `blocklist` (
@@ -33,7 +33,7 @@ CREATE TABLE `blocklist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `blocklist`
+-- A tábla adatainak kiíratása `blocklist`
 --
 
 INSERT INTO `blocklist` (`user_id`, `blocked_user_id`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `blocklist` (`user_id`, `blocked_user_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pairs`
+-- Tábla szerkezet ehhez a táblához `pairs`
 --
 
 CREATE TABLE `pairs` (
@@ -56,7 +56,7 @@ CREATE TABLE `pairs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `pairs`
+-- A tábla adatainak kiíratása `pairs`
 --
 
 INSERT INTO `pairs` (`user_id1`, `user_id2`) VALUES
@@ -66,7 +66,7 @@ INSERT INTO `pairs` (`user_id1`, `user_id2`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `students`
+-- Tábla szerkezet ehhez a táblához `students`
 --
 
 CREATE TABLE `students` (
@@ -74,72 +74,74 @@ CREATE TABLE `students` (
   `name` varchar(50) NOT NULL,
   `gender` varchar(1) NOT NULL,
   `taken` tinyint(1) NOT NULL,
-  `image` varchar(60) DEFAULT NULL
+  `image` varchar(60) DEFAULT NULL,
+  `class` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `students`
+-- A tábla adatainak kiíratása `students`
 --
 
-INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`) VALUES
-(1, 'Badó-Gulácsi Dániel', 'M', 0, 'BadoGulacsiDani.jpg'),
-(2, 'Berta Barnabás', 'M', 0, 'BertaBarnabas.jpg'),
-(3, 'Bokor Richárd', 'M', 0, 'BokorRicsi.jpg'),
-(4, 'Dani Benedek', 'M', 0, 'DaniBenedek.jpg'),
-(5, 'Döme Zoltán', 'M', 0, 'DomeZoltan.jpg'),
-(6, 'Esser Balázs Dávid', 'M', 0, 'EsserBalazs.jpg'),
-(7, 'Fodor Adrián László', 'M', 0, 'FodorAdrian.jpg'),
-(8, 'Guvat Bence József', 'M', 0, 'GuvatBence.jpg'),
-(9, 'Herczeg Máté János', 'M', 0, 'HerczegMate.png'),
-(10, 'Kardos Zoltán', 'M', 0, 'KardosZoltan.jpg'),
-(11, 'Kis David Csaba', 'M', 0, 'KisDavid.png'),
-(12, 'Kis Marcell Zsombor', 'M', 0, 'KisMarcell.jpg'),
-(13, 'Knoch Henrik', 'M', 0, 'KnochHenrik.jpg'),
-(14, 'Kriván Balázs', 'M', 0, 'KrivanBalazs.jpg'),
-(15, 'Kulcsár Tamás Ámon', 'M', 0, 'KulcsarTamas.jpg'),
-(16, 'Miklós Martin', 'M', 0, 'MiklosMartin.jpg'),
-(17, 'Oláh Zsigmond Sámuel', 'M', 0, 'OlahZsigmond.jpg'),
-(18, 'Répa Norbert', 'M', 0, 'RepaNorbert.jpg'),
-(19, 'Sötét Ármin', 'M', 0, 'SotetArmin.png'),
-(20, 'Suba Benjamin', 'M', 0, 'SubaBenjamin.jpg'),
-(21, 'Suhajda Ádám Dominik', 'M', 0, 'SuhajdaAdam.jpg'),
-(22, 'Szabó Bence', 'M', 0, 'SzaboBence.jpg'),
-(23, 'Szalontai László', 'M', 0, 'SzalontaiLaszlo.jpg'),
-(24, 'Szántó Péter', 'M', 0, 'SzantoPeter.jpg'),
-(25, 'Tokai Ádám', 'M', 0, 'TokaiAdam.jpg'),
-(26, 'Tóth László Gábor', 'M', 0, 'TothLaszlo.jpg');
+INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`, `class`) VALUES
+(1, 'Badó-Gulácsi Dániel', 'M', 0, 'BadoGulacsiDani.jpg', '13/C'),
+(2, 'Berta Barnabás', 'M', 0, 'BertaBarnabas.jpg', '13/C'),
+(3, 'Bokor Richárd', 'M', 0, 'BokorRicsi.jpg', '13/C'),
+(4, 'Dani Benedek', 'M', 0, 'DaniBenedek.jpg', '13/C'),
+(5, 'Döme Zoltán', 'M', 0, 'DomeZoltan.jpg', '13/C'),
+(6, 'Esser Balázs Dávid', 'M', 0, 'EsserBalazs.jpg', '13/C'),
+(7, 'Fodor Adrián László', 'M', 0, 'FodorAdrian.jpg', '13/C'),
+(8, 'Guvat Bence József', 'M', 0, 'GuvatBence.jpg', '13/C'),
+(9, 'Herczeg Máté János', 'M', 0, 'HerczegMate.png', '13/C'),
+(10, 'Kardos Zoltán', 'M', 0, 'KardosZoltan.jpg', '13/C'),
+(11, 'Kis David Csaba', 'M', 0, 'KisDavid.png', '13/C'),
+(12, 'Kis Marcell Zsombor', 'M', 0, 'KisMarcell.jpg', '13/C'),
+(13, 'Knoch Henrik', 'M', 0, 'KnochHenrik.jpg', '13/C'),
+(14, 'Kriván Balázs', 'M', 0, 'KrivanBalazs.jpg', '13/C'),
+(15, 'Kulcsár Tamás Ámon', 'M', 0, 'KulcsarTamas.jpg', '13/C'),
+(16, 'Miklós Martin', 'M', 0, 'MiklosMartin.jpg', '13/C'),
+(17, 'Oláh Zsigmond Sámuel', 'M', 0, 'OlahZsigmond.jpg', '13/C'),
+(18, 'Répa Norbert', 'M', 0, 'RepaNorbert.jpg', '13/C'),
+(19, 'Sötét Ármin', 'M', 0, 'SotetArmin.png', '13/C'),
+(20, 'Suba Benjamin', 'M', 0, 'SubaBenjamin.jpg', '13/C'),
+(21, 'Suhajda Ádám Dominik', 'M', 0, 'SuhajdaAdam.jpg', '13/C'),
+(22, 'Szabó Bence', 'M', 0, 'SzaboBence.jpg', '13/C'),
+(23, 'Szalontai László', 'M', 0, 'SzalontaiLaszlo.jpg', '13/C'),
+(24, 'Szántó Péter', 'M', 0, 'SzantoPeter.jpg', '13/C'),
+(25, 'Tokai Ádám', 'M', 0, 'TokaiAdam.jpg', '13/C'),
+(26, 'Tóth László Gábor', 'M', 0, 'TothLaszlo.jpg', ''),
+(27, 'Berta Barnabás', 'M', 0, 'BertaBarnabas.jpg', '13/C');
 
 --
--- Indexes for dumped tables
+-- Indexek a kiírt táblákhoz
 --
 
 --
--- Indexes for table `blocklist`
+-- A tábla indexei `blocklist`
 --
 ALTER TABLE `blocklist`
   ADD UNIQUE KEY `user_id1` (`user_id`,`blocked_user_id`);
 
 --
--- Indexes for table `pairs`
+-- A tábla indexei `pairs`
 --
 ALTER TABLE `pairs`
   ADD UNIQUE KEY `user_id1` (`user_id1`,`user_id2`);
 
 --
--- Indexes for table `students`
+-- A tábla indexei `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- A kiírt táblák AUTO_INCREMENT értéke
 --
 
 --
--- AUTO_INCREMENT for table `students`
+-- AUTO_INCREMENT a táblához `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
