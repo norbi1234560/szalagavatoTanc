@@ -32,6 +32,7 @@
 			.state('home', {
 				url: '/',
 				parent: 'root',
+        controller: 'homeController',
 				templateUrl: './html/home.html'
 			})
 
@@ -188,5 +189,8 @@
   .controller('classesController', [])
 
   .controller('eventController', [])
+
+  .controller('homeController', [])
+
 
 })(window, angular);
