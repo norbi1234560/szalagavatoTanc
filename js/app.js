@@ -32,6 +32,7 @@
 			.state('home', {
 				url: '/',
 				parent: 'root',
+        controller: 'homeController',
 				templateUrl: './html/home.html'
 			})
 
@@ -186,14 +187,15 @@
     }
   ])
 
-  .controller('classesController', [
-    '$stateParams',
+  .controller('classesController', [])
+
+  .controller('eventController', [
     '$scope',
-    function ($stateParams,$scope){
-      console.log($stateParams.class) 
-    }
+    '$http',
+    function ($scope, $http){}
   ])
 
-  .controller('eventController', [])
+  .controller('homeController', [])
+
 
 })(window, angular);
