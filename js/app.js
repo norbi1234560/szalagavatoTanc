@@ -32,9 +32,16 @@
 			.state('home', {
 				url: '/',
 				parent: 'root',
-        controller:'reserveController',
-				templateUrl: './html/reserve.html'
+				templateUrl: './html/home.html'
 			})
+
+      .state('reserve', {
+        url: '/',
+        parent: 'root',
+        controller: 'reserveController',
+        templateUrl: './html/reserve.html'
+      })
+      
 
       .state('classes', {
         url: '/',
