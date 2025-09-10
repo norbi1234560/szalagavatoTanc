@@ -199,6 +199,7 @@
           .then(function (response) {
             $scope.homeImages = response.data.data;
             $scope.$applyAsync();
+            console.log($scope.homeImages);
           })
           .catch(error => {
             console.log("Hiba.:" + error)
