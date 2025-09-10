@@ -1,91 +1,62 @@
-<div class="container position-relative">
-    <div class="row h-100 justify-content-center align-items-center px-2 px-sm-0">
-        <div class="user-panel rounded-3 shadow scale-up border border-light
-										bg-white p-0 col-12 col-sm-11 col-lg-9 col-xl-8 col-xxl-6">
-            <form class="user-panel-body overflow-auto border-top border-light pt-4 pb-3 px-3">
-                <!--Name-->
-                <label for="name" class="col-form-label col-form-label-sm col-md-4 text-md-end fw-semibold">
-                    <span class="fw-bold text-danger">*</span>
-                    <i class="fa-solid fa-envelope me-1"></i>
-                    <span class="text-capitalize">Felhasználónév:</span>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-lg-7 col-xl-6">
+      <div class="card shadow border-0">
+        <div class="card-body p-4">
+          <h4 class="text-center mb-4 fw-bold">Regisztráció</h4>
+          <form class="row g-3">
+
+            <!-- Name -->
+            <div class="col-md-6">
+              <label for="name" class="form-label fw-semibold">
+                <span class="text-danger">*</span> Felhasználónév
+              </label>
+              <input id="name" type="text" class="form-control form-control-sm" 
+                     placeholder="Név" maxlength="50" required autocomplete="off">
+            </div>
+
+            <!-- Email -->
+            <div class="col-md-6">
+              <label for="email" class="form-label fw-semibold">
+                <span class="text-danger">*</span> Email cím
+              </label>
+              <input id="email" type="email" class="form-control form-control-sm" 
+                     placeholder="Email" maxlength="50" required autocomplete="off">
+            </div>
+
+            <!-- Password -->
+            <div class="col-12">
+              <label for="password" class="form-label fw-semibold">
+                <span class="text-danger">*</span> Jelszó
+              </label>
+              <input id="password" type="password" 
+                     class="form-control form-control-sm" 
+                     placeholder="Jelszó" maxlength="20" required autocomplete="off">
+              <div class="form-text">
+                6–20 karakter (kis- és nagybetű, valamint szám).
+              </div>
+            </div>
+
+            <!-- Show/Hide password -->
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="show-password">
+                <label class="form-check-label small" for="show-password">
+                  <i class="fa-solid fa-eye me-1"></i> Jelszó megjelenítése
                 </label>
-                <div class="col-11 col-md-7">
-                    <input id="text" type="text" placeholder="name"
-                        class="form-control form-control-sm input-email" spellcheck="false" autocomplete="off" required
-                        maxlength="50">
-                </div>
+              </div>
+            </div>
 
-                <!--Email-->
-                <label for="email" class="col-form-label col-form-label-sm col-md-4 text-md-end fw-semibold">
-                    <span class="fw-bold text-danger">*</span>
-                    <i class="fa-solid fa-envelope me-1"></i>
-                    <span class="text-capitalize">email</span>
-                    <span>cím:</span>
-                </label>
-                <div class="col-11 col-md-7">
-                    <input id="email" type="email" placeholder="email cím"
-                        class="form-control form-control-sm input-email" spellcheck="false" autocomplete="off" required
-                        maxlength="50">
-                </div>
+            <!-- Submit -->
+            <div class="col-12 text-center mt-3">
+              <button type="submit" class="btn btn-primary px-4">
+                Regisztráció
+              </button>
+            </div>
 
-                <!-- Password -->
-						<div class="row input-row mb-0">
-
-							<!-- Label -->
-							<label for="password" 
-										 class="col-form-label col-form-label-sm col-md-4 text-md-end fw-semibold">
-								<span class="fw-bold text-danger">*</span>
-								<i class="fa-solid fa-key me-1"></i>
-								<span class="text-capitalize">jelszó:</span>
-							</label>
-
-							<!-- Input password -->
-							<div class="col-11 col-md-7">
-								<input id="password" 
-											 type="password"
-											 placeholder="jelszó"
-											 class="form-control form-control-sm input-password"
-											 spellcheck="false" 
-											 autocomplete="off" 
-											 required
-											 maxlength="20">
-							</div>
-
-							<!-- Check mark -->
-							<div class="col-1 pt-1">
-								<span class="check-mark ms-1 fw-bold text-success d-none">
-									&check;
-								</span>
-							</div>
-						</div>
-
-						<!-- Password rule -->
-						<div class="row mb-2">
-								<div class="col-0 col-sm-4"></div>
-								<div class="col-11 col-md-7">
-									<span class="text-muted fs-sm">
-										6-20 karakter (kis-nagy betűt, és számot tartalmaz).
-									</span>
-								</div>
-						</div>
-
-						<!-- Show/Hide password -->
-						<div class="row mb-2">
-							<div class="col-0 col-sm-4"></div>
-							<div class="col-11 col-md-7">
-								<div class="form-check form-check-inline small">
-									<input class="form-check-input" 
-												 type="checkbox"
-												 id="show-password">
-									<label class="form-check-label" 
-												 for="show-password">
-										<i class="fa-solid fa-eye mx-1"></i>
-										<span>jelszót megjelenít</span>
-									</label>
-								</div>
-							</div>
-						</div>
-            </form>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 </div>
