@@ -1,7 +1,7 @@
 <?php
 require_once("../../common/php/environment.php");
 
-if ($_COOKIE["email"]) Util::setResponse();
+if ($_COOKIE["email"]) Util::setResponse(false);
 
 $args = Util::getArgs();
 
