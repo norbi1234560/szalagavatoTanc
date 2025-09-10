@@ -1,4 +1,5 @@
 <?php
+
 require_once("../../common/php/environment.php");
 
 $args = Util::getArgs();
@@ -9,7 +10,9 @@ if ($args["user_id"] === $args["blocked_user_id"]) {
 
 $db = new Database();
 
-$query = $db->preparateInsert('blocklist',$args);
+$query = "DELETE FROM `blocklist`
+          WHERE `user_id`         = :user_id
+            AND `blocked_user_id` = :blocked_user_id";
 
 $result = $db->execute($query, array_values($args));
 
@@ -17,9 +20,7 @@ $db = null;
 
 if(!$result["affectedRows"])
 {
-    Util::setError("Sikertelen adatfelvitel");
+    Util::setError("Sikertelen adat törlés");
 }
 
-$result = "Sikeres adatfelvitel!";
-
-Util::setResponse($result);
+Util::setResponse();
