@@ -221,6 +221,19 @@
           .catch(error => {
             console.log("Hiba.:" + error)
           })
+        
+        $scope.modalClassLoad = (radioClass) => {
+          $scope.currentModalClass = radioClass;
+          $http.post("./php/getStudents.php", { class: radioClass })
+            .then((response) => {
+              $scope.modalStudents = response.data.data;
+              $scope.$applyAsync();
+            })
+            .catch((error) => {
+              console.log("Hiba.:" + error)
+            }) 
+        }
+        
       }
     ])
 
