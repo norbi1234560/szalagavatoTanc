@@ -231,7 +231,24 @@
       '$scope',
       '$http',
       '$stateParams',
-      function ($scope, $http, $stateParams) {
+      '$location',
+      function ($scope, $http, $stateParams, $location) {
+        $scope.register = () => {
+          $http.post("./php/register.php", { name: $scope.name, email: $scope.email, password: $scope.password })
+            .then(function (response) {
+              console.log(response.data);
+              if (response.data.error) {
+                alert("Hiba történt: " + response.data.error);
+              } else {
+                alert("Sikeres regisztráció!");
+              }
+              $scope.$applyAsync();
+              $location.path('/login');
+            })
+            .catch(error => {
+              console.log("Hiba.:" + error)
+            })
+          }    
       }
     ])
 
