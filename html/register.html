@@ -28,8 +28,14 @@
                      class="form-label fw-semibold">
                 <span class="text-danger">*</span> Email cím
               </label>
-              <input ng-model="email" id="email" type="email" class="form-control form-control-sm" placeholder="Email" maxlength="50"
-                required autocomplete="off">
+              <input ng-model="email" 
+                     id="email" 
+                     type="email" 
+                     class="form-control form-control-sm" 
+                     placeholder="Email" 
+                     maxlength="50"
+                     required 
+                     autocomplete="off">
             </div>
 
             <!-- Password -->
@@ -38,8 +44,14 @@
                      class="form-label fw-semibold">
                 <span class="text-danger">*</span> Jelszó
               </label>
-              <input ng-model="password" id="password" type="{{showPassword ? 'text' : 'password'}}" class="form-control form-control-sm" placeholder="Jelszó"
-                maxlength="20" required autocomplete="off">
+              <input ng-model="password" 
+                     id="password" 
+                     type="{{showPassword ? 'text' : 'password'}}" 
+                     class="form-control form-control-sm" 
+                     placeholder="Jelszó"
+                     maxlength="20" 
+                     required 
+                     autocomplete="off">
               <div class="form-text">
                 6–20 karakter (kis- és nagybetű, valamint szám).
               </div>
