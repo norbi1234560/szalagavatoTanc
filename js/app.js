@@ -231,8 +231,7 @@
       '$scope',
       '$http',
       '$stateParams',
-      function($scope, $http , $stateParams) {
-
+      function ($scope, $http, $stateParams) {
       }
     ])
 
@@ -250,7 +249,7 @@
           .catch(error => {
             console.log("Hiba.:" + error)
           })
-        
+
         $scope.modalClassLoad = (radioClass) => {
           $scope.currentModalClass = radioClass;
           $http.post("./php/getStudents.php", { class: "13" + radioClass })
@@ -260,13 +259,13 @@
             })
             .catch((error) => {
               console.log("Hiba.:" + error)
-            }) 
+            })
         }
 
         $scope.showStudentModal = (thisStudent) => {
           $scope.currentStudent = thisStudent;
         }
-        
+
       }
     ])
 
