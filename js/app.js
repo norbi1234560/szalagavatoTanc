@@ -241,6 +241,9 @@
           .catch(error => {
             console.log("Hiba.:" + error)
           })
+        $scope.currentDate = new Date();
+        $scope.eventDate = new Date('2025-11-05');
+        $scope.isEvent = $scope.currentDate < $scope.eventDate;
       }
     ])
 
