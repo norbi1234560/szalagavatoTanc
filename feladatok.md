@@ -24,3 +24,6 @@
 - **Szalontai László**: Event html
 - **Kis Dávid Csaba + Sötét Ármin**: Adatok felvevése az adatbázisba.
 - **Kis Marcell**: Carousel képekkel való feltöltése.
+
+# Osztályok, Blocklist stb.
+- Lenne egy szűrő amiben ki lehet választani az osztályt és a nemet és a modal így listázná ki az embereket.

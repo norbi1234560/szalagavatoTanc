@@ -235,6 +235,19 @@
           .catch(error => {
             console.log("Hiba.:" + error)
           })
+        
+        $scope.modalClassLoad = (radioClass) => {
+          $scope.currentModalClass = radioClass;
+          $http.post("./php/getStudents.php", { class: radioClass })
+            .then((response) => {
+              $scope.modalStudents = response.data.data;
+              $scope.$applyAsync();
+            })
+            .catch((error) => {
+              console.log("Hiba.:" + error)
+            }) 
+        }
+        
       }
     ])
 
@@ -255,6 +268,9 @@
           .catch(error => {
             console.log("Hiba.:" + error)
           })
+        $scope.currentDate = new Date();
+        $scope.eventDate = new Date('2025-11-05');
+        $scope.isEvent = $scope.currentDate < $scope.eventDate;
       }
     ])
 
