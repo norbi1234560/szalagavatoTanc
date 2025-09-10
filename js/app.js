@@ -123,58 +123,63 @@
 
     .controller('reserveController', [
       '$scope',
+      '$rootScope',
       '$http',
-      function ($scope, $http) {
+      function ($scope,$rootScope,$http) {
 
         // A párok betöltése függvény
         $scope.loadPairs = () => {
+          
           //Változók
           $scope.students = [];
-          $scope.pairs = [];
-          $scope.pairsNamed = [];
 
           //Tanulók lekérése
-          $http.get("./php/getStudents.php")
-            .then(function (studentResponse) {
+          $http.post("./php/getStudents.php")
+          .then((studentResponse) => {
 
-              //Tanulók tömbjének adatot adunk az adatbázisból
-              $scope.students = studentResponse.data.data;
+            //Tanulók tömbjének adatot adunk az adatbázisból
+            $scope.students = studentResponse.data.data;
 
-              //Párok lekérése
-              $http.get("./php/getPairs.php")
-                .then(function (pairResponse) {
-
-                  //Párok tömbjének adatot adunk az adatbázisból
-                  $scope.pairs = pairResponse.data.data;
-
-
-                  for (let i = 0; i < $scope.pairs.length; i++) {
-                    //Jelenlegi pár neveinek inicializálása nullra
-                    let currPairName = { name1: null, name2: null };
-                    for (let j = 0; j < $scope.students.length; j++) {
-
-                      //Ha a tanuló id-ja egyenlő a pár első tagjának id-jával, akkor a tanuló nevét betesszük a currPairName Objektumba
-                      if ($scope.students[j].id == $scope.pairs[i].user_id1) {
-                        currPairName.name1 = $scope.students[j].name;
-                      }
-                      //Ha a tanuló id-ja egyenlő a pár második tagjának id-jával, akkor a tanuló nevét betesszük a currPairName Objektumba
-                      if ($scope.students[j].id == $scope.pairs[i].user_id2) {
-                        currPairName.name2 = $scope.students[j].name;
-                      }
-                    }
-                    //A jelenlegi pár neveit betesszük a párokat tároló tömbbe
-                    $scope.pairsNamed.push(currPairName);
-                  }
-                }, function (error) {
-                  console.error("hiba az adat betöltésénél: ", error);
-                });
-            }, function (error) {
-              console.error("hiba az adat betöltésénél: ", error);
-            });
+          },(error) => {
+            console.error("hiba az adat betöltésénél: ", error);
+          });
         }
+
+        $scope.makePairs = () => {
+
+          $scope.allStudents = []
+
+          $http.post("./php/getAllStudents.php")
+          .then((response) => {
+            $scope.allStudents = response.data.data;
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+
+          $http.post("./php/getBlocklist.php")
+          .then((blockListResponse) => {
+            $scope.blockListData = blockListResponse.data.data;
+
+            for (let i = 0; i < $scope.allStudents.length; i++) {
+              console.log($scope.blockListData[i]);
+
+              for (let j = 0; j < $scope.blockListData.length; j++) {
+                if ($scope.allStudents[i]["blocked_user_id"] == $scope.blockListData[j]["id"]) {
+                  // console.log("SZIA LAJOS");
+                }  
+              }
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+        }
+
         $scope.loadPairs();
       }
     ])
+
     .controller('homeController', [
       '$scope',
       '$http',
@@ -194,6 +199,7 @@
           })
       }
     ])
+
     .controller('loginController', [
       '$scope',
       '$http',
@@ -219,6 +225,7 @@
         }    
       }
     ])
+
     .controller('registerController', [
       '$scope',
       '$http',
@@ -277,10 +284,12 @@
                       $scope.modalStudents[i].blocked = false;
                     }
                   }
+
                 }else{
                   console.log("Nincs tiltott személy!")
                 }
-          })
+              })
+              
               $scope.$applyAsync();
             })
             .catch((error) => {
