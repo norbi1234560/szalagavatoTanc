@@ -19,11 +19,11 @@
 - **Kis Marcell Zsombor + Fodor Adrián**: Reszponzívitás
 - **Kriván Balázs + Szabó Bence**: Többi osztály adatait teszik fel az adatbázisba.
 - **Dani Benedek**: Home controller
-- **Tóth László**: Home html
+- **Tóth László**: Home html, Login és Register html mehanikai funkcionalitása, és ShowPassword elkészítése
 - **Miklós Martin**: Event controller
 - **Szalontai László**: Event html
 - **Kis Dávid Csaba + Sötét Ármin**: Adatok felvevése az adatbázisba.
-- **Kis Marcell**: Carousel képekkel való feltöltése.
+- **Kis Marcell**: Carousel képekkel való feltöltése, Osztályok képei összeszedése, és szortírozása.
 
 # Osztályok, Blocklist stb.
 - Lenne egy szűrő amiben ki lehet választani az osztályt és a nemet és a modal így listázná ki az embereket.
