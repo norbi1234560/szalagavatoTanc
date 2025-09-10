@@ -266,6 +266,8 @@
           $scope.currentStudent = thisStudent;
         }
 
+        
+
       }
     ])
 
