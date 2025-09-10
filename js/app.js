@@ -104,65 +104,6 @@
       '$http',
       function ($scope, $http) {
 
-        $scope.students = [];
-        $http.post("./php/getStudents.php", { class: null })
-          .then(function (response) {
-
-            $scope.students = response.data.data;
-            for (let i = 0; i < $scope.students.length; i++) {
-              $scope.students[i].blockList = [];
-            }
-
-          }, function (error) {
-
-            console.error("hiba az adat betöltésénél: ", error);
-            $scope.students = [];
-          });
-
-        $scope.openBlockList = function (student) {
-
-          let blockStudentID = prompt("Kérem adja meg annak a diáknak az id-ját, akit szeretne a tiltott listára felírni!");
-          if (blockStudentID == null || blockStudentID === '') {
-            alert("Nem változtattál a listán!");
-            return;
-          }
-          else if (isNaN(Number(blockStudentID))) {
-            alert("Számot kell megadni!!");
-            return;
-          }
-          else if (blockStudentID < 0 || blockStudentID >= $scope.students.length + 1) {
-
-            alert("Az adott listából kell sorszámot választani!");
-            return;
-          }
-          else if (Number(blockStudentID) === student - 1) {
-
-            alert("Saját magát nem lehet választani!");
-            return;
-          }
-
-          $scope.students[student - 1].blockList.push($scope.students[blockStudentID].name);
-
-          $http.post("./php/block.php", { user_id: student, blocked_user_id: blockStudentID })
-            .then(function (response) {
-              alert(response.data.data);
-            }, function (error) {
-              alert(error);
-            })
-        }
-
-
-        $http.get("./php/getBlocklist.php")
-          .then(function (response) {
-
-            $scope.blockList = response.data.data;
-
-          }, function (error) {
-
-            console.error("hiba az adat betöltésénél: ", error);
-            $scope.students = [];
-          });
-
         // A párok betöltése függvény
         $scope.loadPairs = () => {
           //Változók
@@ -288,16 +229,43 @@
               $scope.$applyAsync();
             })
             .catch((error) => {
-              console.log("Hiba.:" + error)
+              console.log("Hiba.:" + error);
             })
+          $http.post("./php/getBlocked.php", { user_id: $scope.currentStudent.id })
+          .then((response) => {
+            $scope.blockedIds = response.data.data.map(blocked => blocked.blocked_user_id);
+
+            $scope.modalStudents.forEach(student => {
+            student.blocked = blockedIDs.includes(student.id);
+            $scope.$applyAsync();
+            })
+          })
         }
 
         $scope.showStudentModal = (thisStudent) => {
           $scope.currentStudent = thisStudent;
-        }        
+        }    
 
-      }
-    ])
+        $scope.blocklistEdit = (enable, currentEditStudent, currentBlockStudent) => {
+          if (enable) {
+            $http.post("./php/addBlock.php", { user_id: currentEditStudent.id, blocked_user_id: currentBlockStudent.id })
+              .then((response) => {
+                console.log("Siker");
+              })
+              .catch((error) => {
+                console.log("Hiba.:" + error);
+              })
+          }
+          else {
+            $http.post("./php/removeBlock.php", { user_id: currentEditStudent.id, blocked_user_id: currentBlockStudent.id })
+              .then((response) => {
+                console.log("Siker");
+              })
+              .catch((error) => {
+                console.log("Hiba.:" + error);
+              })
+        }
+    }}])
 
     .controller('eventController', [
       '$scope',
