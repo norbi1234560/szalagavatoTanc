@@ -6,8 +6,13 @@
 // }';
 
 $_POST['data'] = '{
-    "user_id":"1"
+    "email": "berta.barnabas-2021@keri.mako.hu",
+    "password": "bertabarnabas13c"
 }';
 
+// $_POST['data'] = '{
+//     "user_id":"4"
+// }';
+
 // PHP file amit debugolni szeretnénk
-require_once('./getBlocked.php');
+require_once('./login.php');

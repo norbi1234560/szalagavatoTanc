@@ -17,7 +17,8 @@
               <input id="email" 
                      type="email" 
                      class="form-control form-control-sm" 
-                     placeholder="Email" 
+                     placeholder="Email"
+                     ng-model="email"
                      maxlength="50"
                      required 
                      autocomplete="off">
@@ -33,6 +34,7 @@
                      type="{{showPassword ? 'text' : 'password'}}" 
                      class="form-control form-control-sm" 
                      placeholder="Jelszó"
+                     ng-model="password"
                      maxlength="20" 
                      required 
                      autocomplete="off">
@@ -58,7 +60,7 @@
             <div class="col-12 text-center mt-3">
               <button type="submit" 
                       class="btn btn-primary px-4"
-                      ui-sref="home">
+                      ng-click="login()">
                   Bejelentkezés
               </button>
             </div>

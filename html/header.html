@@ -89,10 +89,16 @@
 			<!-- bejelentkezes btn -->
 			<form class="d-flex ms-auto" 
 						role="search">
-				<button class="btn btn-outline-secondary" 
-								type="submit" 
+				<button ng-if="user == ''" class="btn btn-outline-secondary" 
+								type="button" 
 								ui-sref="login">
 						Bejelentkezés
+				</button>
+				<button ng-if="user != ''" class="btn btn-outline-secondary" 
+								type="button"
+								ui-sref="home"
+								ng-click="">
+						Kijelentkezés
 				</button>
 			</form>
 		</div>
