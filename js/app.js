@@ -59,6 +59,13 @@
             templateUrl: './html/event.html'
           })
 
+          .state('login', {
+            url: '/login',
+            parent: 'root',
+            controller: 'loginController',
+            templateUrl: './html/login.html'
+          })
+
         $urlRouterProvider.otherwise('/');
       }
     ])
@@ -206,6 +213,13 @@
           })
       }
     ])
+    .controller('loginController', [
+      '$scope',
+      '$http',
+      '$stateParams',
+      function ($scope, $http, $stateParams) {
+      }
+    ])
 
     .controller('classesController', [
       '$scope',
@@ -221,6 +235,19 @@
           .catch(error => {
             console.log("Hiba.:" + error)
           })
+        
+        $scope.modalClassLoad = (radioClass) => {
+          $scope.currentModalClass = radioClass;
+          $http.post("./php/getStudents.php", { class: radioClass })
+            .then((response) => {
+              $scope.modalStudents = response.data.data;
+              $scope.$applyAsync();
+            })
+            .catch((error) => {
+              console.log("Hiba.:" + error)
+            }) 
+        }
+        
       }
     ])
 
