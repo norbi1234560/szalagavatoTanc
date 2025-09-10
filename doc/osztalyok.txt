@@ -1,4 +1,4 @@
-Sztojkó lara
+13.A:
 kovács lara
 kerekes ákos istván
 kis-jakab péter zalán
@@ -7,37 +7,43 @@ vincze kinga jázmin
 vetró barbara
 szabó kata
 lenhart ákos
-joó nóra
-gyenge iván
-loós jázmin
 erdélyi iringó
 gregor lilla
-varadik armand
-czékmán lili
-mezei dániel
-imre
 berta stella
 andor rebeka
 derdák csenge
 savanya réka
 mészáros anna
 mágori adél
-kovács dorka
 faragó zorka
 horváth zoé
 jankó georgina
-pepó gábor
 scneider evelin
-ferencsik vivien
-pásztor tímea
-csige evelin
 zatykó lili
-makk szilvia
 kocka kira
 boros balázs
 baróczi gergő
 szabó jázmin
-bálint cintia leila
 velek panna
+kalasz Eszter
+hegedus vivien
+
+13.B:
+Sztojkó lara
+joó nóra
+gyenge iván
+loós jázmin
+varadik armand
+czékmán lili
+mezei dániel
+illes imre
+kovács dorka
+pepó gábor
+ferencsik vivien
+pásztor tímea
+csige evelin
+makk szilvia
+bálint cintia leila
 szécsi dóra
+
 

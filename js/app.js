@@ -59,6 +59,13 @@
             templateUrl: './html/event.html'
           })
 
+          .state('login', {
+            url: '/login',
+            parent: 'root',
+            controller: 'loginController',
+            templateUrl: './html/login.html'
+          })
+
         $urlRouterProvider.otherwise('/');
       }
     ])
@@ -206,6 +213,13 @@
           })
       }
     ])
+    .controller('loginController', [
+      '$scope',
+      '$http',
+      '$stateParams',
+      function ($scope, $http, $stateParams) {
+      }
+    ])
 
     .controller('classesController', [
       '$scope',
@@ -240,7 +254,21 @@
     .controller('eventController', [
       '$scope',
       '$http',
-      function ($scope, $http) { }
+      '$stateParams',
+      function ($scope, $http, $stateParams) {
+        $scope.className = $stateParams.class;
+        $scope.eventImages = [];
+
+        $http.post("./php/getEventImages.php", { class: $stateParams.class })
+          .then(function (response) {
+            $scope.eventImages = response.data.data;
+            $scope.$applyAsync();
+            console.log($scope.eventImages);
+          })
+          .catch(error => {
+            console.log("Hiba.:" + error)
+          })
+      }
     ])
 
 

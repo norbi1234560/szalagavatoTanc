@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Sze 09. 14:44
+-- Létrehozás ideje: 2025. Sze 10. 08:17
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -111,6 +111,19 @@ INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`, `class`) VALUE
 (26, 'Tóth László Gábor', 'M', 0, 'TothLaszlo.jpg', ''),
 (27, 'Berta Barnabás', 'M', 0, 'BertaBarnabas.jpg', '13C');
 
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 --
 -- Indexek a kiírt táblákhoz
 --
@@ -134,6 +147,13 @@ ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
 
 --
+-- A tábla indexei `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
 
@@ -142,6 +162,12 @@ ALTER TABLE `students`
 --
 ALTER TABLE `students`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT a táblához `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
