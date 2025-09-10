@@ -214,14 +214,19 @@
               $scope.modalStudents = response.data.data;
               $http.post("./php/getBlocked.php", { user_id: $scope.currentStudent.id })
               .then((response) => {
-                $scope.blockedIds = response.data.data.map(blocked => blocked.blocked_user_id);
-              
-                for(let i = 0; i< $scope.modalStudents.length; i++){
-                  if($scope.blockedIds.includes($scope.modalStudents[i].id)){
-                    $scope.modalStudents[i].blocked = true;
-                  }else{
-                    $scope.modalStudents[i].blocked = false;
+
+                if(response.data.data != null){
+                  $scope.blockedIds = response.data.data.map(blocked => blocked.blocked_user_id);
+                  
+                  for(let i = 0; i< $scope.modalStudents.length; i++){
+                    if($scope.blockedIds.includes($scope.modalStudents[i].id)){
+                      $scope.modalStudents[i].blocked = true;
+                    }else{
+                      $scope.modalStudents[i].blocked = false;
+                    }
                   }
+                }else{
+                  console.log("Nincs tiltott személy!")
                 }
           })
               $scope.$applyAsync();
