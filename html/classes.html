@@ -48,3 +48,130 @@
     </div>
   </div>
 </div>
+
+<!-- First Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white shadow-lg">
+      
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title" id="exampleModalLabel">Bokor úr</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Bezárás"></button>
+      </div>
+
+      <div class="modal-body">
+        <ul class="list-group list-group-flush bg-dark">
+          <li class="list-group-item bg-dark text-white">ID: 100</li>
+          <li class="list-group-item bg-dark text-white">Neme: férfi</li>
+          <li class="list-group-item bg-dark text-white">Van-e párja: nincs</li>
+        </ul>
+      </div>
+
+      <div class="modal-footer border-secondary">
+        <!-- Open operations modal & close this one -->
+        <button type="button" 
+                class="btn btn-outline-light" 
+                data-bs-target="#operationsModal" 
+                data-bs-toggle="modal" 
+                data-bs-dismiss="modal">
+          Tiltott lista
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Second Modal with Tabs -->
+<div class="modal fade" id="operationsModal" tabindex="-1" aria-labelledby="operationsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white shadow-lg">
+      
+      <!-- Modal Header -->
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title" id="operationsModalLabel">Tiltott Lista</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Bezárás"></button>
+      </div>
+
+      <!-- Modal Body -->
+<div class="modal-body">
+  <!-- Bootstrap Tabs -->
+  <ul class="nav nav-tabs mb-3" id="modalTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="tab1-tab" 
+              data-bs-toggle="tab" 
+              data-bs-target="#tab1" 
+              type="button" 
+              role="tab" 
+              aria-controls="tab1" 
+              aria-selected="true">Tab 1</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="tab2-tab" 
+              data-bs-toggle="tab" 
+              data-bs-target="#tab2" 
+              type="button" 
+              role="tab" 
+              aria-controls="tab2" 
+              aria-selected="false">Tab 2</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="tab3-tab" 
+              data-bs-toggle="tab" 
+              data-bs-target="#tab3" 
+              type="button" 
+              role="tab" 
+              aria-controls="tab3" 
+              aria-selected="false">Tab 3</button>
+    </li>
+  </ul>
+
+  <!-- Tab Content -->
+  <div class="tab-content" id="modalTabsContent" style="max-height: 300px; overflow-y: auto;">
+    <!-- Tab 1 -->
+    <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+      <div ng-repeat="i in [].constructor(20) track by $index" class="form-check">
+        <input class="form-check-input" type="checkbox" id="tab1name{{$index}}">
+        <label class="form-check-label" for="tab1name{{$index}}">Tab 1 Név {{$index+1}}</label>
+      </div>
+    </div>
+
+    <!-- Tab 2 -->
+    <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
+      <div ng-repeat="i in [].constructor(20) track by $index" class="form-check">
+        <input class="form-check-input" type="checkbox" id="tab2name{{$index}}">
+        <label class="form-check-label" for="tab2name{{$index}}">Tab 2 Név {{$index+1}}</label>
+      </div>
+    </div>
+
+    <!-- Tab 3 -->
+    <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
+      <div ng-repeat="i in [].constructor(20) track by $index" class="form-check">
+        <input class="form-check-input" type="checkbox" id="tab3name{{$index}}">
+        <label class="form-check-label" for="tab3name{{$index}}">Tab 3 Név {{$index+1}}</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Modal Footer -->
+      <div class="modal-footer border-secondary">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Card -->
+ <!-- itt majd angular repeatal kellene ezt ki listázni -->
+<div class="card" style="width: 18rem;">
+  <img src="./assets/pics/BokorRicsi.jpg" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">Bokor úr</h5>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Bővebben</button>
+  </div>
+</div>
