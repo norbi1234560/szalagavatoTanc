@@ -17,7 +17,7 @@
 - **Berta Barnabás**: Blocklist szerkesztésének megcsinálása
 - **Guvat Bence + Kardos Zoltán**: Blocklist megcsinálása
 - **Kis Marcell Zsombor + Fodor Adrián**: Reszponzívitás
-- **Kriván Balázs + Szabó Bence**: Többi osztály adatait teszik fel az adatbázisba.
+- **Kriván Balázs**: Többi osztály adatait teszik fel az adatbázisba.
 - **Dani Benedek**: Home controller
 - **Tóth László**: Home html, Login és Register html mehanikai funkcionalitása, és ShowPassword elkészítése
 - **Miklós Martin**: Event controller
