@@ -36,7 +36,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-dark text-white shadow-lg">
       
-      <div class="modal-header border-secondary">
+      <div class="modal-header border-secondary text-center">
         <h5 class="modal-title" 
             id="exampleModalLabel">
           {{currentStudent.name}}
@@ -51,10 +51,7 @@
       <div class="modal-body">
         <ul class="list-group list-group-flush bg-dark">
           <li class="list-group-item bg-dark text-white">
-            {{currentStudent.id}}
-          </li>
-          <li class="list-group-item bg-dark text-white">
-            {{currentStudent.gender == "M" ? "Férfi" : "Nő"}}
+            Neme: {{currentStudent.gender == "M" ? "Férfi" : "Nő"}}
           </li>
           <li class="list-group-item bg-dark text-white">
             {{currentStudent.taken == 0 ? "Nincs párja" : "Van párja"}}
@@ -64,7 +61,8 @@
 
       <div class="modal-footer border-secondary">
         <!-- Open operations modal & close this one -->
-        <button type="button" 
+        <button type="button"
+                ng-click="modalClassLoad('A')"
                 class="btn btn-outline-light" 
                 data-bs-target="#operationsModal" 
                 data-bs-toggle="modal" 
@@ -162,14 +160,15 @@
                id="tab1" 
                role="tabpanel" 
                aria-labelledby="tab1-tab">
-            <div ng-repeat="i in [].constructor(20) track by $index" 
+            <div ng-repeat="x in modalStudents" 
                  class="form-check">
-              <input class="form-check-input" 
+              <input class="form-check-input"
+                     ng-click="blocklistEdit(currentStudent, x)" 
                      type="checkbox" 
-                     id="tab1name{{$index}}">
+                     id="{{x.id}}">
               <label class="form-check-label" 
-                     for="tab1name{{$index}}">
-                  Tab 1 Név {{$index+1}}
+                     for="{{x.id}}">
+                  {{x.name}}
               </label>
             </div>
           </div>
@@ -179,14 +178,14 @@
                id="tab2" 
                role="tabpanel" 
                aria-labelledby="tab2-tab">
-            <div ng-repeat="i in [].constructor(20) track by $index" 
+            <div ng-repeat="x in modalStudents" 
                  class="form-check">
               <input class="form-check-input" 
                      type="checkbox" 
-                     id="tab2name{{$index}}">
+                     id="{{x.id}}">
               <label class="form-check-label" 
-                     for="tab2name{{$index}}">
-                  Tab 2 Név {{$index+1}}
+                     for="{{x.id}}">
+                  {{x.name}}
               </label>
             </div>
           </div>
@@ -196,14 +195,14 @@
                id="tab3" 
                role="tabpanel" 
                aria-labelledby="tab3-tab">
-            <div ng-repeat="i in [].constructor(20) track by $index" 
+            <div ng-repeat="x in modalStudents" 
                  class="form-check">
               <input class="form-check-input" 
                      type="checkbox" 
-                     id="tab3name{{$index}}">
+                     id="{{x.id}}">
               <label class="form-check-label" 
-                     for="tab3name{{$index}}">
-                  Tab 3 Név {{$index+1}}
+                     for="{{x.id}}">
+                  {{x.name}}
               </label>
             </div>
           </div>
