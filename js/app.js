@@ -66,6 +66,13 @@
             templateUrl: './html/login.html'
           })
 
+          .state('register', {
+            url: '/register',
+            parent: 'root',
+            controller: 'registerController',
+            templateUrl: './html/register.html'
+          })
+
         $urlRouterProvider.otherwise('/');
       }
     ])
@@ -218,6 +225,14 @@
       '$http',
       '$stateParams',
       function ($scope, $http, $stateParams) {
+      }
+    ])
+    .controller('registerController', [
+      '$scope',
+      '$http',
+      '$stateParams',
+      function($scope, $http , $stateParams) {
+
       }
     ])
 

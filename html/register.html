@@ -3,11 +3,20 @@
     <div class="col-12 col-sm-10 col-lg-7 col-xl-6">
       <div class="card shadow border-0">
         <div class="card-body p-4">
-          <h4 class="text-center mb-4 fw-bold">Bejelentkezés</h4>
+          <h4 class="text-center mb-4 fw-bold">Regisztráció</h4>
           <form class="row g-3">
 
+            <!-- Name -->
+            <div class="col-md-6">
+              <label for="name" class="form-label fw-semibold">
+                <span class="text-danger">*</span> Felhasználónév
+              </label>
+              <input id="name" type="text" class="form-control form-control-sm" placeholder="Név" maxlength="50"
+                required autocomplete="off">
+            </div>
+
             <!-- Email -->
-            <div class="col-md-15">
+            <div class="col-md-6">
               <label for="email" class="form-label fw-semibold">
                 <span class="text-danger">*</span> Email cím
               </label>
@@ -42,13 +51,9 @@
               <button type="submit" 
                       class="btn btn-primary px-4"
                       ui-sref="home">
-                Bejelentkezés
+                Regisztráció
               </button>
             </div>
-            <div class="row text-center ">
-              <p class="mt-5">Nincs még fiókod? <a ui-sref="register">Regisztráció</a></p>
-            </div>
-
           </form>
         </div>
       </div>
