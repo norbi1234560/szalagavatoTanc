@@ -217,6 +217,15 @@
             .catch((error) => {
               console.log("Hiba.:" + error);
             })
+          $http.post("./php/getBlocked.php", { user_id: $scope.currentStudent.id })
+          .then((response) => {
+            $scope.blockedIds = response.data.data.map(blocked => blocked.blocked_user_id);
+
+            $scope.modalStudents.forEach(student => {
+            student.blocked = blockedIDs.includes(student.id);
+            $scope.$applyAsync();
+            })
+          })
         }
 
         $scope.showStudentModal = (thisStudent) => {
