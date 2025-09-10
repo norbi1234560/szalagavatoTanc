@@ -1,48 +1,109 @@
 <div class="container mt-3 border rounded shadow-sm p-4 border-dark">
-    <div class="row justify-content-center text-center">
-        <h1 class="blockquote">HSZC Návay Lajos Szakképzési Centrum és Kollégium 2025-2026 Szalagavató</h2>
-        <div id="carouselExampleIndicators" class="carousel slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{homeImages[0]}}" class="d-block w-100" alt="Szalagavató tánc">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{homeImages[1]}}" class="d-block w-100" alt="Szalagavató tánc">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{homeImages[2]}}" class="d-block w-100" alt="Lányok menyaszonyi ruhában">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-                <span class="sr-only">Next</span>
-            </a>
+
+  <!-- Címsor és tartalom középre igazítva -->
+  <div class="row justify-content-center text-center">
+
+    <!-- Szalagavató címe -->
+    <h1 class="blockquote">
+      HSZC Návay Lajos Szakképzési Centrum és Kollégium 2025-2026 Szalagavató
+    </h1>
+
+    <!-- Bootstrap carousel kezdete -->
+    <div id="carouselExampleIndicators" class="carousel slide">
+
+      <!-- Képváltó indikátor gombok (alsó pöttyök) -->
+      <div class="carousel-indicators">
+
+        <!-- 1. pötty (alapértelmezett aktív) -->
+        <button type="button" 
+                data-bs-target="#carouselExampleIndicators" 
+                data-bs-slide-to="0" 
+                class="active"
+                aria-current="true" 
+                aria-label="Slide 1">
+        </button>
+
+        <!-- 2. pötty -->
+        <button type="button" 
+                data-bs-target="#carouselExampleIndicators" 
+                data-bs-slide-to="1"
+                aria-label="Slide 2">
+        </button>
+
+        <!-- 3. pötty -->
+        <button type="button" 
+                data-bs-target="#carouselExampleIndicators" 
+                data-bs-slide-to="2"
+                aria-label="Slide 3">
+        </button>
+
+      </div>
+
+      <!-- Képek helye -->
+      <div class="carousel-inner">
+
+        <!-- 1. kép (aktív) -->
+        <div class="carousel-item active">
+          <img src="{{homeImages[0]}}" 
+               class="d-block w-100" 
+               alt="Szalagavató tánc">
         </div>
-        <p class="mt-4">
-            A szalagavató ünnepség minden végzős diák életében különleges pillanat.
-            Ez az esemény nemcsak a tanulmányok lezárását jelképezi, hanem egy új életszakasz kezdetét is.
-            Büszkén viseljük a szalagot, amely összeköt minket az iskolával, tanárainkkal és egymással.
-            Köszönjük mindenkinek, aki támogatta utunkat!   
-        </p>        
-    </div>
-    <div class="row text-center ">
-        <p class="mt-5">Esetleg érdekli a mi szalagavatónk és vegye meg a jegyét! <a ui-sref="event">Kattints Ide!</a></p>
+
+        <!-- 2. kép -->
+        <div class="carousel-item">
+          <img src="{{homeImages[1]}}" 
+               class="d-block w-100" 
+               alt="Szalagavató tánc">
+        </div>
+
+        <!-- 3. kép -->
+        <div class="carousel-item">
+          <img src="{{homeImages[2]}}" 
+               class="d-block w-100" 
+               alt="Lányok menyasszonyi ruhában">
+        </div>
+
+      </div>
+
+      <!-- Előző kép gomb -->
+      <button class="carousel-control-prev" 
+              type="button" 
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <!-- Következő kép gomb -->
+      <button class="carousel-control-next" 
+              type="button" 
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+      <!-- (Régi, felesleges "Next" szöveg – elavult vagy hibás elem) -->
+      <span class="sr-only">Next</span>
 
     </div>
+
+    <!-- Leírás a szalagavatóról -->
+    <p class="mt-4">
+      A szalagavató ünnepség minden végzős diák életében különleges pillanat.
+      Ez az esemény nemcsak a tanulmányok lezárását jelképezi, hanem egy új életszakasz kezdetét is.
+      Büszkén viseljük a szalagot, amely összeköt minket az iskolával, tanárainkkal és egymással.
+      Köszönjük mindenkinek, aki támogatta utunkat!
+    </p>
+
+  </div>
+
+  <!-- Lábjegyzet/jegyvásárlási CTA -->
+  <div class="row text-center">
+    <p class="mt-5">
+      Esetleg érdekli a mi szalagavatónk és megvenné a jegyét?
+      <a ui-sref="event">Kattints Ide!</a>
+    </p>
+  </div>
+
 </div>
