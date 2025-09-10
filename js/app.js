@@ -230,9 +230,8 @@
     .controller('registerController', [
       '$scope',
       '$http',
-      '$stateParams',
       '$location',
-      function ($scope, $http, $stateParams, $location) {
+      function ($scope, $http, $location) {
         $scope.register = () => {
           $http.post("./php/register.php", { name: $scope.name, email: $scope.email, password: $scope.password })
             .then(function (response) {
@@ -281,9 +280,7 @@
 
         $scope.showStudentModal = (thisStudent) => {
           $scope.currentStudent = thisStudent;
-        }
-
-        
+        }        
 
       }
     ])
@@ -310,6 +307,5 @@
         $scope.isEvent = $scope.currentDate < $scope.eventDate;
       }
     ])
-
 
 })(window, angular);
