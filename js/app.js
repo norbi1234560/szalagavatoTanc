@@ -80,7 +80,8 @@
     // Application run
     .run([
       '$rootScope',
-      ($rootScope) => {
+      '$location',
+      ($rootScope,$location) => {
 
         // get year
         $rootScope.currentDate = new Date();
@@ -88,10 +89,12 @@
 
         // user object
         $rootScope.user = {};
+        console.log($rootScope.user);
 
         $rootScope.checkedUser = JSON.parse(localStorage.getItem('user'))||0;
         if($rootScope.checkedUser != 0){
           $rootScope.user = JSON.parse(localStorage.getItem('user'));
+          $rootScope.loggedIn = true;
         }
 
         //user object
@@ -99,7 +102,21 @@
           $rootScope.user.id = data.id;
           $rootScope.user.name = data.name;
           localStorage.setItem('user', JSON.stringify($rootScope.user));
+          $rootScope.loggedIn = true;
           alert("Üdvözlünk "+ $rootScope.user.name + "!"); 
+        }
+        $rootScope.logOut = function(){
+          if(confirm("Biztos ki szeretnél lépni?")){
+            alert("Viszlát " + $rootScope.user.name + "!")
+            localStorage.removeItem('user');
+            setTimeout(function(){
+              window.location.reload();
+            },20);
+            $location.path("/home");
+          }
+          else{
+            alert("Bejelentkezve maradtál!");
+          } 
         }
       }
     ])
@@ -234,7 +251,6 @@
         }    
       }
     ])
-
     .controller('classesController', [
       '$scope',
       '$http',
@@ -305,7 +321,6 @@
               })
         }
     }}])
-
     .controller('eventController', [
       '$scope',
       '$http',
