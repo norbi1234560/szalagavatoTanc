@@ -1,25 +1,16 @@
 <nav class="navbar navbar-dark  navbar-expand-lg bg-dark">
 	<div class="container-fluid">
-		<button class="navbar-toggler" 
-						type="button" 
-						data-bs-toggle="collapse" 
-						data-bs-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent" 
-						aria-expanded="false" 
-						aria-label="Toggle navigation">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" 
-				 id="navbarSupportedContent">
-			
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item mx-1">
-					<a class="nav-link" 
-						 ui-sref="home" 
-						 ui-sref-active="active" 
-						 data-bs-toggle="collapse"
-						 data-bs-target=".navbar-collapse.show">
+					<a class="nav-link" ui-sref="home" ui-sref-active="active" data-bs-toggle="collapse"
+						data-bs-target=".navbar-collapse.show">
 						<span class="text-capitalize text-small-caps">
 							Kezdőlap
 						</span>
@@ -27,11 +18,8 @@
 				</li>
 
 				<li class="nav-item mx-1">
-					<a class="nav-link" 
-						 ui-sref="event" 
-						 ui-sref-active="active" 
-						 data-bs-toggle="collapse"
-						 data-bs-target=".navbar-collapse.show">
+					<a class="nav-link" ui-sref="event" ui-sref-active="active" data-bs-toggle="collapse"
+						data-bs-target=".navbar-collapse.show">
 						<span class="text-capitalize text-small-caps">
 							Esemény
 						</span>
@@ -48,40 +36,31 @@
 				</li>
 
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" 
-						 role="button" 
-						 data-bs-toggle="dropdown" 
-						 aria-expanded="false">
+					<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Osztályok
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a class="dropdown-item" 
-								 ui-sref="classes({class: '13A'})">
-								 13/A osztály
+							<a class="dropdown-item" ui-sref="classes({class: '13A'})">
+								13/A osztály
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-item" 
-								 ui-sref="classes({class: '13B'})">
-								 13/B osztály
+							<a class="dropdown-item" ui-sref="classes({class: '13B'})">
+								13/B osztály
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-item" 
-								 ui-sref="classes({class: '13C'})">
-								 13/C osztály
-								</a>
+							<a class="dropdown-item" ui-sref="classes({class: '13C'})">
+								13/C osztály
+							</a>
 						</li>
 					</ul>
 				</li>
-				<form class="d-flex  align-items-end">
-				<button class="btn btn-outline-success" 
-						type="submit"
-						ui-sref="login">Bejelentkezés</button>
-						
-			</form>
 			</ul>
+			<form class="d-flex ms-auto" role="search">
+				<button class="btn btn-outline-success" type="submit" ui-sref="login">Bejelentkezés</button>
+			</form>
 		</div>
 	</div>
 </nav>
