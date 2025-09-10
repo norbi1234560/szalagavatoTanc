@@ -59,6 +59,13 @@
             templateUrl: './html/event.html'
           })
 
+          .state('login', {
+            url: '/login/:login',
+            parent: 'root',
+            controller: 'loginController',
+            templateUrl: './html/login.html'
+          })
+
         $urlRouterProvider.otherwise('/');
       }
     ])
@@ -204,6 +211,13 @@
           .catch(error => {
             console.log("Hiba.:" + error)
           })
+      }
+    ])
+    .controller('loginController', [
+      '$scope',
+      '$http',
+      '$stateParams',
+      function ($scope, $http, $stateParams) {
       }
     ])
 
