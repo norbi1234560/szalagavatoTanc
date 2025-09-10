@@ -85,17 +85,6 @@
         // get year
         $rootScope.currentDate = new Date();
         $rootScope.currentYear = $rootScope.currentDate.getFullYear();
-
-        // user array
-        $rootScope.user = {};
-
-        // user bejelenkeztetése
-        $rootScope.loginUser = function(data) {
-          $rootScope.user.id = data.id;
-          $rootScope.user.name = data.name;
-          localStorage.setItem('user', JSON.stringify($rootScope.user));
-          alert("Üdvözlünk "+ $rootScope.user.name +"!");
-        }
       }
     ])
 
@@ -177,15 +166,13 @@
       '$http',
       '$stateParams',
       function ($scope, $http, $stateParams) {
-
       }
     ])
     .controller('registerController', [
       '$scope',
       '$http',
       '$location',
-      '$rootScope',
-      function ($scope, $http, $location, $rootScope) {
+      function ($scope, $http, $location) {
         $scope.register = () => {
           $http.post("./php/register.php", { name: $scope.name, email: $scope.email, password: $scope.password })
             .then(function (response) {
@@ -195,7 +182,6 @@
               } else {
                 alert("Sikeres regisztráció!");
               }
-              $rootScope.loginUser(response.data.data); 
               $scope.$applyAsync();
               $location.path('/login');
             })
@@ -226,20 +212,23 @@
           $http.post("./php/getStudents.php", { class: "13" + radioClass })
             .then((response) => {
               $scope.modalStudents = response.data.data;
+              $http.post("./php/getBlocked.php", { user_id: $scope.currentStudent.id })
+              .then((response) => {
+                $scope.blockedIds = response.data.data.map(blocked => blocked.blocked_user_id);
+              
+                for(let i = 0; i< $scope.modalStudents.length; i++){
+                  if($scope.blockedIds.includes($scope.modalStudents[i].id)){
+                    $scope.modalStudents[i].blocked = true;
+                  }else{
+                    $scope.modalStudents[i].blocked = false;
+                  }
+                }
+          })
               $scope.$applyAsync();
             })
             .catch((error) => {
               console.log("Hiba.:" + error);
             })
-          $http.post("./php/getBlocked.php", { user_id: $scope.currentStudent.id })
-          .then((response) => {
-            $scope.blockedIds = response.data.data.map(blocked => blocked.blocked_user_id);
-
-            $scope.modalStudents.forEach(student => {
-            student.blocked = blockedIDs.includes(student.id);
-            $scope.$applyAsync();
-            })
-          })
         }
 
         $scope.showStudentModal = (thisStudent) => {
