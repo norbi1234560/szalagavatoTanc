@@ -85,6 +85,17 @@
         // get year
         $rootScope.currentDate = new Date();
         $rootScope.currentYear = $rootScope.currentDate.getFullYear();
+
+        // user array
+        $rootScope.user = {};
+
+        // user bejelenkeztetése
+        $rootScope.loginUser = function(data) {
+          $rootScope.user.id = data.id;
+          $rootScope.user.name = data.name;
+          localStorage.setItem('user', JSON.stringify($rootScope.user));
+          alert("Üdvözlünk "+ $rootScope.user.name +"!");
+        }
       }
     ])
 
@@ -225,13 +236,15 @@
       '$http',
       '$stateParams',
       function ($scope, $http, $stateParams) {
+
       }
     ])
     .controller('registerController', [
       '$scope',
       '$http',
       '$location',
-      function ($scope, $http, $location) {
+      '$rootScope',
+      function ($scope, $http, $location, $rootScope) {
         $scope.register = () => {
           $http.post("./php/register.php", { name: $scope.name, email: $scope.email, password: $scope.password })
             .then(function (response) {
@@ -241,6 +254,7 @@
               } else {
                 alert("Sikeres regisztráció!");
               }
+              $rootScope.loginUser(response.data.data); 
               $scope.$applyAsync();
               $location.path('/login');
             })

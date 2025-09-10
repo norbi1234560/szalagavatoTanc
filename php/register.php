@@ -28,18 +28,19 @@ if(!$result["affectedRows"])
     Util::setError("Sikertelen adatfelvitel");
 }
 
-const DAYS_30 = 30 * 24 * 60 * 60;
+// const DAYS_30 = 30 * 24 * 60 * 60;
 
-setcookie("email", $args["email"], [
-    "expires" => time() + DAYS_30,
-    "httponly" => true
-]);
+// setcookie("email", $args["email"], [
+//     "expires" => time() + DAYS_30,
+//     "httponly" => true
+// ]);
 
-setcookie("password", $args["password"], [
-    "expires" => time() + DAYS_30,
-    "httponly" => true
-]);
+// setcookie("password", $args["password"], [
+//     "expires" => time() + DAYS_30,
+//     "httponly" => true
+// ]);
 
 Util::setResponse([
-    "id" => $result["firstInsertId"]
+    "id" => $result["firstInsertId"],
+    "name" => $args["name"]
 ]);
