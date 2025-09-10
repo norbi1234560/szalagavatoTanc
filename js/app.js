@@ -60,7 +60,7 @@
           })
 
           .state('login', {
-            url: '/login/:login',
+            url: '/login',
             parent: 'root',
             controller: 'loginController',
             templateUrl: './html/login.html'
