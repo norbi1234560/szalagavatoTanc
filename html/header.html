@@ -1,3 +1,4 @@
+<!-- Navbar -->
 <nav class="navbar navbar-dark  navbar-expand-lg bg-dark">
 	<div class="container-fluid">
 		<button class="navbar-toggler" 
@@ -89,10 +90,16 @@
 			<!-- bejelentkezes btn -->
 			<form class="d-flex ms-auto" 
 						role="search">
-				<button class="btn btn-outline-secondary" 
-								type="submit" 
+				<button ng-if="user == ''" class="btn btn-outline-secondary" 
+								type="button" 
 								ui-sref="login">
 						Bejelentkezés
+				</button>
+				<button ng-if="user != ''" class="btn btn-outline-secondary" 
+								type="button"
+								ui-sref="home"
+								ng-click="">
+						Kijelentkezés
 				</button>
 			</form>
 		</div>

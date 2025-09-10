@@ -85,6 +85,22 @@
         // get year
         $rootScope.currentDate = new Date();
         $rootScope.currentYear = $rootScope.currentDate.getFullYear();
+
+        // user object
+        $rootScope.user = {};
+
+        $rootScope.checkedUser = JSON.parse(localStorage.getItem('user'))||0;
+        if($rootScope.checkedUser != 0){
+          $rootScope.user = JSON.parse(localStorage.getItem('user'));
+        }
+
+        //user object
+        $rootScope.loginUser = function(data) {
+          $rootScope.user.id = data.id;
+          $rootScope.user.name = data.name;
+          localStorage.setItem('user', JSON.stringify($rootScope.user));
+          alert("Üdvözlünk "+ $rootScope.user.name + "!"); 
+        }
       }
     ])
 
@@ -170,8 +186,26 @@
     .controller('loginController', [
       '$scope',
       '$http',
-      '$stateParams',
-      function ($scope, $http, $stateParams) {
+      '$rootScope',
+      '$location',
+      function ($scope, $http, $rootScope, $location) {
+        $scope.login = () => {
+          $http.post("./php/login.php", {email: $scope.email, password: $scope.password })
+            .then(function (response) {
+              console.log(response.data);
+              if (response.data.error) {
+                alert("Hiba történt: " + response.data.error);
+              } else {
+                alert("Sikeres bejelentkezés!");
+              }
+              $rootScope.loginUser(response.data.data);
+              $scope.$applyAsync();
+              $location.path('/home');
+            })
+            .catch(error => {
+              console.log("Hiba.:" + error)
+            })
+        }    
       }
     ])
 
@@ -179,7 +213,8 @@
       '$scope',
       '$http',
       '$location',
-      function ($scope, $http, $location) {
+      '$rootScope',
+      function ($scope, $http, $location, $rootScope) {
         $scope.register = () => {
           $http.post("./php/register.php", { name: $scope.name, email: $scope.email, password: $scope.password })
             .then(function (response) {
@@ -189,13 +224,14 @@
               } else {
                 alert("Sikeres regisztráció!");
               }
+              $rootScope.loginUser(response.data.data);
               $scope.$applyAsync();
-              $location.path('/login');
+              $location.path('/');
             })
             .catch(error => {
               console.log("Hiba.:" + error)
             })
-          }    
+        }    
       }
     ])
 
