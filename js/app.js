@@ -238,7 +238,7 @@
         
         $scope.modalClassLoad = (radioClass) => {
           $scope.currentModalClass = radioClass;
-          $http.post("./php/getStudents.php", { class: radioClass })
+          $http.post("./php/getStudents.php", { class: "13" + radioClass })
             .then((response) => {
               $scope.modalStudents = response.data.data;
               $scope.$applyAsync();
@@ -246,6 +246,10 @@
             .catch((error) => {
               console.log("Hiba.:" + error)
             }) 
+        }
+
+        $scope.showStudentModal = (thisStudent) => {
+          $scope.currentStudent = thisStudent;
         }
         
       }
