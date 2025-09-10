@@ -190,7 +190,7 @@
             <div ng-repeat="x in modalStudents" 
                  class="form-check">
               <input class="form-check-input"
-                     ng-click="blocklistEdit(currentStudent, x)" 
+                     ng-click="blocklistEdit($event.target.checked, currentStudent, x)" 
                      type="checkbox" 
                      id="{{x.id}}">
               <label class="form-check-label" 
@@ -208,7 +208,7 @@
             <div ng-repeat="x in modalStudents" 
                  class="form-check">
               <input class="form-check-input" 
-                     ng-click="blocklistEdit(currentStudent, x)"
+                     ng-click="blocklistEdit($event.target.checked ,currentStudent, x)"
                      type="checkbox" 
                      id="{{x.id}}">
               <label class="form-check-label" 
@@ -226,7 +226,7 @@
             <div ng-repeat="x in modalStudents" 
                  class="form-check">
               <input class="form-check-input" 
-                     ng-click="blocklistEdit(currentStudent, x)"
+                     ng-click="blocklistEdit($event.target.checked, currentStudent, x)"
                      type="checkbox" 
                      id="{{x.id}}">
               <label class="form-check-label" 

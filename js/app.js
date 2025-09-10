@@ -274,16 +274,34 @@
               $scope.$applyAsync();
             })
             .catch((error) => {
-              console.log("Hiba.:" + error)
+              console.log("Hiba.:" + error);
             })
         }
 
         $scope.showStudentModal = (thisStudent) => {
           $scope.currentStudent = thisStudent;
-        }        
+        }    
 
-      }
-    ])
+        $scope.blocklistEdit = (enable, currentEditStudent, currentBlockStudent) => {
+          if (enable) {
+            $http.post("./php/addBlock.php", { user_id: currentEditStudent.id, blocked_user_id: currentBlockStudent.id })
+              .then((response) => {
+                console.log("Siker");
+              })
+              .catch((error) => {
+                console.log("Hiba.:" + error);
+              })
+          }
+          else {
+            $http.post("./php/removeBlock.php", { user_id: currentEditStudent.id, blocked_user_id: currentBlockStudent.id })
+              .then((response) => {
+                console.log("Siker");
+              })
+              .catch((error) => {
+                console.log("Hiba.:" + error);
+              })
+        }
+    }}])
 
     .controller('eventController', [
       '$scope',
