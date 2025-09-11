@@ -20,42 +20,6 @@
   </div>
 </div>
 
-<!-- Fő konténer -->
-<div class="container mb-5">
-  <div class="row">
-    <div class="col-12">
-      <!-- Osztálynév megjelenítése és középre igazítása -->
-      <h1 class="text-center display-2 mt-5">{{className}} osztály</h1>
-    </div>
-  </div>
-</div>
-
-<!-- Kártyák sora - Angular JS-el -->
-<div class="row justify-content-center gap-2">
-  <div class="card bg-light text-center" 
-       style="width: 18rem;" 
-       ng-repeat="student in students">
-       
-    <!-- Tanulorol egy kép -->
-    <img ng-src="assets/pics/{{className}}/{{student.image}}" 
-         class="card-img-top mt-2">
-         
-    <div class="card-body">
-      <!-- Tanulo neve -->
-      <h5 class="card-title">{{student.name}}</h5>
-      
-      <!-- Gomb amivel a felugro ablakot kezeljük -->
-      <button type="button" 
-              ng-click="showStudentModal(student)" 
-              class="btn btn-primary" 
-              data-bs-toggle="modal" 
-              data-bs-target="#studentModal">
-          Bővebben
-      </button>
-    </div>
-  </div>
-</div>
-
 <!-- Tanulo adatai -->
 <div class="modal fade" 
      id="studentModal" 
