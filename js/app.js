@@ -22,10 +22,13 @@
                 templateUrl: './html/root.html'
               },
               'header@root': {
-                templateUrl: './html/header.html',
+                templateUrl: './html/header.html'
               },
               'footer@root': {
                 templateUrl: './html/footer.html'
+              },
+              'modal@root': {
+                templateUrl:'./html/modal.html'
               }
             }
           })
@@ -94,13 +97,14 @@
         }
 
         //user object
-        $rootScope.loginUser = function(data) {
+        $rootScope.loginUser = function(data, message) {
           $rootScope.user.id = data.id;
           $rootScope.user.name = data.name;
           localStorage.setItem('user', JSON.stringify($rootScope.user));
           $rootScope.loggedIn = true;
-          alert("Üdvözlünk "+ $rootScope.user.name + "!"); 
+          $rootScope.message = message;
         }
+
         $rootScope.logOut = function(){
           if(confirm("Biztos ki szeretnél lépni?")){
             alert("Viszlát " + $rootScope.user.name + "!")
@@ -279,18 +283,13 @@
         $scope.login = () => {
           $http.post("./php/login.php", {email: $scope.email, password: $scope.password })
             .then(function (response) {
-              console.log(response.data);
-              if (response.data.error) {
-                alert("Hiba történt: " + response.data.error);
-              } else {
-                alert("Sikeres bejelentkezés!");
-              }
-              $rootScope.loginUser(response.data.data);
+              $rootScope.msg = "Sikeres bejelentkezés, üdvözlünk " + response.data.data.name + "!";
+              $rootScope.loginUser(response.data.data, $rootScope.msg);
               $scope.$applyAsync();
-              $location.path('/home');
+              $location.path('/');
             })
             .catch(error => {
-              console.log("Hiba.:" + error)
+              $rootScope.message = "Hiba történt: " + error;
             })
         }    
       }
@@ -307,18 +306,20 @@
           $http.post("./php/register.php", { name: $scope.name, email: $scope.email, password: $scope.password })
             .then(function (response) {
               console.log(response.data);
-              if (response.data.error) {
-                $scope.Error = "Hiba történt: " + response.data.error;
-              } else {
-                $scope.Success = "Sikeres bejelentkezés, üdvözlünk " + $scope.name + "!";
-              }
-              $rootScope.loginUser(response.data.data);
+
+              $rootScope.msg = "Sikeres regisztráció, üdvözlünk " + $scope.name + "!";
+
+              $rootScope.loginUser(response.data.data, $rootScope.msg);
               $scope.$applyAsync();
+              $location.path('/');
+
+
             })
             .catch(error => {
-              $scope.Error = "Hiba történt: " + error;
+              $rootScope.message = "Hiba történt: " + error;
+              console.log($scope.Error)
             })
-            //  $location.path('/');
+             
         }    
       }
     ])
