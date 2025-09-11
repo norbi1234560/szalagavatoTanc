@@ -29,7 +29,7 @@
 - Lenne egy szűrő amiben ki lehet választani az osztályt és a nemet és a modal így listázná ki az embereket.
 
 # 2025.09.11
-- **Tokai Ádám**: Bejelentkezés során, csak a saját tiltott listád tudd módosítani. Footer dátum cserélése 2021-2026-ra.
+- **Tokai Ádám + Miklós Martin**: Bejelentkezés során, csak a saját tiltott listád tudd módosítani. Footer dátum cserélése 2021-2026-ra.
 - **Kriván Balázs + Fodor Adrián**: Admin fiók létrehozása adatbázisban, 999-es ID hozzárendelése.
 - **Tóth László Gábor + Szalontai László**: Animációk létrehozása.
 - **Herczeg Máté + Miklós Martin**: PHP-ból érkező üzenetek Modal-ba berakni.
