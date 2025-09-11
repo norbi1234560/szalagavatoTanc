@@ -121,6 +121,7 @@
       }
     ])
 
+    // Reserve controller
     .controller('reserveController', [
       '$scope',
       '$rootScope',
@@ -180,6 +181,7 @@
       }
     ])
 
+    // Home controller
     .controller('homeController', [
       '$scope',
       '$http',
@@ -200,6 +202,7 @@
       }
     ])
 
+    // Login controller
     .controller('loginController', [
       '$scope',
       '$http',
@@ -226,6 +229,7 @@
       }
     ])
 
+    // Register controller
     .controller('registerController', [
       '$scope',
       '$http',
@@ -251,6 +255,8 @@
         }    
       }
     ])
+
+    // Classes controller
     .controller('classesController', [
       '$scope',
       '$http',
@@ -321,6 +327,8 @@
               })
         }
     }}])
+
+    // Event conroller
     .controller('eventController', [
       '$scope',
       '$http',
