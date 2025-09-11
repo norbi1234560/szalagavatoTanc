@@ -37,7 +37,7 @@
           })
 
           .state('reserve', {
-            url: '/',
+            url: '/reserve',
             parent: 'root',
             controller: 'reserveController',
             templateUrl: './html/reserve.html'
@@ -154,23 +154,54 @@
           .then((response) => {
             $scope.allStudents = response.data.data;
           })
+          .then(() => {
+            $http.post("./php/getBlocklist.php")
+              .then((blockListResponse) => {
+                $scope.blockListData = blockListResponse.data.data;
+              
+                for (let i = 0; i < $scope.allStudents.length; i++) {
+                  console.log($scope.blockListData[i]);
+                
+                  let student = $scope.allStudents[i];
+                
+                  student.pairList = $scope.allStudents.filter(
+                    x => 
+                      x !== student
+                      && !x.taken
+                      && !$scope.blockListData.some(y => (y[0] === student.id && y[1] === x.id) || (y[0] === x.id && y[1] === student.id))
+                  );
+                } 
+
+              
+                for (let student of $scope.allStudents) {
+                  if (student.pairList.length === 0) continue;
+                
+                  $scope.allStudents.forEach(e => {
+                    let index = e.pairList.findIndex(x => x === student);
+                    if (index !== -1) e.pairList.splice(index, 1)
+                  });
+
+                  if (student.taken || student.taken === 1) continue;
+
+                  let pair = student.pairList[Math.floor(Math.random() * student.pairList.length)];
+                
+                  student.pair = pair;
+                  pair.pair = student;
+                
+                  student.taken = true;
+                  pair.taken = true;
+                
+                  $scope.allStudents.forEach(e => {
+                    let index = e.pairList.findIndex(x => x === pair);
+                    if (index !== -1) e.pairList.splice(index, 1);
+                  });
+                }  
+
+                console.log($scope.allStudents)
+          })
           .catch((error) => {
             console.log(error);
           })
-
-          $http.post("./php/getBlocklist.php")
-          .then((blockListResponse) => {
-            $scope.blockListData = blockListResponse.data.data;
-
-            for (let i = 0; i < $scope.allStudents.length; i++) {
-              console.log($scope.blockListData[i]);
-
-              for (let j = 0; j < $scope.blockListData.length; j++) {
-                if ($scope.allStudents[i]["blocked_user_id"] == $scope.blockListData[j]["id"]) {
-                  // console.log("SZIA LAJOS");
-                }  
-              }
-            }
           })
           .catch((error) => {
             console.log(error);
