@@ -37,7 +37,7 @@
           })
 
           .state('reserve', {
-            url: '/',
+            url: '/reserve',
             parent: 'root',
             controller: 'reserveController',
             templateUrl: './html/reserve.html'
@@ -83,10 +83,6 @@
       '$location',
       ($rootScope,$location) => {
 
-        // get year
-        $rootScope.currentDate = new Date();
-        $rootScope.currentYear = $rootScope.currentDate.getFullYear();
-
         // user object
         $rootScope.user = {};
         console.log($rootScope.user);
@@ -121,6 +117,7 @@
       }
     ])
 
+    // Reserve controller
     .controller('reserveController', [
       '$scope',
       '$rootScope',
@@ -153,23 +150,56 @@
           .then((response) => {
             $scope.allStudents = response.data.data;
           })
+          .then(() => {
+            $http.post("./php/getBlocklist.php")
+              .then((blockListResponse) => {
+                $scope.blockListData = blockListResponse.data.data;
+              
+                for (let i = 0; i < $scope.allStudents.length; i++) {
+                  let student = $scope.allStudents[i];
+                
+                  student.pairList = $scope.allStudents.filter(
+                    x => 
+                      x !== student
+                      && !x.taken
+                      && !$scope.blockListData.some(
+                        y => (y.user_id === student.id && y.blocked_user_id === x.id)
+                          || (y.user_id === x.id && y.blocked_user_id === student.id)
+                      )
+                  );
+                } 
+
+                $scope.pairs = [];
+              
+                for (let student of $scope.allStudents) {
+                  if (student.pairList.length === 0) continue;
+                
+                  $scope.allStudents.forEach(e => {
+                    let index = e.pairList.findIndex(x => x === student);
+                    if (index !== -1) e.pairList.splice(index, 1)
+                  });
+
+                  if (student.taken || student.taken === 1) continue;
+
+                  let pair = student.pairList[Math.floor(Math.random() * student.pairList.length)];
+                
+                  student.pair = pair;
+                  pair.pair = student;
+                
+                  student.taken = true;
+                  pair.taken = true;
+
+                  $scope.pairs.push([student, pair]);
+                
+                  $scope.allStudents.forEach(e => {
+                    let index = e.pairList.findIndex(x => x === pair);
+                    if (index !== -1) e.pairList.splice(index, 1);
+                  });
+                }  
+          })
           .catch((error) => {
             console.log(error);
           })
-
-          $http.post("./php/getBlocklist.php")
-          .then((blockListResponse) => {
-            $scope.blockListData = blockListResponse.data.data;
-
-            for (let i = 0; i < $scope.allStudents.length; i++) {
-              console.log($scope.blockListData[i]);
-
-              for (let j = 0; j < $scope.blockListData.length; j++) {
-                if ($scope.allStudents[i]["blocked_user_id"] == $scope.blockListData[j]["id"]) {
-                  // console.log("SZIA LAJOS");
-                }  
-              }
-            }
           })
           .catch((error) => {
             console.log(error);
@@ -180,6 +210,7 @@
       }
     ])
 
+    // Home controller
     .controller('homeController', [
       '$scope',
       '$http',
@@ -200,6 +231,7 @@
       }
     ])
 
+    // Login controller
     .controller('loginController', [
       '$scope',
       '$http',
@@ -226,6 +258,7 @@
       }
     ])
 
+    // Register controller
     .controller('registerController', [
       '$scope',
       '$http',
@@ -237,20 +270,22 @@
             .then(function (response) {
               console.log(response.data);
               if (response.data.error) {
-                alert("Hiba történt: " + response.data.error);
+                $scope.Error = "Hiba történt: " + response.data.error;
               } else {
-                alert("Sikeres regisztráció!");
+                $scope.Success = "Sikeres bejelentkezés, üdvözlünk " + $scope.name + "!";
               }
               $rootScope.loginUser(response.data.data);
               $scope.$applyAsync();
-              $location.path('/');
             })
             .catch(error => {
-              console.log("Hiba.:" + error)
+              $scope.Error = "Hiba történt: " + error;
             })
+            //  $location.path('/');
         }    
       }
     ])
+
+    // Classes controller
     .controller('classesController', [
       '$scope',
       '$http',
@@ -321,6 +356,8 @@
               })
         }
     }}])
+
+    // Event conroller
     .controller('eventController', [
       '$scope',
       '$http',

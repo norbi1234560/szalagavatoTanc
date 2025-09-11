@@ -1,118 +1,66 @@
 <div class="team-boxed">
   <div class="container">
-      <div class="intro">
-          <h2 class="text-center">{{className}} osztály</h2>
-      </div>
-      <div class="row people">
-          <div class="col-md-6 col-lg-4 item" ng-repeat="student in students">
-              <div class="box"><img class="rounded-circle" ng-src="assets/pics/{{className}}/{{student.image}}">
-                  <h3 class="name">{{student.name}}</h3>
-                  <button type="button" 
-                          ng-click="showStudentModal(student)" 
-                          class="btn btn-primary" 
-                          data-bs-toggle="modal" 
-                          data-bs-target="#studentModal">
-                      Bővebben
-                  </button>                  
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-
-<!-- Fő konténer -->
-<div class="container mb-5">
-  <div class="row">
-    <div class="col-12">
-      <!-- Osztálynév megjelenítése és középre igazítása -->
-      <h1 class="text-center display-2 mt-5">{{className}} osztály</h1>
+    <div class="intro">
+      <h2 class="text-center">{{className}} osztály</h2>
     </div>
-  </div>
-</div>
-
-<!-- Kártyák sora - Angular JS-el -->
-<div class="row justify-content-center gap-2">
-  <div class="card bg-light text-center" 
-       style="width: 18rem;" 
-       ng-repeat="student in students">
-       
-    <!-- Tanulorol egy kép -->
-    <img ng-src="assets/pics/{{className}}/{{student.image}}" 
-         class="card-img-top mt-2">
-         
-    <div class="card-body">
-      <!-- Tanulo neve -->
-      <h5 class="card-title">{{student.name}}</h5>
-      
-      <!-- Gomb amivel a felugro ablakot kezeljük -->
-      <button type="button" 
-              ng-click="showStudentModal(student)" 
-              class="btn btn-primary" 
-              data-bs-toggle="modal" 
-              data-bs-target="#studentModal">
-          Bővebben
-      </button>
+    <div class="row people">
+      <div class="col-md-6 col-lg-4 item" ng-repeat="student in students">
+        <div class="box zoom"><img class="rounded-circle" ng-src="assets/pics/{{className}}/{{student.image}}">
+          <h3 class="name">{{student.name}}</h3>
+          <button type="button" ng-click="showStudentModal(student)" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#studentModal">
+            Bővebben
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- Tanulo adatai -->
-<div class="modal fade" 
-     id="studentModal" 
-     tabindex="-1" 
-     aria-labelledby="exampleModalLabel" 
-     aria-hidden="true">
-     
+<div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-dark text-white shadow-lg">
-      
+
       <!-- Fejléc , tanulo neve -->
       <div class="modal-header border-secondary text-center">
-        <h5 class="modal-title" 
-            id="exampleModalLabel">
+        <h5 class="modal-title" id="exampleModalLabel">
           {{currentStudent.name}}
         </h5>
-        
+
         <!-- Bezárás gomb -->
-        <button type="button" 
-                class="btn-close btn-close-white" 
-                data-bs-dismiss="modal" 
-                aria-label="Bezárás">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Bezárás">
         </button>
       </div>
 
       <!-- Tanulo adatai -->
       <div class="modal-body">
-        <ul class="list-group list-group-flush bg-dark">
-          <!-- Nemek alapján kilistázás -->
-          <li class="list-group-item bg-dark text-white">
-            Neme: {{currentStudent.gender == "M" ? "Férfi" : "Nő"}}
-          </li>
-          
-          <!-- Van-e párja -->
-          <li class="list-group-item bg-dark text-white">
-            {{currentStudent.taken == 0 ? "Nincs párja" : "Van párja"}}
-          </li>
-        </ul>
+        <!-- Nemek alapján kilistázás -->
+        <p>
+          Neme: {{currentStudent.gender == "M" ? "Férfi" : "Nő"}}
+        </p>
+
+        <!-- Van-e párja -->
+
+        <p>
+          {{currentStudent.taken == 0 ? "Nincs párja" : "Van párja"}}
+        </p>
+
+
       </div>
 
       <!-- Footer -->
       <div class="modal-footer border-secondary">
         <!-- Tiltott lista megnyitása -->
-        <button type="button"
-                ng-click="modalClassLoad('A')"
-                class="btn btn-outline-light" 
-                data-bs-target="#operationsModal" 
-                data-bs-toggle="modal" 
-                data-bs-dismiss="modal">
+        <button type="button" ng-click="modalClassLoad('A')" class="btn btn-outline-light"
+          data-bs-target="#operationsModal" data-bs-toggle="modal" data-bs-dismiss="modal">
           Tiltott lista
         </button>
-        
+
         <!-- Modal bezárása -->
-        <button type="button" 
-                class="btn btn-secondary" 
-                data-bs-dismiss="modal">
-            Bezárás
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Bezárás
         </button>
       </div>
     </div>
@@ -120,156 +68,97 @@
 </div>
 
 <!-- Tiltott lista osztályokra bontva -->
-<div class="modal fade" 
-     id="operationsModal" 
-     tabindex="-1" 
-     aria-labelledby="operationsModalLabel" 
-     aria-hidden="true">
-     
+<div class="modal fade" id="operationsModal" tabindex="-1" aria-labelledby="operationsModalLabel" aria-hidden="true">
+
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-dark text-white shadow-lg">
-      
+
       <!-- Modal fejléc -->
       <div class="modal-header border-secondary">
-        <h5 class="modal-title" 
-            id="operationsModalLabel">
+        <h5 class="modal-title" id="operationsModalLabel">
           Tiltott Lista
         </h5>
-        
+
         <!-- Bezárás gomb -->
-        <button type="button" 
-                class="btn-close btn-close-white" 
-                data-bs-dismiss="modal" 
-                aria-label="Bezárás">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Bezárás">
         </button>
       </div>
 
       <!-- Modal törzs -->
       <div class="modal-body">
-      
+
         <!-- Bootstrap navigácio -->
-        <ul class="nav nav-tabs mb-3" 
-            id="modalTabs" 
-            role="tablist">
-            
+        <ul class="nav nav-tabs mb-3" id="modalTabs" role="tablist">
+
           <!-- A osztály tab -->
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" 
-                    id="tab1-tab" 
-                    ng-click="modalClassLoad('A')"
-                    data-bs-toggle="tab" 
-                    data-bs-target="#tab1" 
-                    type="button" 
-                    role="tab" 
-                    aria-controls="tab1" 
-                    aria-selected="true">
-                A
+            <button class="nav-link active" id="tab1-tab" ng-click="modalClassLoad('A')" data-bs-toggle="tab"
+              data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">
+              A
             </button>
           </li>
-          
+
           <!-- B osztály tab -->
           <li class="nav-item" role="presentation">
-            <button class="nav-link" 
-                    id="tab2-tab" 
-                    ng-click="modalClassLoad('B')"
-                    data-bs-toggle="tab" 
-                    data-bs-target="#tab2" 
-                    type="button" 
-                    role="tab" 
-                    aria-controls="tab2" 
-                    aria-selected="false">
-                B
+            <button class="nav-link" id="tab2-tab" ng-click="modalClassLoad('B')" data-bs-toggle="tab"
+              data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">
+              B
             </button>
           </li>
-          
+
           <!-- C osztály tab -->
           <li class="nav-item" role="presentation">
-            <button class="nav-link" 
-                    id="tab3-tab"
-                    ng-click="modalClassLoad('C')"
-                    data-bs-toggle="tab" 
-                    data-bs-target="#tab3" 
-                    type="button" 
-                    role="tab" 
-                    aria-controls="tab3" 
-                    aria-selected="false">
-                C
+            <button class="nav-link" id="tab3-tab" ng-click="modalClassLoad('C')" data-bs-toggle="tab"
+              data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="false">
+              C
             </button>
           </li>
         </ul>
-      
+
         <!-- Tab tartalom, ahol a tanulok listája checkbox formában jelenik meg -->
-        <div class="tab-content" 
-             id="modalTabsContent" 
-             style="max-height: 300px; overflow-y: auto;">
-             
+        <div class="tab-content" id="modalTabsContent" style="max-height: 300px; overflow-y: auto;">
+
           <!-- A osztály diákjai -->
-          <div class="tab-pane fade show active" 
-               id="tab1" 
-               role="tabpanel" 
-               aria-labelledby="tab1-tab">
+          <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
             <!-- Diákok kilistázása -->
-            <div ng-repeat="x in modalStudents" 
-                 class="form-check">
-              <input class="form-check-input"
-                     ng-checked="x.blocked"
-                     ng-click="blocklistEdit($event.target.checked, currentStudent, x)" 
-                     type="checkbox" 
-                     id="{{x.id}}">
-              <label class="form-check-label" 
-                     for="{{x.id}}">
-                  {{x.name}}
+            <div ng-repeat="x in modalStudents" class="form-check">
+              <input class="form-check-input" ng-checked="x.blocked"
+                ng-click="blocklistEdit($event.target.checked, currentStudent, x)" type="checkbox" id="{{x.id}}">
+              <label class="form-check-label" for="{{x.id}}">
+                {{x.name}}
               </label>
             </div>
           </div>
-        
+
           <!-- B osztály -->
-          <div class="tab-pane fade" 
-               id="tab2" 
-               role="tabpanel" 
-               aria-labelledby="tab2-tab">
-            <div ng-repeat="x in modalStudents" 
-                 class="form-check">
-              <input class="form-check-input"
-                     ng-checked="x.blocked"
-                     ng-click="blocklistEdit($event.target.checked ,currentStudent, x)"
-                     type="checkbox" 
-                     id="{{x.id}}">
-              <label class="form-check-label" 
-                     for="{{x.id}}">
-                  {{x.name}}
+          <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
+            <div ng-repeat="x in modalStudents" class="form-check">
+              <input class="form-check-input" ng-checked="x.blocked"
+                ng-click="blocklistEdit($event.target.checked ,currentStudent, x)" type="checkbox" id="{{x.id}}">
+              <label class="form-check-label" for="{{x.id}}">
+                {{x.name}}
               </label>
             </div>
           </div>
-        
+
           <!-- C osztály -->
-          <div class="tab-pane fade" 
-               id="tab3" 
-               role="tabpanel" 
-               aria-labelledby="tab3-tab">
-            <div ng-repeat="x in modalStudents" 
-                 class="form-check">
-              <input class="form-check-input" 
-                     ng-checked="x.blocked"
-                     ng-click="blocklistEdit($event.target.checked, currentStudent, x)"
-                     type="checkbox" 
-                     id="{{x.id}}">
-              <label class="form-check-label" 
-                     for="{{x.id}}">
-                  {{x.name}}
+          <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
+            <div ng-repeat="x in modalStudents" class="form-check">
+              <input class="form-check-input" ng-checked="x.blocked"
+                ng-click="blocklistEdit($event.target.checked, currentStudent, x)" type="checkbox" id="{{x.id}}">
+              <label class="form-check-label" for="{{x.id}}">
+                {{x.name}}
               </label>
             </div>
           </div>
         </div>
       </div>
-  
+
       <!-- Footer -->
       <div class="modal-footer border-secondary">
         <!-- Modal bezárása -->
-        <button type="button" 
-                class="btn btn-secondary" 
-                data-bs-dismiss="modal">
-            Bezárás
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Bezárás
         </button>
       </div>
 
