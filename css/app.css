@@ -203,19 +203,6 @@ body{
 	background-color: #eef4f7;
 	overflow-x: hidden;
 }
-.a-form {
-	cursor: pointer;
-  transition: all 200ms linear;
-}
-.a-form:hover {
-	text-decoration: none;
-}
-.link {
-  color: #c4c3ca;
-}
-.link:hover {
-  color: #ffeba7;
-}
 .p-form {
   font-weight: 500;
   font-size: 14px;
@@ -237,11 +224,16 @@ body{
 .full-height{
   min-height: 100vh;
 }
-[type="checkbox"]:checked,
-[type="checkbox"]:not(:checked){
+.checkbox-form{
   position: absolute;
   left: -9999px;
 }
+.checkbox-change{
+  position: absolute;
+  left: -9999px;
+}
+
+
 .checkbox-change:checked + label,
 .checkbox-change:not(:checked) + label{
   position: relative;
@@ -341,7 +333,6 @@ body{
   width: 100%;
   height: 100%;
   background-color: #2a2b38;
-  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: 300%;
@@ -391,7 +382,7 @@ body{
   line-height: 22px;
   letter-spacing: 0.5px;
   outline: none;
-  color: #c4c3ca;
+  color: hsl(249, 6%, 78%);
   background-color: #1f2029;
   border: none;
   -webkit-transition: all 200ms linear;
@@ -463,6 +454,8 @@ body{
 }
 
 .btn-form{  
+  cursor: pointer;
+  transition: all 200ms linear;
   border-radius: 4px;
   height: 44px;
   font-size: 13px;
@@ -489,10 +482,11 @@ body{
   background-color: #277af7;
   color: #102770;
 }
+
 .btn-form:active,
 .btn-form:focus{  
   background-color: #102770;
-  color: #ffeba7;
+  color: #8296ec;
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
 }
 .btn-form:hover{  
@@ -500,6 +494,13 @@ body{
   color: #8296ec;
   box-shadow: 0 8px 24px 0 rgba(15, 35, 100, 0.2);
 }
+.btn-form:disabled{  
+  background-color: hsl(216, 93%, 76%);
+  color: hsl(229, 74%, 42%);
+  box-shadow: 0 8px 24px 0 rgba(15, 35, 100, 0.2);
+  cursor:not-allowed;
+}
+
 .carousel-item img {
   height: 700px;             
   object-fit: cover;         

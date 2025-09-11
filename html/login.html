@@ -1,5 +1,3 @@
-<!-- Krealmany -->
-
 <div class="container">
   <div class="row justify-content-center">
     <div class="section">
@@ -7,82 +5,107 @@
         <div class="row full-height justify-content-center">
           <div class="col-12 text-center align-self-center py-5">
             <div class="section pb-5 pt-5 pt-sm-2 text-center">
+
               <h6 class="mb-0 pb-3 h6-form">
-                <span>Bejelentkezés</span>
-                <span>Regisztráció</span>
+                <span class="span-form">Bejelentkezés</span>
+                <span class="span-form">Regisztráció</span>
               </h6>
-              <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+
+              <input class="checkbox-form checkbox" type="checkbox" id="reg-log" name="reg-log" />
               <label for="reg-log"></label>
+
+              <!--Wrap -->
               <div class="card-3d-wrap mx-auto">
                 <div class="card-3d-wrapper">
+
+                  <!-- Bejelentkezés -->
                   <div class="card-front">
                     <div class="center-wrap">
                       <div class="section text-center">
-                        <h4 class="mb-4 pb-3 h4-form">Bejelentkezés</h4>
-                        <div class="form-group">                          
-                          <input type="text" name="logemail" class="form-style" ng-model="email_login" placeholder="Email cím"
-                            autocomplete="off" maxlength="150" required>
-                          <i class="input-icon fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="form-group mt-2">
-                          <input type="{{showPassword_login ? 'text' : 'password'}}" ng-model="password_login" name="logpass" class="form-style" placeholder="Jelszó"
-                            autocomplete="off" maxlength="20" required>
-                          <i class="input-icon fa-solid fa-key"></i>
-                        </div>
-                        <!-- Show/Hide password -->
-                        <div class="col-12 mt-3" style="padding-right: 20px;">
-                          <div class="form-check">
-                            <input class="checkbox-change" type="checkbox" id="show-hide_login" name="show-hide_login" ng-model="showPassword_login">
-                            <label for="show-hide_login"></label>
-                            <label class="form-check-label small" for="show-password">
-                               Jelszó megjelenítése
-                            </label>
+                        <form name="loginForm">
+
+                          <h4 class="mb-4 pb-3 h4-form">Bejelentkezés</h4>
+
+                          <div class="form-group">                          
+                            <input type="text" name="logemail" class="form-style" ng-model="email_login" placeholder="Email cím"
+                              autocomplete="off" maxlength="150" required>
+                            <i class="input-icon fa-solid fa-envelope"></i>
                           </div>
-                        </div>
-                        <a class="btn-form mt-4 a-form link-underline link-underline-opacity-0" 
-                           data-bs-toggle="modal" 
-                           data-bs-target="#userModal" 
-                           ng-click="login()">
-                           Bejelentkezés
-                        </a>
+
+                          <div class="form-group mt-2">
+                            <input type="{{showPassword_login ? 'text' : 'password'}}" ng-model="password_login" name="logpass" class="form-style" placeholder="Jelszó"
+                              autocomplete="off" maxlength="20" required>
+                            <i class="input-icon fa-solid fa-key"></i>
+                          </div>
+
+                          <!-- Show/Hide password -->
+                          <div class="col-12 mt-3" style="padding-right: 20px;">
+                            <div class="form-check">
+                              <input class="checkbox-change" type="checkbox" id="show-hide_login" name="show-hide_login" ng-model="showPassword_login">
+                              <label for="show-hide_login"></label>
+                              <label class="form-check-label small" for="show-password">
+                                Jelszó megjelenítése
+                              </label>
+                            </div>
+                          </div>
+
+                          <button class="btn-form mt-4 button-form" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#userModal" 
+                            ng-disabled="loginForm.$invalid"
+                            ng-click="login()">
+                            Bejelentkezés
+                          </button>
+                        </form>
                       </div>
                     </div>
                   </div>
+
+                  <!-- Regisztráció -->
                   <div class="card-back">
                     <div class="center-wrap">
                       <div class="section text-center">
-                        <h4 class="mb-4 pb-3 h4-form">Regisztráció</h4>
-                        <div class="form-group">
-                          <input type="text" name="logname" class="form-style" placeholder="Teljes név"
-                            autocomplete="off" ng-model="name" maxlength="150" required>
-                          <i class="input-icon fa-solid fa-user"></i>
-                        </div>
-                        <div class="form-group mt-2">
-                          <input type="text" name="logemail" class="form-style" placeholder="Email cím"
-                                  ng-model="email_register" autocomplete="off" maxlength="150" required>
-                          <i class="input-icon fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="form-group mt-2">
-                          <input type="{{showPassword_register ? 'text' : 'password'}}" ng-model="password_register" name="logpass" class="form-style" placeholder="Jelszó"
-                            autocomplete="off" maxlength="20" required>
-                          <i class="input-icon fa-solid fa-key"></i>
-                        </div>
-                        <!-- Show/Hide password -->
-                        <div class="col-12 mt-3" style="padding-right: 20px;">
-                          <div class="form-check">
-                            <input class="checkbox-change" type="checkbox" id="show-hide_register" name="show-hide_register" ng-model="showPassword_register">
-                            <label for="show-hide_register"></label>
-                            <label class="form-check-label small" for="show-password">
-                               Jelszó megjelenítése
-                            </label>
+                        <form name="registerForm">
+
+                          <h4 class="mb-4 pb-3 h4-form">Regisztráció</h4>
+
+                          <div class="form-group">
+                            <input type="text" name="logname" class="form-style" placeholder="Teljes név"
+                              autocomplete="off" ng-model="name" maxlength="150" required>
+                            <i class="input-icon fa-solid fa-user"></i>
                           </div>
-                        </div>
-                        <a class="btn-form mt-4 a-form link-underline link-underline-opacity-0" 
-                           data-bs-toggle="modal" 
-                           data-bs-target="#userModal" 
-                           ng-click="register()">
-                           Regisztráció
-                        </a>
+
+                          <div class="form-group mt-2">
+                            <input type="text" name="logemail" class="form-style" placeholder="Email cím"
+                              ng-model="email_register" autocomplete="off" maxlength="150" required>
+                            <i class="input-icon fa-solid fa-envelope"></i>
+                          </div>
+
+                          <div class="form-group mt-2">
+                            <input type="{{showPassword_register ? 'text' : 'password'}}" ng-model="password_register" name="logpass" class="form-style" placeholder="Jelszó"
+                              autocomplete="off" maxlength="20" required>
+                            <i class="input-icon fa-solid fa-key"></i>
+                          </div>
+
+                          <!-- Show/Hide password -->
+                          <div class="col-12 mt-3" style="padding-right: 20px;">
+                            <div class="form-check">
+                              <input class="checkbox-change" type="checkbox" id="show-hide_register" name="show-hide_register" ng-model="showPassword_register">
+                              <label for="show-hide_register"></label>
+                              <label class="form-check-label small" for="show-password">
+                                Jelszó megjelenítése
+                              </label>
+                            </div>
+                          </div>
+
+                          <button class="btn-form mt-4 button-form" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#userModal"
+                            ng-disabled="registerForm.$invalid" 
+                            ng-click="register()">
+                            Regisztráció
+                          </button>
+                        </form>
                       </div>
                     </div>
                   </div>
