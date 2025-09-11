@@ -54,7 +54,8 @@
       <div class="modal-footer border-secondary">
         <!-- Tiltott lista megnyitása -->
         <button type="button" ng-click="modalClassLoad('A')" class="btn btn-outline-light"
-          data-bs-target="#operationsModal" data-bs-toggle="modal" data-bs-dismiss="modal">
+          ng-show="currentStudent.id == $root.user.id || $root.user.id === 999" data-bs-target="#operationsModal" data-bs-toggle="modal"
+          data-bs-dismiss="modal">
           Tiltott lista
         </button>
 
