@@ -121,7 +121,7 @@
           <!-- A osztály diákjai -->
           <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
             <!-- Diákok kilistázása -->
-            <div ng-repeat="x in modalStudents" class="form-check">
+            <div ng-repeat="x in modalStudents" class="form-check" ng-show="x.id != currentStudent.id">
               <input class="form-check-input" ng-checked="x.blocked"
                 ng-click="blocklistEdit($event.target.checked, currentStudent, x)" type="checkbox" id="{{x.id}}">
               <label class="form-check-label" for="{{x.id}}">
@@ -132,7 +132,7 @@
 
           <!-- B osztály -->
           <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
-            <div ng-repeat="x in modalStudents" class="form-check">
+            <div ng-repeat="x in modalStudents" class="form-check" ng-show="x.id != currentStudent.id">
               <input class="form-check-input" ng-checked="x.blocked"
                 ng-click="blocklistEdit($event.target.checked ,currentStudent, x)" type="checkbox" id="{{x.id}}">
               <label class="form-check-label" for="{{x.id}}">
@@ -143,7 +143,7 @@
 
           <!-- C osztály -->
           <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
-            <div ng-repeat="x in modalStudents" class="form-check">
+            <div ng-repeat="x in modalStudents" class="form-check" ng-show="x.id != currentStudent.id">
               <input class="form-check-input" ng-checked="x.blocked"
                 ng-click="blocklistEdit($event.target.checked, currentStudent, x)" type="checkbox" id="{{x.id}}">
               <label class="form-check-label" for="{{x.id}}">
