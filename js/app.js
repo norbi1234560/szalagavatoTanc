@@ -210,7 +210,7 @@
       '$location',
       function ($scope, $http, $rootScope, $location) {
         $scope.login = () => {
-          $http.post("./php/login.php", {email: $scope.email, password: $scope.password })
+          $http.post("./php/login.php", {email: $scope.email_login, password: $scope.password_login })
             .then(function (response) {
               console.log(response.data);
               if (response.data.error) {
@@ -225,19 +225,10 @@
             .catch(error => {
               console.log("Hiba.:" + error)
             })
-        }    
-      }
-    ])
-
-    // Register controller
-    .controller('registerController', [
-      '$scope',
-      '$http',
-      '$location',
-      '$rootScope',
-      function ($scope, $http, $location, $rootScope) {
+        }
+        
         $scope.register = () => {
-          $http.post("./php/register.php", { name: $scope.name, email: $scope.email, password: $scope.password })
+          $http.post("./php/register.php", { name: $scope.name, email: $scope.email_register, password: $scope.password_register })
             .then(function (response) {
               console.log(response.data);
               if (response.data.error) {
@@ -253,6 +244,17 @@
               console.log("Hiba.:" + error)
             })
         }    
+      }
+    ])
+
+    // Register controller
+    .controller('registerController', [
+      '$scope',
+      '$http',
+      '$location',
+      '$rootScope',
+      function ($scope, $http, $location, $rootScope) {
+       
       }
     ])
 
