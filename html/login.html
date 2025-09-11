@@ -39,7 +39,12 @@
                             </label>
                           </div>
                         </div>
-                        <a class="btn-form mt-4 a-form link-underline link-underline-opacity-0" ng-click="login()">Bejelentkezés</a>
+                        <a class="btn-form mt-4 a-form link-underline link-underline-opacity-0" 
+                           data-bs-toggle="modal" 
+                           data-bs-target="#userModal" 
+                           ng-click="login()">
+                           Bejelentkezés
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -72,7 +77,12 @@
                             </label>
                           </div>
                         </div>
-                        <a class="btn-form mt-4 a-form link-underline link-underline-opacity-0"ng-click="register()">Regisztráció</a>
+                        <a class="btn-form mt-4 a-form link-underline link-underline-opacity-0" 
+                           data-bs-toggle="modal" 
+                           data-bs-target="#userModal" 
+                           ng-click="register()">
+                           Regisztráció
+                        </a>
                       </div>
                     </div>
                   </div>
