@@ -83,10 +83,6 @@
       '$location',
       ($rootScope,$location) => {
 
-        // get year
-        $rootScope.currentDate = new Date();
-        $rootScope.currentYear = $rootScope.currentDate.getFullYear();
-
         // user object
         $rootScope.user = {};
         console.log($rootScope.user);
