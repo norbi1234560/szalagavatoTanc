@@ -36,8 +36,4 @@
 - **Répa Norbert + Suba Benjamin**: "Esemény" résznél a carousel fixálása, az első és utolsó kép nagyobb mint a középső.
 - **Kis Marcell Zsombor**: Betűtípus keresése
 - **Szabó Bence**: Carousel képek kicserélése a kezdőlapon.
-- **Sötét Ármi + Kriván Balázs**: Adatok gyűjtése az osztályokról (Magasság).
-
-
-
-
+- **Sötét Ármin + Kis Dávid Csaba**: Adatok gyűjtése az osztályokról (Magasság).
