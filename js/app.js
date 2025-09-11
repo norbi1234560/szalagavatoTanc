@@ -272,17 +272,17 @@
             .then(function (response) {
               console.log(response.data);
               if (response.data.error) {
-                alert("Hiba történt: " + response.data.error);
+                $scope.Error = "Hiba történt: " + response.data.error;
               } else {
-                alert("Sikeres regisztráció!");
+                $scope.Success = "Sikeres bejelentkezés, üdvözlünk " + $scope.name + "!";
               }
               $rootScope.loginUser(response.data.data);
               $scope.$applyAsync();
-              $location.path('/');
             })
             .catch(error => {
-              console.log("Hiba.:" + error)
+              $scope.Error = "Hiba történt: " + error;
             })
+            //  $location.path('/');
         }    
       }
     ])
