@@ -1,3 +1,20 @@
+/*Font*/
+@font-face {
+  font-family: 'osztalyok';
+  src: url(../assets/fonts/BowlbyOneSC-Regular.ttf);
+}
+
+.namefont {
+  font-family: 'osztalyok';
+  font-weight: lighter;
+}
+
+.textfont {
+  font-weight: bold;
+  font-size: 18px
+}
+
+
 /* Designed Card */
 
 .service-card {
@@ -179,4 +196,9 @@
   object-fit: cover;         
   width: 100%;                
 }
+
+
+
+
+
 
