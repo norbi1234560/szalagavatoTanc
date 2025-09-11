@@ -29,15 +29,11 @@
 - Lenne egy szűrő amiben ki lehet választani az osztályt és a nemet és a modal így listázná ki az embereket.
 
 # 2025.09.11
-- **Tokai Ádám + Miklós Martin**: Bejelentkezés során, csak a saját tiltott listád tudd módosítani. Footer dátum cserélése 2021-2026-ra.
-- **Kriván Balázs + Fodor Adrián**: Admin fiók létrehozása adatbázisban, 999-es ID hozzárendelése.
+- **Tokai Ádám + Miklós Martin**: Admin fiók létrehozása adatbázisban, 999-es ID hozzárendelése. 
+- **Kriván Balázs + Fodor Adrián**: Footer dátum cserélése 2021-2026-ra.Bejelentkezés során, csak a saját tiltott listád tudd módosítani, az admin felhasználó mindenki tiltottlistáját tudja szerkeszteni.
 - **Tóth László Gábor + Szalontai László**: Animációk létrehozása.
 - **Herczeg Máté + Miklós Martin**: PHP-ból érkező üzenetek Modal-ba berakni.
 - **Répa Norbert + Suba Benjamin**: "Esemény" résznél a carousel fixálása, az első és utolsó kép nagyobb mint a középső.
 - **Kis Marcell Zsombor**: Betűtípus keresése
 - **Szabó Bence**: Carousel képek kicserélése a kezdőlapon.
-- **Sötét Ármi + Kriván Balázs**: Adatok gyűjtése az osztályokról (Magasság).
-
-
-
-
+- **Sötét Ármin + Kis Dávid Csaba**: Adatok gyűjtése az osztályokról (Magasság).
