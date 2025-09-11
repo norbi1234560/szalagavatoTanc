@@ -174,3 +174,9 @@
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(5, 108, 241, 0.5);
 }
+.carousel-item img {
+  height: 700px;             
+  object-fit: cover;         
+  width: 100%;                
+}
+
