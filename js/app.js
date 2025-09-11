@@ -131,11 +131,34 @@
           $scope.students = [];
 
           //Tanulók lekérése
-          $http.post("./php/getStudents.php")
+          $http.post("./php/getAllStudents.php")
           .then((studentResponse) => {
 
             //Tanulók tömbjének adatot adunk az adatbázisból
             $scope.students = studentResponse.data.data;
+
+            //Párok lekérése
+            $http.post("./php/getPairs.php")
+            .then((pairResponse) => {
+              $scope.loadablePairs = pairResponse.data.data;
+              console.log($scope.loadablePairs);
+              $scope.pairsNamed = [];
+              for(let i = 0; i < $scope.loadablePairs.length; i++){
+                for(let j = 0; j < $scope.students.length; j++){
+                  if($scope.loadablePairs[i].user_id1 == $scope.students[j].id){
+                    $scope.user1_name = $scope.students[j].name;
+                  }
+                  if($scope.loadablePairs[i].user_id2 == $scope.students[j].id){
+                    $scope.user2_name = $scope.students[j].name;
+                  }
+                }
+                $scope.pairsNamed.push({name1: $scope.user1_name, name2: $scope.user2_name});
+              }
+              console.log($scope.pairsNamed);
+            })
+          .catch((error) => {
+            console.error("hiba az adat betöltésénél: ", error);
+          });
 
           },(error) => {
             console.error("hiba az adat betöltésénél: ", error);
@@ -190,12 +213,21 @@
                   pair.taken = true;
 
                   $scope.pairs.push([student, pair]);
+                  
                 
                   $scope.allStudents.forEach(e => {
                     let index = e.pairList.findIndex(x => x === pair);
                     if (index !== -1) e.pairList.splice(index, 1);
                   });
-                }  
+                }
+                $http.post("./php/addPairs.php", $scope.pairs.map(([a, b]) => [a.id, b.id]))
+                .then((response) => {
+                  console.log("Sikeres párosítás adatbázisba mentés");
+                })
+                .catch((error) => {
+                  console.log("Hiba a párosítás adatbázisba mentésénél: ", error);
+                });
+                console.log($scope.pairs);
           })
           .catch((error) => {
             console.log(error);
