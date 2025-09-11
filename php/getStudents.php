@@ -7,7 +7,7 @@ $db = new Database();
 $args = Util::getArgs();
 
 $query ="SELECT `id`, `name`, `gender`, 
-                `taken`, `image`, `class`
+                `taken`, `image`, `class`,`height`
          FROM `students`
          WHERE `class` = :class ";
 

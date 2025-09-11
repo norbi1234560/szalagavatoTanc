@@ -41,6 +41,11 @@
           Neme: {{currentStudent.gender == "M" ? "Férfi" : "Nő"}}
         </p>
 
+        <!-- Magasság alapján kilistázás -->
+        <p>
+          Magassága: {{currentStudent.height}}cm
+        </p>
+
         <!-- Van-e párja -->
 
         <p>
@@ -54,7 +59,8 @@
       <div class="modal-footer border-secondary">
         <!-- Tiltott lista megnyitása -->
         <button type="button" ng-click="modalClassLoad('A')" class="btn btn-outline-light"
-          data-bs-target="#operationsModal" data-bs-toggle="modal" data-bs-dismiss="modal">
+          ng-show="currentStudent.id == $root.user.id || $root.user.id === 999" data-bs-target="#operationsModal" data-bs-toggle="modal"
+          data-bs-dismiss="modal">
           Tiltott lista
         </button>
 
@@ -121,7 +127,7 @@
           <!-- A osztály diákjai -->
           <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
             <!-- Diákok kilistázása -->
-            <div ng-repeat="x in modalStudents" class="form-check">
+            <div ng-repeat="x in modalStudents" class="form-check" ng-show="x.id != currentStudent.id">
               <input class="form-check-input" ng-checked="x.blocked"
                 ng-click="blocklistEdit($event.target.checked, currentStudent, x)" type="checkbox" id="{{x.id}}">
               <label class="form-check-label" for="{{x.id}}">
@@ -132,7 +138,7 @@
 
           <!-- B osztály -->
           <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
-            <div ng-repeat="x in modalStudents" class="form-check">
+            <div ng-repeat="x in modalStudents" class="form-check" ng-show="x.id != currentStudent.id">
               <input class="form-check-input" ng-checked="x.blocked"
                 ng-click="blocklistEdit($event.target.checked ,currentStudent, x)" type="checkbox" id="{{x.id}}">
               <label class="form-check-label" for="{{x.id}}">
@@ -143,7 +149,7 @@
 
           <!-- C osztály -->
           <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
-            <div ng-repeat="x in modalStudents" class="form-check">
+            <div ng-repeat="x in modalStudents" class="form-check" ng-show="x.id != currentStudent.id">
               <input class="form-check-input" ng-checked="x.blocked"
                 ng-click="blocklistEdit($event.target.checked, currentStudent, x)" type="checkbox" id="{{x.id}}">
               <label class="form-check-label" for="{{x.id}}">
