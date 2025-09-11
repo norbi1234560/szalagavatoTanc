@@ -40,7 +40,7 @@
           })
 
           .state('reserve', {
-            url: '/',
+            url: '/reserve',
             parent: 'root',
             controller: 'reserveController',
             templateUrl: './html/reserve.html'
@@ -85,10 +85,6 @@
       '$rootScope',
       '$location',
       ($rootScope,$location) => {
-
-        // get year
-        $rootScope.currentDate = new Date();
-        $rootScope.currentYear = $rootScope.currentDate.getFullYear();
 
         // user object
         $rootScope.user = {};
@@ -139,11 +135,34 @@
           $scope.students = [];
 
           //Tanulók lekérése
-          $http.post("./php/getStudents.php")
+          $http.post("./php/getAllStudents.php")
           .then((studentResponse) => {
 
             //Tanulók tömbjének adatot adunk az adatbázisból
             $scope.students = studentResponse.data.data;
+
+            //Párok lekérése
+            $http.post("./php/getPairs.php")
+            .then((pairResponse) => {
+              $scope.loadablePairs = pairResponse.data.data;
+              console.log($scope.loadablePairs);
+              $scope.pairsNamed = [];
+              for(let i = 0; i < $scope.loadablePairs.length; i++){
+                for(let j = 0; j < $scope.students.length; j++){
+                  if($scope.loadablePairs[i].user_id1 == $scope.students[j].id){
+                    $scope.user1_name = $scope.students[j].name;
+                  }
+                  if($scope.loadablePairs[i].user_id2 == $scope.students[j].id){
+                    $scope.user2_name = $scope.students[j].name;
+                  }
+                }
+                $scope.pairsNamed.push({name1: $scope.user1_name, name2: $scope.user2_name});
+              }
+              console.log($scope.pairsNamed);
+            })
+          .catch((error) => {
+            console.error("hiba az adat betöltésénél: ", error);
+          });
 
           },(error) => {
             console.error("hiba az adat betöltésénél: ", error);
@@ -158,23 +177,65 @@
           .then((response) => {
             $scope.allStudents = response.data.data;
           })
+          .then(() => {
+            $http.post("./php/getBlocklist.php")
+              .then((blockListResponse) => {
+                $scope.blockListData = blockListResponse.data.data;
+              
+                for (let i = 0; i < $scope.allStudents.length; i++) {
+                  let student = $scope.allStudents[i];
+                
+                  student.pairList = $scope.allStudents.filter(
+                    x => 
+                      x !== student
+                      && !x.taken
+                      && !$scope.blockListData.some(
+                        y => (y.user_id === student.id && y.blocked_user_id === x.id)
+                          || (y.user_id === x.id && y.blocked_user_id === student.id)
+                      )
+                  );
+                } 
+
+                $scope.pairs = [];
+              
+                for (let student of $scope.allStudents) {
+                  if (student.pairList.length === 0) continue;
+                
+                  $scope.allStudents.forEach(e => {
+                    let index = e.pairList.findIndex(x => x === student);
+                    if (index !== -1) e.pairList.splice(index, 1)
+                  });
+
+                  if (student.taken || student.taken === 1) continue;
+
+                  let pair = student.pairList[Math.floor(Math.random() * student.pairList.length)];
+                
+                  student.pair = pair;
+                  pair.pair = student;
+                
+                  student.taken = true;
+                  pair.taken = true;
+
+                  $scope.pairs.push([student, pair]);
+                  
+                
+                  $scope.allStudents.forEach(e => {
+                    let index = e.pairList.findIndex(x => x === pair);
+                    if (index !== -1) e.pairList.splice(index, 1);
+                  });
+                }
+                $http.post("./php/addPairs.php", $scope.pairs.map(([a, b]) => [a.id, b.id]))
+                .then((response) => {
+                  console.log("Sikeres párosítás adatbázisba mentés");
+                })
+                .catch((error) => {
+                  console.log("Hiba a párosítás adatbázisba mentésénél: ", error);
+                });
+                console.log($scope.pairs);
+          })
           .catch((error) => {
             console.log(error);
           })
-
-          $http.post("./php/getBlocklist.php")
-          .then((blockListResponse) => {
-            $scope.blockListData = blockListResponse.data.data;
-
-            for (let i = 0; i < $scope.allStudents.length; i++) {
-              console.log($scope.blockListData[i]);
-
-              for (let j = 0; j < $scope.blockListData.length; j++) {
-                if ($scope.allStudents[i]["blocked_user_id"] == $scope.blockListData[j]["id"]) {
-                  // console.log("SZIA LAJOS");
-                }  
-              }
-            }
           })
           .catch((error) => {
             console.log(error);

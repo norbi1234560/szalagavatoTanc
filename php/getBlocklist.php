@@ -7,7 +7,7 @@ $db = new Database();
 $query ="SELECT `user_id`, `blocked_user_id` 
          FROM `blocklist`";
 
-$result =$db->execute($query);
+$result = $db->execute($query);
 
 $db = null;
 

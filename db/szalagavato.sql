@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Sze 11. 09:43
+-- Létrehozás ideje: 2025. Sze 11. 11:19
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -244,7 +244,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 (67, 'Sztojkó Lara', 'sztojko.lara-2021@keri.mako.hu', 'sztojkolara13b'),
 (68, 'Varadik Armand', 'varadik.armand-2021@keri.mako.hu', 'varadikarmand13b'),
 (69, 'Dombi Ivett', 'dombi.ivett-2021@keri.mako.hu', 'dombiivett13a'),
-(70, 'Ambrózy Vanda', 'ambrozy.vanda-2021@keri.mako.hu', 'ambrozyvanda13a');
+(70, 'Ambrózy Vanda', 'ambrozy.vanda-2021@keri.mako.hu', 'ambrozyvanda13a'),
+(999, 'admin', 'admin@gmail.com', 'admin123');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -289,7 +290,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
