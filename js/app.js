@@ -160,18 +160,20 @@
                 $scope.blockListData = blockListResponse.data.data;
               
                 for (let i = 0; i < $scope.allStudents.length; i++) {
-                  console.log($scope.blockListData[i]);
-                
                   let student = $scope.allStudents[i];
                 
                   student.pairList = $scope.allStudents.filter(
                     x => 
                       x !== student
                       && !x.taken
-                      && !$scope.blockListData.some(y => (y[0] === student.id && y[1] === x.id) || (y[0] === x.id && y[1] === student.id))
+                      && !$scope.blockListData.some(
+                        y => (y.user_id === student.id && y.blocked_user_id === x.id)
+                          || (y.user_id === x.id && y.blocked_user_id === student.id)
+                      )
                   );
                 } 
 
+                $scope.pairs = [];
               
                 for (let student of $scope.allStudents) {
                   if (student.pairList.length === 0) continue;
@@ -190,14 +192,14 @@
                 
                   student.taken = true;
                   pair.taken = true;
+
+                  $scope.pairs.push([student, pair]);
                 
                   $scope.allStudents.forEach(e => {
                     let index = e.pairList.findIndex(x => x === pair);
                     if (index !== -1) e.pairList.splice(index, 1);
                   });
                 }  
-
-                console.log($scope.allStudents)
           })
           .catch((error) => {
             console.log(error);
