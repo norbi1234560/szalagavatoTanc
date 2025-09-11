@@ -168,7 +168,13 @@
         $scope.makePairs = () => {
 
           $scope.allStudents = []
-
+          $http.post("./php/removePairs.php")
+          .then(() => {
+            console.log("Régi párok törölve");
+          })
+          .catch((error) => {
+            console.log("Hiba a régi párok törlésénél: ", error);
+          })
           $http.post("./php/getAllStudents.php")
           .then((response) => {
             $scope.allStudents = response.data.data;
