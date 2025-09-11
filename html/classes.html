@@ -1,3 +1,25 @@
+<div class="team-boxed">
+  <div class="container">
+      <div class="intro">
+          <h2 class="text-center">{{className}} osztály</h2>
+      </div>
+      <div class="row people">
+          <div class="col-md-6 col-lg-4 item" ng-repeat="student in students">
+              <div class="box"><img class="rounded-circle" ng-src="assets/pics/{{className}}/{{student.image}}">
+                  <h3 class="name">{{student.name}}</h3>
+                  <button type="button" 
+                          ng-click="showStudentModal(student)" 
+                          class="btn btn-primary" 
+                          data-bs-toggle="modal" 
+                          data-bs-target="#studentModal">
+                      Bővebben
+                  </button>                  
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
 <!-- Fő konténer -->
 <div class="container mb-5">
   <div class="row">
