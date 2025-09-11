@@ -164,4 +164,13 @@
   opacity:1;
 }
 
+/* Card hover zoom */
 
+.zoom {
+  transition: transform .5s;
+}
+
+.zoom:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(5, 108, 241, 0.5);
+}
