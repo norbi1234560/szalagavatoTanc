@@ -85,7 +85,13 @@
 						</li>
 					</ul>
 				</li>
+				<!-- felhasználó név -->
+				<li class="d-flex align-items-center"
+						ng-if="loggedIn">
+					<h6 class="m-0">{{user.name}}</h6>
+				</li>
 			</ul>
+			
 
 			<!-- bejelentkezes btn -->
 			<form class="d-flex ms-auto" 

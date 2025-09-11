@@ -156,9 +156,10 @@
                     $scope.user2_name = $scope.students[j].name;
                   }
                 }
-                $scope.pairsNamed.push({name1: $scope.user1_name, name2: $scope.user2_name});
+                  $scope.pairsNamed.push({name1: $scope.user1_name, name2: $scope.user2_name});
               }
               console.log($scope.pairsNamed);
+              $scope.applyAsync();
             })
           .catch((error) => {
             console.error("hiba az adat betöltésénél: ", error);
@@ -175,16 +176,12 @@
           $http.post("./php/removePairs.php")
           .then(() => {
             console.log("Régi párok törölve");
-          })
-          .catch((error) => {
-            console.log("Hiba a régi párok törlésénél: ", error);
-          })
-          $http.post("./php/getAllStudents.php")
-          .then((response) => {
-            $scope.allStudents = response.data.data;
-          })
-          .then(() => {
-            $http.post("./php/getBlocklist.php")
+            $http.post("./php/getAllStudents.php")
+            .then((response) => {
+              $scope.allStudents = response.data.data;
+            })
+            .then(() => {
+              $http.post("./php/getBlocklist.php")
               .then((blockListResponse) => {
                 $scope.blockListData = blockListResponse.data.data;
               
@@ -200,6 +197,16 @@
                           || (y.user_id === x.id && y.blocked_user_id === student.id)
                       )
                   );
+                  if(student.gender == "F"){
+                    student.pairList = student.pairList.filter(x =>
+                      x.gender == "M"
+                    );
+                  } else{
+                    student.pairList = student.pairList.filter(x =>
+                      x.gender == "F"
+                    );
+                  }
+
                 } 
 
                 $scope.pairs = [];
@@ -233,11 +240,11 @@
                 $http.post("./php/addPairs.php", $scope.pairs.map(([a, b]) => [a.id, b.id]))
                 .then((response) => {
                   console.log("Sikeres párosítás adatbázisba mentés");
+                  $scope.loadPairs();
                 })
                 .catch((error) => {
                   console.log("Hiba a párosítás adatbázisba mentésénél: ", error);
                 });
-                console.log($scope.pairs);
           })
           .catch((error) => {
             console.log(error);
@@ -245,9 +252,13 @@
           })
           .catch((error) => {
             console.log(error);
+          })
+
+          })
+          .catch((error) => {
+            console.log("Hiba a régi párok törlésénél: ", error);
           })
         }
-
         $scope.loadPairs();
       }
     ])
