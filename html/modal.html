@@ -10,7 +10,18 @@
         </button>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+
+        <button type="button" 
+                id="logOut"
+                ng-click="confirmLogOut()"
+                class="btn btn-danger" 
+                ng-if="loggedOut">
+          Kijelentkezés
+        </button>
+
+        <button type="button" 
+                class="btn btn-secondary" 
+                data-bs-dismiss="modal">
           Bezárás
         </button>
       </div>

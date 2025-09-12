@@ -106,17 +106,19 @@
         }
 
         $rootScope.logOut = function(){
-          if(confirm("Biztos ki szeretnél lépni?")){
-            alert("Viszlát " + $rootScope.user.name + "!")
-            localStorage.removeItem('user');
-            setTimeout(function(){
-              window.location.reload();
-            },20);
-            $location.path("/home");
+          $rootScope.message = "Biztos ki szeretnél jelentkezni?"
+          $rootScope.loggedOut = true;
+          $rootScope.confirmLogOut = () => {
+              $rootScope.message = "Sikeres kijelentkezés viszlát";
+              $rootScope.loggedOut = false;
+              localStorage.removeItem('user');
+              setTimeout(function () {
+                window.location.reload();
+              }, 700);
+              $location.path("/home");
+            
           }
-          else{
-            alert("Bejelentkezve maradtál!");
-          } 
+
         }
       }
     ])
