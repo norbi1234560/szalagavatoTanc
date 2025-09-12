@@ -161,7 +161,6 @@
                   $scope.pairsNamed.push({name1: $scope.user1_name, name2: $scope.user2_name, image1: $scope.user1_image, image2: $scope.user2_image });
               }
               console.log($scope.pairsNamed);
-              $scope.applyAsync();
             })
           .catch((error) => {
             console.error("hiba az adat betöltésénél: ", error);
