@@ -37,3 +37,31 @@
 - **Kis Marcell Zsombor**: Betűtípus keresése
 - **Szabó Bence**: Carousel képek kicserélése a kezdőlapon.
 - **Sötét Ármin + Kis Dávid Csaba**: Adatok gyűjtése az osztályokról (Magasság).
+
+# 2025.09.12. Teendők
+# osztályokat egy oldalra, bootstrap-el tab-al megoldva.
+# Párválasztásnál design átdolgozása
+# Csinosítás, attraktivitása
+# Galéria --> Később képeknek
+# Adott osztályoknál, nemenként megjelenítés
+# Carousel-ek kijavítása
+# Profil
+# Login / Register szerkesztése, fixálása --> Input ne lógjon ki forgásnál, képernyő ne rezegjen
+# CSS cseréje bootstrap osztályokra
+# Zene, videó, tabló
+# Több nyelvű legyen az oldal
+# Azonosító
+
+# Feladatok :
+- **Kriván Balázs + Fodor Adrián + Sötét Ármin + Kis Dávid Csaba** : Galéria tábla létrehozása adatbázisban + PHP elkészítése hozzá
+    + Zene, videó, tabló adatbázisba feltöltése.
+
+- **Kis Marcell Zsombor + Miklós Martin** : Párválasztás design átdolgozása, Profil fül létrehozása.
+- **Herczeg Máté János** : Csinosítás, weboldal attraktivitása.
+- **Répa Norbert + Suba Benjamin** : Osztályokat egy oldalra, bootstrap-el tab-al megoldva. Carousel-ek kijavítása.
+- **Tóth László Gábor + Berta Barnabás** : Adott osztályoknál, nemenként megjelenítés, gomb.
+- **Szalontai László** : Login / Register szerkesztése, fixálása --> Input ne lógjon ki forgásnál, képernyő ne rezegjen. CSS cseréje bootstrap osztályokra.
+- **Tóth László Gábor + Berta Barnabás** : Adott osztályoknál, nemenként megjelenítés, gomb.
+- **Szabó Bence + Kardos Zoltán** : Több nyelvű legyen az oldal + adatbázis, php elkészítése hozzá.
+- **Guvat Bence** : Weboldal azonosító.
+
