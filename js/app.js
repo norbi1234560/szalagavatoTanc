@@ -56,7 +56,7 @@
           })
 
           .state('event', {
-            url: '/',
+            url: '/event',
             parent: 'root',
             controller: 'eventController',
             templateUrl: './html/event.html'
