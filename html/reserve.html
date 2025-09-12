@@ -13,17 +13,20 @@
 
       <thead class="table-dark">
         <tr>
-          <th colspan="2">Párok</th>
+          <th colspan="4">Párok</th>
         </tr>
         <tr>
-          <th class="w-50">1. Tag</th>
-          <th class="w-50">2. Tag</th>
+          <th class="w-50" colspan="2">1. Tag</th>
+          <th class="w-50" colspan="2">2. Tag</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="x in pairsNamed">
+          <td><img ng-src="assets/pics/{{x.image1}}" style="width: 160px"></td>
           <td class="w-50">{{x.name1}}</td>
           <td class="w-50">{{x.name2}}</td>
+          <td><img ng-src="assets/pics/{{x.image2}}" style="width: 160px"></td>
+
         </tr>
       </tbody>
     </table>

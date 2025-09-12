@@ -106,17 +106,19 @@
         }
 
         $rootScope.logOut = function(){
-          if(confirm("Biztos ki szeretnél lépni?")){
-            alert("Viszlát " + $rootScope.user.name + "!")
-            localStorage.removeItem('user');
-            setTimeout(function(){
-              window.location.reload();
-            },20);
-            $location.path("/home");
+          $rootScope.message = "Biztos ki szeretnél jelentkezni?"
+          $rootScope.loggedOut = true;
+          $rootScope.confirmLogOut = () => {
+              $rootScope.message = "Sikeres kijelentkezés viszlát";
+              $rootScope.loggedOut = false;
+              localStorage.removeItem('user');
+              setTimeout(function () {
+                window.location.reload();
+              }, 700);
+              $location.path("/home");
+            
           }
-          else{
-            alert("Bejelentkezve maradtál!");
-          } 
+
         }
       }
     ])
@@ -151,12 +153,14 @@
                 for(let j = 0; j < $scope.students.length; j++){
                   if($scope.loadablePairs[i].user_id1 == $scope.students[j].id){
                     $scope.user1_name = $scope.students[j].name;
+                    $scope.user1_image = $scope.students[j].class + "/" + $scope.students[j].image;
                   }
                   if($scope.loadablePairs[i].user_id2 == $scope.students[j].id){
                     $scope.user2_name = $scope.students[j].name;
+                    $scope.user2_image = $scope.students[j].class + "/" + $scope.students[j].image;
                   }
                 }
-                  $scope.pairsNamed.push({name1: $scope.user1_name, name2: $scope.user2_name});
+                  $scope.pairsNamed.push({name1: $scope.user1_name, name2: $scope.user2_name, image1: $scope.user1_image, image2: $scope.user2_image });
               }
               console.log($scope.pairsNamed);
             })
