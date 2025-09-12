@@ -1,15 +1,28 @@
+<!-- Oldal container -->
 <div class="team-boxed">
   <div class="container">
     <div class="intro">
-      <h2 class="text-center display-3">{{className}} osztály</h2>
+      <!-- Jelenlegi osztály kiírása -->
+      <h2 class="text-center display-3">
+        {{className}} osztály
+      </h2>
     </div>
+
+    <!-- Student kártyák megjelenítése -->
     <div class="row people">
-      <div class="col-md-6 col-lg-4 item" ng-repeat="student in students">
-        <div class="box zoom"><img class="rounded-circle" style="width: 160px; height: 160px;" ng-src="assets/pics/{{className}}/{{student.image}}">
+      <div class="col-md-6 col-lg-4 item"
+           ng-repeat="student in students">
+        <div class="box zoom">
+          <img class="rounded-circle" 
+               style="width: 160px; height: 160px;"
+               ng-src="assets/pics/{{className}}/{{student.image}}">
           <h5 class="name">{{student.name}}</h5>
-          <button type="button" ng-click="showStudentModal(student)" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#studentModal">
-            Bővebben
+          <button type="button"
+                  ng-click="showStudentModal(student)"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#studentModal">
+              Bővebben
           </button>
         </div>
       </div>
@@ -18,7 +31,11 @@
 </div>
 
 <!-- Tanulo adatai -->
-<div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade"
+     id="studentModal"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
 
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-dark text-white shadow-lg">
@@ -30,7 +47,10 @@
         </h5>
 
         <!-- Bezárás gomb -->
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Bezárás">
+        <button type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Bezárás">
         </button>
       </div>
 
@@ -58,15 +78,21 @@
       <!-- Footer -->
       <div class="modal-footer border-secondary">
         <!-- Tiltott lista megnyitása -->
-        <button type="button" ng-click="modalClassLoad('A')" class="btn btn-outline-light"
-          ng-show="currentStudent.id == $root.user.id || $root.user.id === 999" data-bs-target="#operationsModal" data-bs-toggle="modal"
-          data-bs-dismiss="modal">
+        <button type="button"
+                ng-click="modalClassLoad('A')"
+                class="btn btn-outline-light"
+                ng-show="currentStudent.id == $root.user.id || $root.user.id === 999"
+                data-bs-target="#operationsModal"
+                data-bs-toggle="modal"
+                data-bs-dismiss="modal">
           Tiltott lista
         </button>
 
         <!-- Modal bezárása -->
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Bezárás
+        <button type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal">
+            Bezárás
         </button>
       </div>
     </div>
@@ -74,19 +100,27 @@
 </div>
 
 <!-- Tiltott lista osztályokra bontva -->
-<div class="modal fade" id="operationsModal" tabindex="-1" aria-labelledby="operationsModalLabel" aria-hidden="true">
+<div class="modal fade"
+     id="operationsModal"
+     tabindex="-1"
+     aria-labelledby="operationsModalLabel"
+     aria-hidden="true">
 
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-dark text-white shadow-lg">
 
       <!-- Modal fejléc -->
       <div class="modal-header border-secondary">
-        <h5 class="modal-title" id="operationsModalLabel">
+        <h5 class="modal-title"
+            id="operationsModalLabel">
           Tiltott Lista
         </h5>
 
         <!-- Bezárás gomb -->
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Bezárás">
+        <button type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Bezárás">
         </button>
       </div>
 
@@ -94,28 +128,54 @@
       <div class="modal-body">
 
         <!-- Bootstrap navigácio -->
-        <ul class="nav nav-tabs mb-3" id="modalTabs" role="tablist">
+        <ul class="nav nav-tabs mb-3"
+            id="modalTabs"
+            role="tablist">
 
           <!-- A osztály tab -->
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="tab1-tab" ng-click="modalClassLoad('A')" data-bs-toggle="tab"
-              data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">
-              A
+          <li class="nav-item"
+              role="presentation">
+            <button class="nav-link active"
+                    id="tab1-tab"
+                    ng-click="modalClassLoad('A')"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab1"
+                    type="button"
+                    role="tab"
+                    aria-controls="tab1"
+                    aria-selected="true">
+                A
             </button>
           </li>
 
           <!-- B osztály tab -->
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab2-tab" ng-click="modalClassLoad('B')" data-bs-toggle="tab"
-              data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">
+          <li class="nav-item"
+              role="presentation">
+            <button class="nav-link"
+                    id="tab2-tab"
+                    ng-click="modalClassLoad('B')"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab2"
+                    type="button"
+                    role="tab"
+                    aria-controls="tab2"
+                    aria-selected="false">
               B
             </button>
           </li>
 
           <!-- C osztály tab -->
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab3-tab" ng-click="modalClassLoad('C')" data-bs-toggle="tab"
-              data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="false">
+          <li class="nav-item"
+              role="presentation">
+            <button class="nav-link"
+                    id="tab3-tab"
+                    ng-click="modalClassLoad('C')"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab3"
+                    type="button"
+                    role="tab"
+                    aria-controls="tab3"
+                    aria-selected="false">
               C
             </button>
           </li>

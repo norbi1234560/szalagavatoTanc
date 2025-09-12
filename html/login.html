@@ -26,6 +26,7 @@
 
                           <h4 class="mb-4 pb-3 fw-semibold">Bejelentkezés</h4>
 
+                          <!-- Email Input -->
                           <div class="form-group">                          
                             <input type="text" 
                                    name="logemail" 
@@ -39,6 +40,7 @@
                             <i class="input-icon fa-solid fa-envelope"></i>
                           </div>
 
+                          <!-- Jelszó Input -->
                           <div class="form-group mt-2">
                             <input type="{{showPassword_login ? 'text' : 'password'}}" 
                                    ng-model="password_login" 
@@ -63,6 +65,7 @@
                             </div>
                           </div>
 
+                          <!-- Bejelentkezés Gomb -->
                           <button class="btn-form mt-4 button-form" 
                             data-bs-toggle="modal" 
                             data-bs-target="#userModal" 
@@ -82,7 +85,7 @@
                         <form name="registerForm">
 
                           <h4 class="fw-semibold mb-3">Regisztráció</h4>
-
+                          <!-- Név Input -->
                           <div class="form-group">
                             <input type="text" 
                                    name="logname" 
@@ -95,6 +98,7 @@
                             <i class="input-icon fa-solid fa-user"></i>
                           </div>
 
+                          <!-- Email Input -->
                           <div class="form-group mt-2">
                             <input type="text" 
                                    name="logemail" 
@@ -108,6 +112,7 @@
                             <i class="input-icon fa-solid fa-envelope"></i>
                           </div>
 
+                          <!-- Password Input -->
                           <div class="form-group mt-2">
                             <input type="{{showPassword_register ? 'text' : 'password'}}" 
                                    ng-model="password_register" 
@@ -137,6 +142,7 @@
                             </div>
                           </div>
 
+                        <!-- Regisztrációsa Gomb -->
                           <button class="btn-form mt-4 button-form" 
                                   data-bs-toggle="modal" 
                                   data-bs-target="#userModal"
