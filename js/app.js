@@ -266,6 +266,35 @@
       }
     ])
 
+     .controller('profileController', [
+      '$scope',
+      '$http',
+      '$rootScope',
+      '$location',
+      function ($scope, $http, $rootScope, $location) {
+
+        $scope.modify = () => {
+          $http.post("./php/editUser.php", { email: $scope.model.email, password: $scope.model.password})
+            .then(function (response) {
+              console.log(response.data);
+
+              $rootScope.msg = "Sikeres megváltoztatás" + $scope.name + "!";
+
+              $rootScope.loginUser(response.data.data, $rootScope.msg);
+              $scope.$applyAsync();
+              $location.path('/');
+
+
+            })
+            .catch(error => {
+              $rootScope.message = "Hiba történt: " + error;
+              console.log($scope.Error)
+            })
+             
+        }    
+      }
+    ])
+
     // Home controller
     .controller('homeController', [
       '$scope',
