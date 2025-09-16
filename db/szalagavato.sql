@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Sze 11. 23:15
+-- Létrehozás ideje: 2025. Sze 16. 10:21
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -43,6 +43,30 @@ INSERT INTO `blocklist` (`user_id`, `blocked_user_id`) VALUES
 (1, 5),
 (2, 0),
 (2, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `gallery`
+--
+
+CREATE TABLE `gallery` (
+  `id` int(11) NOT NULL,
+  `class` varchar(20) NOT NULL,
+  `image` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `gallery`
+--
+
+INSERT INTO `gallery` (`id`, `class`, `image`) VALUES
+(1, 'event', 'szalag.jpg'),
+(2, 'event', 'Szalagavato.jpg'),
+(3, 'event', 'szalagavato-fotozas.jpg'),
+(4, 'home', 'h1-event.jpg'),
+(5, 'home', 'maxresdefault.jpg'),
+(6, 'home', 'szalagavato-szabadhegyi.jpeg');
 
 -- --------------------------------------------------------
 
@@ -291,6 +315,12 @@ ALTER TABLE `blocklist`
   ADD UNIQUE KEY `user_id1` (`user_id`,`blocked_user_id`);
 
 --
+-- A tábla indexei `gallery`
+--
+ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- A tábla indexei `pairs`
 --
 ALTER TABLE `pairs`
@@ -312,6 +342,12 @@ ALTER TABLE `users`
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
+
+--
+-- AUTO_INCREMENT a táblához `gallery`
+--
+ALTER TABLE `gallery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT a táblához `students`
