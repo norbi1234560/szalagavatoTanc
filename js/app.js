@@ -280,6 +280,11 @@
       }
     ])
 
+    .controller('forgotpasswordController', [
+      function() {
+
+      }
+    ])
     // Home controller
     .controller('homeController', [
       '$scope',
