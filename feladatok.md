@@ -61,7 +61,6 @@
 - **Répa Norbert + Suba Benjamin** : Osztályokat egy oldalra, bootstrap-el tab-al megoldva. Carousel-ek kijavítása.
 - **Tóth László Gábor + Berta Barnabás** : Adott osztályoknál, nemenként megjelenítés, gomb.
 - **Szalontai László** : Login / Register szerkesztése, fixálása --> Input ne lógjon ki forgásnál, képernyő ne rezegjen. CSS cseréje bootstrap osztályokra.
-- **Tóth László Gábor + Berta Barnabás** : Adott osztályoknál, nemenként megjelenítés, gomb.
 - **Szabó Bence + Kardos Zoltán** : Több nyelvű legyen az oldal + adatbázis, php elkészítése hozzá.
 - **Guvat Bence** : Weboldal azonosító.
 
