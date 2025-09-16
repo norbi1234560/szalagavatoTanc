@@ -6,11 +6,18 @@ $args = Util::getArgs();
 
 $db = new Database();
 
-$query = "SELECT `id`, `class`, `image`
-          FROM `gallery`
-          WHERE `class` = :class";
+if ($args == null) {
+  $query = "SELECT `id`, `class`, `image`
+            FROM `gallery`";
 
-$result =$db->execute($query, $args);
+  $result = $db->execute($query);
+} else {
+  $query = "SELECT `id`, `class`, `image`
+            FROM `gallery`
+            WHERE `class` = :class";
+
+  $result = $db->execute($query, $args);
+}
 
 $db = null;
 
