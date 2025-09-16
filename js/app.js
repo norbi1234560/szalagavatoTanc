@@ -47,11 +47,11 @@
             templateUrl: './html/reserve.html'
           })
 
-          .state('forgotpassword', {
-            url: '/forgotpassword',
+          .state('profile', {
+            url: '/profile',
             parent: 'root',
-            controller: 'forgotpasswordController',
-            templateUrl: './html/forgotpassword.html'
+            controller: 'profileController',
+            templateUrl: './html/profile.html'
           })
 
 
@@ -281,7 +281,7 @@
       }
     ])
 
-    .controller('forgotpasswordController', [
+    .controller('profileController', [
       function() {
 
       }
