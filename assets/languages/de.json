@@ -1,0 +1,61 @@
+{
+    "footer": {
+        "copyright": "2021-2026 KERI Information Technologie"
+    },
+    "header": {
+        "home": "Heim Seite",
+        "event": "Veranstaltung",
+        "pair": "Paars machen",
+        "classes": "Klassen",
+        "class": "Klasse",
+        "login": "Login",
+        "logout": "Ausloggen"
+    },
+    "home": {
+        "event_name": "HSZC Návay Lajos Berufsschule Centrum und College 2025-2026 Schülerball",
+        "event_description": "Der Abschlussball ist ein besonderes Fest im Leben aller Absolventen. Dieses Ereignis markiert nicht nur das Ende des Studiums, sondern auch den Beginn eines neuen Lebensabschnitts. Wir tragen das Band, das uns mit unserer Schule, unseren Lehrern und untereinander verbindet, mit Stolz. Wir danken allen, die unsere Reise unterstützt haben!",
+        "interest": "Sind Sie interessieren für unser Schülerball?",
+        "click_here": "Klicken hier!"
+    },
+    "classes": {
+        "class": "Klasse",
+        "more": "Mehr",
+        "gender": "Gender",
+        "man": "Mann",
+        "woman": "Frau",
+        "height": "Größe",
+        "block_list": "Block Liste",
+        "no_pair": "Ohne Partner*in",
+        "yes_pair": "Mit Partner*in"
+    },
+    "event": {
+        "info": "Information",
+        "event_info": "Information über das Schülerball",
+        "appearance": "Kleiderordnung: Formelle",
+        "date": "Datum: 5. 12. 2025. 22:30",
+        "location": "Standort: Makó Sport Zentrum",
+        "warning": "Kommen Sie bitte pünktlich an!",
+        "ticket_reservation": "Karten reservieren",
+        "ticket_reservation_info": "Information über Karten reservieren",
+        "ticket": "Karten",
+        "price": "Preis: 6.41/Person",
+        "reservation_date": "Reservierung ist möglich bis 05.11.2025.",
+        "reservation": "Reservieren"
+    },
+    "login": {
+        "login": "Login",
+        "register": "Registieren",
+        "show_password": "Passwort anzeigen"
+    },
+    "modal": {
+        "logout": "Ausloggen",
+        "close": "Schließen"
+    },
+    "reserve": {
+        "pair":"Paars machen",
+        "make_pairs": "Machen Paars",
+        "pairs": "Paars",
+        "first": "Erste Person",
+        "second": "Zweite Person"
+    }
+}
