@@ -1,0 +1,62 @@
+{
+    "footer": {
+        "copyright": "2021-2026 KERI Informatika"
+    },
+    "header": {
+        "home": "首页",
+        "event": "活动",
+        "pair": "配对",
+        "classes": "班级",
+        "class": "班级",
+        "login": "登录",
+        "logout": "登出"
+    },
+    "home": {
+        "event_name": "HSZC Návay Lajos 职业培训中心和宿舍 2025-2026 毕业舞会",
+        "event_description": "毕业舞会是每一位毕业生人生中特别的时刻。这个活动不仅象征着学业的结束，也意味着新人生阶段的开始。我们自豪地佩戴象征学校、老师和同学之间联系的绶带。感谢一路支持我们的人！",
+        "interest": "您是否对我们的毕业舞会感兴趣并想购买门票？",
+        "click_here": "点击这里！"
+    },
+    "classes": {
+        "class": "班级",
+        "more": "更多",
+        "gender": "性别",
+        "man": "男",
+        "woman": "女",
+        "height": "身高",
+        "block_list": "黑名单",
+        "close": "关闭",
+        "no_pair": "没有搭档",
+        "yes_pair": "已有搭档"
+    },
+    "event": {
+        "info": "信息",
+        "event_info": "关于毕业舞会的信息",
+        "appearance": "着装：正式服装",
+        "date": "时间：2025年12月5日 22:30",
+        "location": "地点：Makó 体育馆",
+        "warning": "请准时到达会场！",
+        "ticket_reservation": "订票",
+        "ticket_reservation_info": "关于订票的信息",
+        "ticket": "票",
+        "price": "价格：2500福林/人",
+        "reservation_date": "订票时间：从2025.11.05.开始",
+        "reservation": "预订"
+    },
+    "login": {
+        "login": "登录",
+        "register": "注册",
+        "show_password": "显示密码"
+    },
+    "modal": {
+        "logout": "登出",
+        "close": "关闭"
+    },
+    "reserve": {
+        "pair": "配对",
+        "make_pairs": "创建配对",
+        "pairs": "配对",
+        "first": "第一成员",
+        "second": "第二成员"
+    }
+}

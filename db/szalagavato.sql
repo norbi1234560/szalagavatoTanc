@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Sze 16. 10:21
+-- Létrehozás ideje: 2025. Sze 16. 11:21
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -66,7 +66,34 @@ INSERT INTO `gallery` (`id`, `class`, `image`) VALUES
 (3, 'event', 'szalagavato-fotozas.jpg'),
 (4, 'home', 'h1-event.jpg'),
 (5, 'home', 'maxresdefault.jpg'),
-(6, 'home', 'szalagavato-szabadhegyi.jpeg');
+(6, 'home', 'szalagavato-szabadhegyi.jpeg'),
+(7, '13A', 'erretsegi13A.jpg'),
+(8, '13A', 'osztalykep_A01.jpg'),
+(9, '13A', 'osztalykep_A02.jpg'),
+(10, '13A', 'osztalykep_A03.jpg'),
+(11, '13A', 'osztalykep_A04.jpg'),
+(12, '13A', 'osztalykep_A05.jpg'),
+(13, '13A', 'penzugy_A01.jpg'),
+(14, '13A', 'turisztika_A01.jpg'),
+(15, '13B', 'agazatiB.jpg'),
+(16, '13B', 'erettsegi13B.jpg'),
+(17, '13B', 'ivan.jpg'),
+(18, '13B', 'marcius15.jpg'),
+(19, '13B', 'osztalykep_B01.jpg'),
+(20, '13B', 'osztalykep_B02.jpg'),
+(21, '13B', 'osztalykep_B03.jpg'),
+(22, '13C', 'agazatiC.jpg'),
+(23, '13C', 'erettsegi13C.jpg'),
+(24, '13C', 'forradalom.jpg'),
+(25, '13C', 'helytallas.jpg'),
+(26, '13C', 'mecha.jpg'),
+(27, '13C', 'nonap.jpg'),
+(28, '13C', 'osztalykep_C01.jpg'),
+(29, '13C', 'pacek.jpg'),
+(30, '13C', 'pacek2.jpg'),
+(31, '13C', 'pacek3.jpg'),
+(32, '13C', 'szanto.jpg'),
+(33, '13C', 'szerencsekerek.jpg');
 
 -- --------------------------------------------------------
 
@@ -347,7 +374,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT a táblához `students`
