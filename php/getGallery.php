@@ -5,8 +5,7 @@ require_once("../../common/php/environment.php");
 $db = new Database();
 
 $query = "SELECT `id`, `class`, `image`
-          FROM `gallery`
-          WHERE `class` = 'home'";
+          FROM `gallery`";
 
 $result =$db->execute($query);
 
