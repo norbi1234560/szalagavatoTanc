@@ -20,12 +20,20 @@
       <h2 class="text-center display-3">
         {{className}} osztály
       </h2>
+      <div class="text-center">
+        <button type="button" class="btn btn-primary" ng-click="genderFilter = 'M'">Férfi</button>
+         <button type="button" class="btn btn-danger" ng-click="genderFilter = null">Összes</button>
+        <button type="button" class="btn btn-primary" ng-click="genderFilter = 'F'">Nő</button>
+      </div>
+</div>
+
     </div>
 
     <!-- Student kártyák megjelenítése -->
     <div class="row people">
       <div class="col-md-6 col-lg-4 item"
-           ng-repeat="student in students">
+           ng-repeat="student in students"
+           ng-show="genderFilter == null || student.gender === genderFilter">
         <div class="box zoom">
           <img class="rounded-circle" 
                style="width: 160px; height: 160px;"
