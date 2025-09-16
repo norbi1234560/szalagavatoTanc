@@ -282,9 +282,24 @@
     ])
 
     .controller('profileController', [
-      function() {
+      $scope.register = () => {
+          $http.post("./php/editUser.php", { name: $scope.name, email: $scope.email, password: $scope.password})
+            .then(function (response) {
+              console.log(response.data);
 
-      }
+              $rootScope.msg = "Sikeres Változtatás " + $scope.name + "!";
+
+              $rootScope.loginUser(response.data.data, $rootScope.msg);
+              $scope.$applyAsync();
+              $location.path('/');
+
+
+            })
+            .catch(error => {
+              $rootScope.message = "Hiba történt: " + error;
+              console.log($scope.Error)
+            })
+        }
     ])
 
     // Home controller
