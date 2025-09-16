@@ -1,5 +1,63 @@
 {
     "footer": {
         "copyright": "2021-2026 KERI Informatika"
+    },
+    "header": {
+        "home": "Kezdőlap",
+        "event": "Esemény",
+        "pair": "Párválasztás",
+        "classes": "Osztályok",
+        "class": "osztály",
+        "login": "Bejelentkezés",
+        "logout": "Kijelentkezés"
+    },
+    "home": {
+        "event_name": "HSZC Návay Lajos Szakképzési Centrum és Kollégium 2025-2026 Szalagavató",
+        "event_description": "A szalagavató ünnepség minden végzős diák életében különleges pillanat. Ez az esemény nemcsak a tanulmányok lezárását jelképezi, hanem egy új életszakasz kezdetét is. Büszkén viseljük a szalagot, amely összeköt minket az iskolával, tanárainkkal és egymással. Köszönjük mindenkinek, aki támogatta utunkat!",
+        "interest": "Esetleg érdekli a mi szalagavatónk és megvenné a jegyét?",
+        "click_here": "Kattints Ide!"
+    },
+    "classes": {
+        "class": "osztály",
+        "more": "Bővebben",
+        "gender": "Neme",
+        "man": "Férfi",
+        "woman": "Nő",
+        "height": "Magassága",
+        "block_list": "Tiltott lista",
+        "close": "Bezárás",
+        "no_pair": "Nincs párja",
+        "yes_pair": "Van párja"
+    },
+    "event": {
+        "info": "Információ",
+        "event_info": "Szalagavatóval kapcsolatos Információk",
+        "appearance": "Megjelenés: Elegáns öltözet",
+        "date": "Időpont: 2025 dec. 5, 22:30",
+        "location": "Helyszín: Makó, Sportcsarnok",
+        "warning": "Kérem a helyszínre időbe érkezzenek!",
+        "ticket_reservation": "Jegyfoglalás",
+        "ticket_reservation_info": "Jegyfoglalással kapcsolatos információk",
+        "ticket": "Jegy",
+        "price": "Ár: 2500ft/fő",
+        "reservation_date": "A foglalás 2025.11.05.-től lehetséges",
+        "reservation": "Foglalás"
+    },
+    "login": {
+        "login": "Bejelentkezés",
+        "register": "Regisztráció",
+        "show_password": "Jelszó megjelenítése"
+    },
+    "modal": {
+        "logout": "Kijelentkezés",
+        "close": "Bezárás"
+    },
+    "reserve": {
+        "pair": "Pár összeállítás",
+        "make_pairs": "Párok összeállítása",
+        "pairs": "Párok",
+        "first": "1. Tag",
+        "second": "2. Tag"
     }
+
 }
