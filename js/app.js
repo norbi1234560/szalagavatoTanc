@@ -46,6 +46,13 @@
             templateUrl: './html/reserve.html'
           })
 
+          .state('forgotpassword', {
+            url: '/forgotpassword',
+            parent: 'root',
+            controller: 'forgotpasswordController',
+            templateUrl: './html/forgotpassword.html'
+          })
+
 
           .state('classes', {
             url: '/classes/:class',
