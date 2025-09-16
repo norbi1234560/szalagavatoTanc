@@ -56,7 +56,7 @@
 - **Kriván Balázs + Fodor Adrián + Sötét Ármin + Kis Dávid Csaba** : Galéria tábla létrehozása adatbázisban + PHP elkészítése hozzá
   . + Zene, videó, tabló adatbázisba feltöltése.
 
-- **Herczeg Máté János + Miklós Martin** : Párválasztás design átdolgozása, Profil fül létrehozása. 
+- **Herczeg Máté János + Miklós Martin + Dani Benedek** : Párválasztás design átdolgozása, Profil fül létrehozása. 
 - **Répa Norbert + Suba Benjamin** : Osztályokat egy oldalra, bootstrap-el tab-al megoldva. Carousel-ek kijavítása.
 - **Kulcsár Tamás Ámon + Bokor Richárd** : Adott osztályoknál, nemenként megjelenítés, gomb.
 - **Tóth László Gábor + Tokai Ádám** : Login / Register szerkesztése, fixálása --> Input ne lógjon ki forgásnál, képernyő ne rezegjen. CSS cseréje bootstrap osztályokra.
