@@ -288,8 +288,8 @@
       '$location',
       function ($scope, $http, $rootScope, $location) {
 
-        $scope.register = () => {
-          $http.post("./php/editUser.php", { name: $scope.name, email: $scope.email, password: $scope.password})
+        $scope.modify = () => {
+          $http.post("./php/editUser.php", { email: $scope.model.email, password: $scope.model.password})
             .then(function (response) {
               console.log(response.data);
 
