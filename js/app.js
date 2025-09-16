@@ -47,11 +47,11 @@
             templateUrl: './html/reserve.html'
           })
 
-          .state('forgotpassword', {
-            url: '/forgotpassword',
+          .state('profile', {
+            url: '/profile',
             parent: 'root',
-            controller: 'forgotpasswordController',
-            templateUrl: './html/forgotpassword.html'
+            controller: 'profileController',
+            templateUrl: './html/profile.html'
           })
 
 
@@ -281,11 +281,12 @@
       }
     ])
 
-    .controller('forgotpasswordController', [
+    .controller('profileController', [
       function() {
 
       }
     ])
+
     // Home controller
     .controller('homeController', [
       '$scope',
@@ -293,7 +294,7 @@
       function ($scope, $http,) {
         $scope.homeImages = [];
 
-        $http.post("./php/getHomeImages.php")
+        $http.post("./php/getGallery.php", {class: "home"})
           .then(function (response) {
             $scope.homeImages = response.data.data;
             $scope.$applyAsync();
@@ -437,7 +438,7 @@
       function ($scope, $http) {
         $scope.eventImages = [];
 
-        $http.post("./php/getEventImages.php")
+        $http.post("./php/getGallery.php", {class: "event"})
           .then(function (response) {
             $scope.eventImages = response.data.data;
             $scope.$applyAsync();
