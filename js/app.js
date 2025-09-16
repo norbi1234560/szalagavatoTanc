@@ -32,7 +32,6 @@
               }
             }
           })
-
           .state('home', {
             url: '/',
             parent: 'root',
@@ -45,13 +44,6 @@
             parent: 'root',
             controller: 'reserveController',
             templateUrl: './html/reserve.html'
-          })
-
-          .state('profile', {
-            url: '/profile',
-            parent: 'root',
-            controller: 'profileController',
-            templateUrl: './html/profile.html'
           })
 
 
@@ -82,13 +74,6 @@
             parent: 'root',
             controller: 'registerController',
             templateUrl: './html/register.html'
-          })
-
-          .state('galeria', {
-            url: '/galeria',
-            parent: 'root',
-            controller: 'galeriaController',
-            templateUrl: './html/galeria.html'
           })
 
         $urlRouterProvider.otherwise('/');
@@ -281,9 +266,32 @@
       }
     ])
 
-    .controller('profileController', [
-      function() {
+     .controller('profileController', [
+      '$scope',
+      '$http',
+      '$rootScope',
+      '$location',
+      function ($scope, $http, $rootScope, $location) {
 
+        $scope.modify = () => {
+          $http.post("./php/editUser.php", { email: $scope.model.email, password: $scope.model.password})
+            .then(function (response) {
+              console.log(response.data);
+
+              $rootScope.msg = "Sikeres megváltoztatás" + $scope.name + "!";
+
+              $rootScope.loginUser(response.data.data, $rootScope.msg);
+              $scope.$applyAsync();
+              $location.path('/');
+
+
+            })
+            .catch(error => {
+              $rootScope.message = "Hiba történt: " + error;
+              console.log($scope.Error)
+            })
+             
+        }    
       }
     ])
 
@@ -291,10 +299,12 @@
     .controller('homeController', [
       '$scope',
       '$http',
-      function ($scope, $http,) {
+      '$stateParams',
+      function ($scope, $http, $stateParams) {
+        $scope.className = $stateParams.class;
         $scope.homeImages = [];
 
-        $http.post("./php/getGallery.php", {class: "home"})
+        $http.post("./php/getHomeImages.php", { class: $stateParams.class })
           .then(function (response) {
             $scope.homeImages = response.data.data;
             $scope.$applyAsync();
@@ -374,6 +384,16 @@
           .catch(error => {
             console.log("Hiba.:" + error)
           })
+         $http.post("./php/getClasses.php")
+         .then(function (response) {
+           $scope.classes = response.data.data.map(c => c.class);
+         
+           console.log($scope.classes);
+         })
+         .catch(error => {
+           console.log("Hiba: " + error);
+         });
+        
 
         $scope.modalClassLoad = (radioClass) => {
           $scope.currentModalClass = radioClass;
@@ -435,10 +455,12 @@
     .controller('eventController', [
       '$scope',
       '$http',
-      function ($scope, $http) {
+      '$stateParams',
+      function ($scope, $http, $stateParams) {
+        $scope.className = $stateParams.class;
         $scope.eventImages = [];
 
-        $http.post("./php/getGallery.php", {class: "event"})
+        $http.post("./php/getEventImages.php", { class: $stateParams.class })
           .then(function (response) {
             $scope.eventImages = response.data.data;
             $scope.$applyAsync();
@@ -450,14 +472,6 @@
         $scope.currentDate = new Date();
         $scope.eventDate = new Date('2025-11-05');
         $scope.isEvent = $scope.currentDate < $scope.eventDate;
-      }
-    ])
-    
-    // Galeria controller
-    .controller('galeriaController' , [
-      '$scope',
-      function ($scope) {
-        console.log($scope)
       }
     ])
 
