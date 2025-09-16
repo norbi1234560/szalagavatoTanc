@@ -2,28 +2,14 @@
  <div class="row justify-content-center my-3 mx-2">
   <div class="col-12 d-flex justify-content-center mt-1">
     <ul class="nav justify-content-center my-3">
-      <li class="nav-item">
+      <li ng-repeat="x in classes" class="nav-item">
         <button class="btn btn-outline-primary mx-2 rounded-pill" 
                 type="button" 
-                ui-sref="classes({class: '13A'})">
-          13A
+                ui-sref="classes({class: x})">
+          {{x}}
         </button>
       </li>
-      <li class="nav-item">
-        <button class="btn btn-outline-primary mx-2 rounded-pill" 
-                type="button" 
-                ui-sref="classes({class: '13B'})">
-          13B
-        </button>
-      </li>
-      <li class="nav-item">
-        <button class="btn btn-outline-primary mx-2 rounded-pill" 
-                type="button" 
-                ui-sref="classes({class: '13C'})">
-          13C
-        </button>
-      </li>
-</ul>
+    </ul>
 
   </div>
 </div>

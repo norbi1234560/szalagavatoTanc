@@ -397,6 +397,16 @@
           .catch(error => {
             console.log("Hiba.:" + error)
           })
+         $http.post("./php/getClasses.php")
+         .then(function (response) {
+           $scope.classes = response.data.data.map(c => c.class);
+         
+           console.log($scope.classes);
+         })
+         .catch(error => {
+           console.log("Hiba: " + error);
+         });
+        
 
         $scope.modalClassLoad = (radioClass) => {
           $scope.currentModalClass = radioClass;
