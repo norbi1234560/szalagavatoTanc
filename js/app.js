@@ -46,6 +46,13 @@
             templateUrl: './html/reserve.html'
           })
 
+          .state('forgotpassword', {
+            url: '/forgotpassword',
+            parent: 'root',
+            controller: 'forgotpasswordController',
+            templateUrl: './html/forgotpassword.html'
+          })
+
 
           .state('classes', {
             url: '/classes/:class',
@@ -74,6 +81,13 @@
             parent: 'root',
             controller: 'registerController',
             templateUrl: './html/register.html'
+          })
+
+          .state('galeria', {
+            url: '/galeria',
+            parent: 'root',
+            controller: 'galeriaController',
+            templateUrl: './html/galeria.html'
           })
 
         $urlRouterProvider.otherwise('/');
@@ -433,6 +447,14 @@
         $scope.currentDate = new Date();
         $scope.eventDate = new Date('2025-11-05');
         $scope.isEvent = $scope.currentDate < $scope.eventDate;
+      }
+    ])
+    
+    // Galeria controller
+    .controller('galeriaController' , [
+      '$scope',
+      function ($scope) {
+        console.log($scope)
       }
     ])
 

@@ -54,6 +54,18 @@
 					</a>
 				</li>
 
+        <li class="nav-item mx-1">
+					<a class="nav-link" 
+						 ui-sref="galeria" 
+						 ui-sref-active="active" 
+						 data-bs-toggle="collapse"
+						 data-bs-target=".navbar-collapse.show">
+						<span class="text-capitalize text-small-caps">
+							Galéria
+						</span>
+					</a>
+			  </li>
+
 				<!-- osztalyok -->
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" 
@@ -86,7 +98,6 @@
 					</ul>
 				</li>
 			</ul>
-			
 
 			<!-- bejelentkezes btn -->
 			<form class="d-flex ms-auto" 
@@ -96,17 +107,29 @@
 								ui-sref="login">
 						Bejelentkezés
 				</button>
-				<!-- felhasználó név -->
-				<li class="d-flex align-items-center mx-3" ng-if="loggedIn">
-					<h6 class="m-0 text-white">{{user.name}}</h6>
+
+				<!-- Fiók kezelés -->
+				<li class="nav-item dropdown d-flex align-items-center mx-3" ng-if="loggedIn">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						{{user.name}}
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item"
+								 ui-sref="forgotpassword">
+								Elfelejtettem a jelszavam
+							</a>
+						</li>
+						<li>
+							<a class="dropdown-item"
+								 ng-click="logOut()"
+								 data-bs-toggle="modal" 
+                 data-bs-target="#userModal">
+								Kijelentkezés
+							</a>
+						</li>
+					</ul>
 				</li>
-				<button ng-if="loggedIn" class="btn btn-outline-secondary" 
-								type="button"
-								data-bs-toggle="modal" 
-                data-bs-target="#userModal" 
-								ng-click="logOut()">
-						Kijelentkezés
-				</button>
 			</form>
 		</div>
 	</div>
