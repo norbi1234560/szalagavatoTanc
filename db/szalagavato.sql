@@ -187,7 +187,7 @@ INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`, `class`, `heig
 (17, 'Oláh Zsigmond Sámuel', 'M', 1, 'OlahZsigmond.jpg', '13C', 186),
 (18, 'Répa Norbert', 'M', 1, 'RepaNorbert.jpg', '13C', 191),
 (19, 'Sötét Ármin', 'M', 1, 'SotetArmin.png', '13C', 168),
-(20, 'Suba Benjamin', 'M', 1, 'SubaBenjamin.jpg', '13C', 189),
+(20, 'Suba Benjamin', 'M', 1, 'SubaBenjamin.jpg', '13C', 188),
 (21, 'Suhajda Ádám Dominik', 'M', 1, 'SuhajdaAdam.jpg', '13C', 185),
 (22, 'Szabó Bence', 'M', 1, 'SzaboBence.jpg', '13C', 187),
 (23, 'Szalontai László', 'M', 1, 'SzalontaiLaszlo.jpg', '13C', 188),
