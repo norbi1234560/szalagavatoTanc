@@ -442,6 +442,8 @@
         $scope.isEvent = $scope.currentDate < $scope.eventDate;
       }
     ])
+    
+    // Galeria controller
     .controller('galeriaController' , [
       '$scope',
       function ($scope) {
