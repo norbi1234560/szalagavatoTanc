@@ -18,7 +18,7 @@
 - **Guvat Bence + Kardos Zoltán**: Blocklist megcsinálása
 - **Kis Marcell Zsombor + Fodor Adrián**: Reszponzívitás
 - **Kriván Balázs**: Többi osztály adatait teszik fel az adatbázisba.
-- **Dani Benedek**: Home controller
+- *.*Dani Benedek**: Home controller
 - **Tóth László**: Home html, Login és Register html mehanikai funkcionalitása, és ShowPassword elkészítése
 - **Miklós Martin**: Event controller
 - **Szalontai László**: Event html
@@ -52,16 +52,13 @@
 # Több nyelvű legyen az oldal
 # Azonosító
 
-# Feladatok :
+# 2025.09.16. Feladatok :
 - **Kriván Balázs + Fodor Adrián + Sötét Ármin + Kis Dávid Csaba** : Galéria tábla létrehozása adatbázisban + PHP elkészítése hozzá
-    + Zene, videó, tabló adatbázisba feltöltése.
+  . + Zene, videó, tabló adatbázisba feltöltése.
 
-- **Kis Marcell Zsombor + Miklós Martin** : Párválasztás design átdolgozása, Profil fül létrehozása.
-- **Herczeg Máté János** : Csinosítás, weboldal attraktivitása.
+- **Herczeg Máté János + Miklós Martin + Dani Benedek** : Párválasztás design átdolgozása, Profil fül létrehozása. 
 - **Répa Norbert + Suba Benjamin** : Osztályokat egy oldalra, bootstrap-el tab-al megoldva. Carousel-ek kijavítása.
-- **Tóth László Gábor + Berta Barnabás** : Adott osztályoknál, nemenként megjelenítés, gomb.
-- **Szalontai László** : Login / Register szerkesztése, fixálása --> Input ne lógjon ki forgásnál, képernyő ne rezegjen. CSS cseréje bootstrap osztályokra.
-- **Tóth László Gábor + Berta Barnabás** : Adott osztályoknál, nemenként megjelenítés, gomb.
-- **Szabó Bence + Kardos Zoltán + Döme Zoltán** : Több nyelvű legyen az oldal + adatbázis, php elkészítése hozzá.
+- **Kulcsár Tamás Ámon + Bokor Richárd** : Adott osztályoknál, nemenként megjelenítés, gomb.
+- **Tóth László Gábor + Tokai Ádám** : Login / Register szerkesztése, fixálása --> Input ne lógjon ki forgásnál, képernyő ne rezegjen. CSS cseréje bootstrap osztályokra.
+- **Szabó Bence + Kardos Zoltán + Zozi Döme** : Több nyelvű legyen az oldal + adatbázis, php elkészítése hozzá.
 - **Guvat Bence** : Weboldal azonosító.
-

@@ -32,6 +32,7 @@
               }
             }
           })
+
           .state('home', {
             url: '/',
             parent: 'root',
@@ -44,6 +45,13 @@
             parent: 'root',
             controller: 'reserveController',
             templateUrl: './html/reserve.html'
+          })
+
+          .state('forgotpassword', {
+            url: '/forgotpassword',
+            parent: 'root',
+            controller: 'forgotpasswordController',
+            templateUrl: './html/forgotpassword.html'
           })
 
 
@@ -74,6 +82,13 @@
             parent: 'root',
             controller: 'registerController',
             templateUrl: './html/register.html'
+          })
+
+          .state('galeria', {
+            url: '/galeria',
+            parent: 'root',
+            controller: 'galeriaController',
+            templateUrl: './html/galeria.html'
           })
 
         $urlRouterProvider.otherwise('/');
@@ -266,16 +281,19 @@
       }
     ])
 
+    .controller('forgotpasswordController', [
+      function() {
+
+      }
+    ])
     // Home controller
     .controller('homeController', [
       '$scope',
       '$http',
-      '$stateParams',
-      function ($scope, $http, $stateParams) {
-        $scope.className = $stateParams.class;
+      function ($scope, $http,) {
         $scope.homeImages = [];
 
-        $http.post("./php/getHomeImages.php", { class: $stateParams.class })
+        $http.post("./php/getHomeImages.php")
           .then(function (response) {
             $scope.homeImages = response.data.data;
             $scope.$applyAsync();
@@ -416,12 +434,10 @@
     .controller('eventController', [
       '$scope',
       '$http',
-      '$stateParams',
-      function ($scope, $http, $stateParams) {
-        $scope.className = $stateParams.class;
+      function ($scope, $http) {
         $scope.eventImages = [];
 
-        $http.post("./php/getEventImages.php", { class: $stateParams.class })
+        $http.post("./php/getEventImages.php")
           .then(function (response) {
             $scope.eventImages = response.data.data;
             $scope.$applyAsync();
@@ -433,6 +449,14 @@
         $scope.currentDate = new Date();
         $scope.eventDate = new Date('2025-11-05');
         $scope.isEvent = $scope.currentDate < $scope.eventDate;
+      }
+    ])
+    
+    // Galeria controller
+    .controller('galeriaController' , [
+      '$scope',
+      function ($scope) {
+        console.log($scope)
       }
     ])
 
