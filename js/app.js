@@ -333,6 +333,7 @@
             })
             .catch(error => {
               $rootScope.message = "Hiba történt: " + error;
+              $scope.$applyAsync();
             })
         }
         
