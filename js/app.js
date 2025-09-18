@@ -120,10 +120,10 @@
         }
 
         $rootScope.logOut = function () {
-          $rootScope.message = "Biztos ki szeretnél jelentkezni?"
+          $rootScope.message = "Biztos ki szeretne jelentkezni?"
           $rootScope.loggedOut = true;
           $rootScope.confirmLogOut = () => {
-            $rootScope.message = "Sikeres kijelentkezés viszlát";
+            $rootScope.message = "Sikeresen kijelentkezett a fiókjából!";
             $rootScope.loggedOut = false;
             localStorage.removeItem('user');
             setTimeout(function () {
