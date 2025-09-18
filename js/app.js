@@ -156,8 +156,6 @@
               }
               
               $rootScope.currentLang = $rootScope.languages[3].data;
-              console.log($rootScope.languages)
-              console.log($rootScope.currentLang)
 
               $rootScope.$applyAsync();
             }
