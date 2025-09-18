@@ -70,3 +70,4 @@
 **dani** galléria megjlenités
 **szabó, zoli,zoli** language
 **miklos, herczeg** design
+**söti,dávid** css rövidítés
