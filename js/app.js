@@ -133,6 +133,32 @@
           }
 
         }
+
+        $rootScope.getLanguages = function() {
+          fetch('./php/getLanguages.php')
+          .then(res => res.json())
+          .then(res => {
+            if (res.error) {
+              console.error(res.error);
+            }
+            else {
+              $rootScope.languages = res.data;
+              
+              for (let lang of $rootScope.languages) {
+                lang.data = JSON.parse(lang.data);
+              }
+              
+              $rootScope.currentLang = $rootScope.languages[3].data;
+              console.log($rootScope.languages)
+              console.log($rootScope.currentLang)
+
+              $rootScope.$applyAsync();
+            }
+          })
+          .catch(err => console.error(err));
+        }
+
+        $rootScope.getLanguages();
       }
     ])
 

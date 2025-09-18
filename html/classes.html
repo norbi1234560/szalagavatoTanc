@@ -17,12 +17,12 @@
     <div class="intro ">
       <!-- Jelenlegi osztály kiírása -->
       <h2 class="text-center display-3">
-        {{className}} osztály
+        {{className}} {{currentLang.classes.class}}
       </h2>
       <div class="text-center">
-        <button type="button" class="btn btn-primary" ng-click="genderFilter = 'M'">Férfi</button>
-         <button type="button" class="btn btn-danger" ng-click="genderFilter = null">Összes</button>
-        <button type="button" class="btn btn-primary" ng-click="genderFilter = 'F'">Nő</button>
+        <button type="button" class="btn btn-primary" ng-click="genderFilter = 'M'">{{currentLang.classes.man}}</button>
+         <button type="button" class="btn btn-danger" ng-click="genderFilter = null">{{currentLang.classes.all}}</button>
+        <button type="button" class="btn btn-primary" ng-click="genderFilter = 'F'">{{currentLang.classes.woman}}</button>
       </div>
 </div>
 
@@ -46,7 +46,7 @@
                     class="btn btn-primary" 
                     data-bs-toggle="modal"
               data-bs-target="#studentModal">
-              Bővebben
+              {{currentLang.classes.more}}
             </button>
           </div>
         </div>
@@ -84,18 +84,18 @@
       <div class="modal-body">
         <!-- Nemek alapján kilistázás -->
         <p>
-          Neme: {{currentStudent.gender == "M" ? "Férfi" : "Nő"}}
+          {{currentLang.classes.gender}}: {{currentStudent.gender == "M" ? currentLang.classes.man : currentLang.classes.woman}}
         </p>
 
         <!-- Magasság alapján kilistázás -->
         <p>
-          Magassága: {{currentStudent.height}} cm
+          {{currentLang.classes.height}}: {{currentStudent.height}} cm
         </p>
 
         <!-- Van-e párja -->
 
         <p>
-          {{currentStudent.taken == 0 ? "Nincs párja" : "Van párja"}}
+          {{currentStudent.taken == 0 ? currentLang.classes.no_pair : currentLang.classes.yes_pair}}
         </p>
 
 
@@ -111,14 +111,14 @@
                 data-bs-target="#operationsModal"
                 data-bs-toggle="modal"
                 data-bs-dismiss="modal">
-          Tiltott lista
+          {{currentLang.classes.block_list}}
         </button>
 
         <!-- Modal bezárása -->
         <button type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal">
-            Bezárás
+            {{currentLang.classes.close}}
         </button>
       </div>
     </div>
@@ -139,7 +139,7 @@
       <div class="modal-header border-secondary">
         <h5 class="modal-title"
             id="operationsModalLabel">
-          Tiltott Lista
+          {{currentLang.classes.block_list}}
         </h5>
 
         <!-- Bezárás gomb -->
@@ -250,7 +250,7 @@
       <div class="modal-footer border-secondary">
         <!-- Modal bezárása -->
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Bezárás
+          {{currentLang.classes.close}}
         </button>
       </div>
 
