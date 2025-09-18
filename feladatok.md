@@ -62,3 +62,5 @@
 - **Tóth László Gábor + Tokai Ádám** : Login / Register szerkesztése, fixálása --> Input ne lógjon ki forgásnál, képernyő ne rezegjen. CSS cseréje bootstrap osztályokra.
 - **Szabó Bence + Kardos Zoltán + Zozi Döme** : Több nyelvű legyen az oldal + adatbázis, php elkészítése hozzá.
 - **Guvat Bence** : Weboldal azonosító.
+
+# 2025.09.18. Feladatok :
