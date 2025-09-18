@@ -80,3 +80,4 @@
 # Párválasztásnál törlés gomb, adminnak párválasztás gomb
 # 13C-nél le látszódjanak a gombok, mivel csk fiúkból áll
 # Párválasztásnál férfi ne lehessen férfival és csak 1x táncolhasson valaki
+# app.js átírása, hogy a közös enviroment php hibakezelései működjenek rendesen 
