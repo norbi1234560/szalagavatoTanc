@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Sze 18. 13:01
--- Kiszolgáló verziója: 10.4.32-MariaDB
--- PHP verzió: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Sep 18, 2025 at 02:13 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `szalagavato`
+-- Database: `szalagavato`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `blocklist`
+-- Table structure for table `blocklist`
 --
 
 CREATE TABLE `blocklist` (
@@ -33,7 +33,7 @@ CREATE TABLE `blocklist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `blocklist`
+-- Dumping data for table `blocklist`
 --
 
 INSERT INTO `blocklist` (`user_id`, `blocked_user_id`) VALUES
@@ -47,58 +47,7 @@ INSERT INTO `blocklist` (`user_id`, `blocked_user_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `gallery`
---
-
-CREATE TABLE `gallery` (
-  `id` int(11) NOT NULL,
-  `class` varchar(20) NOT NULL,
-  `image` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- A tábla adatainak kiíratása `gallery`
---
-
-INSERT INTO `gallery` (`id`, `class`, `image`) VALUES
-(1, 'event', 'szalag.jpg'),
-(2, 'event', 'Szalagavato.jpg'),
-(3, 'event', 'szalagavato-fotozas.jpg'),
-(4, 'home', 'h1-event.jpg'),
-(5, 'home', 'maxresdefault.jpg'),
-(6, 'home', 'szalagavato-szabadhegyi.jpeg'),
-(7, '13A', 'erretsegi13A.jpg'),
-(8, '13A', 'osztalykep_A01.jpg'),
-(9, '13A', 'osztalykep_A02.jpg'),
-(10, '13A', 'osztalykep_A03.jpg'),
-(11, '13A', 'osztalykep_A04.jpg'),
-(12, '13A', 'osztalykep_A05.jpg'),
-(13, '13A', 'penzugy_A01.jpg'),
-(14, '13A', 'turisztika_A01.jpg'),
-(15, '13B', 'agazatiB.jpg'),
-(16, '13B', 'erettsegi13B.jpg'),
-(17, '13B', 'ivan.jpg'),
-(18, '13B', 'marcius15.jpg'),
-(19, '13B', 'osztalykep_B01.jpg'),
-(20, '13B', 'osztalykep_B02.jpg'),
-(21, '13B', 'osztalykep_B03.jpg'),
-(22, '13C', 'agazatiC.jpg'),
-(23, '13C', 'erettsegi13C.jpg'),
-(24, '13C', 'forradalom.jpg'),
-(25, '13C', 'helytallas.jpg'),
-(26, '13C', 'mecha.jpg'),
-(27, '13C', 'nonap.jpg'),
-(28, '13C', 'osztalykep_C01.jpg'),
-(29, '13C', 'pacek.jpg'),
-(30, '13C', 'pacek2.jpg'),
-(31, '13C', 'pacek3.jpg'),
-(32, '13C', 'szanto.jpg'),
-(33, '13C', 'szerencsekerek.jpg');
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `language`
+-- Table structure for table `language`
 --
 
 CREATE TABLE `language` (
@@ -107,21 +56,21 @@ CREATE TABLE `language` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- A tábla adatainak kiíratása `language`
+-- Dumping data for table `language`
 --
 
 INSERT INTO `language` (`language`, `data`) VALUES
-('cn', '{\r\n    \"footer\": {\r\n        \"copyright\": \"2021-2026 KERI Informatika\"\r\n    },\r\n    \"header\": {\r\n        \"home\": \"首页\",\r\n        \"event\": \"活动\",\r\n        \"pair\": \"配对\",\r\n        \"classes\": \"班级\",\r\n        \"class\": \"班级\",\r\n        \"login\": \"登录\",\r\n        \"logout\": \"登出\",\r\n        \"gallery\": \"登出\"\r\n    },\r\n    \"home\": {\r\n        \"event_name\": \"HSZC Návay Lajos 职业培训中心和宿舍 2025-2026 毕业舞会\",\r\n        \"event_description\": \"毕业舞会是每一位毕业生人生中特别的时刻。这个活动不仅象征着学业的结束，也意味着新人生阶段的开始。我们自豪地佩戴象征学校、老师和同学之间联系的绶带。感谢一路支持我们的人！\",\r\n        \"interest\": \"您是否对我们的毕业舞会感兴趣并想购买门票？\",\r\n        \"click_here\": \"点击这里！\"\r\n    },\r\n    \"classes\": {\r\n        \"class\": \"班级\",\r\n        \"more\": \"更多\",\r\n        \"gender\": \"性别\",\r\n        \"man\": \"男\",\r\n        \"woman\": \"女\",\r\n        \"height\": \"身高\",\r\n        \"block_list\": \"黑名单\",\r\n        \"close\": \"关闭\",\r\n        \"no_pair\": \"没有搭档\",\r\n        \"yes_pair\": \"已有搭档\"\r\n    },\r\n    \"event\": {\r\n        \"info\": \"信息\",\r\n        \"event_info\": \"关于毕业舞会的信息\",\r\n        \"appearance\": \"着装：正式服装\",\r\n        \"date\": \"时间：2025年12月5日 22:30\",\r\n        \"location\": \"地点：Makó 体育馆\",\r\n        \"warning\": \"请准时到达会场！\",\r\n        \"ticket_reservation\": \"订票\",\r\n        \"ticket_reservation_info\": \"关于订票的信息\",\r\n        \"ticket\": \"票\",\r\n        \"price\": \"价格：2500福林/人\",\r\n        \"reservation_date\": \"订票时间：从2025.11.05.开始\",\r\n        \"reservation\": \"预订\"\r\n    },\r\n    \"login\": {\r\n        \"login\": \"登录\",\r\n        \"register\": \"注册\",\r\n        \"show_password\": \"显示密码\"\r\n    },\r\n    \"modal\": {\r\n        \"logout\": \"登出\",\r\n        \"close\": \"关闭\"\r\n    },\r\n    \"reserve\": {\r\n        \"pair\": \"配对\",\r\n        \"make_pairs\": \"创建配对\",\r\n        \"pairs\": \"配对\",\r\n        \"first\": \"第一成员\",\r\n        \"second\": \"第二成员\"\r\n    }\r\n}'),
-('de', '{\r\n    \"footer\": {\r\n        \"copyright\": \"2021-2026 KERI Information Technologie\"\r\n    },\r\n    \"header\": {\r\n        \"home\": \"Heim Seite\",\r\n        \"event\": \"Veranstaltung\",\r\n        \"pair\": \"Paars machen\",\r\n        \"classes\": \"Klassen\",\r\n        \"class\": \"Klasse\",\r\n        \"login\": \"Login\",\r\n        \"logout\": \"Ausloggen\",\r\n        \"gallery\": \"Fleischordnung\"\r\n    },\r\n    \"home\": {\r\n        \"event_name\": \"HSZC Návay Lajos Berufsschule Centrum und College 2025-2026 Schülerball\",\r\n        \"event_description\": \"Der Abschlussball ist ein besonderes Fest im Leben aller Absolventen. Dieses Ereignis markiert nicht nur das Ende des Studiums, sondern auch den Beginn eines neuen Lebensabschnitts. Wir tragen das Band, das uns mit unserer Schule, unseren Lehrern und untereinander verbindet, mit Stolz. Wir danken allen, die unsere Reise unterstützt haben!\",\r\n        \"interest\": \"Sind Sie interessieren für unser Schülerball?\",\r\n        \"click_here\": \"Klicken hier!\"\r\n    },\r\n    \"classes\": {\r\n        \"class\": \"Klasse\",\r\n        \"more\": \"Mehr\",\r\n        \"gender\": \"Gender\",\r\n        \"man\": \"Mann\",\r\n        \"woman\": \"Frau\",\r\n        \"height\": \"Größe\",\r\n        \"block_list\": \"Block Liste\",\r\n        \"close\": \"Schließen\",\r\n        \"no_pair\": \"Ohne Partner*in\",\r\n        \"yes_pair\": \"Mit Partner*in\"\r\n    },\r\n    \"event\": {\r\n        \"info\": \"Information\",\r\n        \"event_info\": \"Information über das Schülerball\",\r\n        \"appearance\": \"Kleiderordnung: Formelle\",\r\n        \"date\": \"Datum: 5. 12. 2025. 22:30\",\r\n        \"location\": \"Standort: Makó Sport Zentrum\",\r\n        \"warning\": \"Kommen Sie bitte pünktlich an!\",\r\n        \"ticket_reservation\": \"Karten reservieren\",\r\n        \"ticket_reservation_info\": \"Information über Karten reservieren\",\r\n        \"ticket\": \"Karten\",\r\n        \"price\": \"Preis: 6.41€/Person\",\r\n        \"reservation_date\": \"Reservierung ist möglich bis 05.11.2025.\",\r\n        \"reservation\": \"Reservieren\"\r\n    },\r\n    \"login\": {\r\n        \"login\": \"Login\",\r\n        \"register\": \"Registieren\",\r\n        \"show_password\": \"Passwort anzeigen\"\r\n    },\r\n    \"modal\": {\r\n        \"logout\": \"Ausloggen\",\r\n        \"close\": \"Schließen\"\r\n    },\r\n    \"reserve\": {\r\n        \"pair\":\"Paars machen\",\r\n        \"make_pairs\": \"Machen Paars\",\r\n        \"pairs\": \"Paars\",\r\n        \"first\": \"Erste Person\",\r\n        \"second\": \"Zweite Person\"\r\n    }\r\n}'),
-('en', '{\r\n    \"footer\": {\r\n        \"copyright\": \"2021-2026 KERI Information Technologies\"\r\n    },\r\n    \"header\": {\r\n        \"home\": \"Home page\",\r\n        \"event\": \"Event\",\r\n        \"pair\": \"Pair raffle\",\r\n        \"classes\": \"Classes\",\r\n        \"class\": \"class\",\r\n        \"login\": \"Log in\",\r\n        \"logout\": \"Log out\",\r\n        \"gallery\": \"Gallery\"\r\n    },\r\n    \"home\": {\r\n        \"event_name\": \"HSZC Návay Lajos Vocational Training Center and College 2025-2026 Prom\",\r\n        \"event_description\": \"The prom is a special celebration in the lives of all graduating students. This event not only marks the end of their studies, but the start of a new stage of life. We bear the ribbon that connects us with our school, teachers, and each other proudly.We thank all of you that supported our journey!\",\r\n        \"interest\": \"Are you interested in getting a ticket to our prom?\",\r\n        \"click_here\": \"Click here!\"\r\n    },\r\n    \"classes\": {\r\n        \"class\": \"class\",\r\n        \"more\": \"More\",\r\n        \"gender\": \"Gender\",\r\n        \"man\": \"Man\",\r\n        \"woman\": \"Woman\",\r\n        \"height\": \"Height\",\r\n        \"block_list\": \"Block list\",\r\n        \"no_pair\": \"Doesn\'t have a partner\",\r\n        \"yes_pair\": \"Has a partner\"\r\n    },\r\n    \"event\": {\r\n        \"info\": \"Information\",\r\n        \"event_info\": \"Information regarding the prom\",\r\n        \"appearance\": \"Dress code: Formal\",\r\n        \"date\": \"Date: 12. 5. 2025. 10:30 PM\",\r\n        \"location\": \"Location: Makó Sport center\",\r\n        \"warning\": \"Please arrive at the location punctually!\",\r\n        \"ticket_reservation\": \"Ticket reservation\",\r\n        \"ticket_reservation_info\": \"Information regarding ticket reservation\",\r\n        \"ticket\": \"Ticket\",\r\n        \"price\": \"Price: $7.57/Person\",\r\n        \"reservation_date\": \"Reservation is possible from 11.05.2025.\",\r\n        \"reservation\": \"Reservation\"\r\n    },\r\n    \"login\": {\r\n        \"login\": \"Log in\",\r\n        \"register\": \"Register\",\r\n        \"show_password\": \"Show password\"\r\n    },\r\n    \"modal\": {\r\n        \"logout\": \"Log out\",\r\n        \"close\": \"Close\"\r\n    },\r\n    \"reserve\": {\r\n        \"pair\":\"Pair raffle\",\r\n        \"make_pairs\": \"Make pairs\",\r\n        \"pairs\": \"Pairs\",\r\n        \"first\": \"First person\",\r\n        \"second\": \"Second person\"\r\n    }\r\n}'),
-('hu', '{\r\n    \"footer\": {\r\n        \"copyright\": \"2021-2026 KERI Informatika\"\r\n    },\r\n    \"header\": {\r\n        \"home\": \"Kezdőlap\",\r\n        \"event\": \"Esemény\",\r\n        \"pair\": \"Párválasztás\",\r\n        \"classes\": \"Osztályok\",\r\n        \"class\": \"osztály\",\r\n        \"login\": \"Bejelentkezés\",\r\n        \"logout\": \"Kijelentkezés\",\r\n        \"gallery\": \"Galéria\"\r\n    },\r\n    \"home\": {\r\n        \"event_name\": \"HSZC Návay Lajos Szakképzési Centrum és Kollégium 2025-2026 Szalagavató\",\r\n        \"event_description\": \"A szalagavató ünnepség minden végzős diák életében különleges pillanat. Ez az esemény nemcsak a tanulmányok lezárását jelképezi, hanem egy új életszakasz kezdetét is. Büszkén viseljük a szalagot, amely összeköt minket az iskolával, tanárainkkal és egymással. Köszönjük mindenkinek, aki támogatta utunkat!\",\r\n        \"interest\": \"Esetleg érdekli a mi szalagavatónk és megvenné a jegyét?\",\r\n        \"click_here\": \"Kattints Ide!\"\r\n    },\r\n    \"classes\": {\r\n        \"class\": \"osztály\",\r\n        \"more\": \"Bővebben\",\r\n        \"gender\": \"Neme\",\r\n        \"man\": \"Férfi\",\r\n        \"woman\": \"Nő\",\r\n        \"height\": \"Magassága\",\r\n        \"block_list\": \"Tiltott lista\",\r\n        \"close\": \"Bezárás\",\r\n        \"no_pair\": \"Nincs párja\",\r\n        \"yes_pair\": \"Van párja\"\r\n    },\r\n    \"event\": {\r\n        \"info\": \"Információ\",\r\n        \"event_info\": \"Szalagavatóval kapcsolatos Információk\",\r\n        \"appearance\": \"Megjelenés: Elegáns öltözet\",\r\n        \"date\": \"Időpont: 2025 dec. 5, 22:30\",\r\n        \"location\": \"Helyszín: Makó, Sportcsarnok\",\r\n        \"warning\": \"Kérem a helyszínre időbe érkezzenek!\",\r\n        \"ticket_reservation\": \"Jegyfoglalás\",\r\n        \"ticket_reservation_info\": \"Jegyfoglalással kapcsolatos információk\",\r\n        \"ticket\": \"Jegy\",\r\n        \"price\": \"Ár: 2500ft/fő\",\r\n        \"reservation_date\": \"A foglalás 2025.11.05.-től lehetséges\",\r\n        \"reservation\": \"Foglalás\"\r\n    },\r\n    \"login\": {\r\n        \"login\": \"Bejelentkezés\",\r\n        \"register\": \"Regisztráció\",\r\n        \"show_password\": \"Jelszó megjelenítése\"\r\n    },\r\n    \"modal\": {\r\n        \"logout\": \"Kijelentkezés\",\r\n        \"close\": \"Bezárás\"\r\n    },\r\n    \"reserve\": {\r\n        \"pair\": \"Pár összeállítás\",\r\n        \"make_pairs\": \"Párok összeállítása\",\r\n        \"pairs\": \"Párok\",\r\n        \"first\": \"1. Tag\",\r\n        \"second\": \"2. Tag\"\r\n    }\r\n\r\n}'),
-('it', '{\r\n    \"footer\": {\r\n        \"copyright\": \"2021-2026 KERI Informatika\"\r\n    },\r\n    \"header\": {\r\n        \"home\": \"Home\",\r\n        \"event\": \"Evento\",\r\n        \"pair\": \"Abbinamento\",\r\n        \"classes\": \"Classi\",\r\n        \"class\": \"Classe\",\r\n        \"login\": \"Accedi\",\r\n        \"logout\": \"Disconnetti\",\r\n        \"gallery\": \"Galleria\"\r\n    },\r\n    \"home\": {\r\n        \"event_name\": \"Centro di Formazione Professionale e Collegio HSZC Návay Lajos 2025-2026 Ballo delle Matricole\",\r\n        \"event_description\": \"Il ballo delle matricole è un momento speciale nella vita di ogni diplomando. Questo evento non solo simboleggia la conclusione degli studi, ma anche l\'inizio di una nuova fase della vita. Indossiamo con orgoglio il nastro che ci lega alla scuola, ai nostri insegnanti e gli uni agli altri. Grazie a tutti coloro che hanno sostenuto il nostro cammino!\",\r\n        \"interest\": \"Sei interessato al nostro ballo delle matricole e vuoi acquistare il biglietto?\",\r\n        \"click_here\": \"Clicca qui!\"\r\n    },\r\n    \"classes\": {\r\n        \"class\": \"Classe\",\r\n        \"more\": \"Di più\",\r\n        \"gender\": \"Genere\",\r\n        \"man\": \"Uomo\",\r\n        \"woman\": \"Donna\",\r\n        \"height\": \"Altezza\",\r\n        \"block_list\": \"Lista bloccati\",\r\n        \"close\": \"Chiudi\",\r\n        \"no_pair\": \"Nessun partner\",\r\n        \"yes_pair\": \"Ha un partner\"\r\n    },\r\n    \"event\": {\r\n        \"info\": \"Informazioni\",\r\n        \"event_info\": \"Informazioni relative al ballo delle matricole\",\r\n        \"appearance\": \"Abbigliamento: Elegante\",\r\n        \"date\": \"Data: 5 dic. 2025, 22:30\",\r\n        \"location\": \"Luogo: Makó, Palestra\",\r\n        \"warning\": \"Si prega di arrivare puntuali!\",\r\n        \"ticket_reservation\": \"Prenotazione biglietti\",\r\n        \"ticket_reservation_info\": \"Informazioni sulla prenotazione dei biglietti\",\r\n        \"ticket\": \"Biglietto\",\r\n        \"price\": \"Prezzo: 2500 HUF/persona\",\r\n        \"reservation_date\": \"La prenotazione è possibile dal 05/11/2025\",\r\n        \"reservation\": \"Prenota\"\r\n    },\r\n    \"login\": {\r\n        \"login\": \"Accedi\",\r\n        \"register\": \"Registrati\",\r\n        \"show_password\": \"Mostra password\"\r\n    },\r\n    \"modal\": {\r\n        \"logout\": \"Disconnetti\",\r\n        \"close\": \"Chiudi\"\r\n    },\r\n    \"reserve\": {\r\n        \"pair\": \"Abbinamento\",\r\n        \"make_pairs\": \"Crea coppie\",\r\n        \"pairs\": \"Coppie\",\r\n        \"first\": \"1° Membro\",\r\n        \"second\": \"2° Membro\"\r\n    }\r\n}\r\n'),
-('ru', '{\r\n    \"footer\": {\r\n        \"copyright\": \"2021-2026 KERI Informatika\"\r\n    },\r\n    \"header\": {\r\n        \"home\": \"Главная\",\r\n        \"event\": \"Событие\",\r\n        \"pair\": \"Пары\",\r\n        \"classes\": \"Классы\",\r\n        \"class\": \"Класс\",\r\n        \"login\": \"Войти\",\r\n        \"logout\": \"Выйти\",\r\n        \"gallery\": \"гордостью\"\r\n    },\r\n    \"home\": {\r\n        \"event_name\": \"HSZC Návay Lajos Центр профессионального обучения и общежитие 2025-2026 Выпускной бал\",\r\n        \"event_description\": \"Выпускной бал — это особенный момент в жизни каждого выпускника. Это событие не только символизирует завершение учёбы, но и начало нового этапа жизни. Мы с гордостью носим ленточку, которая связывает нас со школой, учителями и друг с другом. Спасибо всем, кто поддерживал нас на этом пути!\",\r\n        \"interest\": \"Вас интересует наш выпускной бал и хотите купить билет?\",\r\n        \"click_here\": \"Нажмите здесь!\"\r\n    },\r\n    \"classes\": {\r\n        \"class\": \"Класс\",\r\n        \"more\": \"Подробнее\",\r\n        \"gender\": \"Пол\",\r\n        \"man\": \"Мужчина\",\r\n        \"woman\": \"Женщина\",\r\n        \"height\": \"Рост\",\r\n        \"block_list\": \"Чёрный список\",\r\n        \"close\": \"Закрыть\",\r\n        \"no_pair\": \"Нет пары\",\r\n        \"yes_pair\": \"Есть пара\"\r\n    },\r\n    \"event\": {\r\n        \"info\": \"Информация\",\r\n        \"event_info\": \"Информация о выпускном бале\",\r\n        \"appearance\": \"Дресс-код: Элегантный наряд\",\r\n        \"date\": \"Дата: 5 декабря 2025 г., 22:30\",\r\n        \"location\": \"Место: Мако, Спортзал\",\r\n        \"warning\": \"Пожалуйста, приходите вовремя!\",\r\n        \"ticket_reservation\": \"Бронирование билетов\",\r\n        \"ticket_reservation_info\": \"Информация о бронировании билетов\",\r\n        \"ticket\": \"Билет\",\r\n        \"price\": \"Цена: 2500 форинтов/чел.\",\r\n        \"reservation_date\": \"Бронирование возможно с 05.11.2025\",\r\n        \"reservation\": \"Забронировать\"\r\n    },\r\n    \"login\": {\r\n        \"login\": \"Войти\",\r\n        \"register\": \"Регистрация\",\r\n        \"show_password\": \"Показать пароль\"\r\n    },\r\n    \"modal\": {\r\n        \"logout\": \"Выйти\",\r\n        \"close\": \"Закрыть\"\r\n    },\r\n    \"reserve\": {\r\n        \"pair\": \"Пары\",\r\n        \"make_pairs\": \"Составить пары\",\r\n        \"pairs\": \"Пары\",\r\n        \"first\": \"1-й участник\",\r\n        \"second\": \"2-й участник\"\r\n    }\r\n}\r\n');
+('cn', '{\r\n    \"footer\": {\r\n        \"copyright\": \"2021-2026 KERI Informatika\"\r\n    },\r\n    \"header\": {\r\n        \"home\": \"首页\",\r\n        \"event\": \"活动\",\r\n        \"pair\": \"配对\",\r\n        \"classes\": \"班级\",\r\n        \"class\": \"班级\",\r\n        \"login\": \"登录\",\r\n        \"logout\": \"登出\"\r\n    },\r\n    \"home\": {\r\n        \"event_name\": \"HSZC Návay Lajos 职业培训中心和宿舍 2025-2026 毕业舞会\",\r\n        \"event_description\": \"毕业舞会是每一位毕业生人生中特别的时刻。这个活动不仅象征着学业的结束，也意味着新人生阶段的开始。我们自豪地佩戴象征学校、老师和同学之间联系的绶带。感谢一路支持我们的人！\",\r\n        \"interest\": \"您是否对我们的毕业舞会感兴趣并想购买门票？\",\r\n        \"click_here\": \"点击这里！\"\r\n    },\r\n    \"classes\": {\r\n        \"class\": \"班级\",\r\n        \"more\": \"更多\",\r\n        \"gender\": \"性别\",\r\n        \"man\": \"男\",\r\n        \"woman\": \"女\",\r\n        \"height\": \"身高\",\r\n        \"block_list\": \"黑名单\",\r\n        \"close\": \"关闭\",\r\n        \"no_pair\": \"没有搭档\",\r\n        \"yes_pair\": \"已有搭档\"\r\n    },\r\n    \"event\": {\r\n        \"info\": \"信息\",\r\n        \"event_info\": \"关于毕业舞会的信息\",\r\n        \"appearance\": \"着装：正式服装\",\r\n        \"date\": \"时间：2025年12月5日 22:30\",\r\n        \"location\": \"地点：Makó 体育馆\",\r\n        \"warning\": \"请准时到达会场！\",\r\n        \"ticket_reservation\": \"订票\",\r\n        \"ticket_reservation_info\": \"关于订票的信息\",\r\n        \"ticket\": \"票\",\r\n        \"price\": \"价格：2500福林/人\",\r\n        \"reservation_date\": \"订票时间：从2025.11.05.开始\",\r\n        \"reservation\": \"预订\"\r\n    },\r\n    \"login\": {\r\n        \"login\": \"登录\",\r\n        \"register\": \"注册\",\r\n        \"show_password\": \"显示密码\"\r\n    },\r\n    \"modal\": {\r\n        \"logout\": \"登出\",\r\n        \"close\": \"关闭\"\r\n    },\r\n    \"reserve\": {\r\n        \"pair\": \"配对\",\r\n        \"make_pairs\": \"创建配对\",\r\n        \"pairs\": \"配对\",\r\n        \"first\": \"第一成员\",\r\n        \"second\": \"第二成员\"\r\n    }\r\n}'),
+('de', '{\r\n    \"footer\": {\r\n        \"copyright\": \"2021-2026 KERI Information Technologie\"\r\n    },\r\n    \"header\": {\r\n        \"home\": \"Heim Seite\",\r\n        \"event\": \"Veranstaltung\",\r\n        \"pair\": \"Paars machen\",\r\n        \"classes\": \"Klassen\",\r\n        \"class\": \"Klasse\",\r\n        \"login\": \"Login\",\r\n        \"logout\": \"Ausloggen\"\r\n    },\r\n    \"home\": {\r\n        \"event_name\": \"HSZC Návay Lajos Berufsschule Centrum und College 2025-2026 Schülerball\",\r\n        \"event_description\": \"Der Abschlussball ist ein besonderes Fest im Leben aller Absolventen. Dieses Ereignis markiert nicht nur das Ende des Studiums, sondern auch den Beginn eines neuen Lebensabschnitts. Wir tragen das Band, das uns mit unserer Schule, unseren Lehrern und untereinander verbindet, mit Stolz. Wir danken allen, die unsere Reise unterstützt haben!\",\r\n        \"interest\": \"Sind Sie interessieren für unser Schülerball?\",\r\n        \"click_here\": \"Klicken hier!\"\r\n    },\r\n    \"classes\": {\r\n        \"class\": \"Klasse\",\r\n        \"more\": \"Mehr\",\r\n        \"gender\": \"Gender\",\r\n        \"man\": \"Mann\",\r\n        \"woman\": \"Frau\",\r\n        \"height\": \"Größe\",\r\n        \"block_list\": \"Block Liste\",\r\n        \"close\": \"Schließen\",\r\n        \"no_pair\": \"Ohne Partner*in\",\r\n        \"yes_pair\": \"Mit Partner*in\"\r\n    },\r\n    \"event\": {\r\n        \"info\": \"Information\",\r\n        \"event_info\": \"Information über das Schülerball\",\r\n        \"appearance\": \"Kleiderordnung: Formelle\",\r\n        \"date\": \"Datum: 5. 12. 2025. 22:30\",\r\n        \"location\": \"Standort: Makó Sport Zentrum\",\r\n        \"warning\": \"Kommen Sie bitte pünktlich an!\",\r\n        \"ticket_reservation\": \"Karten reservieren\",\r\n        \"ticket_reservation_info\": \"Information über Karten reservieren\",\r\n        \"ticket\": \"Karten\",\r\n        \"price\": \"Preis: 6.41€/Person\",\r\n        \"reservation_date\": \"Reservierung ist möglich bis 05.11.2025.\",\r\n        \"reservation\": \"Reservieren\"\r\n    },\r\n    \"login\": {\r\n        \"login\": \"Login\",\r\n        \"register\": \"Registieren\",\r\n        \"show_password\": \"Passwort anzeigen\"\r\n    },\r\n    \"modal\": {\r\n        \"logout\": \"Ausloggen\",\r\n        \"close\": \"Schließen\"\r\n    },\r\n    \"reserve\": {\r\n        \"pair\":\"Paars machen\",\r\n        \"make_pairs\": \"Machen Paars\",\r\n        \"pairs\": \"Paars\",\r\n        \"first\": \"Erste Person\",\r\n        \"second\": \"Zweite Person\"\r\n    }\r\n}'),
+('en', '{\r\n    \"footer\": {\r\n        \"copyright\": \"2021-2026 KERI Information Technologies\"\r\n    },\r\n    \"header\": {\r\n        \"home\": \"Home page\",\r\n        \"event\": \"Event\",\r\n        \"pair\": \"Pair raffle\",\r\n        \"classes\": \"Classes\",\r\n        \"class\": \"class\",\r\n        \"login\": \"Log in\",\r\n        \"logout\": \"Log out\"\r\n    },\r\n    \"home\": {\r\n        \"event_name\": \"HSZC Návay Lajos Vocational Training Center and College 2025-2026 Prom\",\r\n        \"event_description\": \"The prom is a special celebration in the lives of all graduating students. This event not only marks the end of their studies, but the start of a new stage of life. We bear the ribbon that connects us with our school, teachers, and each other proudly.We thank all of you that supported our journey!\",\r\n        \"interest\": \"Are you interested in getting a ticket to our prom?\",\r\n        \"click_here\": \"Click here!\"\r\n    },\r\n    \"classes\": {\r\n        \"class\": \"class\",\r\n        \"more\": \"More\",\r\n        \"gender\": \"Gender\",\r\n        \"man\": \"Man\",\r\n        \"woman\": \"Woman\",\r\n        \"height\": \"Height\",\r\n        \"block_list\": \"Block list\",\r\n        \"no_pair\": \"Doesn\'t have a partner\",\r\n        \"yes_pair\": \"Has a partner\"\r\n    },\r\n    \"event\": {\r\n        \"info\": \"Information\",\r\n        \"event_info\": \"Information regarding the prom\",\r\n        \"appearance\": \"Dress code: Formal\",\r\n        \"date\": \"Date: 12. 5. 2025. 10:30 PM\",\r\n        \"location\": \"Location: Makó Sport center\",\r\n        \"warning\": \"Please arrive at the location punctually!\",\r\n        \"ticket_reservation\": \"Ticket reservation\",\r\n        \"ticket_reservation_info\": \"Information regarding ticket reservation\",\r\n        \"ticket\": \"Ticket\",\r\n        \"price\": \"Price: $7.57/Person\",\r\n        \"reservation_date\": \"Reservation is possible from 11.05.2025.\",\r\n        \"reservation\": \"Reservation\"\r\n    },\r\n    \"login\": {\r\n        \"login\": \"Log in\",\r\n        \"register\": \"Register\",\r\n        \"show_password\": \"Show password\"\r\n    },\r\n    \"modal\": {\r\n        \"logout\": \"Log out\",\r\n        \"close\": \"Close\"\r\n    },\r\n    \"reserve\": {\r\n        \"pair\":\"Pair raffle\",\r\n        \"make_pairs\": \"Make pairs\",\r\n        \"pairs\": \"Pairs\",\r\n        \"first\": \"First person\",\r\n        \"second\": \"Second person\"\r\n    }\r\n}'),
+('hu', '{\r\n    \"footer\": {\r\n        \"copyright\": \"2021-2026 KERI Informatika\"\r\n    },\r\n    \"header\": {\r\n        \"home\": \"Kezdőlap\",\r\n        \"event\": \"Esemény\",\r\n        \"pair\": \"Párválasztás\",\r\n        \"classes\": \"Osztályok\",\r\n        \"class\": \"osztály\",\r\n        \"login\": \"Bejelentkezés\",\r\n        \"logout\": \"Kijelentkezés\"\r\n    },\r\n    \"home\": {\r\n        \"event_name\": \"HSZC Návay Lajos Szakképzési Centrum és Kollégium 2025-2026 Szalagavató\",\r\n        \"event_description\": \"A szalagavató ünnepség minden végzős diák életében különleges pillanat. Ez az esemény nemcsak a tanulmányok lezárását jelképezi, hanem egy új életszakasz kezdetét is. Büszkén viseljük a szalagot, amely összeköt minket az iskolával, tanárainkkal és egymással. Köszönjük mindenkinek, aki támogatta utunkat!\",\r\n        \"interest\": \"Esetleg érdekli a mi szalagavatónk és megvenné a jegyét?\",\r\n        \"click_here\": \"Kattints Ide!\"\r\n    },\r\n    \"classes\": {\r\n        \"class\": \"osztály\",\r\n        \"more\": \"Bővebben\",\r\n        \"gender\": \"Neme\",\r\n        \"man\": \"Férfi\",\r\n        \"woman\": \"Nő\",\r\n        \"height\": \"Magassága\",\r\n        \"block_list\": \"Tiltott lista\",\r\n        \"close\": \"Bezárás\",\r\n        \"no_pair\": \"Nincs párja\",\r\n        \"yes_pair\": \"Van párja\"\r\n    },\r\n    \"event\": {\r\n        \"info\": \"Információ\",\r\n        \"event_info\": \"Szalagavatóval kapcsolatos Információk\",\r\n        \"appearance\": \"Megjelenés: Elegáns öltözet\",\r\n        \"date\": \"Időpont: 2025 dec. 5, 22:30\",\r\n        \"location\": \"Helyszín: Makó, Sportcsarnok\",\r\n        \"warning\": \"Kérem a helyszínre időbe érkezzenek!\",\r\n        \"ticket_reservation\": \"Jegyfoglalás\",\r\n        \"ticket_reservation_info\": \"Jegyfoglalással kapcsolatos információk\",\r\n        \"ticket\": \"Jegy\",\r\n        \"price\": \"Ár: 2500ft/fő\",\r\n        \"reservation_date\": \"A foglalás 2025.11.05.-től lehetséges\",\r\n        \"reservation\": \"Foglalás\"\r\n    },\r\n    \"login\": {\r\n        \"login\": \"Bejelentkezés\",\r\n        \"register\": \"Regisztráció\",\r\n        \"show_password\": \"Jelszó megjelenítése\"\r\n    },\r\n    \"modal\": {\r\n        \"logout\": \"Kijelentkezés\",\r\n        \"close\": \"Bezárás\"\r\n    },\r\n    \"reserve\": {\r\n        \"pair\": \"Pár összeállítás\",\r\n        \"make_pairs\": \"Párok összeállítása\",\r\n        \"pairs\": \"Párok\",\r\n        \"first\": \"1. Tag\",\r\n        \"second\": \"2. Tag\"\r\n    }\r\n\r\n}'),
+('it', '{\r\n    \"footer\": {\r\n        \"copyright\": \"2021-2026 KERI Informatika\"\r\n    },\r\n    \"header\": {\r\n        \"home\": \"Home\",\r\n        \"event\": \"Evento\",\r\n        \"pair\": \"Abbinamento\",\r\n        \"classes\": \"Classi\",\r\n        \"class\": \"Classe\",\r\n        \"login\": \"Accedi\",\r\n        \"logout\": \"Disconnetti\"\r\n    },\r\n    \"home\": {\r\n        \"event_name\": \"Centro di Formazione Professionale e Collegio HSZC Návay Lajos 2025-2026 Ballo delle Matricole\",\r\n        \"event_description\": \"Il ballo delle matricole è un momento speciale nella vita di ogni diplomando. Questo evento non solo simboleggia la conclusione degli studi, ma anche l\'inizio di una nuova fase della vita. Indossiamo con orgoglio il nastro che ci lega alla scuola, ai nostri insegnanti e gli uni agli altri. Grazie a tutti coloro che hanno sostenuto il nostro cammino!\",\r\n        \"interest\": \"Sei interessato al nostro ballo delle matricole e vuoi acquistare il biglietto?\",\r\n        \"click_here\": \"Clicca qui!\"\r\n    },\r\n    \"classes\": {\r\n        \"class\": \"Classe\",\r\n        \"more\": \"Di più\",\r\n        \"gender\": \"Genere\",\r\n        \"man\": \"Uomo\",\r\n        \"woman\": \"Donna\",\r\n        \"height\": \"Altezza\",\r\n        \"block_list\": \"Lista bloccati\",\r\n        \"close\": \"Chiudi\",\r\n        \"no_pair\": \"Nessun partner\",\r\n        \"yes_pair\": \"Ha un partner\"\r\n    },\r\n    \"event\": {\r\n        \"info\": \"Informazioni\",\r\n        \"event_info\": \"Informazioni relative al ballo delle matricole\",\r\n        \"appearance\": \"Abbigliamento: Elegante\",\r\n        \"date\": \"Data: 5 dic. 2025, 22:30\",\r\n        \"location\": \"Luogo: Makó, Palestra\",\r\n        \"warning\": \"Si prega di arrivare puntuali!\",\r\n        \"ticket_reservation\": \"Prenotazione biglietti\",\r\n        \"ticket_reservation_info\": \"Informazioni sulla prenotazione dei biglietti\",\r\n        \"ticket\": \"Biglietto\",\r\n        \"price\": \"Prezzo: 2500 HUF/persona\",\r\n        \"reservation_date\": \"La prenotazione è possibile dal 05/11/2025\",\r\n        \"reservation\": \"Prenota\"\r\n    },\r\n    \"login\": {\r\n        \"login\": \"Accedi\",\r\n        \"register\": \"Registrati\",\r\n        \"show_password\": \"Mostra password\"\r\n    },\r\n    \"modal\": {\r\n        \"logout\": \"Disconnetti\",\r\n        \"close\": \"Chiudi\"\r\n    },\r\n    \"reserve\": {\r\n        \"pair\": \"Abbinamento\",\r\n        \"make_pairs\": \"Crea coppie\",\r\n        \"pairs\": \"Coppie\",\r\n        \"first\": \"1° Membro\",\r\n        \"second\": \"2° Membro\"\r\n    }\r\n}\r\n'),
+('ru', '{\r\n    \"footer\": {\r\n        \"copyright\": \"2021-2026 KERI Informatika\"\r\n    },\r\n    \"header\": {\r\n        \"home\": \"Главная\",\r\n        \"event\": \"Событие\",\r\n        \"pair\": \"Пары\",\r\n        \"classes\": \"Классы\",\r\n        \"class\": \"Класс\",\r\n        \"login\": \"Войти\",\r\n        \"logout\": \"Выйти\"\r\n    },\r\n    \"home\": {\r\n        \"event_name\": \"HSZC Návay Lajos Центр профессионального обучения и общежитие 2025-2026 Выпускной бал\",\r\n        \"event_description\": \"Выпускной бал — это особенный момент в жизни каждого выпускника. Это событие не только символизирует завершение учёбы, но и начало нового этапа жизни. Мы с гордостью носим ленточку, которая связывает нас со школой, учителями и друг с другом. Спасибо всем, кто поддерживал нас на этом пути!\",\r\n        \"interest\": \"Вас интересует наш выпускной бал и хотите купить билет?\",\r\n        \"click_here\": \"Нажмите здесь!\"\r\n    },\r\n    \"classes\": {\r\n        \"class\": \"Класс\",\r\n        \"more\": \"Подробнее\",\r\n        \"gender\": \"Пол\",\r\n        \"man\": \"Мужчина\",\r\n        \"woman\": \"Женщина\",\r\n        \"height\": \"Рост\",\r\n        \"block_list\": \"Чёрный список\",\r\n        \"close\": \"Закрыть\",\r\n        \"no_pair\": \"Нет пары\",\r\n        \"yes_pair\": \"Есть пара\"\r\n    },\r\n    \"event\": {\r\n        \"info\": \"Информация\",\r\n        \"event_info\": \"Информация о выпускном бале\",\r\n        \"appearance\": \"Дресс-код: Элегантный наряд\",\r\n        \"date\": \"Дата: 5 декабря 2025 г., 22:30\",\r\n        \"location\": \"Место: Мако, Спортзал\",\r\n        \"warning\": \"Пожалуйста, приходите вовремя!\",\r\n        \"ticket_reservation\": \"Бронирование билетов\",\r\n        \"ticket_reservation_info\": \"Информация о бронировании билетов\",\r\n        \"ticket\": \"Билет\",\r\n        \"price\": \"Цена: 2500 форинтов/чел.\",\r\n        \"reservation_date\": \"Бронирование возможно с 05.11.2025\",\r\n        \"reservation\": \"Забронировать\"\r\n    },\r\n    \"login\": {\r\n        \"login\": \"Войти\",\r\n        \"register\": \"Регистрация\",\r\n        \"show_password\": \"Показать пароль\"\r\n    },\r\n    \"modal\": {\r\n        \"logout\": \"Выйти\",\r\n        \"close\": \"Закрыть\"\r\n    },\r\n    \"reserve\": {\r\n        \"pair\": \"Пары\",\r\n        \"make_pairs\": \"Составить пары\",\r\n        \"pairs\": \"Пары\",\r\n        \"first\": \"1-й участник\",\r\n        \"second\": \"2-й участник\"\r\n    }\r\n}\r\n');
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `pairs`
+-- Table structure for table `pairs`
 --
 
 CREATE TABLE `pairs` (
@@ -130,7 +79,7 @@ CREATE TABLE `pairs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `pairs`
+-- Dumping data for table `pairs`
 --
 
 INSERT INTO `pairs` (`user_id1`, `user_id2`) VALUES
@@ -173,7 +122,7 @@ INSERT INTO `pairs` (`user_id1`, `user_id2`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `students`
+-- Table structure for table `students`
 --
 
 CREATE TABLE `students` (
@@ -187,7 +136,7 @@ CREATE TABLE `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `students`
+-- Dumping data for table `students`
 --
 
 INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`, `class`, `height`) VALUES
@@ -267,7 +216,7 @@ INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`, `class`, `heig
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -278,7 +227,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
@@ -355,64 +304,52 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 (999, 'admin', 'admin@gmail.com', 'admin123');
 
 --
--- Indexek a kiírt táblákhoz
+-- Indexes for dumped tables
 --
 
 --
--- A tábla indexei `blocklist`
+-- Indexes for table `blocklist`
 --
 ALTER TABLE `blocklist`
   ADD UNIQUE KEY `user_id1` (`user_id`,`blocked_user_id`);
 
 --
--- A tábla indexei `gallery`
---
-ALTER TABLE `gallery`
-  ADD PRIMARY KEY (`id`);
-
---
--- A tábla indexei `language`
+-- Indexes for table `language`
 --
 ALTER TABLE `language`
   ADD PRIMARY KEY (`language`);
 
 --
--- A tábla indexei `pairs`
+-- Indexes for table `pairs`
 --
 ALTER TABLE `pairs`
   ADD UNIQUE KEY `user_id1` (`user_id1`,`user_id2`);
 
 --
--- A tábla indexei `students`
+-- Indexes for table `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
 
 --
--- A tábla indexei `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- A kiírt táblák AUTO_INCREMENT értéke
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT a táblához `gallery`
---
-ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
---
--- AUTO_INCREMENT a táblához `students`
+-- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
--- AUTO_INCREMENT a táblához `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
