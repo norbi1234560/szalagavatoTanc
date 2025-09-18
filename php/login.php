@@ -7,7 +7,7 @@ $args = Util::getArgs();
 
 if (!is_string($args["email"]) || mb_strlen($args["email"], "utf8") > 150 || !str_contains($args["email"], '@'))
     Util::setError("Az email nem helyes!");
-if (!is_string($args["password"]) || mb_strlen($args["password"], "utf8") > 20)
+if (!is_string($args["password"]) || mb_strlen($args["password"], "utf8") > 30)
     Util::setError("A jelszó nem helyes!");
 
 $db = new Database();
