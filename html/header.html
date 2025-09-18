@@ -84,33 +84,32 @@
 						Bejelentkezés
 				</button>
 
-				<!-- Fiók kezelés -->
-				<li class="nav-item dropdown d-flex dropstart 
-									 align-items-center mx-3" 
-						ng-if="loggedIn">
-					<a class="nav-link dropdown-toggle" 
-						 role="button" 
-						 data-bs-toggle="dropdown" 
-						 aria-expanded="false">
-						{{user.name}}
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a class="dropdown-item"
-								 ui-sref="profile">
-								Profil módosítása
-							</a>
-						</li>
-						<li>
-							<a class="dropdown-item"
-								 ng-click="logOut()"
-								 data-bs-toggle="modal" 
-                 data-bs-target="#userModal">
-								Kijelentkezés
-							</a>
-						</li>
-					</ul>
-				</li>
+			<li class="nav-item dropdown d-flex align-items-center mx-3" ng-if="loggedIn">
+		  		<a class="nav-link dropdown-toggle" 
+		  		   role="button" 
+		  		   data-bs-toggle="dropdown" 
+		  		   aria-expanded="false">
+		  		  {{user.name}}
+		  		</a>
+		  	<ul class="dropdown-menu dropdown-menu-xl-end">
+		    <li>
+		      <a class="dropdown-item" ui-sref="profile">
+		        Profil módosítása
+		      </a>
+		    </li>
+		    <li>
+		      <a class="dropdown-item"
+		         ng-click="logOut()"
+		         data-bs-toggle="modal" 
+		         data-bs-target="#userModal">
+		        Kijelentkezés
+		      </a>
+		    </li>
+		  	</ul>
+			</li>
+
+
+
 			</form>
 		</div>
 	</div>
