@@ -349,7 +349,6 @@
 
         http.request({ url: './php/getGallery.php' })
           .then(function (response) {
-            // Ellenőrizd, hogy a képek hol vannak a válaszban
             if (Array.isArray(response)) {
               $scope.galleryImages = response;
             } else if (response && response.data) {
