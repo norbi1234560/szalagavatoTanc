@@ -341,8 +341,9 @@
                        data: {email: $scope.email_login,
                               password: $scope.password_login }})
             .then(function (response) {
-              $rootScope.msg = "Sikeres bejelentkezés, üdvözlünk " + response.data.name + "!";
-              $rootScope.loginUser(response.data, $rootScope.msg);
+              console.log(response);
+              $rootScope.msg = "Sikeres bejelentkezés, üdvözlünk " + response.name + "!";
+              $rootScope.loginUser(response, $rootScope.msg);
               $scope.$applyAsync();
               $location.path('/');
             })
@@ -358,11 +359,11 @@
                                 email: $scope.email_register,
                                 password: $scope.password_register }})
             .then(function (response) {
-              console.log(response.data);
+              console.log(response);
 
               $rootScope.msg = "Sikeres regisztráció, üdvözlünk " + $scope.name + "!";
 
-              $rootScope.loginUser(response.data.data, $rootScope.msg);
+              $rootScope.loginUser(response, $rootScope.msg);
               $scope.$applyAsync();
               $location.path('/');
 
