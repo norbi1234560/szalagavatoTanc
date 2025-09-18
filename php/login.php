@@ -7,7 +7,7 @@ $args = Util::getArgs();
 
 if (!is_string($args["email"]) || mb_strlen($args["email"], "utf8") > 150 || !str_contains($args["email"], '@'))
     Util::setError("Az email nem helyes!");
-if (!is_string($args["password"]) || mb_strlen($args["password"], "utf8") > 20)
+if (!is_string($args["password"]) || mb_strlen($args["password"], "utf8") > 30)
     Util::setError("A jelszó nem helyes!");
 
 $db = new Database();
@@ -16,6 +16,9 @@ $query = "SELECT `id`, `name`, `password` FROM `users` WHERE `email` = :email LI
 $result = $db->execute($query, $args["email"]);
 
 $db = null;
+
+if ($result == null)
+    Util::setError("Nincs ilyen email cím regisztrálva!");
 
 if ($result[0]["password"] != $args["password"])
     Util::setError("A jelszó nem helyes!");

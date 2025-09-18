@@ -32,6 +32,7 @@
               }
             }
           })
+
           .state('home', {
             url: '/',
             parent: 'root',
@@ -45,7 +46,6 @@
             controller: 'reserveController',
             templateUrl: './html/reserve.html'
           })
-
 
           .state('classes', {
             url: '/classes/:class',
@@ -74,6 +74,13 @@
             parent: 'root',
             controller: 'registerController',
             templateUrl: './html/register.html'
+          })
+
+          .state('profile', {
+            url: '/profile',
+            parent: 'root',
+            controller: 'profileController',
+            templateUrl: './html/profile.html'
           })
 
         $urlRouterProvider.otherwise('/');
@@ -325,12 +332,14 @@
     // Login controller
     .controller('loginController', [
       '$scope',
-      '$http',
+      'http',
       '$rootScope',
       '$location',
-      function ($scope, $http, $rootScope, $location) {
+      function ($scope, http, $rootScope, $location) {
         $scope.login = () => {
-          $http.post("./php/login.php", {email: $scope.email_login, password: $scope.password_login })
+          http.request({url : './php/login.php' ,
+                       data: {email: $scope.email_login,
+                              password: $scope.password_login }})
             .then(function (response) {
               $rootScope.msg = "Sikeres bejelentkezés, üdvözlünk " + response.data.data.name + "!";
               $rootScope.loginUser(response.data.data, $rootScope.msg);
@@ -339,11 +348,15 @@
             })
             .catch(error => {
               $rootScope.message = "Hiba történt: " + error;
+              $scope.$applyAsync();
             })
         }
         
         $scope.register = () => {
-          $http.post("./php/register.php", { name: $scope.name, email: $scope.email_register, password: $scope.password_register })
+          http.request({url: "./php/register.php",
+                        data: { name: $scope.name,
+                                email: $scope.email_register,
+                                password: $scope.password_register }})
             .then(function (response) {
               console.log(response.data);
 
