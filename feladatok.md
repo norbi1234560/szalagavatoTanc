@@ -73,6 +73,7 @@
 **söti,dávid** css rövidítés
 **tomi ricsi** ne logjon ki a posta utcára a kod
 **herczeg,Tóth Laci** Profile kinézet javítása
+**suba** bootstrap automatikusaninduljon el
 
 # 2025.09.18. Teendők
 # Manuálisan az admin tudja a párokat rakosgatni
@@ -80,3 +81,4 @@
 # Párválasztásnál törlés gomb, adminnak párválasztás gomb
 # 13C-nél le látszódjanak a gombok, mivel csk fiúkból áll
 # Párválasztásnál férfi ne lehessen férfival és csak 1x táncolhasson valaki
+# app.js átírása, hogy a közös enviroment php hibakezelései működjenek rendesen
