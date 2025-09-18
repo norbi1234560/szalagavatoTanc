@@ -83,6 +83,13 @@
             templateUrl: './html/profile.html'
           })
 
+          .state('gallery', {
+            url: '/gallery',
+            parent: 'root',
+            controller: 'galleryController',
+            templateUrl: './html/gallery.html'
+          })
+
         $urlRouterProvider.otherwise('/');
       }
     ])
@@ -328,6 +335,26 @@
           })
       }
     ])
+
+    .controller('galleryController', [
+      '$scope',
+      'http',
+      '$rootScope',
+      '$location',
+      function ($scope, http, $rootScope, $location) {
+        $scope.galleryImages = [];
+
+        http.request({url : './php/getGallery.php' ,
+                      data: {class: "gallery" }})
+          .then(function (response) {
+            $scope.galleryImages = response.data.data;
+            $scope.$applyAsync();
+            console.log($scope.galleryImages);
+          })
+          .catch(error => {
+            console.log("Hiba.:" + error)
+          })
+      }])
 
     // Login controller
     .controller('loginController', [
