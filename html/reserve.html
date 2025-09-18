@@ -4,12 +4,17 @@
     </div>
   <div class="row d-flex justify-content-center mt-5">
 
-    <button class="btn btn-dark col-3"
+    <button class="btn btn-dark col-3 btn-outline"
             ng-click="makePairs()">
       Párok összeállítása
     </button>
 
-    <table class="table table-bordered table-striped table-sm mt-3 text-center">
+    <p class="text-center mt-3 text-muted" ng-if="pairsNamed.length > 0">
+      Összesen {{pairsNamed.length}} pár készült.
+    </p>
+
+    <table class="table table-hover table-sm 
+                  table-bordered table-sm mt-3 text-center">
 
       <thead class="table-dark">
         <tr>
@@ -22,11 +27,29 @@
       </thead>
       <tbody>
         <tr ng-repeat="x in pairsNamed">
-          <td><img ng-src="assets/pics/{{x.image1}}" style="width: 160px"></td>
-          <td class="w-50">{{x.name1}}</td>
-          <td class="w-50">{{x.name2}}</td>
-          <td><img ng-src="assets/pics/{{x.image2}}" style="width: 160px"></td>
+          <td class="p-0 m-0 bg-transparent border-0">
+            <img ng-src="assets/pics/{{x.image1}}" 
+                 class="bg-transparent border-0 img-fluid"
+                 style="width: 100px;">
+          </td>
 
+          <td class="w-auto" 
+              ng-style="x.gender1 == 'M' ? {'background-color':'#B0E0E6','color': '#003366'} : 
+                                           {'background-color':'#e6e6fa', 'color':'#4b0082'}">
+                                           {{x.name1}}
+          </td>
+
+          <td class="w-auto" 
+              ng-style="x.gender2 == 'M' ? {'background-color':'#B0E0E6','color': '#003366'} : 
+                                           {'background-color':'#e6e6fa', 'color':'#4b0082'}">
+                                           {{x.name2}}
+          </td>
+
+          <td class="p-0 m-0 bg-transparent border-0">
+            <img ng-src="assets/pics/{{x.image2}}" 
+                 class="bg-transparent border-0 img-fluid" 
+                 style="width: 100px">
+          </td>
         </tr>
       </tbody>
     </table>
