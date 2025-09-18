@@ -119,7 +119,7 @@
         $rootScope.loginUser = function (data, message) {
           $rootScope.user.id = data.id;
           $rootScope.user.name = data.name;
-          $rootScope.user.pageID = pageID;
+          // $rootScope.user.pageID = pageID;
           localStorage.setItem('user', JSON.stringify($rootScope.user));
           $rootScope.loggedIn = true;
           $rootScope.message = message;
