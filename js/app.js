@@ -72,7 +72,6 @@
           .state('register', {
             url: '/register',
             parent: 'root',
-            controller: 'registerController',
             templateUrl: './html/register.html'
           })
 
@@ -383,10 +382,9 @@
             }
           })
             .then(function (response) {
-              $rootScope.msg = "Sikeres bejelentkezés, üdvözlünk " +
-                response.data.name + "!";
-              $rootScope.loginUser(response.data,
-                $rootScope.msg);
+              console.log(response);
+              $rootScope.msg = "Sikeres bejelentkezés, üdvözlünk " + response.name + "!";
+              $rootScope.loginUser(response, $rootScope.msg);
               $scope.$applyAsync();
               $location.path('/');
             })
@@ -406,11 +404,11 @@
             }
           })
             .then(function (response) {
-              console.log(response.data);
+              console.log(response);
 
               $rootScope.msg = "Sikeres regisztráció, üdvözlünk " + $scope.name + "!";
 
-              $rootScope.loginUser(response.data.data, $rootScope.msg);
+              $rootScope.loginUser(response, $rootScope.msg);
               $scope.$applyAsync();
               $location.path('/');
 
@@ -422,17 +420,6 @@
             })
 
         }
-      }
-    ])
-
-    // Register controller
-    .controller('registerController', [
-      '$scope',
-      '$http',
-      '$location',
-      '$rootScope',
-      function ($scope, $http, $location, $rootScope) {
-
       }
     ])
 

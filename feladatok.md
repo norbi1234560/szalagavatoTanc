@@ -67,8 +67,9 @@
 **tomi ricsi**: telefonos nézet bugfix
 **guvat** bejelntkezés azonositás
 **barni fodor** bejelentkezés php error kijavitása
-**dani, herczeg** galléria megjlenités,felhasználó oldal design + js
+**dani, herczeg** galléria megjlenités,felhasználó oldal design + js+ profile
 **szabó, zoli,zoli** language
 **miklos, herczeg** design
 **söti,dávid** css rövidítés
 **tomi ricsi** ne logjon ki a posta utcára a kod
+**herczeg,Tóth Laci** Profile kinézet javítása
