@@ -143,6 +143,7 @@
       '$http',
       function ($scope, $rootScope, $http) {
 
+
         // A párok betöltése függvény
         $scope.loadPairs = () => {
 
@@ -182,7 +183,8 @@
                       gender2: $scope.user2_gender,
                       image1: $scope.user1_image,
                       image2: $scope.user2_image
-                    });
+                    })
+
                   }
                   console.log($scope.pairsNamed);
                 })
@@ -194,6 +196,7 @@
               console.error("Hiba az adat betöltése során: ", error);
             });
         }
+        
 
         $scope.makePairs = () => {
 
@@ -285,6 +288,8 @@
             })
         }
         $scope.loadPairs();
+
+        
       }
     ])
 
