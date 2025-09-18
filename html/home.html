@@ -5,12 +5,13 @@
 
     <!-- Szalagavató címe -->
     <h1 class="blockquote fw-bold namefont">
-      HSZC Návay Lajos Szakképzési Centrum és Kollégium 2025-2026 Szalagavató
+      {{currentLang.home.event_name}}
     </h1>
 
     <!-- Bootstrap carousel kezdete -->
     <div id="carouselExampleIndicators" 
-         class="carousel slide">
+         class="carousel slide"
+         data-bs-ride="carousel">
 
       <!-- Képváltó indikátor gombok (alsó pöttyök) -->
       <div class="carousel-indicators">
@@ -91,10 +92,7 @@
 
     <!-- Leírás a szalagavatóról -->
     <p class="mt-4 textfont">
-      A szalagavató ünnepség minden végzős diák életében különleges pillanat.
-      Ez az esemény nemcsak a tanulmányok lezárását jelképezi, hanem egy új életszakasz kezdetét is.
-      Büszkén viseljük a szalagot, amely összeköt minket az iskolával, tanárainkkal és egymással.
-      Köszönjük mindenkinek, aki támogatta utunkat!
+      {{currentLang.home.event_description}}
     </p>
 
   </div>
@@ -102,8 +100,8 @@
   <!-- Lábjegyzet/jegyvásárlási CTA -->
   <div class="row text-center">
     <p class="mt-5 textfont">
-      Esetleg érdekli a mi szalagavatónk és megvenné a jegyét?
-      <a ui-sref="event">Kattints Ide!</a>
+      {{currentLang.home.interest}}
+      <a ui-sref="event">{{currentLang.home.click_here}}</a>
     </p>
   </div>
 

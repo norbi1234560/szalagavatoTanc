@@ -97,22 +97,32 @@
     .run([
       '$rootScope',
       '$location',
-      ($rootScope, $location) => {
+      'util',
+      ($rootScope,$location,util) => {
 
         // user object
         $rootScope.user = {};
+        $rootScope.loggedIn = false;
         console.log($rootScope.user);
 
-        $rootScope.checkedUser = JSON.parse(localStorage.getItem('user')) || 0;
-        if ($rootScope.checkedUser != 0) {
-          $rootScope.user = JSON.parse(localStorage.getItem('user'));
-          $rootScope.loggedIn = true;
-        }
+        //get PageID
+        let PageId = util.getPageId();
 
+        //get localStorage.getItem('user')
+        $rootScope.checkedUser = JSON.parse(localStorage.getItem('user'))||0;
+
+        if(typeof $rootScope.checkedUser.pageID != "undefined"){
+          if($rootScope.checkedUser != 0 && $rootScope.checkedUser.pageID.includes("szalagavatotanc")){
+            $rootScope.user = JSON.parse(localStorage.getItem('user'));
+            $rootScope.loggedIn = true;
+          }
+        }
+        
         //user object
         $rootScope.loginUser = function (data, message) {
           $rootScope.user.id = data.id;
           $rootScope.user.name = data.name;
+          $rootScope.user.pageID = PageId;
           localStorage.setItem('user', JSON.stringify($rootScope.user));
           $rootScope.loggedIn = true;
           $rootScope.message = message;
@@ -133,6 +143,35 @@
           }
 
         }
+
+        //get languages
+        $rootScope.getLanguages = function() {
+          fetch('./php/getLanguages.php')
+          .then(res => res.json())
+          .then(res => {
+            if (res.error) {
+              console.error(res.error);
+            }
+            else {
+
+              //set language data
+              $rootScope.languages = res.data;
+              
+              for (let lang of $rootScope.languages) {
+                lang.data = JSON.parse(lang.data);
+              }
+              
+              //set default to hu
+              $rootScope.currentLang = $rootScope.languages[3].data;
+
+              $rootScope.$applyAsync();
+            }
+          })
+          .catch(err => console.error(err));
+        }
+
+        //run
+        $rootScope.getLanguages();
       }
     ])
 
@@ -300,6 +339,24 @@
       '$location',
       function ($scope, $http, $rootScope, $location) {
 
+        //Get if user from the class
+
+        console.log($rootScope.loggedIn)
+
+        if($rootScope.loggedIn === false){
+          $location.path('/');
+        }
+
+        $http.post("./php/getUserData.php",{
+          id: $rootScope.user.id
+        }).then(
+          function(response){
+            $scope.data = response.data.data;
+            $scope.imageURL = "./assets/pics/" +  $scope.data.class + "/" + $scope.data.image;
+          })
+          .catch(error => {console.log(error)})
+        
+
         $scope.modify = () => {
           $http.post("./php/editUser.php", {
             email: $scope.model.email,
@@ -318,7 +375,7 @@
             })
             .catch(error => {
               $rootScope.message = "Hiba történt: " + error;
-              console.log($scope.Error)
+              console.log($scope.Error);
             })
 
         }
