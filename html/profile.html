@@ -8,7 +8,7 @@
     <div class="mb-3">
       <label for="InputEmail1" 
              class="form-label">
-             Email address
+             {{currentLang.profile.email}}
       </label>
 
       <input type="email" 
@@ -23,7 +23,7 @@
       <label for="InputPassword1" 
              ng-model="model.password" 
              class="form-label fs-5 text-black">
-             Password
+             {{currentLang.profile.email}}
       </label>
 
       <input type="password" 
@@ -39,7 +39,7 @@
             class="btn btn-outline-primary"
             ng-disabled="modifyForm.$invalid"
             ng-click="modify()">
-            Küldés
+            {{currentLang.profile.send}}
     </button>
   </form>
   </div>

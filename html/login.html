@@ -7,8 +7,8 @@
             <div class="w-100 d-block pb-5 pt-5 pt-sm-2 text-center">
 
               <h6 class="mb-0 pb-3 h6-form">
-                <span>Bejelentkezés</span>
-                <span>Regisztráció</span>
+                <span>{{currentLang.login.login}}</span>
+                <span>{{currentLang.login.register}}</span>
               </h6>
 
               <input class="checkbox-form position-absolute checkbox" type="checkbox" id="reg-log" name="reg-log" />
@@ -24,7 +24,7 @@
                       <div class="w-100 position-relative d-block text-center">
                         <form name="loginForm">
 
-                          <h4 class="mb-4 pb-3 fw-semibold">Bejelentkezés</h4>
+                          <h4 class="mb-4 pb-3 fw-semibold">{{currentLang.login.login}}</h4>
 
                           <!-- Email Input -->
                           <div class="form-group">                          
@@ -32,7 +32,7 @@
                                    name="logemail" 
                                    class="form-style" 
                                    ng-model="email_login" 
-                                   placeholder="Email cím"
+                                   placeholder="{{currentLang.login.email}}"
                                    autocomplete="off" 
                                    maxlength="150" 
                                    required
@@ -46,7 +46,7 @@
                                    ng-model="password_login" 
                                    name="logpass" 
                                    class="form-style" 
-                                   placeholder="Jelszó"
+                                   placeholder="{{currentLang.login.password}}"
                                    autocomplete="off" 
                                    maxlength="20" 
                                    required
@@ -60,7 +60,7 @@
                               <input class="checkbox-change position-absolute" type="checkbox" id="show-hide_login" name="show-hide_login" ng-model="showPassword_login">
                               <label for="show-hide_login"></label>
                               <label class="form-check-label small" for="show-password">
-                                Jelszó megjelenítése
+                                {{currentLang.login.show_password}}
                               </label>
                             </div>
                           </div>
@@ -71,7 +71,7 @@
                             data-bs-target="#userModal" 
                             ng-disabled="loginForm.$invalid"
                             ng-click="login()">
-                            Bejelentkezés
+                            {{currentLang.login.login}}
                           </button>
                         </form>
                       </div>
@@ -84,13 +84,13 @@
                       <div class="w-100 position-relative d-block text-center">
                         <form name="registerForm">
 
-                          <h4 class="fw-semibold mb-3">Regisztráció</h4>
+                          <h4 class="fw-semibold mb-3">{{currentLang.login.register}}</h4>
                           <!-- Név Input -->
                           <div class="form-group">
                             <input type="text" 
                                    name="logname" 
                                    class="form-style" 
-                                   placeholder="Teljes név"
+                                   placeholder="{{currentLang.login.full_name}}"
                                    autocomplete="off" 
                                    ng-model="name" 
                                    maxlength="150" 
@@ -103,7 +103,7 @@
                             <input type="text" 
                                    name="logemail" 
                                    class="form-style" 
-                                   placeholder="Email cím"
+                                   placeholder="{{currentLang.login.email}}"
                                    ng-model="email_register"  
                                    autocomplete="off" 
                                    maxlength="150"
@@ -118,7 +118,7 @@
                                    ng-model="password_register" 
                                    name="logpass" 
                                    class="form-style" 
-                                   placeholder="Jelszó"
+                                   placeholder="{{currentLang.login.password}}"
                                    autocomplete="off"
                                    minlength="6" 
                                    maxlength="30" 
@@ -137,7 +137,7 @@
                                      ng-model="showPassword_register">
                               <label for="show-hide_register"></label>
                               <label class="form-check-label small" for="show-password">
-                                Jelszó megjelenítése
+                                {{currentLang.login.show_password}}
                               </label>
                             </div>
                           </div>
@@ -148,7 +148,7 @@
                                   data-bs-target="#userModal"
                                   ng-disabled="registerForm.$invalid" 
                                   ng-click="register()">
-                            Regisztráció
+                            {{currentLang.login.register}}
                           </button>
                         </form>
                       </div>
