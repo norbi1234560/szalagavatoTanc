@@ -30,7 +30,6 @@
 }
 .service-card-front {
   background: linear-gradient(45deg, #414142, #0b0b0c);
-  color: white;
 }
 .service-card-back {
   background: white;
@@ -44,7 +43,6 @@
   list-style: none;
 }
 .feature-list li {
-  padding: 0.5rem;
   border-bottom: 1px solid #e5e7eb;
 }
 .hover-lift {
@@ -159,8 +157,6 @@ body{
   margin-top: 60px;
 }
 .card-3d-wrapper {
-  width: 100%;
-  height: 100%;
   position:absolute;    
   top: 0;
   left: 0;  
@@ -169,8 +165,6 @@ body{
   transition: all 600ms ease-out; 
 }
 .card-front, .card-back {
-  width: 100%;
-  height: 100%;
   background-color: #2a2b38;
   background-position: bottom center;
   background-repeat: no-repeat;
@@ -194,7 +188,6 @@ body{
 }
 .center-wrap{
   position: absolute;
-  width: 100%;
   padding: 0 35px;
   top: 50%;
   left: 0;
@@ -213,7 +206,6 @@ body{
   padding: 13px 20px;
   padding-left: 55px;
   height: 48px;
-  width: 100%;
   font-weight: 500;
   border-radius: 4px;
   font-size: 14px;
@@ -248,8 +240,7 @@ body{
 
 .carousel-item img {
   height: 700px;             
-  object-fit: cover;         
-  width: 100%;                
+  object-fit: cover;                       
 }
 
 .profile-sidebar {
