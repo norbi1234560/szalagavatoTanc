@@ -66,10 +66,19 @@
 # 2025.09.18. Feladatok :
 **tomi ricsi**: telefonos nézet bugfix
 **guvat** bejelntkezés azonositás
-**barni fodor** bejelentkezés php error kijavitása
+**barni fodor tokai** bejelentkezés php error kijavitása, hibaüzenetek hozzáadása
 **dani, herczeg** galléria megjlenités,felhasználó oldal design + js+ profile
 **szabó, zoli,zoli** language
 **miklos, herczeg** design
 **söti,dávid** css rövidítés
 **tomi ricsi** ne logjon ki a posta utcára a kod
 **herczeg,Tóth Laci** Profile kinézet javítása
+**suba** bootstrap automatikusaninduljon el
+
+# 2025.09.18. Teendők
+# Manuálisan az admin tudja a párokat rakosgatni
+# A párválasztásnál 1.taghoz a lányok 2.taghoz a fiúk kerüljenek
+# Párválasztásnál törlés gomb, adminnak párválasztás gomb
+# Az osztályoknál a 13C-nél le látszódjanak a gombok, mivel csk fiúkból áll
+# Párválasztásnál férfi ne lehessen férfival és csak 1x táncolhasson valaki
+# app.js átírása, hogy a közös enviroment php hibakezelései működjenek rendesen
