@@ -364,10 +364,6 @@
             console.log("Hiba:" + error)
           })
       }])
-            console.log("Hiba.:" + error);
-          });
-      }
-    ])
 
     // Login controller
     .controller('loginController', [
