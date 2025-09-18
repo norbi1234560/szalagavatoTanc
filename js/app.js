@@ -153,14 +153,22 @@
                 for(let j = 0; j < $scope.students.length; j++){
                   if($scope.loadablePairs[i].user_id1 == $scope.students[j].id){
                     $scope.user1_name = $scope.students[j].name;
+                    $scope.user1_gender = $scope.students[j].gender;
                     $scope.user1_image = $scope.students[j].class + "/" + $scope.students[j].image;
                   }
                   if($scope.loadablePairs[i].user_id2 == $scope.students[j].id){
                     $scope.user2_name = $scope.students[j].name;
+                    $scope.user2_gender = $scope.students[j].gender;
                     $scope.user2_image = $scope.students[j].class + "/" + $scope.students[j].image;
                   }
                 }
-                  $scope.pairsNamed.push({name1: $scope.user1_name, name2: $scope.user2_name, image1: $scope.user1_image, image2: $scope.user2_image });
+                  $scope.pairsNamed.push({name1: $scope.user1_name, 
+                                          name2: $scope.user2_name, 
+                                          gender1 : $scope.user1_gender,
+                                          gender2 : $scope.user2_gender,  
+                                          image1: $scope.user1_image, 
+                                          image2: $scope.user2_image 
+                                        });
               }
               console.log($scope.pairsNamed);
             })
