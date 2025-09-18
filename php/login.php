@@ -17,6 +17,9 @@ $result = $db->execute($query, $args["email"]);
 
 $db = null;
 
+if ($result == null)
+    Util::setError("Nincs ilyen email cím regisztrálva!");
+
 if ($result[0]["password"] != $args["password"])
     Util::setError("A jelszó nem helyes!");
 
