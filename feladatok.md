@@ -79,6 +79,6 @@
 # Manuálisan az admin tudja a párokat rakosgatni
 # A párválasztásnál 1.taghoz a lányok 2.taghoz a fiúk kerüljenek
 # Párválasztásnál törlés gomb, adminnak párválasztás gomb
-# 13C-nél le látszódjanak a gombok, mivel csk fiúkból áll
+# Az osztályoknál a 13C-nél le látszódjanak a gombok, mivel csk fiúkból áll
 # Párválasztásnál férfi ne lehessen férfival és csak 1x táncolhasson valaki
 # app.js átírása, hogy a közös enviroment php hibakezelései működjenek rendesen
