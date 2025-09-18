@@ -274,7 +274,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
@@ -298,11 +298,11 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 (14, 'Kriván Balázs', 'krivan.balazs-2021@keri.mako.hu', 'krivanbalazs13c'),
 (15, 'Kulcsár Tamás Ámon', 'kulcsar.tamas-2021@keri.mako.hu', 'kulcsartamasamon13c'),
 (16, 'Miklós Martin', 'miklos.martin-2021@keri.mako.hu', 'miklosmartin13c'),
-(17, 'Oláh Zsigmond Sámuel', 'olah.zsigmond-2021@keri.mako.hu', 'olahzsigmondsamuel13'),
+(17, 'Oláh Zsigmond Sámuel', 'olah.zsigmond-2021@keri.mako.hu', 'olahzsigmondsamuel13c'),
 (18, 'Répa Norbert', 'repa.norbert-2021@keri.mako.hu', 'repanorbert13c'),
 (19, 'Sötét Ármin', 'sotet.armin-2021@keri.mako.hu', 'sotetarmin13c'),
 (20, 'Suba Benjamin', 'suba.benjamin-2021@keri.mako.hu', 'subabenjamin13c'),
-(21, 'Suhajda Ádám Dominik', 'suhajda.adam-2021@keri.mako.hu', 'suhajdaadamdominik13'),
+(21, 'Suhajda Ádám Dominik', 'suhajda.adam-2021@keri.mako.hu', 'suhajdaadamdominik13c'),
 (22, 'Szabó Bence', 'szabo.bence-2021@keri.mako.hu', 'szabobence13c'),
 (23, 'Szalontai László', 'szalontai.laszlo-2021@keri.mako.hu', 'szalontailaszlo13c'),
 (24, 'Szántó Péter', 'szanto.peter-2021@keri.mako.hu', 'szantopeter13c'),
@@ -327,7 +327,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 (43, 'Mágori Adél', 'magori.adel-2021@keri.mako.hu', 'magoriadel13a'),
 (44, 'Mészáros Anna', 'meszaros.anna-2021@keri.mako.hu', 'meszarosanna13a'),
 (45, 'Nagy Kristóf', 'nagy.kristof-2021@keri.mako.hu', 'nagykristof13a'),
-(46, 'Savanya Réka Gabriella', 'savanya.reka-2021@keri.mako.hu', 'savanyarekagabriella'),
+(46, 'Savanya Réka Gabriella', 'savanya.reka-2021@keri.mako.hu', 'savanyarekagabriella13a'),
 (47, 'Schneider Evelyn', 'schneider.evelyn-2021@keri.mako.hu', 'schneiderevelyn13a'),
 (48, 'Szabó Jázmin', 'szabo.jazmin-2021@keri.mako.hu', 'szabojazmin13a'),
 (49, 'Szabó Kata', 'szabo.kata-2021@keri.mako.hu', 'szabokata13a'),
