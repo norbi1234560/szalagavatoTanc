@@ -67,6 +67,7 @@
 **tomi ricsi**: telefonos nézet bugfix
 **guvat** bejelntkezés azonositás
 **barni fodor** bejelentkezés php error kijavitása
-**dani** galléria megjlenités
+**dani, herczeg** galléria megjlenités,felhasználó oldal design + js
 **szabó, zoli,zoli** language
 **miklos, herczeg** design
+**söti,dávid** css rövidítés
