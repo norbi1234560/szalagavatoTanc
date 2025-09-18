@@ -91,22 +91,29 @@
     .run([
       '$rootScope',
       '$location',
-      ($rootScope,$location) => {
+      'util',
+      ($rootScope,$location,util) => {
 
         // user object
         $rootScope.user = {};
         console.log($rootScope.user);
 
-        $rootScope.checkedUser = JSON.parse(localStorage.getItem('user'))||0;
-        if($rootScope.checkedUser != 0){
-          $rootScope.user = JSON.parse(localStorage.getItem('user'));
-          $rootScope.loggedIn = true;
-        }
+        let PageId = util.getPageId();
+        console.log(PageId);
 
+        console.log(PageId.includes("szalagavatotanc"));
+       
+          $rootScope.checkedUser = JSON.parse(localStorage.getItem('user'))||0;
+          if($rootScope.checkedUser != 0 && $rootScope.checkedUser.user.pageID.includes("szalagavatotanc")){
+            $rootScope.user = JSON.parse(localStorage.getItem('user'));
+            $rootScope.loggedIn = true;
+          }
+        
         //user object
         $rootScope.loginUser = function(data, message) {
           $rootScope.user.id = data.id;
           $rootScope.user.name = data.name;
+          $rootScope.user.pageID = pageID;
           localStorage.setItem('user', JSON.stringify($rootScope.user));
           $rootScope.loggedIn = true;
           $rootScope.message = message;
