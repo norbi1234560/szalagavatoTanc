@@ -348,17 +348,24 @@
       function ($scope, http, $rootScope, $location) {
         $scope.galleryImages = [];
 
-        http.request({url : './php/getGallery.php' ,
-                      data: {class: "gallery" }})
+        http.request({ url: './php/getGallery.php' })
           .then(function (response) {
-            $scope.galleryImages = response.data.data;
+            // Ellenőrizd, hogy a képek hol vannak a válaszban
+            if (Array.isArray(response)) {
+              $scope.galleryImages = response;
+            } else if (response && response.data) {
+              $scope.galleryImages = response.data;
+            } else {
+              $scope.galleryImages = [];
+            }
             $scope.$applyAsync();
             console.log($scope.galleryImages);
           })
           .catch(error => {
-            console.log("Hiba.:" + error)
-          })
-      }])
+            console.log("Hiba.:" + error);
+          });
+      }
+    ])
 
     // Login controller
     .controller('loginController', [
