@@ -119,10 +119,10 @@
         }
 
         $rootScope.logOut = function () {
-          $rootScope.message = "Biztos ki szeretnél jelentkezni?"
+          $rootScope.message = "Biztos ki szeretne jelentkezni?"
           $rootScope.loggedOut = true;
           $rootScope.confirmLogOut = () => {
-            $rootScope.message = "Sikeres kijelentkezés viszlát";
+            $rootScope.message = "Sikeresen kijelentkezett a fiókjából!";
             $rootScope.loggedOut = false;
             localStorage.removeItem('user');
             setTimeout(function () {
@@ -187,11 +187,11 @@
                   console.log($scope.pairsNamed);
                 })
                 .catch((error) => {
-                  console.error("hiba az adat betöltésénél: ", error);
+                  console.error("Hiba az adat betöltése során: ", error);
                 });
 
             }, (error) => {
-              console.error("hiba az adat betöltésénél: ", error);
+              console.error("Hiba az adat betöltése során: ", error);
             });
         }
 
@@ -264,11 +264,11 @@
                       }
                       $http.post("./php/addPairs.php", $scope.pairs.map(([a, b]) => [a.id, b.id]))
                         .then((response) => {
-                          console.log("Sikeres párosítás adatbázisba mentés");
+                          console.log("Sikeres párosítás");
                           $scope.loadPairs();
                         })
                         .catch((error) => {
-                          console.log("Hiba a párosítás adatbázisba mentésénél: ", error);
+                          console.log("Hiba a párosítás során: ", error);
                         });
                     })
                     .catch((error) => {
@@ -281,7 +281,7 @@
 
             })
             .catch((error) => {
-              console.log("Hiba a régi párok törlésénél: ", error);
+              console.log("Hiba a régi párok törlése során: ", error);
             })
         }
         $scope.loadPairs();
@@ -303,7 +303,7 @@
             .then(function (response) {
               console.log(response.data);
 
-              $rootScope.msg = "Sikeres megváltoztatás" + $scope.name + "!";
+              $rootScope.msg = "Sikeresen módosította a fiókját" + $scope.name + "!";
 
               $rootScope.loginUser(response.data.data, $rootScope.msg);
               $scope.$applyAsync();
@@ -334,7 +334,7 @@
             console.log($scope.homeImages);
           })
           .catch(error => {
-            console.log("Hiba.:" + error)
+            console.log("Hiba:" + error)
           })
       }
     ])
@@ -360,10 +360,9 @@
             console.log($scope.galleryImages);
           })
           .catch(error => {
-            console.log("Hiba.:" + error);
-          });
-      }
-    ])
+            console.log("Hiba:" + error)
+          })
+      }])
 
     // Login controller
     .controller('loginController', [
@@ -382,13 +381,13 @@
           })
             .then(function (response) {
               console.log(response);
-              $rootScope.msg = "Sikeres bejelentkezés, üdvözlünk " + response.name + "!";
+              $rootScope.msg = "Sikeresen bejelentkezett fiókjába, üdvözöljük " + response.name + "!";
               $rootScope.loginUser(response, $rootScope.msg);
               $scope.$applyAsync();
               $location.path('/');
             })
             .catch(error => {
-              $rootScope.message = "Hiba történt: " + error;
+              $rootScope.message = "Hiba történt a bejelentkezés során: " + error;
               $scope.$applyAsync();
             })
         }
@@ -414,7 +413,7 @@
 
             })
             .catch(error => {
-              $rootScope.message = "Hiba történt: " + error;
+              $rootScope.message = "Hiba történt a regisztráció során: " + error;
               console.log($scope.Error)
             })
 
@@ -435,7 +434,7 @@
             $scope.$applyAsync();
           })
           .catch(error => {
-            console.log("Hiba.:" + error)
+            console.log("Hiba:" + error)
           })
         $http.post("./php/getClasses.php")
           .then(function (response) {
@@ -470,14 +469,14 @@
                     }
 
                   } else {
-                    console.log("Nincs tiltott személy!")
+                    console.log("Nem található tiltott személy a listáján!")
                   }
                 })
 
               $scope.$applyAsync();
             })
             .catch((error) => {
-              console.log("Hiba.:" + error);
+              console.log("Hiba:" + error);
             })
         }
 
@@ -489,19 +488,19 @@
           if (enable) {
             $http.post("./php/addBlock.php", { user_id: currentEditStudent.id, blocked_user_id: currentBlockStudent.id })
               .then((response) => {
-                console.log("Siker");
+                console.log("Sikeres hozzáadás");
               })
               .catch((error) => {
-                console.log("Hiba.:" + error);
+                console.log("Hiba a hozzáadás során:" + error);
               })
           }
           else {
             $http.post("./php/removeBlock.php", { user_id: currentEditStudent.id, blocked_user_id: currentBlockStudent.id })
               .then((response) => {
-                console.log("Siker");
+                console.log("Sikeres törlés");
               })
               .catch((error) => {
-                console.log("Hiba.:" + error);
+                console.log("Hiba a törlés során:" + error);
               })
           }
         }
