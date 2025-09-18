@@ -102,6 +102,7 @@
 
         // user object
         $rootScope.user = {};
+        $rootScope.loggedIn = false;
         console.log($rootScope.user);
 
         //get PageID
@@ -330,12 +331,18 @@
 
         //Get if user from the class
 
+        console.log($rootScope.loggedIn)
+
+        if($rootScope.loggedIn === false){
+          $location.path('/');
+        }
+
         $http.post("./php/getUserData.php",{
           id: $rootScope.user.id
         }).then(
           function(response){
-            console.log($rootScope.user.id);
-            console.log(response.data);
+            $scope.data = response.data.data;
+            $scope.imageURL = "./assets/pics/" +  $scope.data.class + "/" + $scope.data.image;
           })
           .catch(error => {console.log(error)})
         
@@ -358,7 +365,7 @@
             })
             .catch(error => {
               $rootScope.message = "Hiba történt: " + error;
-              console.log($scope.Error)
+              console.log($scope.Error);
             })
 
         }

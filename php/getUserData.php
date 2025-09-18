@@ -16,4 +16,4 @@ $result = $db -> execute($query,$args);
 if (count($result) == 0) 
     Util::setResponse('A meglévő felhasználó nem tagja a KERI-nek');
 
-Util::setResponse($result);
+Util::setResponse($result[0]);
