@@ -104,22 +104,24 @@
         $rootScope.user = {};
         console.log($rootScope.user);
 
-        // $rootScope.PageId = util.getPageId();
-        // console.log(PageId);
+        //get PageID
+        let PageId = util.getPageId();
 
-        // console.log(PageId.includes("szalagavatotanc"));
-       
-          $rootScope.checkedUser = JSON.parse(localStorage.getItem('user'))||0;
-          if($rootScope.checkedUser != 0){
+        //get localStorage.getItem('user')
+        $rootScope.checkedUser = JSON.parse(localStorage.getItem('user'))||0;
+
+        if(typeof $rootScope.checkedUser.pageID != "undefined"){
+          if($rootScope.checkedUser != 0 && $rootScope.checkedUser.pageID.includes("szalagavatotanc")){
             $rootScope.user = JSON.parse(localStorage.getItem('user'));
             $rootScope.loggedIn = true;
           }
+        }
         
         //user object
         $rootScope.loginUser = function (data, message) {
           $rootScope.user.id = data.id;
           $rootScope.user.name = data.name;
-          // $rootScope.user.pageID = pageID;
+          $rootScope.user.pageID = PageId;
           localStorage.setItem('user', JSON.stringify($rootScope.user));
           $rootScope.loggedIn = true;
           $rootScope.message = message;
