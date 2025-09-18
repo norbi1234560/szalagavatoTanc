@@ -39,9 +39,12 @@
 					</a>
 				</li>
 
-				<li class="nav-item mx-1">
-					<a class="nav-link" ui-sref="galeria" ui-sref-active="active" data-bs-toggle="collapse"
-						data-bs-target=".navbar-collapse.show">
+        <li class="nav-item mx-1">
+					<a class="nav-link" 
+						 ui-sref="gallery" 
+						 ui-sref-active="active" 
+						 data-bs-toggle="collapse"
+						 data-bs-target=".navbar-collapse.show">
 						<span class="text-capitalize text-small-caps">
 							{{currentLang.header.gallery}}
 						</span>
@@ -74,20 +77,27 @@
 
 				<!-- Fiók kezelés -->
 				<li class="nav-item dropdown d-flex dropstart 
-									 align-items-center mx-3" ng-if="loggedIn">
-					<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									 align-items-center mx-3" 
+						ng-if="loggedIn">
+					<a class="nav-link dropdown-toggle" 
+						 role="button" 
+						 data-bs-toggle="dropdown" 
+						 aria-expanded="false">
 						{{user.name}}
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a class="dropdown-item" ui-sref="profile">
-								{{currentLang.header.modify_profile}}
+							<a class="dropdown-item"
+								 ui-sref="profile">
+								Profil módosítása
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-item" ng-click="logOut()" data-bs-toggle="modal"
-								data-bs-target="#userModal">
-								{{currentLang.header.logout}}
+							<a class="dropdown-item"
+								 ng-click="logOut()"
+								 data-bs-toggle="modal" 
+                 data-bs-target="#userModal">
+								Kijelentkezés
 							</a>
 						</li>
 					</ul>

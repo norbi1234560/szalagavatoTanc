@@ -1,0 +1,9 @@
+<div ng-controller="galleryController">
+  <h2>Galéria</h2>
+
+  <div class="gallery">
+    <div class="gallery-item" ng-repeat="item in galleryImages">
+      <img ng-src="./assets/pics/eventImg/{{item.image}}" alt="Galéria kép {{item.id}}" />
+    </div>
+  </div>
+</div>

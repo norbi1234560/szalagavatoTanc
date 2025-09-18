@@ -64,3 +64,19 @@
 - **Guvat Bence** : Weboldal azonosító.
 
 # 2025.09.18. Feladatok :
+**tomi ricsi**: telefonos nézet bugfix
+**guvat** bejelntkezés azonositás
+**barni fodor tokai** bejelentkezés php error kijavitása, hibaüzenetek hozzáadása
+**dani, herczeg** galléria megjlenités,felhasználó oldal design + js+ profile
+**szabó, zoli,zoli** language
+**miklos, herczeg** design
+**söti,dávid** css rövidítés
+**tomi ricsi** ne logjon ki a posta utcára a kod
+**herczeg,Tóth Laci** Profile kinézet javítása
+
+# 2025.09.18. Teendők
+# Manuálisan az admin tudja a párokat rakosgatni
+# A párválasztásnál 1.taghoz a lányok 2.taghoz a fiúk kerüljenek
+# Párválasztásnál törlés gomb, adminnak párválasztás gomb
+# 13C-nél le látszódjanak a gombok, mivel csk fiúkból áll
+# Párválasztásnál férfi ne lehessen férfival és csak 1x táncolhasson valaki
