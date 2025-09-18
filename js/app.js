@@ -97,22 +97,29 @@
     .run([
       '$rootScope',
       '$location',
-      ($rootScope, $location) => {
+      'util',
+      ($rootScope,$location,util) => {
 
         // user object
         $rootScope.user = {};
         console.log($rootScope.user);
 
-        $rootScope.checkedUser = JSON.parse(localStorage.getItem('user')) || 0;
-        if ($rootScope.checkedUser != 0) {
-          $rootScope.user = JSON.parse(localStorage.getItem('user'));
-          $rootScope.loggedIn = true;
-        }
+        // $rootScope.PageId = util.getPageId();
+        // console.log(PageId);
 
+        // console.log(PageId.includes("szalagavatotanc"));
+       
+          $rootScope.checkedUser = JSON.parse(localStorage.getItem('user'))||0;
+          if($rootScope.checkedUser != 0){
+            $rootScope.user = JSON.parse(localStorage.getItem('user'));
+            $rootScope.loggedIn = true;
+          }
+        
         //user object
         $rootScope.loginUser = function (data, message) {
           $rootScope.user.id = data.id;
           $rootScope.user.name = data.name;
+          // $rootScope.user.pageID = pageID;
           localStorage.setItem('user', JSON.stringify($rootScope.user));
           $rootScope.loggedIn = true;
           $rootScope.message = message;
@@ -133,6 +140,32 @@
           }
 
         }
+
+        $rootScope.getLanguages = function() {
+          fetch('./php/getLanguages.php')
+          .then(res => res.json())
+          .then(res => {
+            if (res.error) {
+              console.error(res.error);
+            }
+            else {
+              $rootScope.languages = res.data;
+              
+              for (let lang of $rootScope.languages) {
+                lang.data = JSON.parse(lang.data);
+              }
+              
+              $rootScope.currentLang = $rootScope.languages[3].data;
+              console.log($rootScope.languages)
+              console.log($rootScope.currentLang)
+
+              $rootScope.$applyAsync();
+            }
+          })
+          .catch(err => console.error(err));
+        }
+
+        $rootScope.getLanguages();
       }
     ])
 

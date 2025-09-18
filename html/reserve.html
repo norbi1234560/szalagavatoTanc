@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row">
-        <h1 class="text-center display-1 mt-5">Pár összeállítás</h1>
+        <h1 class="text-center display-1 mt-5">{{currentLang.reserve.pair}}</h1>
     </div>
   <div class="row d-flex justify-content-center mt-5">
 
     <button class="btn btn-dark col-3 btn-outline"
             ng-click="makePairs()">
-      Párok generálása
+      {{currentLang.reserve.make_pairs}}
     </button>
 
     <p class="text-center mt-3 text-muted" ng-if="pairsNamed.length > 0">
@@ -18,11 +18,11 @@
 
       <thead class="table-dark">
         <tr>
-          <th colspan="4">Párok</th>
+          <th colspan="4">{{currentLang.reserve.pairs}}</th>
         </tr>
         <tr>
-          <th class="w-50" colspan="2">1. Tag</th>
-          <th class="w-50" colspan="2">2. Tag</th>
+          <th class="w-50" colspan="2">{{currentLang.reserve.first}}</th>
+          <th class="w-50" colspan="2">{{currentLang.reserve.second}}</th>
         </tr>
       </thead>
       <tbody>
