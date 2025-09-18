@@ -64,3 +64,9 @@
 - **Guvat Bence** : Weboldal azonosító.
 
 # 2025.09.18. Feladatok :
+**tomi ricsi**: telefonos nézet bugfix
+**guvat** bejelntkezés azonositás
+**barni fodor** bejelentkezés php error kijavitása
+**dani** galléria megjlenités
+**szabó, zoli,zoli** language
+**miklos, herczeg** design
