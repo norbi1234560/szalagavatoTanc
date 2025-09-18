@@ -1,0 +1,1 @@
+Közösségi standard-ok munkamegosztás dokumentáció
