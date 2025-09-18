@@ -68,7 +68,7 @@
 **guvat** bejelntkezés azonositás
 **barni fodor tokai** bejelentkezés php error kijavitása, hibaüzenetek hozzáadása
 **dani, herczeg** galléria megjlenités,felhasználó oldal design + js+ profile
-**szabó, zoli,zoli** language
+**szabó, zoli,zoli** language // Kész
 **miklos, herczeg** design
 **söti,dávid** css rövidítés
 **tomi ricsi** ne logjon ki a posta utcára a kod

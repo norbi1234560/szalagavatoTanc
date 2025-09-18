@@ -144,6 +144,7 @@
 
         }
 
+        //get languages
         $rootScope.getLanguages = function() {
           fetch('./php/getLanguages.php')
           .then(res => res.json())
@@ -152,12 +153,15 @@
               console.error(res.error);
             }
             else {
+
+              //set language data
               $rootScope.languages = res.data;
               
               for (let lang of $rootScope.languages) {
                 lang.data = JSON.parse(lang.data);
               }
               
+              //set default to hu
               $rootScope.currentLang = $rootScope.languages[3].data;
 
               $rootScope.$applyAsync();
@@ -166,6 +170,7 @@
           .catch(err => console.error(err));
         }
 
+        //run
         $rootScope.getLanguages();
       }
     ])
