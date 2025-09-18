@@ -12,8 +12,6 @@ $query = "SELECT `id`, `class`, `image`
 
 $result = $db->execute($query);
 
-$result = $db->execute($query);
-
 $db = null;
 
 Util::setResponse($result);
