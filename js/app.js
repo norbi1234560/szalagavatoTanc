@@ -32,6 +32,7 @@
               }
             }
           })
+
           .state('home', {
             url: '/',
             parent: 'root',
@@ -45,7 +46,6 @@
             controller: 'reserveController',
             templateUrl: './html/reserve.html'
           })
-
 
           .state('classes', {
             url: '/classes/:class',
@@ -74,6 +74,13 @@
             parent: 'root',
             controller: 'registerController',
             templateUrl: './html/register.html'
+          })
+
+          .state('profile', {
+            url: '/profile',
+            parent: 'root',
+            controller: 'profileController',
+            templateUrl: './html/profile.html'
           })
 
         $urlRouterProvider.otherwise('/');
