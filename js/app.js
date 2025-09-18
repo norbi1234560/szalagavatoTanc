@@ -376,10 +376,9 @@
             }
           })
             .then(function (response) {
-              $rootScope.msg = "Sikeres bejelentkezés, üdvözlünk " +
-                response.data.name + "!";
-              $rootScope.loginUser(response.data,
-                $rootScope.msg);
+              console.log(response);
+              $rootScope.msg = "Sikeres bejelentkezés, üdvözlünk " + response.name + "!";
+              $rootScope.loginUser(response, $rootScope.msg);
               $scope.$applyAsync();
               $location.path('/');
             })
@@ -399,11 +398,11 @@
             }
           })
             .then(function (response) {
-              console.log(response.data);
+              console.log(response);
 
               $rootScope.msg = "Sikeres regisztráció, üdvözlünk " + $scope.name + "!";
 
-              $rootScope.loginUser(response.data.data, $rootScope.msg);
+              $rootScope.loginUser(response, $rootScope.msg);
               $scope.$applyAsync();
               $location.path('/');
 
