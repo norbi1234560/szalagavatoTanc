@@ -69,3 +69,4 @@
 **barni fodor** bejelentkezés php error kijavitása
 **dani** galléria megjlenités
 **szabó, zoli,zoli** language
+**miklos, herczeg** design
