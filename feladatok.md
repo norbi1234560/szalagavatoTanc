@@ -73,7 +73,7 @@
 **söti,dávid** css rövidítés
 **tomi ricsi** ne logjon ki a posta utcára a kod
 **herczeg,Tóth Laci** Profile kinézet javítása
-**suba** bootstrap automatikusaninduljon el
+**suba** carusel automatikusaninduljon el
 **Tóth Laci** Event carousel ng-repeatos megoldása
 
 # 2025.09.18. Teendők
