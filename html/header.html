@@ -1,55 +1,40 @@
 <!-- Navbar -->
 <nav class="navbar navbar-dark  navbar-expand-lg bg-dark">
 	<div class="container-fluid">
-		<button class="navbar-toggler" 
-						type="button" 
-						data-bs-toggle="collapse" 
-						data-bs-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent" 
-						aria-expanded="false" 
-						aria-label="Toggle navigation">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" 
-				 id="navbarSupportedContent">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 			<!-- kezdolap -->
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item mx-1">
-					<a class="nav-link" 
-						 ui-sref="home" 
-						 ui-sref-active="active" 
-						 data-bs-toggle="collapse"
-						 data-bs-target=".navbar-collapse.show">
+					<a class="nav-link" ui-sref="home" ui-sref-active="active" data-bs-toggle="collapse"
+						data-bs-target=".navbar-collapse.show">
 						<span class="text-capitalize text-small-caps">
-							Kezdőlap
+							{{currentLang.header.home}}
 						</span>
 					</a>
 				</li>
 
 				<!-- esemeny -->
 				<li class="nav-item mx-1">
-					<a class="nav-link" 
-						 ui-sref="event" 
-						 ui-sref-active="active"  
-						 data-bs-toggle="collapse"
-						 data-bs-target=".navbar-collapse.show">
+					<a class="nav-link" ui-sref="event" ui-sref-active="active" data-bs-toggle="collapse"
+						data-bs-target=".navbar-collapse.show">
 						<span class="text-capitalize text-small-caps">
-							Esemény
+							{{currentLang.header.event}}
 						</span>
 					</a>
 				</li>
 
 				<!-- parvalasztas -->
 				<li class="nav-item mx-1">
-					<a class="nav-link" 
-						 ui-sref="reserve" 
-						 ui-sref-active="active" 
-						 data-bs-toggle="collapse"
-						 data-bs-target=".navbar-collapse.show">
+					<a class="nav-link" ui-sref="reserve" ui-sref-active="active" data-bs-toggle="collapse"
+						data-bs-target=".navbar-collapse.show">
 						<span class="text-capitalize text-small-caps">
-							Párválasztás
+							{{currentLang.header.pair}}
 						</span>
 					</a>
 				</li>
@@ -61,55 +46,62 @@
 						 data-bs-toggle="collapse"
 						 data-bs-target=".navbar-collapse.show">
 						<span class="text-capitalize text-small-caps">
-							Galéria
+							{{currentLang.header.gallery}}
 						</span>
 					</a>
-			  </li>
+				</li>
 
 				<!-- osztalyok -->
 				<li class="nav-item">
-    				<a class="nav-link" ui-sref="classes({class: '13A'})">
-        				Osztályok
-    				</a>
+					<a class="nav-link" ui-sref="classes({class: '13A'})">
+						{{currentLang.header.classes}}
+					</a>
+				</li>
+
+				<!-- nyelv select -->
+				<li>
+					<select name="language" id="language" ng-model="$root.currentLang">
+						<option ng-value="lang.data"
+								ng-repeat="lang in languages"
+								ng-selected="lang.language == 'hu'">{{lang.language}}</option>
+					</select>
 				</li>
 
 			</ul>
 
 			<!-- bejelentkezes btn -->
-			<form class="d-flex ms-auto" 
-						role="search">
-				<button ng-if="!loggedIn" class="btn btn-outline-secondary" 
-								type="button" 
-								ui-sref="login">
-						Bejelentkezés
+			<form class="d-flex ms-auto" role="search">
+				<button ng-if="!loggedIn" class="btn btn-outline-secondary" type="button" ui-sref="login">
+					{{currentLang.header.login}}
 				</button>
 
-			<li class="nav-item dropdown d-flex align-items-center mx-3" ng-if="loggedIn">
-		  		<a class="nav-link dropdown-toggle" 
-		  		   role="button" 
-		  		   data-bs-toggle="dropdown" 
-		  		   aria-expanded="false">
-		  		  {{user.name}}
-		  		</a>
-		  	<ul class="dropdown-menu dropdown-menu-xl-end">
-		    <li>
-		      <a class="dropdown-item" ui-sref="profile">
-		        Profil módosítása
-		      </a>
-		    </li>
-		    <li>
-		      <a class="dropdown-item"
-		         ng-click="logOut()"
-		         data-bs-toggle="modal" 
-		         data-bs-target="#userModal">
-		        Kijelentkezés
-		      </a>
-		    </li>
-		  	</ul>
-			</li>
-
-
-
+				<!-- Fiók kezelés -->
+				<li class="nav-item dropdown d-flex dropstart 
+									 align-items-center mx-3" 
+						ng-if="loggedIn">
+					<a class="nav-link dropdown-toggle" 
+						 role="button" 
+						 data-bs-toggle="dropdown" 
+						 aria-expanded="false">
+						{{user.name}}
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item"
+								 ui-sref="profile">
+								Profil módosítása
+							</a>
+						</li>
+						<li>
+							<a class="dropdown-item"
+								 ng-click="logOut()"
+								 data-bs-toggle="modal" 
+                 data-bs-target="#userModal">
+								Kijelentkezés
+							</a>
+						</li>
+					</ul>
+				</li>
 			</form>
 		</div>
 	</div>
