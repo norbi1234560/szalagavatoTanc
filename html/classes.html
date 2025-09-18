@@ -2,7 +2,8 @@
  <div class="row justify-content-center my-3 mx-2">
   <div class="col-12 d-flex justify-content-center mt-1">
     <ul class="nav justify-content-center my-3">
-      <li ng-repeat="x in classes" class="nav-item">
+      <li ng-repeat="x in classes"
+          class="nav-item">
         <button class="btn btn-outline-primary mx-2 rounded-pill" 
                 type="button" 
                 ui-sref="classes({class: x})">
@@ -20,9 +21,23 @@
         {{className}} {{currentLang.classes.class}}
       </h2>
       <div class="text-center">
-        <button type="button" class="btn btn-primary" ng-click="genderFilter = 'M'">{{currentLang.classes.man}}</button>
-        <button type="button" class="btn btn-danger" ng-show="className != '13C'" ng-click="genderFilter = null">{{currentLang.classes.all}}</button>
-        <button type="button" class="btn btn-primary" ng-show="className != '13C'" ng-click="genderFilter = 'F'">{{currentLang.classes.woman}}</button>
+        <button type="button"
+                class="btn btn-primary"
+                ng-click="genderFilter = 'M'">
+            {{currentLang.classes.man}}
+        </button>
+        <button type="button"
+                class="btn btn-danger" 
+                ng-show="className != '13C'"
+                ng-click="genderFilter = null">
+            {{currentLang.classes.all}}
+        </button>
+        <button type="button"
+                class="btn btn-primary"
+                ng-show="className != '13C'"
+                ng-click="genderFilter = 'F'">
+            {{currentLang.classes.woman}}
+        </button>
       </div>
 </div>
 
@@ -38,7 +53,9 @@
                  style="width: 160px; height: 160px;"
                  ng-src="assets/pics/{{className}}/{{student.image}}">
           </div>
-          <h5 class="text-center my-4">{{student.name}}</h5>
+          <h5 class="text-center my-4">
+            {{student.name}}
+          </h5>
           <div class="text-end justify-content-center d-flex">
             <button type="button" 
                     ng-click="showStudentModal(student)" 
@@ -67,7 +84,8 @@
 
       <!-- Fejléc , tanulo neve -->
       <div class="modal-header border-secondary text-center">
-        <h5 class="modal-title" id="exampleModalLabel">
+        <h5 class="modal-title"
+            id="exampleModalLabel">
           {{currentStudent.name}}
         </h5>
 
@@ -207,37 +225,65 @@
         </ul>
 
         <!-- Tab tartalom, ahol a tanulok listája checkbox formában jelenik meg -->
-        <div class="tab-content" id="modalTabsContent" style="max-height: 300px; overflow-y: auto;">
+        <div class="tab-content"
+             id="modalTabsContent"
+             style="max-height: 300px; overflow-y: auto;">
 
           <!-- A osztály diákjai -->
-          <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+          <div class="tab-pane fade show active"
+               id="tab1"
+               role="tabpanel"
+               aria-labelledby="tab1-tab">
             <!-- Diákok kilistázása -->
-            <div ng-repeat="x in modalStudents" class="form-check" ng-show="x.id != currentStudent.id">
-              <input class="form-check-input" ng-checked="x.blocked"
-                ng-click="blocklistEdit($event.target.checked, currentStudent, x)" type="checkbox" id="{{x.id}}">
-              <label class="form-check-label" for="{{x.id}}">
+            <div ng-repeat="x in modalStudents"
+                 class="form-check"
+                 ng-show="x.id != currentStudent.id">
+              <input class="form-check-input"
+                     ng-checked="x.blocked"
+                     ng-click="blocklistEdit($event.target.checked, currentStudent, x)"
+                     type="checkbox"
+                     id="{{x.id}}">
+              <label class="form-check-label"
+                     for="{{x.id}}">
                 {{x.name}}
               </label>
             </div>
           </div>
 
           <!-- B osztály -->
-          <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
-            <div ng-repeat="x in modalStudents" class="form-check" ng-show="x.id != currentStudent.id">
-              <input class="form-check-input" ng-checked="x.blocked"
-                ng-click="blocklistEdit($event.target.checked ,currentStudent, x)" type="checkbox" id="{{x.id}}">
-              <label class="form-check-label" for="{{x.id}}">
+          <div class="tab-pane fade"
+               id="tab2" role="tabpanel"
+               aria-labelledby="tab2-tab">
+            <div ng-repeat="x in modalStudents"
+                 class="form-check"
+                 ng-show="x.id != currentStudent.id">
+              <input class="form-check-input"
+                     ng-checked="x.blocked"
+                     ng-click="blocklistEdit($event.target.checked ,currentStudent, x)"
+                     type="checkbox"
+                     id="{{x.id}}">
+              <label class="form-check-label"
+                     for="{{x.id}}">
                 {{x.name}}
               </label>
             </div>
           </div>
 
           <!-- C osztály -->
-          <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
-            <div ng-repeat="x in modalStudents" class="form-check" ng-show="x.id != currentStudent.id">
-              <input class="form-check-input" ng-checked="x.blocked"
-                ng-click="blocklistEdit($event.target.checked, currentStudent, x)" type="checkbox" id="{{x.id}}">
-              <label class="form-check-label" for="{{x.id}}">
+          <div class="tab-pane fade"
+               id="tab3"
+               role="tabpanel"
+               aria-labelledby="tab3-tab">
+            <div ng-repeat="x in modalStudents"
+                 class="form-check"
+                 ng-show="x.id != currentStudent.id">
+              <input class="form-check-input"
+                     ng-checked="x.blocked"
+                     ng-click="blocklistEdit($event.target.checked, currentStudent, x)"
+                     type="checkbox"
+                     id="{{x.id}}">
+              <label class="form-check-label"
+                     for="{{x.id}}">
                 {{x.name}}
               </label>
             </div>
@@ -248,8 +294,10 @@
       <!-- Footer -->
       <div class="modal-footer border-secondary">
         <!-- Modal bezárása -->
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          {{currentLang.classes.close}}
+        <button type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal">
+            {{currentLang.classes.close}}
         </button>
       </div>
 
