@@ -72,7 +72,6 @@
           .state('register', {
             url: '/register',
             parent: 'root',
-            controller: 'registerController',
             templateUrl: './html/register.html'
           })
 
@@ -414,17 +413,6 @@
             })
 
         }
-      }
-    ])
-
-    // Register controller
-    .controller('registerController', [
-      '$scope',
-      '$http',
-      '$location',
-      '$rootScope',
-      function ($scope, $http, $location, $rootScope) {
-
       }
     ])
 
