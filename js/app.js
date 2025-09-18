@@ -317,12 +317,14 @@
     // Login controller
     .controller('loginController', [
       '$scope',
-      '$http',
+      'http',
       '$rootScope',
       '$location',
-      function ($scope, $http, $rootScope, $location) {
+      function ($scope, http, $rootScope, $location) {
         $scope.login = () => {
-          $http.post("./php/login.php", {email: $scope.email_login, password: $scope.password_login })
+          http.request({url : './php/login.php' ,
+                       data: {email: $scope.email_login,
+                              password: $scope.password_login }})
             .then(function (response) {
               $rootScope.msg = "Sikeres bejelentkezés, üdvözlünk " + response.data.data.name + "!";
               $rootScope.loginUser(response.data.data, $rootScope.msg);
@@ -335,7 +337,10 @@
         }
         
         $scope.register = () => {
-          $http.post("./php/register.php", { name: $scope.name, email: $scope.email_register, password: $scope.password_register })
+          http.request({url: "./php/register.php",
+                        data: { name: $scope.name,
+                                email: $scope.email_register,
+                                password: $scope.password_register }})
             .then(function (response) {
               console.log(response.data);
 
