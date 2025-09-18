@@ -71,3 +71,4 @@
 **szabó, zoli,zoli** language
 **miklos, herczeg** design
 **söti,dávid** css rövidítés
+**tomi ricsi** ne logjon ki a posta utcára a kod
