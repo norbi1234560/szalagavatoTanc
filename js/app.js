@@ -295,6 +295,18 @@
       '$location',
       function ($scope, $http, $rootScope, $location) {
 
+        //Get if user from the class
+
+        $http.post("./php/getUserData.php",{
+          id: $rootScope.user.id
+        }).then(
+          function(response){
+            console.log($rootScope.user.id);
+            console.log(response.data);
+          })
+          .catch(error => {console.log(error)})
+        
+
         $scope.modify = () => {
           $http.post("./php/editUser.php", {
             email: $scope.model.email,
