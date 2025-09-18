@@ -14,7 +14,6 @@
   font-size: 18px
 }
 
-
 /* Designed Card */
 
 .service-card {
@@ -197,7 +196,6 @@ body{
   left: -9999px;
 }
 
-
 .checkbox-change:checked + label,
 .checkbox-change:not(:checked) + label{
   position: relative;
@@ -211,6 +209,7 @@ body{
   cursor: pointer;
   background-color: #277af7;
 }
+
 .checkbox-change:checked + label:before,
 .checkbox-change:not(:checked) + label:before{
   position: absolute;
@@ -247,6 +246,7 @@ body{
   cursor: pointer;
   background-color: #277af7;
 }
+
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before{
   position: absolute;
@@ -271,7 +271,6 @@ body{
 .checkbox:checked + label:before {
   transform: translateX(44px) rotate(45deg);
 }
-
 
 .card-3d-wrap {
   position: relative;
@@ -327,7 +326,6 @@ body{
   z-index: 20;
   display: block;
 }
-
 
 .form-group{ 
   position: relative;
