@@ -385,6 +385,8 @@
          $http.post("./php/getClasses.php")
          .then(function (response) {
            $scope.classes = response.data.data.map(c => c.class);
+           $scope.classes.sort();
+           $scope.$applyAsync();
          
            console.log($scope.classes);
          })
