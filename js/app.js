@@ -104,10 +104,10 @@
         $rootScope.user = {};
         console.log($rootScope.user);
 
-        $rootScope.PageId = util.getPageId();
-        console.log(PageId);
+        // $rootScope.PageId = util.getPageId();
+        // console.log(PageId);
 
-        console.log(PageId.includes("szalagavatotanc"));
+        // console.log(PageId.includes("szalagavatotanc"));
        
           $rootScope.checkedUser = JSON.parse(localStorage.getItem('user'))||0;
           if($rootScope.checkedUser != 0){
