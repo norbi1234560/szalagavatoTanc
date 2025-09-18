@@ -32,7 +32,6 @@
               }
             }
           })
-
           .state('home', {
             url: '/',
             parent: 'root',
@@ -45,13 +44,6 @@
             parent: 'root',
             controller: 'reserveController',
             templateUrl: './html/reserve.html'
-          })
-
-          .state('profile', {
-            url: '/profile',
-            parent: 'root',
-            controller: 'profileController',
-            templateUrl: './html/profile.html'
           })
 
 
@@ -82,13 +74,6 @@
             parent: 'root',
             controller: 'registerController',
             templateUrl: './html/register.html'
-          })
-
-          .state('galeria', {
-            url: '/galeria',
-            parent: 'root',
-            controller: 'galeriaController',
-            templateUrl: './html/galeria.html'
           })
 
         $urlRouterProvider.otherwise('/');
@@ -314,10 +299,10 @@
     .controller('homeController', [
       '$scope',
       '$http',
-      function ($scope, $http,) {
+      function ($scope, $http) {
         $scope.homeImages = [];
 
-        $http.post("./php/getGallery.php", {class: "home"})
+        $http.post("./php/getGallery.php", { class: "home" })
           .then(function (response) {
             $scope.homeImages = response.data.data;
             $scope.$applyAsync();
@@ -397,6 +382,16 @@
           .catch(error => {
             console.log("Hiba.:" + error)
           })
+         $http.post("./php/getClasses.php")
+         .then(function (response) {
+           $scope.classes = response.data.data.map(c => c.class);
+         
+           console.log($scope.classes);
+         })
+         .catch(error => {
+           console.log("Hiba: " + error);
+         });
+        
 
         $scope.modalClassLoad = (radioClass) => {
           $scope.currentModalClass = radioClass;
@@ -461,7 +456,7 @@
       function ($scope, $http) {
         $scope.eventImages = [];
 
-        $http.post("./php/getGallery.php", {class: "event"})
+        $http.post("./php/getGallery.php", { class: "event" })
           .then(function (response) {
             $scope.eventImages = response.data.data;
             $scope.$applyAsync();
@@ -473,14 +468,6 @@
         $scope.currentDate = new Date();
         $scope.eventDate = new Date('2025-11-05');
         $scope.isEvent = $scope.currentDate < $scope.eventDate;
-      }
-    ])
-    
-    // Galeria controller
-    .controller('galeriaController' , [
-      '$scope',
-      function ($scope) {
-        console.log($scope)
       }
     ])
 

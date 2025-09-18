@@ -2,56 +2,54 @@
  <div class="row justify-content-center my-3 mx-2">
   <div class="col-12 d-flex justify-content-center mt-1">
     <ul class="nav justify-content-center my-3">
-      <li class="nav-item">
+      <li ng-repeat="x in classes" class="nav-item">
         <button class="btn btn-outline-primary mx-2 rounded-pill" 
                 type="button" 
-                ui-sref="classes({class: '13A'})">
-          13A
+                ui-sref="classes({class: x})">
+          {{x}}
         </button>
       </li>
-      <li class="nav-item">
-        <button class="btn btn-outline-primary mx-2 rounded-pill" 
-                type="button" 
-                ui-sref="classes({class: '13B'})">
-          13B
-        </button>
-      </li>
-      <li class="nav-item">
-        <button class="btn btn-outline-primary mx-2 rounded-pill" 
-                type="button" 
-                ui-sref="classes({class: '13C'})">
-          13C
-        </button>
-      </li>
-</ul>
+    </ul>
 
   </div>
 </div>
 <div class="team-boxed">
-  <div class="container">
+  <div class="container-fluid">
     <div class="intro ">
       <!-- Jelenlegi osztály kiírása -->
       <h2 class="text-center display-3">
         {{className}} osztály
       </h2>
+      <div class="text-center">
+        <button type="button" class="btn btn-primary" ng-click="genderFilter = 'M'">Férfi</button>
+         <button type="button" class="btn btn-danger" ng-click="genderFilter = null">Összes</button>
+        <button type="button" class="btn btn-primary" ng-click="genderFilter = 'F'">Nő</button>
+      </div>
+</div>
+
     </div>
 
     <!-- Student kártyák megjelenítése -->
-    <div class="row people">
-      <div class="col-md-6 col-lg-4 item"
-           ng-repeat="student in students">
-        <div class="box zoom">
-          <img class="rounded-circle" 
-               style="width: 160px; height: 160px;"
-               ng-src="assets/pics/{{className}}/{{student.image}}">
-          <h5 class="name">{{student.name}}</h5>
-          <button type="button"
-                  ng-click="showStudentModal(student)"
-                  class="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#studentModal">
+    <div class="row flex-wrap gap-4 justify-content-center">
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xxl-2 border border-1 rounded my-3"
+           ng-repeat="student in students"
+           ng-show="genderFilter == null || student.gender === genderFilter">
+        <div class="py-3">
+          <div class="text-center">
+            <img class="rounded-circle img-thumbnail" 
+                 style="width: 160px; height: 160px;"
+                 ng-src="assets/pics/{{className}}/{{student.image}}">
+          </div>
+          <h5 class="text-center my-4">{{student.name}}</h5>
+          <div class="text-end">
+            <button type="button" 
+                    ng-click="showStudentModal(student)" 
+                    class="btn btn-primary" 
+                    data-bs-toggle="modal"
+              data-bs-target="#studentModal">
               Bővebben
-          </button>
+            </button>
+          </div>
         </div>
       </div>
     </div>
