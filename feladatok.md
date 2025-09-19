@@ -84,3 +84,7 @@
 # Párválasztásnál férfi ne lehessen férfival és csak 1x táncolhasson valaki.
 # app.js átírása, hogy a közös enviroment php hibakezelései működjenek rendesen.
 # navbar szövegek közötti hely minimalizálása
+
+# 2025.09.19 Ismert hibák
+  -A jegy foglalásnál a kártyák a megfordulást követően le mennek az oldal aljára.
+  -Nem találja meg a képeket (reserve.html,event.html,classes.html)
