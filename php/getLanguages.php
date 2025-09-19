@@ -9,7 +9,7 @@ $db = new Database();
 $query = "SELECT `language`, `data` 
           FROM `language`";
 
-$result =$db->execute($query);
+$result = $db->execute($query);
 
 $db = null;
     

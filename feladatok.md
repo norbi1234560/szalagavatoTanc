@@ -86,5 +86,10 @@
 # navbar szövegek közötti hely minimalizálása
 
 # 2025.09.19 Ismert hibák
-  -A jegy foglalásnál a kártyák a megfordulást követően le mennek az oldal aljára.
-  -Nem találja meg a képeket (reserve.html,event.html,classes.html)
+  - A jegy foglalásnál a kártyák a megfordulást követően le mennek az oldal aljára.
+  - Nem találja meg a képeket (reserve.html,event.html,classes.html)
+
+# 2025.09.19 Teendők + Feladatok
+ - **Guvat Bence + Szabó Bnece**: studentImages php elkészítése.
+ - **Kardos Zoltán**: Php hibakezelésének megcsinálása.
+ - **Kriván Balázs + Fodor Adrián**: tagolás.
