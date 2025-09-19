@@ -9,7 +9,8 @@
       {{currentLang.reserve.make_pairs}}
     </button>
 
-    <p class="text-center mt-3 text-muted" ng-if="pairsNamed.length > 0">
+    <p class="text-center mt-3 text-muted" 
+       ng-if="pairsNamed.length > 0">
       Összesen {{pairsNamed.length}} pár generálódott.
     </p>
 
@@ -21,8 +22,14 @@
           <th colspan="4">{{currentLang.reserve.pairs}}</th>
         </tr>
         <tr>
-          <th class="w-50" colspan="2">{{currentLang.reserve.first}}</th>
-          <th class="w-50" colspan="2">{{currentLang.reserve.second}}</th>
+          <th class="w-50" 
+              colspan="2">
+            {{currentLang.reserve.first}}
+          </th>
+          <th class="w-50" 
+              colspan="2">
+            {{currentLang.reserve.second}}
+          </th>
         </tr>
       </thead>
       <tbody>

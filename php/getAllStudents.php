@@ -4,11 +4,11 @@ require_once("../../common/php/environment.php");
 
 $db = new Database();
 
-$query ="SELECT `id`, `name`, `gender`, 
+$query = "SELECT `id`, `name`, `gender`, 
                 `taken`, `image`, `class`
          FROM `students`";
 
-$result =$db->execute($query);
+$result = $db->execute($query);
 
 $db = null;
 

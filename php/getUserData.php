@@ -1,9 +1,12 @@
 <?php
 require_once("../../common/php/environment.php");
 
-$db = new Database();
-
 $args = Util::getArgs();
+
+if (!is_int($args["id"]))
+    Util::setError("Az id-nek intnek kell lennie!");
+
+$db = new Database();
 
 $query = 'SELECT students.image, students.class 
           FROM students 

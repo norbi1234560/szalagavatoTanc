@@ -490,9 +490,21 @@
       '$stateParams',
       function ($scope, $http, $stateParams) {
         $scope.className = $stateParams.class;
+        $scope.ekezet = "áéíöüóőúű";
+        $scope.ekezetNelkul = "aeiouoouu";
         $http.post("./php/getStudents.php", { class: $stateParams.class })
           .then(function (response) {
             $scope.students = response.data.data;
+            $scope.studentsFolder = [];
+            for(let i=0; i< $scope.students.length; i++){
+              $scope.studentEdit = $scope.students[i].name.replace(" ", "_").replace().toLowerCase();
+              for(let j=0; j<$scope.ekezet.length; j++){
+                $scope.studentEdit = $scope.studentEdit.replace($scope.ekezet[j], $scope.ekezetNelkul[j]);
+              }
+              console.log($scope.studentEdit)
+              $scope.studentsFolder.push($scope.studentEdit);
+            }
+            console.log($scope.studentsFolder);
             $scope.$applyAsync();
           })
           .catch(error => {

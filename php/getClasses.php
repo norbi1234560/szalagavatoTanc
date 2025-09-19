@@ -4,9 +4,9 @@ require_once("../../common/php/environment.php");
 
 $db = new Database();
 
-$query ="SELECT DISTINCT `class` FROM `students`";
+$query = "SELECT DISTINCT `class` FROM `students`";
 
-$result =$db->execute($query);
+$result = $db->execute($query);
 
 $db = null;
 
