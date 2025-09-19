@@ -409,21 +409,21 @@
       function ($scope, http, $rootScope, $location) {
         $scope.galleryImages = [];
 
-        http.request({ url: './php/getCommonClassImgs.php' })
-          .then(function (response) {
-            if (Array.isArray(response)) {
-              $scope.galleryImages = response;
-            } else if (response && response.data) {
-              $scope.galleryImages = response.data;
-            } else {
-              $scope.galleryImages = [];
-            }
-            $scope.$applyAsync();
-            console.log($scope.galleryImages);
-          })
-          .catch(error => {
-            console.log("Hiba:" + error)
-          })
+        // http.request({ url: './php/getCommonClassImgs.php' })
+        // .then(function (response) {
+        //   if (Array.isArray(response)) {
+        //     $scope.galleryImages = response;
+        //   } else if (response && response.data) {
+        //     $scope.galleryImages = response.data;
+        //   } else {
+        //     $scope.galleryImages = [];
+        //   }
+        //   $scope.$applyAsync();
+        //   console.log($scope.galleryImages);
+        // })
+        // .catch(error => {
+        //   console.log("Hiba:" + error)
+        // })
       }])
 
     // Login controller
