@@ -380,7 +380,7 @@
       function ($scope, http, $rootScope, $location) {
         $scope.galleryImages = [];
 
-        http.request({ url: './php/getGallery.php' })
+        http.request({ url: './php/getCommonClassImgs.php' })
           .then(function (response) {
             if (Array.isArray(response)) {
               $scope.galleryImages = response;
