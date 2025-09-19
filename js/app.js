@@ -389,15 +389,15 @@
       function ($scope, $http) {
         $scope.homeImages = [];
 
-        $http.post("./php/getGallery.php", { class: "home" })
-          .then(function (response) {
-            $scope.homeImages = response.data.data;
-            $scope.$applyAsync();
-            console.log($scope.homeImages);
-          })
-          .catch(error => {
-            console.log("Hiba:" + error)
-          })
+        // $http.post("./php/getGallery.php", { class: "home" })
+        // .then(function (response) {
+        //   $scope.homeImages = response.data.data;
+        //   $scope.$applyAsync();
+        //   console.log($scope.homeImages);
+        // })
+        // .catch(error => {
+        //   console.log("Hiba:" + error)
+        // })
       }
     ])
 
@@ -573,17 +573,17 @@
       '$scope',
       '$http',
       function ($scope, $http) {
-        $scope.eventImages = [];
+        // $scope.eventImages = [];
 
-        $http.post("./php/getGallery.php", { class: "event" })
-          .then(function (response) {
-            $scope.eventImages = response.data.data;
-            $scope.$applyAsync();
-            console.log($scope.eventImages);
-          })
-          .catch(error => {
-            console.log("Hiba.:" + error)
-          })
+        // $http.post("./php/getGallery.php", { class: "event" })
+        //   .then(function (response) {
+        //     $scope.eventImages = response.data.data;
+        //     $scope.$applyAsync();
+        //     console.log($scope.eventImages);
+        //   })
+        //   .catch(error => {
+        //     console.log("Hiba.:" + error)
+        //   })
         $scope.currentDate = new Date();
         $scope.eventDate = new Date('2025-11-05');
         $scope.isEvent = $scope.currentDate < $scope.eventDate;
