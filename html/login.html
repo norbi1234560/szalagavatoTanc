@@ -11,7 +11,10 @@
                 <span>{{currentLang.login.register}}</span>
               </h6>
 
-              <input class="checkbox-form position-absolute checkbox" type="checkbox" id="reg-log" name="reg-log" />
+              <input class="checkbox-form position-absolute checkbox" 
+                     type="checkbox" 
+                     id="reg-log" 
+                     name="reg-log"/>
               <label for="reg-log"></label>
 
               <!--Wrap -->
@@ -55,11 +58,17 @@
                           </div>
 
                           <!-- Show/Hide password -->
-                          <div class="col-12 mt-3" style="padding-right: 20px;">
+                          <div class="col-12 mt-3" 
+                               style="padding-right: 20px;">
                             <div class="form-check">
-                              <input class="checkbox-change position-absolute text-white" type="checkbox" id="show-hide_login" name="show-hide_login" ng-model="showPassword_login">
+                              <input class="checkbox-change position-absolute text-white" 
+                                     type="checkbox" 
+                                     id="show-hide_login" 
+                                     name="show-hide_login" 
+                                     ng-model="showPassword_login">
                               <label for="show-hide_login"></label>
-                              <label class="form-check-label small" for="show-password">
+                              <label class="form-check-label small" 
+                                     for="show-password">
                                 {{currentLang.login.show_password}}
                               </label>
                             </div>
@@ -67,11 +76,11 @@
 
                           <!-- Bejelentkezés Gomb -->
                           <button class="btn btn-primary text-white mt-4 button-form" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#userModal" 
-                            ng-disabled="loginForm.$invalid"
-                            ng-click="login()">
-                            {{currentLang.login.login}}
+                                  data-bs-toggle="modal" 
+                                  data-bs-target="#userModal" 
+                                  ng-disabled="loginForm.$invalid"
+                                  ng-click="login()">
+                              {{currentLang.login.login}}
                           </button>
                         </form>
                       </div>
@@ -128,7 +137,8 @@
                           </div>
 
                           <!-- Show/Hide password -->
-                          <div class="col-12 mt-3" style="padding-right: 20px;">
+                          <div class="col-12 mt-3" 
+                               style="padding-right: 20px;">
                             <div class="form-check">
                               <input class="checkbox-change text-white" 
                                      type="checkbox" 
@@ -136,7 +146,8 @@
                                      name="show-hide_register" 
                                      ng-model="showPassword_register">
                               <label for="show-hide_register"></label>
-                              <label class="form-check-label small" for="show-password">
+                              <label class="form-check-label small" 
+                                     for="show-password">
                                 {{currentLang.login.show_password}}
                               </label>
                             </div>
