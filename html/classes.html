@@ -44,10 +44,10 @@
     </div>
     <!-- Student kártyák megjelenítése -->
     <div class="row flex-wrap gap-4 justify-content-center">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 border border-1 rounded my-3"
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 border border-1 rounded my-3 zoom"
            ng-repeat="student in students track by $index"
            ng-show="genderFilter == null || student.gender === genderFilter">
-        <div class="py-3">
+        <div class="py-3 ">
           <div class="text-center">
             <img class="rounded-circle img-thumbnail" 
                  style="width: 160px; height: 160px;"
