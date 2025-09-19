@@ -93,3 +93,4 @@
  - **Guvat Bence + Szabó Bnece**: studentImages php elkészítése.
  - **Kardos Zoltán**: Php hibakezelésének megcsinálása.
  - **Kriván Balázs + Fodor Adrián**: tagolás.
+ - **Döme Zöltán**: php-k tagolása és kommentelése.
