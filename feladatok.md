@@ -90,5 +90,5 @@
   -Nem találja meg a képeket (reserve.html,event.html,classes.html)
 
 # 2025.09.19 Teendők
-# Guvat Bence: studentImages php elkészítése.
+# Guvat Bence + Szabó Bence: studentImages php elkészítése.
 
