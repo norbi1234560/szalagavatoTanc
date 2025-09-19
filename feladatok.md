@@ -87,7 +87,6 @@
 
 # 2025.09.19 Ismert hibák
   - A jegy foglalásnál a kártyák a megfordulást követően le mennek az oldal aljára.
-  - Nem találja meg a képeket (reserve.html,event.html,classes.html)
 
 # 2025.09.19 Teendők + Feladatok
  - **Guvat Bence + Szabó Bnece**: studentImages php elkészítése.
