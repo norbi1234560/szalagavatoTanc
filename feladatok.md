@@ -92,3 +92,4 @@
 # 2025.09.19 Teendők + Feladatok
  - **Guvat Bence + Szabó Bnece**: studentImages php elkészítése.
  - **Kardos Zoltán**: Php hibakezelésének megcsinálása.
+ - **Kriván Balázs + Fodor Adrián**: tagolás.
