@@ -4,6 +4,9 @@ require_once("../../common/php/environment.php");
 
 $args = Util::getArgs();
 
+if (!is_int($args["user_id"]))
+    Util::setError("A user_id-nek intnek kell lennie!");
+
 $db = new Database();
 
 $query = "SELECT `blocked_user_id` 
