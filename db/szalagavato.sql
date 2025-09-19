@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Sze 18. 11:46
--- Kiszolgáló verziója: 10.4.32-MariaDB
--- PHP verzió: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Sep 18, 2025 at 02:13 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `szalagavato`
+-- Database: `szalagavato`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `blocklist`
+-- Table structure for table `blocklist`
 --
 
 CREATE TABLE `blocklist` (
@@ -33,7 +33,7 @@ CREATE TABLE `blocklist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `blocklist`
+-- Dumping data for table `blocklist`
 --
 
 INSERT INTO `blocklist` (`user_id`, `blocked_user_id`) VALUES
@@ -47,58 +47,7 @@ INSERT INTO `blocklist` (`user_id`, `blocked_user_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `gallery`
---
-
-CREATE TABLE `gallery` (
-  `id` int(11) NOT NULL,
-  `class` varchar(20) NOT NULL,
-  `image` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- A tábla adatainak kiíratása `gallery`
---
-
-INSERT INTO `gallery` (`id`, `class`, `image`) VALUES
-(1, 'event', 'szalag.jpg'),
-(2, 'event', 'Szalagavato.jpg'),
-(3, 'event', 'szalagavato-fotozas.jpg'),
-(4, 'home', 'h1-event.jpg'),
-(5, 'home', 'maxresdefault.jpg'),
-(6, 'home', 'szalagavato-szabadhegyi.jpeg'),
-(7, '13A', 'erretsegi13A.jpg'),
-(8, '13A', 'osztalykep_A01.jpg'),
-(9, '13A', 'osztalykep_A02.jpg'),
-(10, '13A', 'osztalykep_A03.jpg'),
-(11, '13A', 'osztalykep_A04.jpg'),
-(12, '13A', 'osztalykep_A05.jpg'),
-(13, '13A', 'penzugy_A01.jpg'),
-(14, '13A', 'turisztika_A01.jpg'),
-(15, '13B', 'agazatiB.jpg'),
-(16, '13B', 'erettsegi13B.jpg'),
-(17, '13B', 'ivan.jpg'),
-(18, '13B', 'marcius15.jpg'),
-(19, '13B', 'osztalykep_B01.jpg'),
-(20, '13B', 'osztalykep_B02.jpg'),
-(21, '13B', 'osztalykep_B03.jpg'),
-(22, '13C', 'agazatiC.jpg'),
-(23, '13C', 'erettsegi13C.jpg'),
-(24, '13C', 'forradalom.jpg'),
-(25, '13C', 'helytallas.jpg'),
-(26, '13C', 'mecha.jpg'),
-(27, '13C', 'nonap.jpg'),
-(28, '13C', 'osztalykep_C01.jpg'),
-(29, '13C', 'pacek.jpg'),
-(30, '13C', 'pacek2.jpg'),
-(31, '13C', 'pacek3.jpg'),
-(32, '13C', 'szanto.jpg'),
-(33, '13C', 'szerencsekerek.jpg');
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `language`
+-- Table structure for table `language`
 --
 
 CREATE TABLE `language` (
@@ -107,7 +56,7 @@ CREATE TABLE `language` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- A tábla adatainak kiíratása `language`
+-- Dumping data for table `language`
 --
 
 INSERT INTO `language` (`language`, `data`) VALUES
@@ -121,7 +70,7 @@ INSERT INTO `language` (`language`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `pairs`
+-- Table structure for table `pairs`
 --
 
 CREATE TABLE `pairs` (
@@ -130,7 +79,7 @@ CREATE TABLE `pairs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `pairs`
+-- Dumping data for table `pairs`
 --
 
 INSERT INTO `pairs` (`user_id1`, `user_id2`) VALUES
@@ -173,7 +122,7 @@ INSERT INTO `pairs` (`user_id1`, `user_id2`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `students`
+-- Table structure for table `students`
 --
 
 CREATE TABLE `students` (
@@ -187,7 +136,7 @@ CREATE TABLE `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `students`
+-- Dumping data for table `students`
 --
 
 INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`, `class`, `height`) VALUES
@@ -267,7 +216,7 @@ INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`, `class`, `heig
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -278,7 +227,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
@@ -355,64 +304,52 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 (999, 'admin', 'admin@gmail.com', 'admin123');
 
 --
--- Indexek a kiírt táblákhoz
+-- Indexes for dumped tables
 --
 
 --
--- A tábla indexei `blocklist`
+-- Indexes for table `blocklist`
 --
 ALTER TABLE `blocklist`
   ADD UNIQUE KEY `user_id1` (`user_id`,`blocked_user_id`);
 
 --
--- A tábla indexei `gallery`
---
-ALTER TABLE `gallery`
-  ADD PRIMARY KEY (`id`);
-
---
--- A tábla indexei `language`
+-- Indexes for table `language`
 --
 ALTER TABLE `language`
   ADD PRIMARY KEY (`language`);
 
 --
--- A tábla indexei `pairs`
+-- Indexes for table `pairs`
 --
 ALTER TABLE `pairs`
   ADD UNIQUE KEY `user_id1` (`user_id1`,`user_id2`);
 
 --
--- A tábla indexei `students`
+-- Indexes for table `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
 
 --
--- A tábla indexei `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- A kiírt táblák AUTO_INCREMENT értéke
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT a táblához `gallery`
---
-ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
---
--- AUTO_INCREMENT a táblához `students`
+-- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
--- AUTO_INCREMENT a táblához `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;

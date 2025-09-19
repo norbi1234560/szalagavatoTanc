@@ -16,11 +16,11 @@
 
               <!--Wrap -->
               <div class="card-3d-wrap mx-auto">
-                <div class="card-3d-wrapper">
+                <div class="card-3d-wrapper w-100 h-100">
 
                   <!-- Bejelentkezés -->
-                  <div class="card-front">
-                    <div class="center-wrap">
+                  <div class="card-front h-100 w-100">
+                    <div class="center-wrap w-100">
                       <div class="w-100 position-relative d-block text-center">
                         <form name="loginForm">
 
@@ -30,7 +30,7 @@
                           <div class="form-group">                          
                             <input type="text" 
                                    name="logemail" 
-                                   class="form-style" 
+                                   class="form-style w-100" 
                                    ng-model="email_login" 
                                    placeholder="{{currentLang.login.email}}"
                                    autocomplete="off" 
@@ -45,7 +45,7 @@
                             <input type="{{showPassword_login ? 'text' : 'password'}}" 
                                    ng-model="password_login" 
                                    name="logpass" 
-                                   class="form-style" 
+                                   class="form-style w-100" 
                                    placeholder="{{currentLang.login.password}}"
                                    autocomplete="off" 
                                    maxlength="20" 
@@ -57,7 +57,7 @@
                           <!-- Show/Hide password -->
                           <div class="col-12 mt-3" style="padding-right: 20px;">
                             <div class="form-check">
-                              <input class="checkbox-change position-absolute" type="checkbox" id="show-hide_login" name="show-hide_login" ng-model="showPassword_login">
+                              <input class="checkbox-change position-absolute text-white" type="checkbox" id="show-hide_login" name="show-hide_login" ng-model="showPassword_login">
                               <label for="show-hide_login"></label>
                               <label class="form-check-label small" for="show-password">
                                 {{currentLang.login.show_password}}
@@ -79,8 +79,8 @@
                   </div>
 
                   <!-- Regisztráció -->
-                  <div class="card-back">
-                    <div class="center-wrap">
+                  <div class="card-back h-100 w-100">
+                    <div class="center-wrap w-100">
                       <div class="w-100 position-relative d-block text-center">
                         <form name="registerForm">
 
@@ -89,7 +89,7 @@
                           <div class="form-group">
                             <input type="text" 
                                    name="logname" 
-                                   class="form-style" 
+                                   class="form-style w-100" 
                                    placeholder="{{currentLang.login.full_name}}"
                                    autocomplete="off" 
                                    ng-model="name" 
@@ -102,7 +102,7 @@
                           <div class="form-group mt-2">
                             <input type="text" 
                                    name="logemail" 
-                                   class="form-style" 
+                                   class="form-style w-100" 
                                    placeholder="{{currentLang.login.email}}"
                                    ng-model="email_register"  
                                    autocomplete="off" 
@@ -117,7 +117,7 @@
                             <input type="{{showPassword_register ? 'text' : 'password'}}" 
                                    ng-model="password_register" 
                                    name="logpass" 
-                                   class="form-style" 
+                                   class="form-style w-100" 
                                    placeholder="{{currentLang.login.password}}"
                                    autocomplete="off"
                                    minlength="6" 
@@ -130,7 +130,7 @@
                           <!-- Show/Hide password -->
                           <div class="col-12 mt-3" style="padding-right: 20px;">
                             <div class="form-check">
-                              <input class="checkbox-change" 
+                              <input class="checkbox-change text-white" 
                                      type="checkbox" 
                                      id="show-hide_register" 
                                      name="show-hide_register" 

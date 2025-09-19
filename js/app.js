@@ -102,6 +102,7 @@
 
         // user object
         $rootScope.user = {};
+        $rootScope.loggedIn = false;
         console.log($rootScope.user);
 
         //get PageID
@@ -143,6 +144,7 @@
 
         }
 
+        //get languages
         $rootScope.getLanguages = function() {
           fetch('./php/getLanguages.php')
           .then(res => res.json())
@@ -151,12 +153,15 @@
               console.error(res.error);
             }
             else {
+
+              //set language data
               $rootScope.languages = res.data;
               
               for (let lang of $rootScope.languages) {
                 lang.data = JSON.parse(lang.data);
               }
               
+              //set default to hu
               $rootScope.currentLang = $rootScope.languages[3].data;
 
               $rootScope.$applyAsync();
@@ -165,6 +170,7 @@
           .catch(err => console.error(err));
         }
 
+        //run
         $rootScope.getLanguages();
       }
     ])
@@ -175,6 +181,7 @@
       '$rootScope',
       '$http',
       function ($scope, $rootScope, $http) {
+
 
         // A párok betöltése függvény
         $scope.loadPairs = () => {
@@ -215,7 +222,8 @@
                       gender2: $scope.user2_gender,
                       image1: $scope.user1_image,
                       image2: $scope.user2_image
-                    });
+                    })
+
                   }
                   console.log($scope.pairsNamed);
                 })
@@ -227,6 +235,7 @@
               console.error("Hiba az adat betöltése során: ", error);
             });
         }
+        
 
         $scope.makePairs = () => {
 
@@ -318,6 +327,8 @@
             })
         }
         $scope.loadPairs();
+
+        
       }
     ])
 
@@ -327,6 +338,24 @@
       '$rootScope',
       '$location',
       function ($scope, $http, $rootScope, $location) {
+
+        //Get if user from the class
+
+        console.log($rootScope.loggedIn)
+
+        if($rootScope.loggedIn === false){
+          $location.path('/');
+        }
+
+        $http.post("./php/getUserData.php",{
+          id: $rootScope.user.id
+        }).then(
+          function(response){
+            $scope.data = response.data.data;
+            $scope.imageURL = "./assets/pics/" +  $scope.data.class + "/" + $scope.data.image;
+          })
+          .catch(error => {console.log(error)})
+        
 
         $scope.modify = () => {
           $http.post("./php/editUser.php", {
@@ -346,7 +375,7 @@
             })
             .catch(error => {
               $rootScope.message = "Hiba történt: " + error;
-              console.log($scope.Error)
+              console.log($scope.Error);
             })
 
         }
