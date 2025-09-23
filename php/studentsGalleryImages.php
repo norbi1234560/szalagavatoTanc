@@ -22,4 +22,4 @@ foreach ($files as $classes) {
   }
 }
 
-echo $galleryImages;
+Util::SetResponse($galleryImages);

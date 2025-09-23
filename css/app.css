@@ -1,3 +1,9 @@
+body{
+	color: #808081;
+	background-color: #eef4f7;
+  overflow: none;
+}
+
 /*Font*/
 @font-face {
   font-family: 'osztalyok';
@@ -36,9 +42,7 @@
   color: #1f2937;
   transform: rotateY(180deg);
 }
-.icon-wrapper {
-  background: rgba(255, 255, 255, 0.2);
-}
+
 .feature-list {
   list-style: none;
 }
@@ -49,21 +53,13 @@
   transition: transform 0.2s;
 }
 /* Login and Register */
-body{
-	color: #808081;
-	background-color: #eef4f7;
-}
+
 .h6-form span{
   padding: 0 20px;
   text-transform: uppercase;
   font-weight: 700;
 }
-.checkbox-form{
-  left: -9999px;
-}
-.checkbox-change{
-  left: -9999px;
-}
+
 .checkbox-change:checked + label,
 .checkbox-change:not(:checked) + label{
   position: relative;
