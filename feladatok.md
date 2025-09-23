@@ -97,6 +97,7 @@
 
 # 2025.09.23 Teendők + Feladatok
 # galéria elkészítése
+# Galériánál a képeket meg lehessen nyitni, nyilakkal váltogatni jobbra - balra.
 
  - **Tokai Ádám**: Adatbázisban a language fixálása
  - **Berta Barnabás**: Image-ek fixálása a weboldal lapjainál.
