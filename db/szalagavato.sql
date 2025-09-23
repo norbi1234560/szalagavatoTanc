@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Sze 23. 10:57
+-- Létrehozás ideje: 2025. Sze 23. 12:05
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -259,7 +259,7 @@ INSERT INTO `users` (`id`, `email`, `password`, `last_name`, `first_name`, `phon
 (23, 'szalontai.laszlo-2021@keri.mako.hu', 'szalontailaszlo13c', 'Szalontai', 'László', '', ''),
 (24, 'szanto.peter-2021@keri.mako.hu', 'szantopeter13c', 'Szántó', 'Péter', '', ''),
 (25, 'tokai.adam-2021@keri.mako.hu', 'tokaiadam13c', 'Tokai', 'Ádám', '', ''),
-(26, 'toth.laszlo-2021@keri.mako.hu', 'tothlaszlogabor13c', 'Tóth', 'László Gábor', '', ''),
+(26, 'toth.laszlo-2021@keri.mako.hu', 'tothlaszlogabor13c', 'Tóth', 'László Gábor', '0620ha', 'Calippo123'),
 (27, 'andor.rebeka-2021@keri.mako.hu', 'andorrebeka13a', 'Andor', 'Rebeka', '', ''),
 (28, 'baroczi.gergo-2021@keri.mako.hu', 'baroczigergo13a', 'Baróczi', 'Gergő', '', ''),
 (29, 'berta.sztella-2021@keri.mako.hu', 'bertasztella13a', 'Berta', 'Sztella', '', ''),
