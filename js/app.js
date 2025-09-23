@@ -469,7 +469,7 @@
               console.log(response);
               $rootScope.msg = "Sikeresen bejelentkezett fiókjába, üdvözöljük " + response.last_name +" "+ response.first_name +"!";
               $rootScope.loginUser(response, $rootScope.msg);
-              $scope.$applyAsync();
+              $rootScope.$applyAsync();
               $location.path('/');
             })
             .catch(error => {
