@@ -180,7 +180,7 @@
       '$scope',
       '$rootScope',
       '$http',
-      function ($scope, $rootScope, $http, $stateParams) {
+      function ($scope, $rootScope, $http) {
 
 
         // A párok betöltése függvény
@@ -204,38 +204,15 @@
                   $scope.pairsNamed = [];
                   for (let i = 0; i < $scope.loadablePairs.length; i++) {
                     for (let j = 0; j < $scope.students.length; j++) {
-
                       if ($scope.loadablePairs[i].user_id1 == $scope.students[j].id) {
-                        let studentEdit = $scope.students[j].name;
-                        let ekezet = "áéíöüúűőó";
-                        let ekezetNelkul = "aeiouuuoo";
-
-                        studentEdit = $scope.students[i].name.replaceAll(" ", "_").replace().toLowerCase();
-
-                        for(let k=0; k< ekezet.length; k++){
-                          studentEdit = studentEdit.replaceAll(ekezet[k], ekezetNelkul[k]);
-                        }
-                        $scope.$applyAsync();
-
                         $scope.user1_name = $scope.students[j].name;
                         $scope.user1_gender = $scope.students[j].gender;
-                        $scope.user1_image = $scope.students[j].class + "/" + studentEdit + "/" + studentEdit +".jpg";
+                        $scope.user1_image = $scope.students[j].class + "/" + $scope.students[j].image;
                       }
                       if ($scope.loadablePairs[i].user_id2 == $scope.students[j].id) {
-                        let studentEdit = $scope.students[j].name;
-                        let ekezet = "áéíöüúűőó";
-                        let ekezetNelkul = "aeiouuuoo";
-
-                        studentEdit = $scope.students[j].name.replaceAll(" ", "_").replace().toLowerCase();
-
-                        for(let k=0; k< ekezet.length; k++){
-                          studentEdit = studentEdit.replaceAll(ekezet[k], ekezetNelkul[k]);
-                        }
-                        $scope.$applyAsync();
-                        
                         $scope.user2_name = $scope.students[j].name;
                         $scope.user2_gender = $scope.students[j].gender;
-                        $scope.user2_image = $scope.students[j].class + "/" + studentEdit + "/" + studentEdit +".jpg";
+                        $scope.user2_image = $scope.students[j].class + "/" + $scope.students[j].image;
                       }
                     }
                     $scope.pairsNamed.push({
@@ -244,7 +221,7 @@
                       gender1: $scope.user1_gender,
                       gender2: $scope.user2_gender,
                       image1: $scope.user1_image,
-                      image2: $scope.user2_image,
+                      image2: $scope.user2_image
                     })
 
                   }
