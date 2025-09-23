@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
+<<<<<<< HEAD
 -- Létrehozás ideje: 2025. Sze 23. 10:40
+=======
+-- Létrehozás ideje: 2025. Sze 23. 10:34
+>>>>>>> 999e4297f28ec0cd9a4b86273fddedee697b3f92
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -221,10 +225,17 @@ INSERT INTO `students` (`id`, `name`, `gender`, `taken`, `image`, `class`, `heig
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+<<<<<<< HEAD
   `email` varchar(150) NOT NULL,
   `password` varchar(20) NOT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `first_name` varchar(50) DEFAULT NULL,
+=======
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `password` varchar(20) NOT NULL,
+>>>>>>> 999e4297f28ec0cd9a4b86273fddedee697b3f92
   `phone` varchar(20) NOT NULL,
   `description` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -233,6 +244,7 @@ CREATE TABLE `users` (
 -- A tábla adatainak kiíratása `users`
 --
 
+<<<<<<< HEAD
 INSERT INTO `users` (`id`, `email`, `password`, `last_name`, `first_name`, `phone`, `description`) VALUES
 (1, 'badogulacsi.daniel-2021@keri.mako.hu', 'badogulacsidaniel13c', 'Badó-Gulácsi', 'Dániel', '', ''),
 (2, 'berta.barnabas-2021@keri.mako.hu', 'bertabarnabas13c', 'Berta', 'Barnabás', '', ''),
@@ -305,6 +317,80 @@ INSERT INTO `users` (`id`, `email`, `password`, `last_name`, `first_name`, `phon
 (69, 'dombi.ivett-2021@keri.mako.hu', 'dombiivett13a', 'Dombi', 'Ivett', '', ''),
 (70, 'ambrozy.vanda-2021@keri.mako.hu', 'ambrozyvanda13a', 'Ambrózy', 'Vanda', '', ''),
 (999, 'admin@gmail.com', 'admin123', 'admin', '', '', '');
+=======
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phone`, `description`) VALUES
+(1, '', '', 'badogulacsi.daniel-2021@keri.mako.hu', 'badogulacsidaniel13c', '', ''),
+(2, '', '', 'berta.barnabas-2021@keri.mako.hu', 'bertabarnabas13c', '', ''),
+(3, '', '', 'bokor.richard-2021@keri.mako.hu', 'bokorrichard13c', '', ''),
+(4, '', '', 'dani.benedek-2021@keri.mako.hu', 'danibenedek13c', '', ''),
+(5, '', '', 'dome.zoltan-2021@keri.mako.hu', 'domezoltan13c', '', ''),
+(6, '', '', 'esser.balazs-2021@keri.mako.hu', 'esserbalazsdavid13c', '', ''),
+(7, '', '', 'fodor.adrian-2021@keri.mako.hu', 'fodoradrianlaszlo13c', '', ''),
+(8, '', '', 'guvat.bence-2021@keri.mako.hu', 'guvatbencejozsef13c', '', ''),
+(9, '', '', 'herczeg.mate-2021@keri.mako.hu', 'herczegmatejanos13c', '', ''),
+(10, '', '', 'kardos.zoltan-2021@keri.mako.hu', 'kardoszoltan13c', '', ''),
+(11, '', '', 'kis.david-2021@keri.mako.hu', 'kisdavidcsaba13c', '', ''),
+(12, '', '', 'kis.marcell-2021@keri.mako.hu', 'kismarcellzsombor13c', '', ''),
+(13, '', '', 'knoch.henrik-2021@keri.mako.hu', 'knochhenrik13c', '', ''),
+(14, '', '', 'krivan.balazs-2021@keri.mako.hu', 'krivanbalazs13c', '', ''),
+(15, '', '', 'kulcsar.tamas-2021@keri.mako.hu', 'kulcsartamasamon13c', '', ''),
+(16, '', '', 'miklos.martin-2021@keri.mako.hu', 'miklosmartin13c', '', ''),
+(17, '', '', 'olah.zsigmond-2021@keri.mako.hu', 'olahzsigmondsamuel13', '', ''),
+(18, '', '', 'repa.norbert-2021@keri.mako.hu', 'repanorbert13c', '', ''),
+(19, '', '', 'sotet.armin-2021@keri.mako.hu', 'sotetarmin13c', '', ''),
+(20, '', '', 'suba.benjamin-2021@keri.mako.hu', 'subabenjamin13c', '', ''),
+(21, '', '', 'suhajda.adam-2021@keri.mako.hu', 'suhajdaadamdominik13', '', ''),
+(22, '', '', 'szabo.bence-2021@keri.mako.hu', 'szabobence13c', '', ''),
+(23, '', '', 'szalontai.laszlo-2021@keri.mako.hu', 'szalontailaszlo13c', '', ''),
+(24, '', '', 'szanto.peter-2021@keri.mako.hu', 'szantopeter13c', '', ''),
+(25, '', '', 'tokai.adam-2021@keri.mako.hu', 'tokaiadam13c', '', ''),
+(26, '', '', 'toth.laszlo-2021@keri.mako.hu', 'tothlaszlogabor13c', '', ''),
+(27, '', '', 'andor.rebeka-2021@keri.mako.hu', 'andorrebeka13a', '', ''),
+(28, '', '', 'baroczi.gergo-2021@keri.mako.hu', 'baroczigergo13a', '', ''),
+(29, '', '', 'berta.sztella-2021@keri.mako.hu', 'bertasztella13a', '', ''),
+(30, '', '', 'boros.balazs-2021@keri.mako.hu', 'borosbalazs13a', '', ''),
+(31, '', '', 'derdak.csenge-2021@keri.mako.hu', 'derdakcsenge13a', '', ''),
+(32, '', '', 'erdelian.iringo-2021@keri.mako.hu', 'erdelianiringo13a', '', ''),
+(33, '', '', 'farago.zorka-2021@keri.mako.hu', 'faragozorka13a', '', ''),
+(34, '', '', 'gregor.lilla-2021@keri.mako.hu', 'gregorlilla13a', '', ''),
+(35, '', '', 'horvath.zoe-2021@keri.mako.hu', 'horvathzoe13a', '', ''),
+(36, '', '', 'janko.georgina-2021@keri.mako.hu', 'jankogeorgina13a', '', ''),
+(37, '', '', 'kerekes.akos-2021@keri.mako.hu', 'kerekesakos13a', '', ''),
+(38, '', '', 'kisjakab.peter-2021@keri.mako.hu', 'kisjakabpeter13a', '', ''),
+(39, '', '', 'kocka.kira-2021@keri.mako.hu', 'kockakira13a', '', ''),
+(40, '', '', 'kovacs.dorka-2021@keri.mako.hu', 'kovacsdorka13b', '', ''),
+(41, '', '', 'kovacs.lara-2021@keri.mako.hu', 'kovacslara13a', '', ''),
+(42, '', '', 'lenhardt.akos-2021@keri.mako.hu', 'lenhardtakos13a', '', ''),
+(43, '', '', 'magori.adel-2021@keri.mako.hu', 'magoriadel13a', '', ''),
+(44, '', '', 'meszaros.anna-2021@keri.mako.hu', 'meszarosanna13a', '', ''),
+(45, '', '', 'nagy.kristof-2021@keri.mako.hu', 'nagykristof13a', '', ''),
+(46, '', '', 'savanya.reka-2021@keri.mako.hu', 'savanyarekagabriella', '', ''),
+(47, '', '', 'schneider.evelyn-2021@keri.mako.hu', 'schneiderevelyn13a', '', ''),
+(48, '', '', 'szabo.jazmin-2021@keri.mako.hu', 'szabojazmin13a', '', ''),
+(49, '', '', 'szabo.kata-2021@keri.mako.hu', 'szabokata13a', '', ''),
+(50, '', '', 'velek.panna-2021@keri.mako.hu', 'velekpanna13a', '', ''),
+(51, '', '', 'vetro.barbara-2021@keri.mako.hu', 'vetrobarbara13a', '', ''),
+(52, '', '', 'vincze.kinga-2021@keri.mako.hu', 'vinczekingajazmin13a', '', ''),
+(53, '', '', 'zatyko.lili-2021@keri.mako.hu', 'zatykolili13a', '', ''),
+(54, '', '', 'balint.cintia-2021@keri.mako.hu', 'balintcintia13b', '', ''),
+(55, '', '', 'czekman.lili-2021@keri.mako.hu', 'czekmanlili13b', '', ''),
+(56, '', '', 'csige.evelin-2021@keri.mako.hu', 'csigeevelin13b', '', ''),
+(57, '', '', 'ferencsik.vivien-2021@keri.mako.hu', 'ferencsikvivien13b', '', ''),
+(58, '', '', 'gyenge.ivan-2021@keri.mako.hu', 'gyengeivan13b', '', ''),
+(59, '', '', 'illes.imre-2021@keri.mako.hu', 'illesimredaniel13b', '', ''),
+(60, '', '', 'joo.nora-2021@keri.mako.hu', 'joonora13b', '', ''),
+(61, '', '', 'loos.jazmin-2021@keri.mako.hu', 'loosjazmin13b', '', ''),
+(62, '', '', 'mak.szilvia-2021@keri.mako.hu', 'makszilvia13b', '', ''),
+(63, '', '', 'mezei.daniel-2021@keri.mako.hu', 'mezeidaniel13b', '', ''),
+(64, '', '', 'pasztor.timea-2021@keri.mako.hu', 'pasztortimea13b', '', ''),
+(65, '', '', 'pepo.gabor-2021@keri.mako.hu', 'pepogabor13b', '', ''),
+(66, '', '', 'szecsi.dora-2021@keri.mako.hu', 'szecsidora13b', '', ''),
+(67, '', '', 'sztojko.lara-2021@keri.mako.hu', 'sztojkolara13b', '', ''),
+(68, '', '', 'varadik.armand-2021@keri.mako.hu', 'varadikarmand13b', '', ''),
+(69, '', '', 'dombi.ivett-2021@keri.mako.hu', 'dombiivett13a', '', ''),
+(70, '', '', 'ambrozy.vanda-2021@keri.mako.hu', 'ambrozyvanda13a', '', ''),
+(999, '', '', 'admin@gmail.com', 'admin123', '', '');
+>>>>>>> 999e4297f28ec0cd9a4b86273fddedee697b3f92
 
 --
 -- Indexek a kiírt táblákhoz
