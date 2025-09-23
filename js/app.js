@@ -199,56 +199,60 @@
               //Párok lekérése
               $http.post("./php/getPairs.php")
                 .then((pairResponse) => {
-                  $scope.loadablePairs = pairResponse.data.data;
-                  console.log($scope.loadablePairs);
-                  $scope.pairsNamed = [];
-                  for (let i = 0; i < $scope.loadablePairs.length; i++) {
-                    for (let j = 0; j < $scope.students.length; j++) {
+                  if (!pairResponse.data.error) {
+                    $scope.loadablePairs = pairResponse.data.data;
+                    console.log($scope.loadablePairs);
+                    $scope.pairsNamed = [];
+                    for (let i = 0; i < $scope.loadablePairs.length; i++) {
+                      for (let j = 0; j < $scope.students.length; j++) {
 
-                      if ($scope.loadablePairs[i].user_id1 == $scope.students[j].id) {
-                        let studentEdit = $scope.students[j].name;
-                        let ekezet = "áéíöüúűőó";
-                        let ekezetNelkul = "aeiouuuoo";
+                        if ($scope.loadablePairs[i].user_id1 == $scope.students[j].id) {
+                          let studentEdit = $scope.students[j].name;
+                          let ekezet = "áéíöüúűőó";
+                          let ekezetNelkul = "aeiouuuoo";
 
-                        studentEdit = $scope.students[j].name.replaceAll(" ", "_").replace().toLowerCase();
+                          studentEdit = $scope.students[j].name.replaceAll(" ", "_").replace().toLowerCase();
 
-                        for(let k=0; k< ekezet.length; k++){
-                          studentEdit = studentEdit.replaceAll(ekezet[k], ekezetNelkul[k]);
+                          for(let k=0; k< ekezet.length; k++){
+                            studentEdit = studentEdit.replaceAll(ekezet[k], ekezetNelkul[k]);
+                          }
+                          $scope.$applyAsync();
+
+                          $scope.user1_name = $scope.students[j].name;
+                          $scope.user1_gender = $scope.students[j].gender;
+                          $scope.user1_image = $scope.students[j].class + "/" + studentEdit + "/" + studentEdit +".jpg";
                         }
-                        $scope.$applyAsync();
+                        if ($scope.loadablePairs[i].user_id2 == $scope.students[j].id) {
+                          let studentEdit = $scope.students[j].name;
+                          let ekezet = "áéíöüúűőó";
+                          let ekezetNelkul = "aeiouuuoo";
 
-                        $scope.user1_name = $scope.students[j].name;
-                        $scope.user1_gender = $scope.students[j].gender;
-                        $scope.user1_image = $scope.students[j].class + "/" + studentEdit + "/" + studentEdit +".jpg";
-                      }
-                      if ($scope.loadablePairs[i].user_id2 == $scope.students[j].id) {
-                        let studentEdit = $scope.students[j].name;
-                        let ekezet = "áéíöüúűőó";
-                        let ekezetNelkul = "aeiouuuoo";
+                          studentEdit = $scope.students[j].name.replaceAll(" ", "_").replace().toLowerCase();
 
-                        studentEdit = $scope.students[j].name.replaceAll(" ", "_").replace().toLowerCase();
-
-                        for(let k=0; k< ekezet.length; k++){
-                          studentEdit = studentEdit.replaceAll(ekezet[k], ekezetNelkul[k]);
+                          for(let k=0; k< ekezet.length; k++){
+                            studentEdit = studentEdit.replaceAll(ekezet[k], ekezetNelkul[k]);
+                          }
+                          $scope.$applyAsync();
+                          
+                          $scope.user2_name = $scope.students[j].name;
+                          $scope.user2_gender = $scope.students[j].gender;
+                          $scope.user2_image = $scope.students[j].class + "/" + studentEdit + "/" + studentEdit +".jpg";
                         }
-                        $scope.$applyAsync();
-                        
-                        $scope.user2_name = $scope.students[j].name;
-                        $scope.user2_gender = $scope.students[j].gender;
-                        $scope.user2_image = $scope.students[j].class + "/" + studentEdit + "/" + studentEdit +".jpg";
                       }
+                      $scope.pairsNamed.push({
+                        name1: $scope.user1_name,
+                        name2: $scope.user2_name,
+                        gender1: $scope.user1_gender,
+                        gender2: $scope.user2_gender,
+                        image1: $scope.user1_image,
+                        image2: $scope.user2_image,
+                      })
+
                     }
-                    $scope.pairsNamed.push({
-                      name1: $scope.user1_name,
-                      name2: $scope.user2_name,
-                      gender1: $scope.user1_gender,
-                      gender2: $scope.user2_gender,
-                      image1: $scope.user1_image,
-                      image2: $scope.user2_image,
-                    })
-
+                    console.log($scope.pairsNamed);
+                  } else {
+                    console.error(pairResponse.data.error);
                   }
-                  console.log($scope.pairsNamed);
                 })
                 .catch((error) => {
                   console.error("Hiba az adat betöltése során: ", error);
