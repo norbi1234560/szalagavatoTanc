@@ -416,15 +416,16 @@
       function ($scope, $http) {
         $scope.homeImages = [];
 
-        // $http.post("./php/getGallery.php", { class: "home" })
-        // .then(function (response) {
-        //   $scope.homeImages = response.data.data;
-        //   $scope.$applyAsync();
-        //   console.log($scope.homeImages);
-        // })
-        // .catch(error => {
-        //   console.log("Hiba:" + error)
-        // })
+        $http.post("./php/!!carouseltest.php", { class: "home" })
+        .then(function (response) {
+          $scope.homeImages = response.data.data;
+          $scope.$applyAsync();
+          console.log($scope.homeImages);
+        })
+        .catch(error => {
+          console.log("Hiba:" + error)
+        })
+        
       }
     ])
 
