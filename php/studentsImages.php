@@ -17,7 +17,7 @@ foreach ($files as $classes) {
     $studentsFolder = scandir($classdir);
 
     foreach ($studentsFolder as $student) {
-      
+
       if(!str_contains($student,"common") &&
          !str_contains($student,".") &&
          !str_contains($student,"..")) {
@@ -27,4 +27,4 @@ foreach ($files as $classes) {
   }
 }
 
-echo $students;
+Util::SetResponse($students);
