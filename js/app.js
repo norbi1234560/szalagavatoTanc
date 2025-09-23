@@ -523,10 +523,11 @@
               for(let j=0; j<$scope.ekezet.length; j++){
                 $scope.studentEdit = $scope.studentEdit.replaceAll($scope.ekezet[j], $scope.ekezetNelkul[j]);
               }
-              console.log($scope.studentEdit)
               $scope.studentsFolder.push($scope.studentEdit);
             }
-            console.log($scope.studentsFolder);
+            $scope.hasBoys = $scope.students.some(x => x.gender === 'M');
+            $scope.hasGirls = $scope.students.some(x => x.gender === 'F');
+            $scope.hasBoth = $scope.hasBoys && $scope.hasGirls;
             $scope.$applyAsync();
           })
           .catch(error => {

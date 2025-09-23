@@ -21,25 +21,29 @@
         {{className}} {{currentLang.classes.class}}
       </h2>
       <div class="text-center">
+        <!-- Férfi gomb: csak ha van fiú -->
         <button type="button"
                 class="btn btn-primary"
+                ng-show="hasBoys"
                 ng-click="genderFilter = 'M'">
             {{currentLang.classes.man}}
         </button>
+        <!-- Mind gomb: csak ha van fiú ÉS lány is -->
         <button type="button"
-                class="btn btn-danger" 
-                ng-show="className != '13C'"
+                class="btn btn-danger"
+                ng-show="hasBoth"
                 ng-click="genderFilter = null">
             {{currentLang.classes.all}}
         </button>
+        <!-- Nő gomb: csak ha van lány -->
         <button type="button"
                 class="btn btn-primary"
-                ng-show="className != '13C'"
+                ng-show="hasGirls"
                 ng-click="genderFilter = 'F'">
             {{currentLang.classes.woman}}
         </button>
       </div>
-</div>
+    </div>
 
     </div>
     <!-- Student kártyák megjelenítése -->
@@ -61,7 +65,7 @@
                     ng-click="showStudentModal(student)" 
                     class="btn btn-primary" 
                     data-bs-toggle="modal"
-              data-bs-target="#studentModal">
+                    data-bs-target="#studentModal">
               {{currentLang.classes.more}}
             </button>
           </div>
