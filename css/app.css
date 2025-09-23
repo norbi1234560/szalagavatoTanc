@@ -157,30 +157,26 @@ body{
 }
 
 .card-3d-wrap {
-  position: relative;
   width: 440px;
-  max-width: 100%;
   height: 400px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   perspective: 800px;
   margin-top: 60px;
 }
-.card-3d-wrapper {   
-  top: 0;
-  left: 0;  
+
+.card-3d-wrapper {    
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition: all 600ms ease-out; 
 }
+
 .card-front, .card-back {
   background-color: #2a2b38;
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: 300%;
   border-radius: 6px;
-  left: 0;
-  top: 0;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
@@ -188,16 +184,17 @@ body{
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
 .card-back {
   transform: rotateY(180deg);
 }
+
 .checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
   transform: rotateY(180deg);
 }
+
 .center-wrap{
   padding: 0 35px;
-  top: 50%;
-  left: 0;
   transform: translate3d(0, -50%, 35px) perspective(100px);
   z-index: 20;
 }
@@ -228,7 +225,6 @@ body{
 }
 
 .input-icon {
-  top: 0;
   left: 18px;
   height: 48px;
   font-size: 24px;

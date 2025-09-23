@@ -210,7 +210,7 @@
                         let ekezet = "áéíöüúűőó";
                         let ekezetNelkul = "aeiouuuoo";
 
-                        studentEdit = $scope.students[i].name.replaceAll(" ", "_").replace().toLowerCase();
+                        studentEdit = $scope.students[j].name.replaceAll(" ", "_").replace().toLowerCase();
 
                         for(let k=0; k< ekezet.length; k++){
                           studentEdit = studentEdit.replaceAll(ekezet[k], ekezetNelkul[k]);
