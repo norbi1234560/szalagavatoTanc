@@ -94,3 +94,15 @@
  - **Kriván Balázs + Fodor Adrián**: html tagolása.
  - **Döme Zöltán**: php-k tagolása és kommentelése.
  - **Herczeg Máté**:  css animációk.
+
+# 2025.09.23 Teendők + Feladatok
+ - **Tokai Ádám**: Adatbázisban a language fixálása
+ - **Berta Barnabás**: Image-ek fixálása a weboldal lapjainál.
+ - **Herceg Máté**: Nyelvválasztás design.
+ - **Guvat Bence + Szabó Bence**: PHP-ba csinálják a képeket.
+ - **Dani Benedek**: Profil módosítás fixálása.
+ - **Szalontai László**: CSS rövidítése.
+
+
+
+
