@@ -19,11 +19,11 @@
 
               <!--Wrap -->
               <div class="card-3d-wrap mx-auto">
-                <div class="card-3d-wrapper w-100 h-100">
+                <div class="card-3d-wrapper position-absolute w-100 h-100">
 
                   <!-- Bejelentkezés -->
                   <div class="card-front h-100 w-100">
-                    <div class="center-wrap w-100">
+                    <div class="center-wrap position-absolute w-100">
                       <div class="w-100 position-relative d-block text-center">
                         <form name="loginForm">
 
@@ -40,7 +40,7 @@
                                    maxlength="150" 
                                    required
                                    ng-pattern="/^([a-z0-9_.+-])+@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/">
-                            <i class="input-icon fa-solid fa-envelope"></i>
+                            <i class="input-icon position-absolute fa-solid fa-envelope"></i>
                           </div>
 
                           <!-- Jelszó Input -->
@@ -54,7 +54,7 @@
                                    maxlength="20" 
                                    required
                                    ng-pattern="/^[a-zA-Z0-9]{6,20}$/">
-                            <i class="input-icon fa-solid fa-key"></i>
+                            <i class="input-icon position-absolute fa-solid fa-key"></i>
                           </div>
 
                           <!-- Show/Hide password -->
@@ -89,7 +89,7 @@
 
                   <!-- Regisztráció -->
                   <div class="card-back h-100 w-100">
-                    <div class="center-wrap w-100">
+                    <div class="center-wrap position-absolute w-100">
                       <div class="w-100 position-relative d-block text-center">
                         <form name="registerForm">
 
@@ -104,7 +104,7 @@
                                    ng-model="name" 
                                    maxlength="150" 
                                    required>
-                            <i class="input-icon fa-solid fa-user"></i>
+                            <i class="input-icon position-absolute fa-solid fa-user"></i>
                           </div>
 
                           <!-- Email Input -->
@@ -118,7 +118,7 @@
                                    maxlength="150"
                                    ng-pattern="/^([a-z0-9_.+-])+@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/"
                                    required>
-                            <i class="input-icon fa-solid fa-envelope"></i>
+                            <i class="input-icon position-absolute fa-solid fa-envelope"></i>
                           </div>
 
                           <!-- Password Input -->
@@ -133,14 +133,14 @@
                                    maxlength="30" 
                                    required
                                    ng-pattern="/^[a-zA-Z0-9]{6,20}$/">
-                            <i class="input-icon fa-solid fa-key"></i>
+                            <i class="input-icon position-absolute fa-solid fa-key"></i>
                           </div>
 
                           <!-- Show/Hide password -->
                           <div class="col-12 mt-3" 
                                style="padding-right: 20px;">
                             <div class="form-check">
-                              <input class="checkbox-change text-white" 
+                              <input class="checkbox-change text-white position-absolute" 
                                      type="checkbox" 
                                      id="show-hide_register" 
                                      name="show-hide_register" 
