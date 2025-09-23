@@ -11,3 +11,4 @@ Nehány dolog ami elősegítette a munkánkat:
 
 * Értelmes csapatkapitány
 * Jól kiosztott munkakörök és adott óraszám
+* Szipi szuper fejlődő képes csapat
