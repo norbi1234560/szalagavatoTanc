@@ -62,7 +62,6 @@ body{
   left: -9999px;
 }
 .checkbox-change{
-  position: absolute;
   left: -9999px;
 }
 .checkbox-change:checked + label,
@@ -167,8 +166,7 @@ body{
   perspective: 800px;
   margin-top: 60px;
 }
-.card-3d-wrapper {
-  position:absolute;    
+.card-3d-wrapper {   
   top: 0;
   left: 0;  
   -webkit-transform-style: preserve-3d;
@@ -198,7 +196,6 @@ body{
   transform: rotateY(180deg);
 }
 .center-wrap{
-  position: absolute;
   padding: 0 35px;
   top: 50%;
   left: 0;
@@ -237,7 +234,6 @@ body{
   box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
 }
 .input-icon {
-  position: absolute;
   top: 0;
   left: 18px;
   height: 48px;
