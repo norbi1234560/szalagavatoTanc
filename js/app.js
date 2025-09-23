@@ -205,6 +205,20 @@
                   for (let i = 0; i < $scope.loadablePairs.length; i++) {
                     for (let j = 0; j < $scope.students.length; j++) {
                       if ($scope.loadablePairs[i].user_id1 == $scope.students[j].id) {
+<<<<<<< HEAD
+=======
+                        let studentEdit = $scope.students[j].name;
+                        let ekezet = "áéíöüúűőó";
+                        let ekezetNelkul = "aeiouuuoo";
+
+                        studentEdit = $scope.students[j].name.replaceAll(" ", "_").replace().toLowerCase();
+
+                        for(let k=0; k< ekezet.length; k++){
+                          studentEdit = studentEdit.replaceAll(ekezet[k], ekezetNelkul[k]);
+                        }
+                        $scope.$applyAsync();
+
+>>>>>>> 64d2846c5e07fd2714657aae8ef4f4537f30c774
                         $scope.user1_name = $scope.students[j].name;
                         $scope.user1_gender = $scope.students[j].gender;
                         $scope.user1_image = $scope.students[j].class + "/" + $scope.students[j].image;

@@ -96,13 +96,12 @@
  - **Herczeg Máté**:  css animációk.
 
 # 2025.09.23 Teendők + Feladatok
+# galéria elkészítése
+
  - **Tokai Ádám**: Adatbázisban a language fixálása
  - **Berta Barnabás**: Image-ek fixálása a weboldal lapjainál.
  - **Herceg Máté**: Nyelvválasztás design.
  - **Guvat Bence + Szabó Bence**: PHP-ba csinálják a képeket.
  - **Dani Benedek**: Profil módosítás fixálása.
+ - **Fodor Adrián + Kriván Balázs**: Adatbázis módosítás.
  - **Szalontai László**: CSS rövidítése.
-
-
-
-
