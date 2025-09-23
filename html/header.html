@@ -74,25 +74,29 @@
 						{{currentLang.header.classes}}
 					</a>
 				</li>
-
-				<!-- nyelv select -->
-				<li>
-					<select name="language" 
-							id="language" 
-							ng-model="$root.currentLang">
-						<option ng-value="lang.data" 
-								ng-repeat="lang in languages" 
-								ng-selected="lang.language == 'hu'">
-							{{lang.language}}</option>
-					</select>
-				</li>
 			</ul>
 		</div>
 
 
 		<!-- bejelentkezes btn -->
-		<form class="d-flex ms-auto" 
-			  role="search">
+		<div class="d-flex ms-auto" >
+
+
+				<!-- nyelv select -->
+				<div class="mx-3">
+					<select name="language" 
+							id="language" 
+							ng-model="$root.currentLang"
+							class="form-select"
+							data-bs-theme="dark">
+						<option ng-value="lang.data" 
+								ng-repeat="lang in languages" 
+								ng-selected="lang.language == 'hu'">
+							{{lang.language}}
+						</option>
+					</select>
+				</div>
+
 			<button ng-if="!loggedIn" 
 					class="btn btn-outline-secondary" 
 					type="button" 
@@ -127,7 +131,7 @@
 					</li>
 				</ul>
 			</li>
-		</form>
+		</div>
 	</div>
 	</div>
 </nav>
