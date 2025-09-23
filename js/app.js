@@ -180,7 +180,7 @@
       '$scope',
       '$rootScope',
       '$http',
-      function ($scope, $rootScope, $http) {
+      function ($scope, $rootScope, $http, $stateParams) {
 
 
         // A párok betöltése függvény
