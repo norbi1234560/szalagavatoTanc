@@ -12,7 +12,10 @@ if (!is_string($args["password"]) || mb_strlen($args["password"], "utf8") > 30)
 
 $db = new Database();
 
-$query = "SELECT `id`, `name`, `password` FROM `users` WHERE `email` = :email LIMIT 1";
+$query = "SELECT `id`, `first_name`, `last_name`, `password` 
+          FROM `users` 
+          WHERE `email` = :email 
+          LIMIT 1";
 $result = $db->execute($query, $args["email"]);
 
 $db = null;
@@ -37,5 +40,6 @@ if ($result[0]["password"] != $args["password"])
 
 Util::setResponse([
     "id" => $result[0]["id"],
-    "name" => $result[0]["name"],
+    "first_name" => $result[0]["first_name"],
+    "last_name" => $result[0]["last_name"],
 ]);

@@ -10,7 +10,10 @@ if (!is_string($args["email"]) || !str_contains($args["email"], '@'))
 
 $db = new Database();
 
-$query = "SELECT `id`, `name`, `email` FROM `users` WHERE `email` = :email LIMIT 1";
+$query = "SELECT `id`, `first_name`,`last_name`, `email` 
+          FROM `users` 
+          WHERE `email` = :email 
+          LIMIT 1";
 $result = $db->execute($query, $args["email"]);
 
 if (count($result) === 0) {
