@@ -103,4 +103,5 @@
  - **Herceg Máté**: Nyelvválasztás design.
  - **Guvat Bence + Szabó Bence**: PHP-ba csinálják a képeket.
  - **Dani Benedek**: Profil módosítás fixálása.
+ - **Fodor Adrián + Kriván Balázs**: Adatbázis módosítás.
  - **Szalontai László**: CSS rövidítése.
