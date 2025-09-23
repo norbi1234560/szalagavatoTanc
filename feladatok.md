@@ -89,7 +89,7 @@
   - A jegy foglalásnál a kártyák a megfordulást követően le mennek az oldal aljára.
 
 # 2025.09.19 Teendők + Feladatok
- - **Guvat Bence + Szabó Bnece**: studentImages php elkészítése.
+ - **Guvat Bence + Szabó Bence**: studentImages php elkészítése.
  - **Kardos Zoltán**: Php hibakezelésének megcsinálása.
  - **Kriván Balázs + Fodor Adrián**: html tagolása.
  - **Döme Zöltán**: php-k tagolása és kommentelése.
