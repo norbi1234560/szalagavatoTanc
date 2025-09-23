@@ -454,13 +454,14 @@
           http.request({
             url: './php/login.php',
             data: {
+              name : "káresz",
               email: $scope.email_login,
               password: $scope.password_login
             }
           })
             .then(function (response) {
               console.log(response);
-              $rootScope.msg = "Sikeresen bejelentkezett fiókjába, üdvözöljük " + response.name + "!";
+              $rootScope.msg = "Sikeresen bejelentkezett fiókjába, üdvözöljük " + response.last_name +" "+ response.first_name +"!";
               $rootScope.loginUser(response, $rootScope.msg);
               $scope.$applyAsync();
               $location.path('/');
