@@ -432,21 +432,15 @@
       function ($scope, http, $rootScope, $location) {
         $scope.galleryImages = [];
 
-        // http.request({ url: './php/getCommonClassImgs.php' })
-        // .then(function (response) {
-        //   if (Array.isArray(response)) {
-        //     $scope.galleryImages = response;
-        //   } else if (response && response.data) {
-        //     $scope.galleryImages = response.data;
-        //   } else {
-        //     $scope.galleryImages = [];
-        //   }
-        //   $scope.$applyAsync();
-        //   console.log($scope.galleryImages);
-        // })
-        // .catch(error => {
-        //   console.log("Hiba:" + error)
-        // })
+        http.request({ url: './php/studentsGalleryImages.php' })
+        .then(function (response) {
+          $scope.galleryImages = response;
+          console.log($scope.galleryImages);
+          $scope.$applyAsync();
+        })
+        .catch(error => {
+          console.log("Hiba:" + error)
+        })
       }])
 
     // Login controller
@@ -469,7 +463,7 @@
               console.log(response);
               $rootScope.msg = "Sikeresen bejelentkezett fiókjába, üdvözöljük " + response.last_name +" "+ response.first_name +"!";
               $rootScope.loginUser(response, $rootScope.msg);
-              $scope.$applyAsync();
+              $rootScope.$applyAsync();
               $location.path('/');
             })
             .catch(error => {
