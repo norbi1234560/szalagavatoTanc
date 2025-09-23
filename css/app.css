@@ -36,9 +36,7 @@
   color: #1f2937;
   transform: rotateY(180deg);
 }
-.icon-wrapper {
-  background: rgba(255, 255, 255, 0.2);
-}
+
 .feature-list {
   list-style: none;
 }
