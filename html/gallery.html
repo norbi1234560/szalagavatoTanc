@@ -1,8 +1,9 @@
 <div ng-controller="galleryController">
   <div class="one text-center">
-    <h1 class="h1-design mt-3 mb-2 position-relative p-0 m-0 fw-light text-center text-uppercase">{{currentLang.header.gallery}}</h1>
+    <h1 class="h1-design mt-3 mb-2 position-relative p-0 m-0 fw-light text-center text-uppercase">
+      {{currentLang.header.gallery}}</h1>
   </div>
-  
+
 
   <!-- <div class="container">
     <div class="row justify-content-center text-center">
@@ -16,23 +17,37 @@
 
   <div class="container gallery min-vh-100 d-flex justify-content-center align-items-center">
     <div class="row justify-content-center text-center">
+      <!-- ...existing code... -->
       <ul class="ul-gallery m-0 p-0 d-grid gap-2 mw-100">
-        <li ng-repeat="image in galleryImages">
-          <a class="a-gallery">
+        <li ng-repeat="image in galleryImages track by $index">
+          <a class="a-gallery" ng-click="openModal($index)">
             <figure class="figure-gallery m-0 position-relative overflow-hidden">
-              <img
-                class="img-gallery w-100 d-block"
-                ng-src="{{image}}"
-                alt='Galéria Kép {{image.id}}'>
+              <img class="img-gallery w-100 d-block" ng-src="{{image}}" alt="Galéria Kép {{$index+1}}">
               <figcaption class="figcaption-gallery position-absolute 
-                                 start-0 top-0 d-flex justify-content-center 
-                                 w-100 h-100 text-center p-3">
-                Galéria kép {{image.id}}
+                           start-0 top-0 d-flex justify-content-center 
+                           w-100 h-100 text-center p-3">
+                Galéria kép {{$index+1}}
               </figcaption>
             </figure>
           </a>
         </li>
       </ul>
+      <!-- ...existing code... -->
+
+      <!-- Modal Lightbox -->
+      <div class="modal-lightbox" ng-if="isModalOpen">
+        <button class="modal-arrow left" ng-click="prevImage(); $event.stopPropagation();"
+          ng-disabled="currentImageIndex === 0">
+          &#8592;
+        </button>
+        <img class="modal-image" ng-src="{{galleryImages[currentImageIndex]}}"
+          alt="Galéria Kép {{currentImageIndex + 1}}">
+        <button class="modal-arrow right" ng-click="nextImage(); $event.stopPropagation();"
+          ng-disabled="currentImageIndex === galleryImages.length-1">
+          &#8594;
+        </button>
+        <button class="btn btn-danger position-absolute top-0 end-0 m-4"
+          ng-click="closeModal(); $event.stopPropagation();" style="font-size:2rem;">&times;</button>
+      </div>
     </div>
   </div>
-</div>
