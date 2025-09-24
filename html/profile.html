@@ -70,12 +70,12 @@
 						<div class="col-lg-9">
 							<div class="p-4">
 								<div class="mb-4">
-									<h5 class="mb-4">Leiras</h5>
+									<h5 class="mb-4">{{currentLang.profile.description}}</h5>
 									<div class="row g-3">
 
 										<!--Vezetéknév input-->
 										<div class="col-md-6">
-											<label class="form-label">Vezetéknév</label>
+											<label class="form-label">{{currentLang.profile.surname}}</label>
 											<input type="text" 
 														 class="form-control" 
 														 value="{{user.name.split(' ')[0]}}"
@@ -84,7 +84,7 @@
 
 										<!--Keresztnév input-->
 										<div class="col-md-6">
-											<label class="form-label">Keresztnév</label>
+											<label class="form-label">{{currentLang.profile.forename}}</label>
 											<input type="text" 
 														 class="form-control" 
 														 value="{{user.name.split(' ')[1]}}"
@@ -93,7 +93,7 @@
 
 										<!--Email input-->
 										<div class="col-md-6">
-											<label class="form-label">Email</label>
+											<label class="form-label">{{currentLang.profile.email}}</label>
 											<input type="email" 
 														 class="form-control" 
 														 value="@email">
@@ -101,7 +101,7 @@
 
 										<!--Telefonszám input-->
 										<div class="col-md-6">
-											<label class="form-label">Telefon</label>
+											<label class="form-label">{{currentLang.profile.phone_number}}</label>
 											<input type="tel" 
 														 class="form-control" 
 														 value="@telefon">
@@ -109,7 +109,7 @@
 
 										<!--Leírás input-->
 										<div class="col-12">
-											<label class="form-label">Leírás</label>
+											<label class="form-label">{{currentLang.profile.description}}</label>
 											<textarea class="form-control" 
 																rows="4">
                       </textarea>
