@@ -273,6 +273,9 @@
               $http.post("./php/getAllStudents.php")
                 .then((response) => {
                   $scope.allStudents = response.data.data;
+                  console.log($scope.allStudents);
+                  $scope.allStudents = $scope.allStudents.sort(x => x.gender == "F" ? 1 : -1);
+                  console.log($scope.allStudents);
                 })
                 .then(() => {
                   $http.post("./php/getBlocklist.php")
