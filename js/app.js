@@ -395,7 +395,6 @@
               console.log(response.data);
 
               $rootScope.msg = "Sikeresen módosította a fiókját" + $scope.name + "!";
-
               $rootScope.loginUser(response.data.data, $rootScope.msg);
               $scope.$applyAsync();
               $location.path('/');
