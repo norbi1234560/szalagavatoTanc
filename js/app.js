@@ -178,9 +178,8 @@
     // Reserve controller
     .controller('reserveController', [
       '$scope',
-      '$rootScope',
       '$http',
-      function ($scope, $rootScope, $http, $stateParams) {
+      function ($scope, $http) {
 
 
         // A párok betöltése függvény
@@ -310,7 +309,7 @@
 
                         $scope.allStudents.forEach(e => {
                           let index = e.pairList.findIndex(x => x === student);
-                          if (index !== -1) e.pairList.splice(index, 1)
+                          if (index !== -1) e.pairList.splice(index, 1);
                         });
 
                         if (student.taken || student.taken === 1) continue;
@@ -332,7 +331,7 @@
                         });
                       }
                       $http.post("./php/addPairs.php", $scope.pairs.map(([a, b]) => [a.id, b.id]))
-                        .then((response) => {
+                        .then(() => {
                           console.log("Sikeres párosítás");
                           $scope.loadPairs();
                         })
@@ -368,7 +367,7 @@
 
         //Get if user from the class
 
-        console.log($rootScope.loggedIn)
+        console.log($rootScope.loggedIn);
 
         if($rootScope.loggedIn === false){
           $location.path('/');
@@ -381,7 +380,7 @@
             $scope.data = response.data.data;
             $scope.imageURL = "./assets/pics/" +  $scope.data.class + "/" + $scope.data.image;
           })
-          .catch(error => {console.log(error)})
+          .catch(error => {console.log(error)});
         
 
         $scope.modify = () => {
@@ -423,7 +422,7 @@
           console.log($scope.homeImages);
         })
         .catch(error => {
-          console.log("Hiba:" + error)
+          console.log("Hiba:" + error);
         })
         
       }
@@ -444,7 +443,7 @@
           $scope.$applyAsync();
         })
         .catch(error => {
-          console.log("Hiba:" + error)
+          console.log("Hiba:" + error);
         })
       }])
 
@@ -499,7 +498,7 @@
             })
             .catch(error => {
               $rootScope.message = "Hiba történt a regisztráció során: " + error;
-              console.log($scope.Error)
+              console.log($scope.Error);
             })
 
         }
