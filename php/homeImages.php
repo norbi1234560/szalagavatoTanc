@@ -2,7 +2,7 @@
 
 require_once("../../common/php/environment.php");
 
-$assets = "./assets/pics/homeImages";
+$assets = "./assets/pics/homeImg";
 
 $files = scandir($assets);
 

@@ -45,24 +45,11 @@
       <div class="carousel-inner">
 
         <!-- 1. kép (aktív) -->
-        <div class="carousel-item active">
-          <img src="./assets/pics/homeImg/{{homeImages[0].image}}" 
+        <div class="carousel-item"
+             ng-repeat="x in homeImages">
+          <img src="./assets/pics/homeImg/{{x}}" 
                class="d-block w-100" 
                alt="Szalagavató tánc">
-        </div>
-
-        <!-- 2. kép -->
-        <div class="carousel-item">
-          <img src="./assets/pics/homeImg/{{homeImages[1].image}}" 
-               class="d-block w-100" 
-               alt="Szalagavató tánc">
-        </div>
-
-        <!-- 3. kép -->
-        <div class="carousel-item">
-          <img src="./assets/pics/homeImg/{{homeImages[2].image}}" 
-               class="d-block w-100" 
-               alt="Lányok menyasszonyi ruhában">
         </div>
 
       </div>
