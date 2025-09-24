@@ -433,7 +433,7 @@
       'http',
       '$rootScope',
       '$location',
-      function ($scope, http, $rootScope, $location) {
+      function ($scope, http) {
         $scope.galleryImages = [];
 
         http.request({ url: './php/studentsGalleryImages.php' })
@@ -531,7 +531,7 @@
             $scope.$applyAsync();
           })
           .catch(error => {
-            console.log("Hiba:" + error)
+            console.log("Hiba:" + error);
           })
         $http.post("./php/getClasses.php")
           .then(function (response) {
@@ -566,7 +566,7 @@
                     }
 
                   } else {
-                    console.log("Nem található tiltott személy a listáján!")
+                    console.log("Nem található tiltott személy a listáján!");
                   }
                 })
 
@@ -584,7 +584,7 @@
         $scope.blocklistEdit = (enable, currentEditStudent, currentBlockStudent) => {
           if (enable) {
             $http.post("./php/addBlock.php", { user_id: currentEditStudent.id, blocked_user_id: currentBlockStudent.id })
-              .then((response) => {
+              .then(() => {
                 console.log("Sikeres hozzáadás");
               })
               .catch((error) => {
@@ -593,7 +593,7 @@
           }
           else {
             $http.post("./php/removeBlock.php", { user_id: currentEditStudent.id, blocked_user_id: currentBlockStudent.id })
-              .then((response) => {
+              .then(() => {
                 console.log("Sikeres törlés");
               })
               .catch((error) => {
