@@ -368,20 +368,16 @@
       '$location',
       function ($scope, $http, $rootScope, $location) {
 
-        //Get if user from the class
-
-        console.log($rootScope.loggedIn);
-
         if ($rootScope.loggedIn === false) {
           $location.path('/');
         }
 
-        $http.post("./php/getUserData.php", {
+        $http.post("./php/getLoggedUser.php", {
           id: $rootScope.user.id
         }).then(
           function (response) {
-            $scope.data = response.data.data;
-            $scope.imageURL = "./assets/pics/" + $scope.data.class + "/" + $scope.data.image;
+            console.log(response.data.data);
+
           })
           .catch(error => { console.log(error) });
 
