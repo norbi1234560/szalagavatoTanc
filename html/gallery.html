@@ -20,13 +20,16 @@
       <!-- ...existing code... -->
       <ul class="ul-gallery m-0 p-0 d-grid gap-2 mw-100">
         <li ng-repeat="image in galleryImages track by $index">
-          <a class="a-gallery" ng-click="openModal($index)">
+          <a class="a-gallery" 
+             ng-click="openModal($index)">
             <figure class="figure-gallery m-0 position-relative overflow-hidden">
-              <img class="img-gallery w-100 d-block" ng-src="{{image}}" alt="Galéria Kép {{$index+1}}">
+              <img class="img-gallery w-100 d-block" 
+                   ng-src="{{image}}" 
+                   alt="Galéria Kép {{$index+1}}">
               <figcaption class="figcaption-gallery position-absolute 
                            start-0 top-0 d-flex justify-content-center 
                            w-100 h-100 text-center p-3">
-                Galéria kép {{$index+1}}
+                {{currentLang.gallery.gallery_picture}} {{$index+1}}
               </figcaption>
             </figure>
           </a>
