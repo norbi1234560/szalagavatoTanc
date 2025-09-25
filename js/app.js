@@ -98,7 +98,7 @@
       '$rootScope',
       '$location',
       'util',
-      ($rootScope,$location,util) => {
+      ($rootScope, $location, util) => {
 
         // user object
         $rootScope.user = {};
@@ -109,15 +109,15 @@
         let PageId = util.getPageId();
 
         //get localStorage.getItem('user')
-        $rootScope.checkedUser = JSON.parse(localStorage.getItem('user'))||0;
+        $rootScope.checkedUser = JSON.parse(localStorage.getItem('user')) || 0;
 
-        if(typeof $rootScope.checkedUser.pageID != "undefined"){
-          if($rootScope.checkedUser != 0 && $rootScope.checkedUser.pageID.includes("szalagavatotanc")){
+        if (typeof $rootScope.checkedUser.pageID != "undefined") {
+          if ($rootScope.checkedUser != 0 && $rootScope.checkedUser.pageID.includes("szalagavatotanc")) {
             $rootScope.user = JSON.parse(localStorage.getItem('user'));
             $rootScope.loggedIn = true;
           }
         }
-        
+
         //user object
         $rootScope.loginUser = function (data, message) {
           $rootScope.user.id = data.id;
@@ -145,29 +145,29 @@
         }
 
         //get languages
-        $rootScope.getLanguages = function() {
+        $rootScope.getLanguages = function () {
           fetch('./php/getLanguages.php')
-          .then(res => res.json())
-          .then(res => {
-            if (res.error) {
-              console.error(res.error);
-            }
-            else {
-
-              //set language data
-              $rootScope.languages = res.data;
-              
-              for (let lang of $rootScope.languages) {
-                lang.data = JSON.parse(lang.data);
+            .then(res => res.json())
+            .then(res => {
+              if (res.error) {
+                console.error(res.error);
               }
-              
-              //set default to hu
-              $rootScope.currentLang = $rootScope.languages[3].data;
+              else {
 
-              $rootScope.$applyAsync();
-            }
-          })
-          .catch(err => console.error(err));
+                //set language data
+                $rootScope.languages = res.data;
+
+                for (let lang of $rootScope.languages) {
+                  lang.data = JSON.parse(lang.data);
+                }
+
+                //set default to hu
+                $rootScope.currentLang = $rootScope.languages[3].data;
+
+                $rootScope.$applyAsync();
+              }
+            })
+            .catch(err => console.error(err));
         }
 
         //run
@@ -212,14 +212,14 @@
 
                           studentEdit = $scope.students[j].name.replaceAll(" ", "_").replace().toLowerCase();
 
-                          for(let k=0; k< ekezet.length; k++){
+                          for (let k = 0; k < ekezet.length; k++) {
                             studentEdit = studentEdit.replaceAll(ekezet[k], ekezetNelkul[k]);
                           }
                           $scope.$applyAsync();
 
                           $scope.user1_name = $scope.students[j].name;
                           $scope.user1_gender = $scope.students[j].gender;
-                          $scope.user1_image = $scope.students[j].class + "/" + studentEdit + "/" + studentEdit +".jpg";
+                          $scope.user1_image = $scope.students[j].class + "/" + studentEdit + "/" + studentEdit + ".jpg";
                         }
                         if ($scope.loadablePairs[i].user_id2 == $scope.students[j].id) {
                           let studentEdit = $scope.students[j].name;
@@ -228,14 +228,14 @@
 
                           studentEdit = $scope.students[j].name.replaceAll(" ", "_").replace().toLowerCase();
 
-                          for(let k=0; k< ekezet.length; k++){
+                          for (let k = 0; k < ekezet.length; k++) {
                             studentEdit = studentEdit.replaceAll(ekezet[k], ekezetNelkul[k]);
                           }
                           $scope.$applyAsync();
-                          
+
                           $scope.user2_name = $scope.students[j].name;
                           $scope.user2_gender = $scope.students[j].gender;
-                          $scope.user2_image = $scope.students[j].class + "/" + studentEdit + "/" + studentEdit +".jpg";
+                          $scope.user2_image = $scope.students[j].class + "/" + studentEdit + "/" + studentEdit + ".jpg";
                         }
                       }
                       $scope.pairsNamed.push({
@@ -261,7 +261,7 @@
               console.error("Hiba az adat betöltése során: ", error);
             });
         }
-        
+
 
         $scope.makePairs = () => {
 
@@ -357,7 +357,7 @@
         }
         $scope.loadPairs();
 
-        
+
       }
     ])
 
@@ -372,19 +372,19 @@
 
         console.log($rootScope.loggedIn);
 
-        if($rootScope.loggedIn === false){
+        if ($rootScope.loggedIn === false) {
           $location.path('/');
         }
 
-        $http.post("./php/getUserData.php",{
+        $http.post("./php/getUserData.php", {
           id: $rootScope.user.id
         }).then(
-          function(response){
+          function (response) {
             $scope.data = response.data.data;
-            $scope.imageURL = "./assets/pics/" +  $scope.data.class + "/" + $scope.data.image;
+            $scope.imageURL = "./assets/pics/" + $scope.data.class + "/" + $scope.data.image;
           })
-          .catch(error => {console.log(error)});
-        
+          .catch(error => { console.log(error) });
+
 
         $scope.modify = () => {
           $http.post("./php/editUser.php", {
@@ -418,36 +418,60 @@
         $scope.homeImages = [];
 
         $http.post("./php/homeImages.php")
-        .then(function (response) {
-          $scope.homeImages = response.data.data;
-          console.log($scope.homeImages);
-          $scope.$applyAsync();
-        })
-        .catch(error => {
-          console.log("Hiba:" + error);
-        })
-        
+          .then(function (response) {
+            $scope.homeImages = response.data.data;
+            console.log($scope.homeImages);
+            $scope.$applyAsync();
+          })
+          .catch(error => {
+            console.log("Hiba:" + error);
+          })
+
       }
     ])
 
+    // ...existing code...
     .controller('galleryController', [
       '$scope',
       'http',
-      '$rootScope',
-      '$location',
       function ($scope, http) {
         $scope.galleryImages = [];
 
         http.request({ url: './php/studentsGalleryImages.php' })
-        .then(function (response) {
-          $scope.galleryImages = response;
-          console.log($scope.galleryImages);
-          $scope.$applyAsync();
-        })
-        .catch(error => {
-          console.log("Hiba:" + error);
-        })
-      }])
+          .then(function (response) {
+            $scope.galleryImages = response;
+            $scope.$applyAsync();
+          })
+          .catch(error => {
+            console.log("Hiba:" + error);
+          });
+
+        $scope.isModalOpen = false;
+        $scope.currentImageIndex = 0;
+
+        $scope.openModal = function (index) {
+          $scope.currentImageIndex = index;
+          $scope.isModalOpen = true;
+        };
+
+        $scope.closeModal = function () {
+          $scope.isModalOpen = false;
+        };
+
+        $scope.prevImage = function () {
+          if ($scope.currentImageIndex > 0) {
+            $scope.currentImageIndex--;
+          }
+        };
+
+        $scope.nextImage = function () {
+          if ($scope.currentImageIndex < $scope.galleryImages.length - 1) {
+            $scope.currentImageIndex++;
+          }
+        };
+      }
+    ])
+    // ...existing code...
 
     // Login controller
     .controller('loginController', [
@@ -460,14 +484,14 @@
           http.request({
             url: './php/login.php',
             data: {
-              name : "káresz",
+              name: "káresz",
               email: $scope.email_login,
               password: $scope.password_login
             }
           })
             .then(function (response) {
               console.log(response);
-              $rootScope.msg = "Sikeresen bejelentkezett fiókjába, üdvözöljük " + response.last_name +" "+ response.first_name +"!";
+              $rootScope.msg = "Sikeresen bejelentkezett fiókjába, üdvözöljük " + response.last_name + " " + response.first_name + "!";
               $rootScope.loginUser(response, $rootScope.msg);
               $rootScope.$applyAsync();
               $location.path('/');
@@ -520,9 +544,9 @@
           .then(function (response) {
             $scope.students = response.data.data;
             $scope.studentsFolder = [];
-            for(let i=0; i< $scope.students.length; i++){
+            for (let i = 0; i < $scope.students.length; i++) {
               $scope.studentEdit = $scope.students[i].name.replaceAll(" ", "_").replace().toLowerCase();
-              for(let j=0; j<$scope.ekezet.length; j++){
+              for (let j = 0; j < $scope.ekezet.length; j++) {
                 $scope.studentEdit = $scope.studentEdit.replaceAll($scope.ekezet[j], $scope.ekezetNelkul[j]);
               }
               $scope.studentsFolder.push($scope.studentEdit);

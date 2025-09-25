@@ -97,9 +97,8 @@
 
 # 2025.09.23 Teendők + Feladatok
 # galéria elkészítése
-# Galériánál a képeket meg lehessen nyitni, nyilakkal váltogatni jobbra - balra.
 
- - **Tokai Ádám**: Adatbázisban a language fixálása
+ - **Tokai Ádám**: Adatbázisban a language fixálása.
  - **Berta Barnabás**: Image-ek fixálása a weboldal lapjainál.
  - **Herceg Máté**: Nyelvválasztás design.
  - **Guvat Bence + Szabó Bence**: PHP-ba csinálják a képeket.
@@ -107,3 +106,10 @@
  - **Fodor Adrián + Kriván Balázs**: Adatbázis módosítás.
  - **Szalontai László**: CSS rövidítése.
 
+# 2025.09.24 Teendők + Feladatok
+# Galériánál a képeknél lévő szöveg adatbázisba felvétele, hogy a nyelvváltásnál le legyen fordítva.
+# Párválasztás fülnél a középső gomb átírása párok generálására, mellé kerüljön egy másik gomb, ahol az admin tudná manuálisan a párokat beállítani. A két gomb legyen középre igazítva, az első taghoz kerüljenek a nők, a második taghoz pedig a férfiak, illetve a pár nélküliek kerüljenek alulra, illetve a gombok alatt lévő "Összesen x pár generálódott" szintén kerüljön be adatbázisba, hogy le lehessen fordítani.
+# Nyelvválasztás mellett jelenjen meg az adott nyelv zászlaja
+# Az egész weboldal designjának átdolgozása
+
+ - **Tokai Ádám**: Galériánál a képeket meg lehessen nyitni, nyilakkal váltogatni jobbra - balra.
