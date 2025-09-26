@@ -115,6 +115,6 @@
  - **Kulcsár Tamás Ámon & Bokor Richárd**: Osztályoknál a gombok disabled-re lesznek állítva, gomb nyomásra.
  - **Tokai Ádám**: Bejelentkezés gomb beljebb rakása.
  - **Miklós Martin & Dani Benedek**: Az egész weboldal designjának átdolgozása.
- - **Tóth László Gábor**: Adatbázisban a language szerkesztése, Galériánál a képeknél lévő szöveg adatbázisba felvétele, hogy a nyelvváltásnál le legyen fordítva. Párok generálásánál az "Összesen x pár generálódott" szintén kerüljön be adatbázisba, hogy le lehessen fordítani. + user-ek telefonszámai javítása
+ - **Tóth László Gábor**: Adatbázisban a language szerkesztése, Galériánál a képeknél lévő szöveg adatbázisba felvétele, hogy a nyelvváltásnál le legyen fordítva. Párok generálásánál az "Összesen x pár generálódott" szintén kerüljön be adatbázisba, hogy le lehessen fordítani. + user-ek telefonszámai javítása, + Manuális gomb leforditása.
  - **Szalontai László**: Adatbázisban a user-eknek telefonszám hozzáadása.
  - **Kis Marcell Zsombor & Kriván Balázs & Fodor Adrián**: Párválasztásnál pár nélüliek.Párválasztás fülnél a középső gomb átírása párok generálására, mellé kerüljön egy másik gomb, ahol az admin tudná manuálisan a párokat beállítani. A két gomb legyen középre igazítva, az első taghoz kerüljenek a nők, a második taghoz pedig a férfiak.
