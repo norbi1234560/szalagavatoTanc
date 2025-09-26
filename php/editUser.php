@@ -22,20 +22,14 @@ if (!is_string($args["password"]) || mb_strlen($args["password"], "utf8") > 20)
 
 $db = new Database();
 
-$query = "SELECT COUNT(*) > 0 as `email_exists` FROM `users` WHERE `email` = :email AND `id` != :id LIMIT 1";
-$result = $db->execute($query, [
-    ":email" => $args["email"],
-    ":id" => $userId
-]);
-
 if ($result[0]["email_exists"] == 1)
     Util::setError("Az email már használt!");
 
-$query = "UPDATE `users` SET `name` = :name, `email` = :email, `password` = :password WHERE `id` = :id";
+$query = "UPDATE `users` SET `email` = :email, `password` = :password, WHERE `id` = :id";
 $params = [
-    ":name" => $args["name"],
     ":email" => $args["email"],
-    ":password" => $args["password"],
+    ":phone" => $args["phone"],
+    ":description" => $args["description"],
     ":id" => $userId
 ];
 
