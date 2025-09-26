@@ -112,7 +112,7 @@
  - **Berta Barnabás**: Carousel, modal fixálása.
  - **Guvat Bence**: Zászlók a nyelvválasztásnál.
  - **Répa Norbert**: Profil fixálása, mindenkinek saját profilkép.
- - **Kulcsár Tamás Ámon & Bokor Richárd**: Osztályoknál a gombok disabled-re lesznek állítva, gomb nyomásra.
+ - **Kulcsár Tamás Ámon & Bokor Richárd**: Osztályoknál a gombok disabled-re lesznek állítva, gomb nyomásra. Modalok design-olása.
  - **Tokai Ádám**: Bejelentkezés gomb beljebb rakása.
  - **Miklós Martin & Dani Benedek**: Az egész weboldal designjának átdolgozása.
  - **Tóth László Gábor**: Adatbázisban a language szerkesztése, Galériánál a képeknél lévő szöveg adatbázisba felvétele, hogy a nyelvváltásnál le legyen fordítva. Párok generálásánál az "Összesen x pár generálódott" szintén kerüljön be adatbázisba, hogy le lehessen fordítani.
