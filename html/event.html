@@ -134,8 +134,9 @@
       <!-- carousel kepek -->
       <div class="carousel-inner">
 
-        <div class="carousel-item active" 
-             ng-repeat="x in eventImages">
+        <div class="carousel-item" 
+             ng-repeat="x in eventImages track by $index"
+             ng-class="{active: $index == 0}">
           <img ng-src="./assets/pics/eventImg/{{x}}" 
                class="d-block w-100" 
                alt="...">
