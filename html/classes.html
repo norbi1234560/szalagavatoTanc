@@ -26,7 +26,7 @@
             class="btn btn-primary"
             ng-show="hasBoys"
             ng-click="genderFilter = 'M'"
-            ng-disabled="genderFilter === 'M'">
+             ng-disabled="genderFilter == 'M' || className == '13C'">
         {{currentLang.classes.man}}
     </button>
     <!-- Mind gomb: csak ha van fiú ÉS lány is -->
@@ -34,7 +34,7 @@
             class="btn btn-danger"
             ng-show="hasBoth"
             ng-click="genderFilter = null"
-            ng-disabled="genderFilter === null">
+            ng-disabled="genderFilter == null">
         {{currentLang.classes.all}}
     </button>
     <!-- Nő gomb: csak ha van lány -->
