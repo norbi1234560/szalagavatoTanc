@@ -396,8 +396,31 @@
           id: $rootScope.user.id
         }).then(
           function (response) {
-            $scope.data = response.data.data;
-            $scope.imageURL = "./assets/pics/" + $scope.data.class + "/" + $scope.data.image;
+            console.log(response.data.data);
+
+          })
+          .catch(error => { console.log(error) });
+
+        $http.post("./php/getPictures.php", {
+          id: $rootScope.user.id
+        }).then(
+          function (response) {
+            console.log(response.data);
+
+          })
+          .catch(error => { console.log(error) });
+
+        $http.post("./php/editUser.php", {
+          id:"asd",
+          first_name:"asd",
+          last_name:"asd",
+          email:"asd",
+          phone:"asd",
+          description:"asd",
+
+        }).then(
+          function (response) {
+
           })
           .catch(error => { console.log(error) });
 
@@ -446,7 +469,6 @@
       }
     ])
 
-    // ...existing code...
     .controller('galleryController', [
       '$scope',
       'http',
@@ -487,7 +509,6 @@
         };
       }
     ])
-    // ...existing code...
 
     // Login controller
     .controller('loginController', [
