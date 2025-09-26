@@ -31,8 +31,9 @@ $result = $db->execute($query, [
 if ($result[0]["email_exists"] == 1)
     Util::setError("Az email már használt!");
 
-$query = "UPDATE `users` SET `name` = :name, `email` = :email, `password` = :password WHERE `id` = :id";
+$query = "UPDATE `users` SET `email` = :email, `password` = :password WHERE `id` = :id";
 $params = [
+    ":name" => $args["name"],
     ":name" => $args["name"],
     ":email" => $args["email"],
     ":password" => $args["password"],

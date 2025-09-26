@@ -381,6 +381,20 @@
           })
           .catch(error => { console.log(error) });
 
+        $http.post("./php/editUser.php", {
+          id:"asd",
+          first_name:"asd",
+          last_name:"asd",
+          email:"asd",
+          phone:"asd",
+          description:"asd",
+
+        }).then(
+          function (response) {
+
+          })
+          .catch(error => { console.log(error) });
+
 
         $scope.modify = () => {
           $http.post("./php/editUser.php", {
