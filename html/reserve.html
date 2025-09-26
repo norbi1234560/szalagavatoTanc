@@ -70,31 +70,19 @@
         </tr>
       </thead>
       <tbody>
-         <!-- <tr ng-repeat="x in pairsNamed">
+         <tr ng-repeat="x in notPaired">
           <td class="p-0 m-0 bg-transparent border-0">
-            <img ng-src="assets/pics/{{x.image1}}" 
-                 class="bg-transparent border-0 img-fluid"
+            <img ng-src="assets/pics/{{x.class}}/{{x.folderName}}/{{x.imageName}}.{{x.fileExtension}}" 
+                 class="bg-transparent border-0 img-fluid"  
                  style="width: 100px;">
           </td>
 
           <td class="w-auto" 
-              ng-style="x.gender1 == 'M' ? {'background-color':'#B0E0E6','color': '#003366'} : 
+              ng-style="x.gender == 'M' ? {'background-color':'#B0E0E6','color': '#003366'} : 
                                            {'background-color':'#e6e6fa', 'color':'#4b0082'}">
-                                           {{x.name1}}
+                                           {{x.name}}
           </td>
-
-          <td class="w-auto" 
-              ng-style="x.gender2 == 'M' ? {'background-color':'#B0E0E6','color': '#003366'} : 
-                                           {'background-color':'#e6e6fa', 'color':'#4b0082'}">
-                                           {{x.name2}}
-          </td>
-
-          <td class="p-0 m-0 bg-transparent border-0">
-            <img ng-src="assets/pics/{{x.image2}}" 
-                 class="bg-transparent border-0 img-fluid" 
-                 style="width: 100px">
-          </td>
-        </tr> -->
+        </tr>
       </tbody>
     </table>
   </div>
