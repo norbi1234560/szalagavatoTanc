@@ -397,6 +397,15 @@
           })
           .catch(error => { console.log(error) });
 
+        $http.post("./php/getPictures.php", {
+          id: $rootScope.user.id
+        }).then(
+          function (response) {
+            console.log(response.data);
+
+          })
+          .catch(error => { console.log(error) });
+
         $http.post("./php/editUser.php", {
           id:"asd",
           first_name:"asd",
