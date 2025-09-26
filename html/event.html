@@ -91,7 +91,7 @@
               <li>{{currentLang.event.price}}</li>
               <li>{{currentLang.event.reservation_date}}</li>
             </ul>
-            <button class="btn btn-dark mt-4 w-auto" 
+            <button class="btn btn-dark mt-5 mx-auto w-50"
                     ng-disabled="isEvent">
                   {{currentLang.event.reservation}}
             </button>
@@ -134,8 +134,9 @@
       <!-- carousel kepek -->
       <div class="carousel-inner">
 
-        <div class="carousel-item active" 
-             ng-repeat="x in eventImages">
+        <div class="carousel-item" 
+             ng-repeat="x in eventImages track by $index"
+             ng-class="{active: $index == 0}">
           <img ng-src="./assets/pics/eventImg/{{x}}" 
                class="d-block w-100" 
                alt="...">
