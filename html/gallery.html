@@ -25,19 +25,23 @@
       </ul>
 
       <!-- Modal Lightbox -->
-      <div class="modal-lightbox" ng-if="isModalOpen">
-        <button class="modal-arrow left" ng-click="prevImage(); $event.stopPropagation();"
-          ng-disabled="currentImageIndex === 0">
-          &#8592;
+      <div class="modal-lightbox" 
+           ng-if="isModalOpen">
+        <button class="modal-arrow left" 
+                ng-click="prevImage(); $event.stopPropagation();"
+                ng-disabled="currentImageIndex === 0">&#8592;
         </button>
-        <img class="modal-image" ng-src="{{galleryImages[currentImageIndex]}}"
-          alt="Galéria Kép {{currentImageIndex + 1}}">
-        <button class="modal-arrow right" ng-click="nextImage(); $event.stopPropagation();"
-          ng-disabled="currentImageIndex === galleryImages.length-1">
-          &#8594;
+        <img class="modal-image" 
+             ng-src="{{galleryImages[currentImageIndex]}}"
+             alt="Galéria Kép {{currentImageIndex + 1}}">
+        <button class="modal-arrow right" 
+                ng-click="nextImage(); $event.stopPropagation();"
+                ng-disabled="currentImageIndex === galleryImages.length-1">&#8594;
         </button>
         <button class="btn btn-danger position-absolute top-0 end-0 m-4"
-          ng-click="closeModal(); $event.stopPropagation();" style="font-size:2rem;">&times;</button>
+                ng-click="closeModal(); $event.stopPropagation();" 
+                style="font-size:2rem;">&times;
+        </button>
       </div>
     </div>
   </div>

@@ -4,19 +4,22 @@
     </div>
   <div class="row d-flex justify-content-center mt-5">
 
+    <!--Párgenerálás gomb-->
     <button class="btn btn-dark col-3 btn-outline"
             ng-click="makePairs()">
       {{currentLang.reserve.make_pairs}}
     </button>
 
+    <!--Generált párok mennyisége-->
     <p class="text-center mt-3 text-muted" 
        ng-if="pairsNamed.length > 0">
-      Összesen {{pairsNamed.length}} pár generálódott.
+      {{currentLang.reserve.all}} {{pairsNamed.length}} {{currentLang.reserve.pair}} {{currentLang.reserve.generated}}.
     </p>
 
     <table class="table table-hover table-sm 
                   table-bordered table-striped table-sm mt-3 text-center">
 
+      <!--Table head-->
       <thead class="table-dark">
         <tr>
           <th colspan="4">{{currentLang.reserve.pairs}}</th>
@@ -32,9 +35,12 @@
           </th>
         </tr>
       </thead>
+
+      <!--Table body-->
       <tbody>
         <tr ng-repeat="x in pairsNamed">
-          <td class="p-0 m-0 bg-transparent" style="max-width: 100px; width: 100px;">
+          <td class="p-0 m-0 bg-transparent" 
+              style="max-width: 100px; width: 100px;">
             <img ng-src="assets/pics/{{x.image1}}" 
                  class="bg-transparent img-fluid"
                  style="width: 100px;">
@@ -52,7 +58,8 @@
                                            {{x.name2}}
           </td>
 
-          <td class="p-0 m-0 bg-transparent" style="max-width: 100px; width: 100px;">
+          <td class="p-0 m-0 bg-transparent" 
+              style="max-width: 100px; width: 100px;">
             <img ng-src="assets/pics/{{x.image2}}" 
                  class="bg-transparent img-fluid" 
                  style="width: 100px">
@@ -66,7 +73,7 @@
                   table-bordered table-sm mt-3 text-center">
       <thead class="table-dark">
         <tr>
-          <th colspan="4">Párnélküliek</th>
+          <th colspan="4">{{currentLang.reserve.no_pairs}}</th>
         </tr>
       </thead>
       <tbody>
