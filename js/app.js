@@ -442,7 +442,6 @@
       }
     ])
 
-    // ...existing code...
     .controller('galleryController', [
       '$scope',
       'http',
@@ -483,7 +482,6 @@
         };
       }
     ])
-    // ...existing code...
 
     // Login controller
     .controller('loginController', [
