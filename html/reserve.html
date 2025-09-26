@@ -10,7 +10,10 @@
       {{currentLang.reserve.make_pairs}}
     </button>
 
-    <!--Generált párok mennyisége-->
+    <button class="btn btn-dark col-3 btn-outline">
+      Manuális párok beállítása
+    </button>
+
     <p class="text-center mt-3 text-muted" 
        ng-if="pairsNamed.length > 0">
       {{currentLang.reserve.all}} {{pairsNamed.length}} {{currentLang.reserve.pair}} {{currentLang.reserve.generated}}.
@@ -39,6 +42,8 @@
       <!--Table body-->
       <tbody>
         <tr ng-repeat="x in pairsNamed">
+          <td class="p-0 m-0 bg-transparent w-auto"
+              colspan="1">
           <td class="p-0 m-0 bg-transparent" 
               style="max-width: 100px; width: 100px;">
             <img ng-src="assets/pics/{{x.image1}}" 
@@ -46,20 +51,22 @@
                  style="width: 100px;">
           </td>
 
-          <td
+          <td class="w-auto"
+              colspan="1"
               ng-style="x.gender1 == 'M' ? {'background-color':'#B0E0E6','color': '#003366'} : 
                                            {'background-color':'#e6e6fa', 'color':'#4b0082'}">
                                            {{x.name1}}
           </td>
 
-          <td 
+          <td class="w-auto"
+              colspan="1"
               ng-style="x.gender2 == 'M' ? {'background-color':'#B0E0E6','color': '#003366'} : 
                                            {'background-color':'#e6e6fa', 'color':'#4b0082'}">
                                            {{x.name2}}
           </td>
 
-          <td class="p-0 m-0 bg-transparent" 
-              style="max-width: 100px; width: 100px;">
+          <td class="p-0 m-0 bg-transparent w-auto"
+              colspan="1">
             <img ng-src="assets/pics/{{x.image2}}" 
                  class="bg-transparent img-fluid" 
                  style="width: 100px">
