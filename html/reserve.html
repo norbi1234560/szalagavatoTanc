@@ -34,25 +34,29 @@
       </thead>
       <tbody>
         <tr ng-repeat="x in pairsNamed">
-          <td class="p-0 m-0 bg-transparent" style="max-width: 100px; width: 100px;">
+          <td class="p-0 m-0 bg-transparent w-auto"
+              colspan="1">
             <img ng-src="assets/pics/{{x.image1}}" 
                  class="bg-transparent img-fluid"
                  style="width: 100px;">
           </td>
 
-          <td
+          <td class="w-auto"
+              colspan="1"
               ng-style="x.gender1 == 'M' ? {'background-color':'#B0E0E6','color': '#003366'} : 
                                            {'background-color':'#e6e6fa', 'color':'#4b0082'}">
                                            {{x.name1}}
           </td>
 
-          <td 
+          <td class="w-auto"
+              colspan="1"
               ng-style="x.gender2 == 'M' ? {'background-color':'#B0E0E6','color': '#003366'} : 
                                            {'background-color':'#e6e6fa', 'color':'#4b0082'}">
                                            {{x.name2}}
           </td>
 
-          <td class="p-0 m-0 bg-transparent" style="max-width: 100px; width: 100px;">
+          <td class="p-0 m-0 bg-transparent w-auto"
+              colspan="1">
             <img ng-src="assets/pics/{{x.image2}}" 
                  class="bg-transparent img-fluid" 
                  style="width: 100px">
