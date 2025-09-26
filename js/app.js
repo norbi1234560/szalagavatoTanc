@@ -161,17 +161,33 @@
                   lang.data = JSON.parse(lang.data);
                 }
 
-                //set default to hu
-                $rootScope.currentLang = $rootScope.languages[3].data;
+                for(let x = 0; x < $rootScope.languages.length; x ++){
 
+                  if($rootScope.languages[x].language == "hu"){
+                      $rootScope.currentLang = $rootScope.languages[x].data;
+                      $rootScope.currentFlag = $rootScope.languages[x].language;
+                      break;
+                  }
+                }
                 $rootScope.$applyAsync();
               }
             })
             .catch(err => console.error(err));
-        }
+        } 
 
         //run
         $rootScope.getLanguages();
+
+        $rootScope.selectedLanguage = function(lang){
+          for(let y = 0; y <  $rootScope.languages.length; y ++){
+            if(lang == $rootScope.languages[y].data){
+
+              $rootScope.currentFlag = $rootScope.languages[y].language;
+              break;
+
+            }
+          }
+        }
       }
     ])
 
@@ -246,24 +262,8 @@
                         image1: $scope.user1_image,
                         image2: $scope.user2_image,
                       })
-                    }
 
-                    $scope.notPaired = [];
-                    $scope.fileExtension = [];
-                    
-                    for (let i = 0; i < $scope.students.length; i++) {
-                      if ($scope.students[i].taken == 0) {
-                        $scope.notPaired.push($scope.students[i]);
-                        $scope.fileExtension.push($scope.students[i].image.split(".").pop());
-                        
-                        $scope.notPaired[i].folderName = $scope.students[i].name.replaceAll(" ", "_").replace().toLowerCase();
-                        $scope.notPaired[i].folderName = $scope.notPaired[i].folderName.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-                        $scope.notPaired[i].imageName = $scope.notPaired[i].folderName;
-                        $scope.notPaired[i].fileExtension = $scope.fileExtension[i];
-                      }
                     }
-
-                    console.log($scope.notPaired)
                     console.log($scope.pairsNamed);
                   } else {
                     console.error(pairResponse.data.error);
@@ -384,11 +384,15 @@
       '$location',
       function ($scope, $http, $rootScope, $location) {
 
+        //Get if user from the class
+
+        console.log($rootScope.loggedIn);
+
         if ($rootScope.loggedIn === false) {
           $location.path('/');
         }
 
-        $http.post("./php/getLoggedUser.php", {
+        $http.post("./php/getUserData.php", {
           id: $rootScope.user.id
         }).then(
           function (response) {
@@ -465,7 +469,6 @@
       }
     ])
 
-    // ...existing code...
     .controller('galleryController', [
       '$scope',
       'http',
@@ -506,7 +509,6 @@
         };
       }
     ])
-    // ...existing code...
 
     // Login controller
     .controller('loginController', [

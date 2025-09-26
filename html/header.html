@@ -82,12 +82,12 @@
 
 
 		<!-- bejelentkezes btn -->
-		<div class="d-flex ms-auto ">
+		<div class="d-flex ms-auto" >
 
 
 				<!-- nyelv select -->
 				<div class="mx-3 d-flex">
-					<img src="" 
+					<img ng-src="./assets/flags/{{currentFlag}}.svg" 
 							 style="height: 30px; width: 30px;"
 							 class="mx-3">
 					<select name="language" 
@@ -95,22 +95,22 @@
 									ng-model="$root.currentLang"
 									class="form-select"
 									data-bs-theme="dark"
-									ng-change="console.log($root.currentLang)">
+									ng-change="selectedLanguage($root.currentLang)">
 						<option ng-value="lang.data" 
 										ng-repeat="lang in languages" 
 										ng-selected="lang.language == 'hu'">
 										{{lang.language}}
+										
 						</option>
 					</select>
 				</div>
 
 
 			<button ng-if="!loggedIn" 
-			        class="btn btn-outline-secondary me-3" 
-			        type="button" 
-			        ui-sref="login">
-			    {{currentLang.header.login}}
-			</button>
+							class="btn btn-outline-secondary" 
+							type="button" 
+							ui-sref="login">
+							{{currentLang.header.login}}
 			</button>
 
 			<!-- Fiók kezelés -->
