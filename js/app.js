@@ -264,6 +264,22 @@
                       })
 
                     }
+                    $scope.notPaired = [];
+                    $scope.fileExtension = [];
+                    
+                    for (let i = 0; i < $scope.students.length; i++) {
+                      if ($scope.students[i].taken == 0) {
+                        $scope.notPaired.push($scope.students[i]);
+                        $scope.fileExtension.push($scope.students[i].image.split(".").pop());
+                        
+                        $scope.notPaired[i].folderName = $scope.students[i].name.replaceAll(" ", "_").replace().toLowerCase();
+                        $scope.notPaired[i].folderName = $scope.notPaired[i].folderName.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                        $scope.notPaired[i].imageName = $scope.notPaired[i].folderName;
+                        $scope.notPaired[i].fileExtension = $scope.fileExtension[i];
+                      }
+                    }
+
+                    console.log($scope.notPaired)
                     console.log($scope.pairsNamed);
                   } else {
                     console.error(pairResponse.data.error);
