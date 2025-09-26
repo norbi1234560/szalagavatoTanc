@@ -544,6 +544,9 @@
           })
             .then(function (response) {
               console.log(response);
+              if (response.first_name === null){
+                response.first_name = "";
+              }
               $rootScope.msg = "Sikeresen bejelentkezett fiókjába, üdvözöljük " + response.last_name + " " + response.first_name + "!";
               $rootScope.loginUser(response, $rootScope.msg);
               $rootScope.$applyAsync();

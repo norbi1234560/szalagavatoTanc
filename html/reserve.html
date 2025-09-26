@@ -5,12 +5,14 @@
   <div class="row d-flex justify-content-center mt-5">
 
     <!--Párgenerálás gomb-->
-    <button class="btn btn-dark col-3 btn-outline"
-            ng-click="makePairs()">
+    <button class="btn btn-dark col-3 btn-outline mx-2"
+            ng-click="makePairs()"
+            ng-show="$root.user.id === 999">
       {{currentLang.reserve.make_pairs}}
     </button>
 
-    <button class="btn btn-dark col-3 btn-outline">
+    <button class="btn btn-dark col-3 btn-outline"
+            ng-show="$root.user.id === 999">
       Manuális párok beállítása
     </button>
 
