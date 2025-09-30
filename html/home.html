@@ -42,14 +42,14 @@
       </div>
 
       <!-- Képek helye -->
-      <div class="carousel-inner">
+      <div class="home carousel-inner">
 
         <!-- 1. kép (aktív) -->
         <div class="carousel-item"
              ng-repeat="x in homeImages track by $index"
              ng-class="{active: $index == 0}">
-          <img ng-src="./assets/pics/homeImg/{{x}}" 
-               class="d-block w-100" 
+          <img class="object-fit-coverd w-100 h-100"
+               ng-src="./assets/pics/homeImg/{{x}}"
                alt="Szalagavató tánc">
         </div>
 
@@ -94,7 +94,7 @@
 
   <!-- Lábjegyzet/jegyvásárlási CTA -->
   <div class="row text-center">
-    <p class="mt-5 textfont">
+    <p class="mt-4 textfont">
       {{currentLang.home.interest}}
       <a ui-sref="event">{{currentLang.home.click_here}}</a>
     </p>

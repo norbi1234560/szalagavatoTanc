@@ -432,3 +432,7 @@ body{
   opacity: 0.4;
   cursor: not-allowed;
 }
+
+.home.carousel-inner {
+  height: 60vh;
+}
