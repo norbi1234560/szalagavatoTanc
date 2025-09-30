@@ -484,7 +484,7 @@
 
       }
     ])
-
+    //Gallery controller
     .controller('galleryController', [
       '$scope',
       'http',
