@@ -433,6 +433,6 @@ body{
   cursor: not-allowed;
 }
 
-.home.carousel-inner {
+.carousel-inner{
   height: 60vh;
 }
