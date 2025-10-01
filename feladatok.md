@@ -121,7 +121,9 @@
 
 # 2025.10.01 Teendők + Feladatok
   - **Guvat Bence**: header.html reszponzivitás.
-  - **Szabó Bence**: Profil oldal szerkesztése, mentés gombok.
+  - **Szabó Bence**: Profil oldal szerkesztése, mentés gombok. Projektvezetőnek kód bemutatás
   - **Tokai Ádám**: Esemény lapnál a carousel képek fixálása.
   - **Dani Benedek**: Home oldal szerkesztése.
-  - **Répa Norbert**: Modal szerkesztése.
+  - **Répa Norbert & Suba Benjamin**: Modal kijavítása. Osztályokat egy oldalra, bootstrap-el tab-al megoldva. Carousel-ek kijavítása.
+  - **Herczeg Máté János & Fodor Adrián László**: Profil oldal működése.
+  - **Kulcsár Tamás Ámon & Bokor Richárd**: home.html design és kód, képek válogatása a galériához.
