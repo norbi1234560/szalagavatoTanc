@@ -102,7 +102,7 @@
 
  - **Tokai Ádám**: Galériánál a képeket meg lehessen nyitni, nyilakkal váltogatni jobbra - balra.
 
- # 2025.09.26 Teendők + Feladatok
+# 2025.09.26 Teendők + Feladatok
 # Manuálisan az admin tudja a párokat rakosgatni.
 # A párválasztásnál 1.taghoz a lányok 2.taghoz a fiúk kerüljenek.
 # Párválasztásnál törlés gomb, adminnak párválasztás gomb, alapvetően párok generálása gomb.
@@ -118,3 +118,9 @@
  - **Tóth László Gábor**: Adatbázisban a language szerkesztése, Galériánál a képeknél lévő szöveg adatbázisba felvétele, hogy a nyelvváltásnál le legyen fordítva. Párok generálásánál az "Összesen x pár generálódott" szintén kerüljön be adatbázisba, hogy le lehessen fordítani. + user-ek telefonszámai javítása, + Manuális gomb leforditása.
  - **Szalontai László**: Adatbázisban a user-eknek telefonszám hozzáadása.
  - **Kis Marcell Zsombor & Kriván Balázs & Fodor Adrián**: Párválasztásnál pár nélüliek.Párválasztás fülnél a középső gomb átírása párok generálására, mellé kerüljön egy másik gomb, ahol az admin tudná manuálisan a párokat beállítani. A két gomb legyen középre igazítva, az első taghoz kerüljenek a nők, a második taghoz pedig a férfiak.
+
+# 2025.10.01 Teendők + Feladatok
+  - **Guvat Bence**: header.html reszponzivitás.
+  - **Szabó Bence**: Profil oldal szerkesztése, mentés gombok.
+  - **Tokai Ádám**: Esemény lapnál a carousel képek fixálása.
+  - **Dani Benedek**: Home oldal szerkesztése.
