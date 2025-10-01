@@ -124,3 +124,4 @@
   - **Szabó Bence**: Profil oldal szerkesztése, mentés gombok.
   - **Tokai Ádám**: Esemény lapnál a carousel képek fixálása.
   - **Dani Benedek**: Home oldal szerkesztése.
+  - **Répa Norbert**: Modal szerkesztése.
