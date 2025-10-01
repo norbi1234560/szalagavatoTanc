@@ -50,9 +50,8 @@
 		<div class="row">
 			<div class="text-center">
 				<div class="position-relative d-inline-block">
-					<img src="https://randomuser.me/api/portraits/men/40.jpg" 
-							 class="rounded-circle profile-pic"
-							 alt="Profile Picture">
+					<img src="https://randomuser.me/api/portraits/men/40.jpg" class="rounded-circle profile-pic"
+						alt="Profile Picture">
 					<button class="btn btn-primary btn-sm position-absolute 
                                        bottom-0 end-0 rounded-circle">
 						<i class="fas fa-camera"></i>
@@ -63,66 +62,53 @@
 			</div>
 		</div>
 
-		<div class="col-12">
-			<div class="card border-0 shadow-sm">
-				<div class="card-body p-0">
-					<div class="row g-0">
-						<div class="col-lg-9">
-							<div class="p-4">
-								<div class="mb-4">
-									<h5 class="mb-4">{{currentLang.profile.description}}</h5>
-									<div class="row g-3">
+		<div class="col-12 card border-0 shadow-sm card-body mb-4">
+			<h5 class="mb-4">{{currentLang.profile.description}}</h5>
+			<div class="row g-3">
 
-										<!--Vezetéknév input-->
-										<div class="col-md-6">
-											<label class="form-label">{{currentLang.profile.surname}}</label>
-											<input type="text" 
-														 class="form-control" 
-														 value="{{user.name.split(' ')[0]}}"
-														 disabled>
-										</div>
+				<!--Vezetéknév input-->
+				<div class="col-md-6">
+					<label class="form-label">{{currentLang.profile.surname}}</label>
+					<input type="text" class="form-control" value="{{user.name.split(' ')[0]}}" disabled>
+				</div>
 
-										<!--Keresztnév input-->
-										<div class="col-md-6">
-											<label class="form-label">{{currentLang.profile.forename}}</label>
-											<input type="text" 
-														 class="form-control" 
-														 value="{{user.name.split(' ')[1]}}"
-														 disabled>
-										</div>
+				<!--Keresztnév input-->
+				<div class="col-md-6">
+					<label class="form-label">{{currentLang.profile.forename}}</label>
+					<input type="text" class="form-control" value="{{user.name.split(' ')[1]}}" disabled>
+				</div>
 
-										<!--Email input-->
-										<div class="col-md-6">
-											<label class="form-label">{{currentLang.profile.email}}</label>
-											<input type="email" 
-														 class="form-control" 
-														 value="@{{currentLang.profile.email}}">
-										</div>
+				<!--Email input-->
+				<div class="col-md-6">
+					<label class="form-label">{{currentLang.profile.email}}</label>
+					<input type="email" class="form-control" value="@{{currentLang.profile.email}}" placeholder="Email">
+				</div>
 
-										<!--Telefonszám input-->
-										<div class="col-md-6">
-											<label class="form-label">{{currentLang.profile.phone_number}}</label>
-											<input type="tel" 
-														 class="form-control" 
-														 value="@{{currentLang.profile.phone_number}}">
-										</div>
+				<!--Telefonszám input-->
+				<div class="col-md-6">
+					<label class="form-label">{{currentLang.profile.phone_number}}</label>
+					<input type="tel" class="form-control" value="@{{currentLang.profile.phone_number}}"
+						placeholder="Tel">
+				</div>
 
-										<!--Leírás input-->
-										<div class="col-12">
-											<label class="form-label">{{currentLang.profile.description}}</label>
-											<textarea class="form-control" 
-																rows="4">
-                      </textarea>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+				<!--Leírás input-->
+				<div class="col-12">
+					<label class="form-label">{{currentLang.profile.description}}</label>
+					<textarea class="form-control" rows="4"></textarea>
+				</div>
+
+				<!--Modify Profile-->
+				<div class="row justify-content-center mt-4">
+					<div class="col-md-6 w-auto">
+						<button class="btn btn-primary">
+							Módosítások mentése
+						</button>
+						<button class="btn btn-danger">
+							Módosítások elvetése
+						</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
 </div>
