@@ -5,4 +5,6 @@
 4. ha a profilt szerkeszteni szertném a nyelv nem állítdik át a gombokon ✔
 5. Ha idegen nyelvre állítom a weblapot és kijelentkezek a szöveg magyarul van!
 6. Több html fájlban kilóg a kód, tiszta kód elvével szemben megyünk
+7. Classes modal hibát jelez konzolon. Commonból kijavítani. ng-bs
+8. Login label hibát hoz konzolon.
 
