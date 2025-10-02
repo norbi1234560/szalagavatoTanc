@@ -130,4 +130,5 @@
 
 # 2025.10.02 Teendők + Feladatok
 # Profilmódosításnál a felhasználók profilképének berakása, profilkép módosítása, gombok funkcionalitása.
+# Classes-ba az emberekhez kereső szűrő
   - **Kulcsár Tamás Ámon & Bokor Richárd**: Nyelvválasztás file-ból való kiolvasása.
