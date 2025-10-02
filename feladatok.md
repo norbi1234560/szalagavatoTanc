@@ -128,6 +128,11 @@
   - **Herczeg Máté János & Fodor Adrián László**: Profil oldal működése.
   - **Kulcsár Tamás Ámon & Bokor Richárd**: home.html design és kód, képek válogatása a galériához.
 
+
+
+  
 # 2025.10.02 Teendők + Feladatok
 # Profilmódosításnál a felhasználók profilképének berakása, profilkép módosítása, gombok funkcionalitása.
-  - **Kulcsár Tamás Ámon & Bokor Richárd**: Nyelvválasztás file-ból való kiolvasása.
+ - **Kriván Balázs & Fodor Adrián László**: Profil kimaradt szövegeinek feltöltése több nyelven adatbázisba és html-be való átírás.
+ - **Guvat Bence**: gallery.html reszponzivitás javítása, képek hover effecten a kép neve jelenik meg.
+ - **Kulcsár Tamás Ámon & Bokor Richárd**: Nyelvválasztás file-ból való kiolvasása.
