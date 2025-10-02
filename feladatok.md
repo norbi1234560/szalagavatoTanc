@@ -127,3 +127,7 @@
   - **Répa Norbert & Suba Benjamin**: Modal kijavítása. Osztályokat egy oldalra, bootstrap-el tab-al megoldva. Carousel-ek kijavítása.
   - **Herczeg Máté János & Fodor Adrián László**: Profil oldal működése.
   - **Kulcsár Tamás Ámon & Bokor Richárd**: home.html design és kód, képek válogatása a galériához.
+
+# 2025.10.02 Teendők + Feladatok
+# Profilmódosításnál a felhasználók profilképének berakása, profilkép módosítása, gombok funkcionalitása.
+  - **Kulcsár Tamás Ámon & Bokor Richárd**: Nyelvválasztás file-ból való kiolvasása.
