@@ -4,4 +4,5 @@
 3. profil.html csak magyarul van. ✔
 4. ha a profilt szerkeszteni szertném a nyelv nem állítdik át a gombokon ✔
 5. Ha idegen nyelvre állítom a weblapot és kijelentkezek a szöveg magyarul van!
+6. Több html fájlban kilóg a kód, tiszta kód elvével szemben megyünk
 
