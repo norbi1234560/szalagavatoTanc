@@ -68,10 +68,12 @@
 
 				<!--Vezetéknév input-->
 				<div class="col-md-6">
-					<label class="form-label">
-							{{currentLang.profile.surname}}
+					<label class="form-label"
+								 for="vezeteknev_input">
+						{{currentLang.profile.surname}}
 					</label>
 					<input type="text"
+								 id="vezeteknev_input"
 								 class="form-control" 
 								 value="{{user.name.split(' ')[0]}}" 
 								 disabled>
@@ -79,8 +81,12 @@
 
 				<!--Keresztnév input-->
 				<div class="col-md-6">
-					<label class="form-label">{{currentLang.profile.forename}}</label>
-					<input type="text" 
+					<label class="form-label"
+								 for="keresztnev_input">
+						{{currentLang.profile.forename}}
+					</label>
+					<input type="text"
+								 id="keresztnev_input"
 								 class="form-control" 
 								 value="{{user.name.split(' ')[1]}}" 
 								 disabled>
@@ -88,8 +94,12 @@
 
 				<!--Email input-->
 				<div class="col-md-6">
-					<label class="form-label">{{currentLang.profile.email}}</label>
+					<label class="form-label"
+								 for="email_input">
+						{{currentLang.profile.email}}
+					</label>
 					<input type="email" 
+								 id="email_input"
 								 class="form-control" 
 								 value="@{{currentLang.profile.email}}" 
 								 placeholder="Email">
@@ -97,8 +107,12 @@
 
 				<!--Telefonszám input-->
 				<div class="col-md-6">
-					<label class="form-label">{{currentLang.profile.phone_number}}</label>
-					<input type="tel" 
+					<label class="form-label"
+								 for="telefonszam_input">
+						{{currentLang.profile.phone_number}}
+					</label>
+					<input type="tel"
+								 id="telefonszam_input"
 								 class="form-control" 
 								 value="@{{currentLang.profile.phone_number}}"
 								 placeholder="Tel">
@@ -106,9 +120,13 @@
 
 				<!--Leírás input-->
 				<div class="col-12">
-					<label class="form-label">{{currentLang.profile.description}}</label>
+					<label class="form-label"
+								 for="leiras_input">
+						{{currentLang.profile.description}}
+					</label>
 					<textarea class="form-control" 
-										rows="4">
+										rows="4"
+										id="leiras_input">
 					</textarea>
 				</div>
 
