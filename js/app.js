@@ -412,16 +412,12 @@
           id: $rootScope.user.id
         }).then(
           function (response) {
-            console.log(response.data.data);
-
-          })
-          .catch(error => { console.log(error) });
-
-        $http.post("./php/getPictures.php", {
-          id: $rootScope.user.id
-        }).then(
-          function (response) {
-            console.log(response.data);
+            $scope.userClass = response.data.data.class;
+            $scope.userImage = response.data.data.image;
+            $scope.userFolder = response.data.data.image.split(".")[0];
+            console.log($scope.userClass);
+            console.log($scope.userImage);
+            console.log($scope.userFolder);
 
           })
           .catch(error => { console.log(error) });
