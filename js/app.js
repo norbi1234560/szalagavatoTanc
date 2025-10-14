@@ -144,6 +144,16 @@
 
         }
 
+
+        $rootScope.languageTranslations = {
+          cn: "中国人",
+          de: "Deustch",
+          en: "English",
+          hu: "Magyar",
+          it: "Italiana",
+          ru: "русский"
+        }
+
         //get languages
         $rootScope.getLanguages = function () {
           fetch('./php/getLanguages.php')
