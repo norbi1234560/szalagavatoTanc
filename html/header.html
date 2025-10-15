@@ -99,6 +99,9 @@
 						<option ng-value="lang.data" 
 										ng-repeat="lang in languages" 
 										ng-selected="lang.language == 'hu'">
+										<img ng-src="./assets/flags/{{currentFlag}}.svg" 
+							 style="height: 30px; width: 30px;"
+							 class="mx-3">
 										{{languageTranslations[lang.language]}}
 						</option>
 					</select>
