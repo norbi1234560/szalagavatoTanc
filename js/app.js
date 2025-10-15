@@ -89,6 +89,13 @@
             templateUrl: './html/gallery.html'
           })
 
+          .state('tickets', {
+            url: '/tickets',
+            parent: 'root',
+            controller: 'galleryController',
+            templateUrl: './html/tickets.html'
+          })
+
         $urlRouterProvider.otherwise('/');
       }
     ])
@@ -721,7 +728,7 @@
             console.log("Hiba.:" + error)
           })
         $scope.currentDate = new Date();
-        $scope.eventDate = new Date('2025-11-05');
+        $scope.eventDate = new Date('2025-10-05');
         $scope.isEvent = $scope.currentDate < $scope.eventDate;
       }
     ])
