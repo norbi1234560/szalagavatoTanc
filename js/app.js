@@ -144,6 +144,16 @@
 
         }
 
+
+        $rootScope.languageTranslations = {
+          cn: "中国人",
+          de: "Deustch",
+          en: "English",
+          hu: "Magyar",
+          it: "Italiana",
+          ru: "русский"
+        }
+
         //get languages
         $rootScope.getLanguages = function () {
           fetch('./php/getLanguages.php')
@@ -412,16 +422,12 @@
           id: $rootScope.user.id
         }).then(
           function (response) {
-            console.log(response.data.data);
-
-          })
-          .catch(error => { console.log(error) });
-
-        $http.post("./php/getPictures.php", {
-          id: $rootScope.user.id
-        }).then(
-          function (response) {
-            console.log(response.data);
+            $scope.userClass = response.data.data.class;
+            $scope.userImage = response.data.data.image;
+            $scope.userFolder = response.data.data.image.split(".")[0];
+            console.log($scope.userClass);
+            console.log($scope.userImage);
+            console.log($scope.userFolder);
 
           })
           .catch(error => { console.log(error) });
@@ -491,9 +497,22 @@
       function ($scope, http) {
         $scope.galleryImages = [];
 
-        http.request({ url: './php/studentsGalleryImages.php' })
+        http.request({ url: './php/studentsGalleryImages.php'})
           .then(function (response) {
+
             $scope.galleryImages = response;
+            $scope.galleryImagesName = [];
+
+            $scope.galleryImages.forEach(forras=>{
+
+              let nevKiterjesztes =  forras.split("/")[forras.split("/").length-1];
+
+              if(nevKiterjesztes.includes(".jpg") ||nevKiterjesztes.includes(".png")){
+
+                let nev = nevKiterjesztes.split(".")[0];
+                $scope.galleryImagesName.push(nev);
+              }
+            })
             $scope.$applyAsync();
           })
           .catch(error => {
