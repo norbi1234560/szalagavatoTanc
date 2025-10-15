@@ -153,12 +153,12 @@
 
 
         $rootScope.languageTranslations = {
-          cn: "中国人",
-          de: "Deustch",
-          en: "English",
-          hu: "Magyar",
-          it: "Italiana",
-          ru: "русский"
+          cn: "中国人 🇨🇳",
+          de: "Deustch 🇩🇪",
+          en: "English 🇺🇸",
+          hu: "Magyar 🇭🇺",
+          it: "Italiana 🇮🇹",
+          ru: "русский 🇷🇺"
         }
 
         //get languages
