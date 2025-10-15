@@ -1,106 +1,118 @@
 <div class="container">
     <div class="row">
-        <h1 class="text-center display-1 mt-5">{{currentLang.reserve.pair}}</h1>
+        <h1 class="text-center display-1 mt-5 h1-design">{{currentLang.reserve.pair}}</h1>
     </div>
-  <div class="row d-flex justify-content-center mt-5">
+    <div class="row d-flex justify-content-center mt-5">
 
-    <!--Párgenerálás gomb-->
-    <button class="btn btn-dark col-3 btn-outline mx-2"
-            ng-click="makePairs()"
-            ng-show="$root.user.id === 999 || $root.user.id">
-      {{currentLang.reserve.make_pairs}}
-    </button>
+        <!--Párgenerálás gomb-->
+        <button class="btn btn-primary btn-lg shadow-sm mx-2"
+                ng-click="makePairs()"
+                ng-show="$root.user.id === 999 || $root.user.id">
+            {{currentLang.reserve.make_pairs}}
+        </button>
 
-    <button class="btn btn-dark col-3 btn-outline"
-            ng-show="$root.user.id === 999">
-      {{currentLang.reserve.manual_pair}}
-    </button>
+        <button class="btn btn-outline-secondary btn-lg shadow-sm"
+                ng-show="$root.user.id === 999">
+            {{currentLang.reserve.manual_pair}}
+        </button>
 
-    <p class="text-center mt-3 text-muted" 
-       ng-if="pairsNamed.length > 0">
-      {{currentLang.reserve.all}} 
-      {{pairsNamed.length}} 
-      {{currentLang.reserve.pair}} 
-      {{currentLang.reserve.generated}}.
-    </p>
+        <p class="text-center mt-3 text-muted fs-5"
+           ng-if="pairsNamed.length > 0">
+            {{currentLang.reserve.all}}
+            <span class="badge bg-info text-dark fs-6">{{pairsNamed.length}}</span>
+            {{currentLang.reserve.pair}}
+            {{currentLang.reserve.generated}}.
+        </p>
 
-    <table class="table table-hover table-sm 
-                  table-bordered table-striped table-sm mt-3 text-center">
+        <div class="table-responsive mt-3">
+            <table class="table table-hover table-bordered table-striped text-center align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th colspan="4">{{currentLang.reserve.pairs}}</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">{{currentLang.reserve.first}}</th>
+                        <th colspan="2">{{currentLang.reserve.second}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in pairsNamed">
+                        <td class="pair-img-cell">
+                            <img ng-src="assets/pics/{{x.image2}}" class="pair-img rounded-circle border border-2">
+                        </td>
+                        <td class="pair-cell" ng-class="x.gender2 == 'M' ? 'boy-cell' : 'girl-cell'">
+                            {{x.name2}}
+                        </td>
+                        <td class="pair-cell" ng-class="x.gender1 == 'M' ? 'boy-cell' : 'girl-cell'">
+                            {{x.name1}}
+                        </td>
+                        <td class="pair-img-cell">
+                            <img ng-src="assets/pics/{{x.image1}}" class="pair-img rounded-circle border border-2">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-      <!--Table head-->
-      <thead class="table-dark">
-        <tr>
-          <th colspan="4">{{currentLang.reserve.pairs}}</th>
-        </tr>
-        <tr>
-          <th class="w-50" 
-              colspan="2">
-            {{currentLang.reserve.first}}
-          </th>
-          <th class="w-50" 
-              colspan="2">
-            {{currentLang.reserve.second}}
-          </th>
-        </tr>
-      </thead>
+        <div class="table-responsive mt-3">
+            <table class="table table-hover table-bordered text-center align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th colspan="4">{{currentLang.reserve.no_pairs}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in notPaired">
+                        <td class="pair-img-cell">
+                            <img ng-src="assets/pics/{{x.class}}/{{x.folderName}}/{{x.imageName}}.{{x.fileExtension}}" class="pair-img rounded-circle border border-2">
+                        </td>
+                        <td class="pair-cell" ng-class="x.gender == 'M' ? 'boy-cell' : 'girl-cell'">
+                            {{x.name}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-      <!--Table body-->
-      <tbody>
-        <tr ng-repeat="x in pairsNamed">
-          <td class="p-0 m-0 bg-transparent" 
-              style="max-width: 100px; width: 100px;">
-            <img ng-src="assets/pics/{{x.image1}}" 
-                 class="bg-transparent img-fluid"
-                 style="width: 100px;">
-          </td>
-
-          <td class="w-auto"
-              colspan="1"
-              ng-style="x.gender1 == 'M' ? {'background-color':'#B0E0E6','color': '#003366'} : 
-                                           {'background-color':'#e6e6fa', 'color':'#4b0082'}">
-                                           {{x.name1}}
-          </td>
-
-          <td class="w-auto"
-              colspan="1"
-              ng-style="x.gender2 == 'M' ? {'background-color':'#B0E0E6','color': '#003366'} : 
-                                           {'background-color':'#e6e6fa', 'color':'#4b0082'}">
-                                           {{x.name2}}
-          </td>
-
-          <td class="p-0 m-0 bg-transparent w-auto"
-              colspan="1">
-            <img ng-src="assets/pics/{{x.image2}}" 
-                 class="bg-transparent img-fluid" 
-                 style="width: 100px">
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-
-    <table class="table table-hover table-sm 
-                  table-bordered table-sm mt-3 text-center">
-      <thead class="table-dark">
-        <tr>
-          <th colspan="4">{{currentLang.reserve.no_pairs}}</th>
-        </tr>
-      </thead>
-      <tbody>
-         <tr ng-repeat="x in notPaired">
-          <td class="p-0 m-0 bg-transparent border-0">
-            <img ng-src="assets/pics/{{x.class}}/{{x.folderName}}/{{x.imageName}}.{{x.fileExtension}}" 
-                 class="bg-transparent border-0 img-fluid"  
-                 style="width: 100px;">
-          </td>
-
-          <td class="w-auto" 
-              ng-style="x.gender == 'M' ? {'background-color':'#B0E0E6','color': '#003366'} : 
-                                           {'background-color':'#e6e6fa', 'color':'#4b0082'}">
-                                           {{x.name}}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+        <!-- Modal -->
+        <div class="modal fade" id="pairInfoModal" tabindex="-1" aria-labelledby="pairInfoModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header bg-gradient">
+                <h5 class="modal-title" id="pairInfoModalLabel">{{modalTitle}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Bezárás"></button>
+              </div>
+              <div class="modal-body">
+                <div ng-if="selectedPair">
+                  <div class="row">
+                    <div class="col-md-4 text-center">
+                      <img ng-src="assets/pics/{{selectedPair.image1}}" class="pair-img rounded-circle border border-2 mb-2" style="width:120px;">
+                      <div class="fw-bold">{{selectedPair.name1}}</div>
+                    </div>
+                    <div class="col-md-4 text-center align-self-center">
+                      <span class="display-6">🤝</span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                      <img ng-src="assets/pics/{{selectedPair.image2}}" class="pair-img rounded-circle border border-2 mb-2" style="width:120px;">
+                      <div class="fw-bold">{{selectedPair.name2}}</div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="mt-2">
+                    <p><strong>Osztály:</strong> {{selectedPair.class}}</p>
+                    <p><strong>Bemutatkozás:</strong> {{selectedPair.description}}</p>
+                    <!-- További infók -->
+                  </div>
+                </div>
+                <div ng-if="!selectedPair">
+                  <p class="text-muted">Nincs kiválasztva pár.</p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
 </div>
