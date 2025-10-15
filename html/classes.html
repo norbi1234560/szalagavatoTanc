@@ -78,25 +78,22 @@
   </div>
 </div>
 
-<!-- Tanulo adatai -->
 <div class="modal fade"
      id="studentModal"
      tabindex="-1"
-     aria-labelledby="exampleModalLabel"
+     aria-labelledby="studentModalLabel"
      aria-hidden="true"
      ng-bs-hide-modal>
 
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-dark text-white shadow-lg">
+    <div class="modal-content bg-dark text-white border-0 shadow-lg rounded-4">
 
-      <!-- Fejléc , tanulo neve -->
-      <div class="modal-header border-secondary text-center">
-        <h5 class="modal-title"
-            id="exampleModalLabel">
+      <!-- Fejléc -->
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title fw-semibold" id="studentModalLabel">
+          <i class="fa-solid fa-user me-2 text-info"></i>
           {{currentStudent.name}}
         </h5>
-
-        <!-- Bezárás gomb -->
         <button type="button"
                 class="btn-close btn-close-white"
                 data-bs-dismiss="modal"
@@ -104,46 +101,47 @@
         </button>
       </div>
 
-      <!-- Tanulo adatai -->
-      <div class="modal-body">
-        <!-- Nemek alapján kilistázás -->
-        <p>
-          {{currentLang.classes.gender}}: {{currentStudent.gender == "M"
-          ? currentLang.classes.man : currentLang.classes.woman}}
+      <!-- Tanuló adatai -->
+      <div class="modal-body px-4 py-3 text-center">
+        <p class="fs-5 mb-2">
+          <i class="fa-solid fa-venus-mars me-2 text-secondary"></i>
+          {{currentLang.classes.gender}}:
+          <span class="fw-semibold">
+            {{currentStudent.gender == "M" ? currentLang.classes.man : currentLang.classes.woman}}
+          </span>
         </p>
 
-        <!-- Magasság alapján kilistázás -->
-        <p>
-          {{currentLang.classes.height}}: {{currentStudent.height}} cm
+        <p class="fs-5 mb-2">
+          <i class="fa-solid fa-ruler-vertical me-2 text-secondary"></i>
+          {{currentLang.classes.height}}:
+          <span class="fw-semibold">{{currentStudent.height}} cm</span>
         </p>
-
-        <!-- Van-e párja -->
-
-        <p>
-          {{currentStudent.taken == 0 ? currentLang.classes.no_pair : currentLang.classes.yes_pair}}
+        
+        <p class="fs-5 mb-0">
+          <i class="fa-solid fa-heart me-2 text-danger"></i>
+          <span class="fw-semibold">
+            {{currentStudent.taken == 0 ? currentLang.classes.no_pair : currentLang.classes.yes_pair}}
+          </span>
         </p>
-
-
       </div>
 
-      <!-- Footer -->
-      <div class="modal-footer border-secondary">
-        <!-- Tiltott lista megnyitása -->
+      <!-- Lábléc -->
+      <div class="modal-footer border-secondary justify-content-center">
         <button type="button"
                 ng-click="modalClassLoad('A')"
-                class="btn btn-outline-light"
+                class="btn btn-outline-light px-4 fw-semibold"
                 ng-show="currentStudent.id == $root.user.id || $root.user.id === 999"
                 data-bs-target="#operationsModal"
                 data-bs-toggle="modal"
                 data-bs-dismiss="modal">
+          <i class="fa-solid fa-user-shield me-2"></i>
           {{currentLang.classes.block_list}}
         </button>
-
-        <!-- Modal bezárása -->
         <button type="button"
-                class="btn btn-secondary"
+                class="btn btn-secondary px-4 fw-semibold"
                 data-bs-dismiss="modal">
-            {{currentLang.classes.close}}
+          <i class="fa-solid fa-xmark me-2"></i>
+          {{currentLang.classes.close}}
         </button>
       </div>
     </div>
