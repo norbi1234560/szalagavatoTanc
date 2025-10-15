@@ -440,8 +440,6 @@ body{
 
 /* Ticket */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap');
-
 :root {
 	font-size: 20px;
 	--dark-blue: #1f2029;
@@ -650,27 +648,22 @@ body{
 .dots span:nth-child(19){
 	left: 179px;
 }
-.btn-ticket{  
-	border-radius: 4px;
-	height: 48px;
-	font-size: 16px;
-	font-family: 'Lato', sans-serif;
+.btn-ticket {
+  border-radius: 4px;
+  height: 48px;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
   transition: all 200ms linear;
-	padding: 0 35px;
-	letter-spacing: 0.2px;
-	display: -webkit-inline-flex;
-	display: -ms-inline-flexbox;
-	-webkit-align-items: center;
-	-moz-align-items: center;
-	-ms-align-items: center;
-	-webkit-justify-content: center;
-	-moz-justify-content: center;
-	-ms-justify-content: center;
-	-ms-flex-pack: center;
-	border: none;
-	color: var(--dark-blue);
-    background-color: var(--yellow);
+  padding: 0 35px;
+  letter-spacing: 0.2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: var(--dark-blue);
+  background-color: var(--yellow);
 }
+
 .btn-ticket:active,
 .btn-ticket:focus{
 	box-shadow: none;
