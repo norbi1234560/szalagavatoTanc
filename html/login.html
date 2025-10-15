@@ -15,7 +15,9 @@
                      type="checkbox" 
                      id="reg-log" 
                      name="reg-log"/>
-              <label for="reg-log"></label>
+              <label for="reg-log"
+                     ng-bs-hide-modal>
+              </label>
 
               <!--Wrap -->
               <div class="card-3d-wrap position-relative mw-100 mx-auto">
@@ -66,10 +68,10 @@
                                      id="show-hide_login" 
                                      name="show-hide_login" 
                                      ng-model="showPassword_login">
-                              <label for="show-hide_login"></label>
-                              <label class="form-check-label small" 
-                                     for="show-password">
-                                {{currentLang.login.show_password}}
+                              <label for="show-hide_login"
+                                      ng-bs-hide-modal></label>
+                              <label class="form-check-label small" for="show-hide_login">
+                                  {{currentLang.login.show_password}}
                               </label>
                             </div>
                           </div>
@@ -146,10 +148,12 @@
                                      id="show-hide_register" 
                                      name="show-hide_register" 
                                      ng-model="showPassword_register">
-                              <label for="show-hide_register"></label>
+                              <label for="show-hide_register"
+                                     ng-bs-hide-modal></label>
                               <label class="form-check-label small" 
-                                     for="show-password">
-                                {{currentLang.login.show_password}}
+                                     for="show-hide_register"
+                                     ng-bs-hide-modal>
+                                      {{currentLang.login.show_password}}
                               </label>
                             </div>
                           </div>
@@ -160,7 +164,7 @@
                                   data-bs-target="#userModal"
                                   ng-disabled="registerForm.$invalid" 
                                   ng-click="register()">
-                            {{currentLang.login.register}}
+                                {{currentLang.login.register}}
                           </button>
                         </form>
                       </div>
