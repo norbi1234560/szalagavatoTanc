@@ -1,84 +1,61 @@
-<div class="container mt-3 border rounded shadow-sm p-4 border-dark">
+<div class="container mt-4">
 
   <!-- Címsor és tartalom középre igazítva -->
   <div class="row justify-content-center text-center">
 
     <!-- Szalagavató címe -->
-    <h1 class="blockquote fw-bold namefont">
+    <h4 class="namefont">
       {{currentLang.home.event_name}}
-    </h1>
+    </h4>
 
     <!-- Bootstrap carousel kezdete -->
-    <div id="carouselExampleIndicators" 
-         class="carousel slide"
-         data-bs-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide mt-2" data-bs-ride="carousel">
 
       <!-- Képváltó indikátor gombok (alsó pöttyök) -->
       <div class="carousel-indicators">
 
         <!-- 1. pötty (alapértelmezett aktív) -->
-        <button type="button" 
-                data-bs-target="#carouselExampleIndicators" 
-                data-bs-slide-to="0" 
-                class="active"
-                aria-current="true" 
-                aria-label="Slide 1">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1">
         </button>
 
         <!-- 2. pötty -->
-        <button type="button" 
-                data-bs-target="#carouselExampleIndicators" 
-                data-bs-slide-to="1"
-                aria-label="Slide 2">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
         </button>
 
         <!-- 3. pötty -->
-        <button type="button" 
-                data-bs-target="#carouselExampleIndicators" 
-                data-bs-slide-to="2"
-                aria-label="Slide 3">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
         </button>
 
       </div>
 
       <!-- Képek helye -->
-      <div class="carousel-inner">
+      <div class="carousel-inner shadow-md rounded h-auto w-75 mx-auto">
 
         <!-- 1. kép (aktív) -->
-        <div class="carousel-item"
-             ng-repeat="x in homeImages track by $index"
-             ng-class="{active: $index == 0}">
-          <img class="object-fit-coverd w-100 h-100"
-               ng-src="./assets/pics/homeImg/{{x}}"
-               alt="Szalagavató tánc">
+        <div class="carousel-item" ng-repeat="x in homeImages track by $index" ng-class="{active: $index == 0}">
+          <img class="object-fit-coverd w-100 h-100" ng-src="./assets/pics/homeImg/{{x}}" alt="Szalagavató tánc">
         </div>
 
+        <!-- Előző kép gomb -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true">
+          </span>
+          <span class="visually-hidden">
+            Previous
+          </span>
+        </button>
+
+        <!-- Következő kép gomb -->
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">
+            Next
+          </span>
+        </button>
       </div>
-
-      <!-- Előző kép gomb -->
-      <button class="carousel-control-prev" 
-              type="button" 
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" 
-              aria-hidden="true">
-        </span>
-        <span class="visually-hidden">
-          Previous
-        </span>
-      </button>
-
-      <!-- Következő kép gomb -->
-      <button class="carousel-control-next" 
-              type="button" 
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="next">
-        <span class="carousel-control-next-icon" 
-              aria-hidden="true"></span>
-        <span class="visually-hidden">
-          Next
-        </span>
-      </button>
 
       <!-- (Régi, felesleges "Next" szöveg – elavult vagy hibás elem) -->
       <span class="sr-only">Next</span>
@@ -86,7 +63,7 @@
     </div>
 
     <!-- Leírás a szalagavatóról -->
-    <p class="mt-4 textfont">
+    <p class="mt-4 textfont w-75">
       {{currentLang.home.event_description}}
     </p>
 
