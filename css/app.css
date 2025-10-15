@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap');
+
 body{
 	color: #808081;
 	background-color: #eef4f7;
@@ -439,8 +441,6 @@ body{
 }
 
 /* Ticket */
-
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap');
 
 :root {
 	font-size: 20px;
