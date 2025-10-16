@@ -15,7 +15,7 @@
 			 id="navbarSupportedContent">
 
 			<!-- kezdolap -->
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			<ul class="navbar-nav me-auto">
 				<li class="nav-item mx-1">
 					<a class="nav-link" 
 					   ui-sref="home" 
@@ -78,71 +78,65 @@
 					</a>
 				</li>
 			</ul>
-		</div>
 
-
-		<!-- bejelentkezes btn -->
-		<div class="d-flex ms-auto pe-2" >
-
-
+			<ul class="navbar-nav ">
 				<!-- nyelv select -->
-				<div class="mx-3 d-flex align-items-center">
+				<li class="nav-item align-items-center d-flex mx-auto-lg mb-1 mb-xl-0">
 					<img ng-src="./assets/flags/{{currentFlag}}.svg" 
-							 style="height: 30px; width: 30px;"
-							 class="mx-3">
+							style="height: 30px; width: 30px;"
+							class="mx-1">
 					<select name="language" 
 									id="language" 
 									ng-model="$root.currentLang"
-									class="form-select"
+									class="form-select mx-1 w-auto"
 									data-bs-theme="dark"
 									ng-change="selectedLanguage($root.currentLang)">
 						<option ng-value="lang.data" 
 										ng-repeat="lang in languages" 
 										ng-selected="lang.language == 'hu'">
 										<img ng-src="./assets/flags/{{currentFlag}}.svg" 
-							 style="height: 30px; width: 30px;"
-							 class="mx-3">
+							style="height: 30px; width: 30px;"
+							class="">
 										{{languageTranslations[lang.language]}}
 						</option>
 					</select>
-				</div>
-
-
-			<button ng-if="!loggedIn" 
-							class="btn btn-outline-secondary" 
-							type="button" 
-							ui-sref="login">
-							{{currentLang.header.login}}
-			</button>
-
-			<!-- Fiók kezelés -->
-			<li class="nav-item dropdown d-flex dropstart
-					   align-items-center mx-3" 
-				ng-if="loggedIn">
-				<a class="nav-link dropdown-toggle" 
-				   role="button" 
-				   data-bs-toggle="dropdown" 
-				   aria-expanded="false">
-					{{user.name}}
-				</a>
-				<ul class="dropdown-menu dropdown-menu-xl-end dropdown-menu-lg-end"></a>
-					<li>
-						<a class="dropdown-item" 
-						   ui-sref="profile">
-							{{currentLang.header.profile_edit}}
-						</a>
-					</li>
-					<li>
-						<a class="dropdown-item" 
-						   ng-click="logOut()" 
-						   data-bs-toggle="modal" 
-						   data-bs-target="#userModal">
-							{{currentLang.header.logout}}
-						</a>
-					</li>
-				</ul>
-			</li>
+				</li>
+				<li class="nav-item mx-1">
+					<!-- bejelentkezes -->
+					<a ng-if="!loggedIn" 
+								class=" me-2 nav-link" 
+								ui-sref="login">
+								<i class="fa-solid fa-right-to-bracket"></i> {{currentLang.header.login}}
+					</a>
+				</li>
+				<!-- Fiók kezelés -->
+				<li class="nav-item dropdown d-flex dropstart
+							align-items-center mx-1" 
+					ng-if="loggedIn">
+					<a class="nav-link dropdown-toggle" 
+						role="button" 
+						data-bs-toggle="dropdown" 
+						aria-expanded="false">
+						<i class="fa-solid fa-user"></i> {{user.name}}
+					</a>
+					<ul class="dropdown-menu dropdown-menu-xl-end dropdown-menu-lg-end"></a>
+						<li>
+							<a class="dropdown-item" 
+								ui-sref="profile">
+								<i class="fa-solid fa-pen-to-square"></i> {{currentLang.header.profile_edit}}
+							</a>
+						</li>
+						<li>
+							<a class="dropdown-item" 
+								ng-click="logOut()" 
+								data-bs-toggle="modal" 
+								data-bs-target="#userModal">
+								<i class="fa-solid fa-user-xmark"></i> {{currentLang.header.logout}}
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
 		</div>
-	</div>
 	</div>
 </nav>
