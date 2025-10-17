@@ -5,16 +5,20 @@
     <div class="row d-flex justify-content-center mt-5">
 
         <!--Párgenerálás gomb-->
-        <button class="btn btn-primary btn-lg shadow-sm mx-2"
-                ng-click="makePairs()"
-                ng-show="$root.user.id === 999 || $root.user.id">
-            {{currentLang.reserve.make_pairs}}
-        </button>
+        <div class="row justify-content-center">
+          <button class="btn btn-primary btn-lg shadow-sm mx-2 w-25 mb-2"
+                  ng-click="makePairs()"
+                  ng-show="$root.user.id">
+              {{currentLang.reserve.make_pairs}}
+          </button>
+        </div>
 
-        <button class="btn btn-outline-secondary btn-lg shadow-sm"
-                ng-show="$root.user.id === 999">
-            {{currentLang.reserve.manual_pair}}
-        </button>
+        <div class="row justify-content-center">
+          <button class="btn btn-outline-secondary btn-lg shadow-sm w-25"
+                  ng-show="$root.user.id === 999">
+              {{currentLang.reserve.manual_pair}}
+          </button>
+        </div>
 
         <p class="text-center mt-3 text-muted fs-5"
            ng-if="pairsNamed.length > 0">
