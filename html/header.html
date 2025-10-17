@@ -137,6 +137,14 @@
 								<i class="fa-solid fa-user-xmark"></i> {{currentLang.header.logout}}
 							</a>
 						</li>
+						<li>
+							<a class="dropdown-item" 
+								 ng-click="toggleStateSlideshow()">
+								<i ng-if="!slideshowPlaying" class="fa-solid fa-play-circle"></i>
+								<i ng-if="slideshowPlaying" class="fa-solid fa-stop-circle"></i>
+								{{ slideshowPlaying ? 'Stop ' : 'Start ' }}slideshow
+							</a>
+						</li>
 					</ul>
 				</li>
 			</ul>
