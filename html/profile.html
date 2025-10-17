@@ -45,16 +45,16 @@
   </div>
 </div> -->
 
-<div class="bg-light">
+<div class="bg-light event-container">
 	<div class="container py-5">
 		<div class="row">
 			<div class="text-center">
-				<div class="position-relative d-inline-block">
+				<div class="position-relative d-inline-block" ng-if="!$root.user.type == 'ADMIN'">
 					<img ng-src="assets/pics/{{userClass}}/{{userFolder}}/{{userImage}}"
 							 class="rounded-circle profile-pic"
 							 alt="Profile Picture">
 					<button class="btn btn-primary btn-sm position-absolute 
-                                       bottom-0 end-0 rounded-circle">
+                         bottom-0 end-0 rounded-circle">
 						<i class="fas fa-camera"></i>
 					</button>
 				</div>
@@ -62,7 +62,8 @@
 			</div>
 		</div>
 
-		<div class="col-12 card border-0 shadow-sm card-body mb-4">
+		<div class="col-sm-12 col-md-12 col-lg-8 col-xl-6 col-xxl-6
+							  mx-auto mt-4 card border-0 shadow-sm card-body mb-4">
 			<h5 class="mb-4">{{currentLang.profile.description}}</h5>
 			<div class="row g-3">
 
@@ -101,8 +102,10 @@
 					<input type="email" 
 								 id="email_input"
 								 class="form-control" 
-								 value="@{{currentLang.profile.email}}" 
-								 placeholder="Email">
+								 placeholder="{{currentLang.profile.email}}"
+								 maxlength="150"
+								 pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+								 ng-model = "profile.email">
 				</div>
 
 				<!--Telefonszám input-->
@@ -113,9 +116,11 @@
 					</label>
 					<input type="tel"
 								 id="telefonszam_input"
-								 class="form-control" 
-								 value="@{{currentLang.profile.phone_number}}"
-								 placeholder="Tel">
+								 class="form-control"
+								 maxlength="20"
+								 pattern="[0-9]{4,}" 
+								 placeholder="{{currentLang.profile.phone_number}}"
+								 ng-model = "profile.phone">
 				</div>
 
 				<!--Leírás input-->
@@ -126,16 +131,23 @@
 					</label>
 					<textarea class="form-control" 
 										rows="4"
+										maxlength="200"
+										ng-model="profile.description"
 										id="leiras_input"></textarea>
 				</div>
 
 				<!--Modify Profile-->
-				<div class="row justify-content-center mt-4">
-					<div class="col-md-6 w-auto">
-						<button class="btn btn-primary">
+				<div class="col-12 d-flex justify-content-center">
+					<div class="row mt-4 col-md-6 justify-content-center">
+						<button class="btn btn-primary mx-2 mb-3 w-auto"
+										ng-disabled="!profile.phone || !profile.email || !isChanged"
+										ng-click="modify()"
+										data-bs-target="#userModal">
 							{{currentLang.profile.save_changes}}
 						</button>
-						<button class="btn btn-danger">
+						<button class="btn btn-danger mx-2 mb-3 w-auto"
+										ng-click="discardProfile()"
+										data-bs-target="#userModal">
 							{{currentLang.profile.discard_changes}}
 						</button>
 					</div>

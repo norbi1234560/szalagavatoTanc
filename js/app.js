@@ -129,6 +129,7 @@
         $rootScope.loginUser = function (data, message) {
           $rootScope.user.id = data.id;
           $rootScope.user.name = data.name;
+          $rootScope.user.type = data.user_type
           $rootScope.user.pageID = PageId;
           localStorage.setItem('user', JSON.stringify($rootScope.user));
           $rootScope.loggedIn = true;
@@ -150,7 +151,6 @@
           }
 
         }
-
 
         $rootScope.languageTranslations = {
           cn: "中国人 🇨🇳",
@@ -425,55 +425,62 @@
           $location.path('/');
         }
 
+        $scope.profile = [];
+
         $http.post("./php/getUserData.php", {
           id: $rootScope.user.id
         }).then(
           function (response) {
-            $scope.userClass = response.data.data.class;
-            $scope.userImage = response.data.data.image;
-            $scope.userFolder = response.data.data.image.split(".")[0];
-            console.log($scope.userClass);
-            console.log($scope.userImage);
-            console.log($scope.userFolder);
+            if(response.data['error']){
+             console.log(response.data['error']);
+            }
+            else{
+              console.log(response.data.data)
 
+              $scope.profile = response.data.data;
+              $scope.originalProfile =  angular.copy($scope.profile);
+              $scope.isChanged = false;
+
+              $scope.$watch('profile', (newValue, oldValue) => {
+                if (!angular.equals(newValue, oldValue)) {
+                  $scope.isChanged = !angular.equals(newValue, $scope.originalProfile);
+                }
+              }, true);
+            }
           })
           .catch(error => { console.log(error) });
-
-        $http.post("./php/editUser.php", {
-          id:"asd",
-          first_name:"asd",
-          last_name:"asd",
-          email:"asd",
-          phone:"asd",
-          description:"asd",
-
-        }).then(
-          function (response) {
-
-          })
-          .catch(error => { console.log(error) });
-
 
         $scope.modify = () => {
           $http.post("./php/editUser.php", {
-            email: $scope.model.email,
-            password: $scope.model.password
+            email: $scope.profile.email,
+            phone: $scope.profile.phone,
+            description: $scope.profile.description,
+            id: $rootScope.user.id
           })
             .then(function (response) {
               console.log(response.data);
 
-              $rootScope.msg = "Sikeresen módosította a fiókját" + $scope.name + "!";
-              $rootScope.loginUser(response.data.data, $rootScope.msg);
-              $scope.$applyAsync();
-              $location.path('/');
-
-
+              if(response.data.error){
+                  $rootScope.message = response.data.error + '!';
+              }
+              else
+              {
+                $location.path('/');
+                $rootScope.msg = "Sikeresen módosította a fiókját" + $scope.name + "!";
+                $rootScope.loginUser($scope.profile, $rootScope.msg);
+                $scope.$applyAsync();
+                
+              }
             })
             .catch(error => {
               $rootScope.message = "Hiba történt: " + error;
               console.log($scope.Error);
             })
-
+        }
+        $scope.discardProfile = function()
+        {
+          $scope.profile = $scope.originalProfile;
+          $location.path('/');
         }
       }
     ])
@@ -503,11 +510,10 @@
       'http',
       function ($scope, http) {
         $scope.galleryImages = [];
-
         http.request({ url: './php/studentsGalleryImages.php'})
           .then(function (response) {
 
-            $scope.galleryImages = response;
+            $scope.galleryImages = response.sort(() => Math.random() - 0.5);
             $scope.$applyAsync();
           })
           .catch(error => {
@@ -551,7 +557,6 @@
           http.request({
             url: './php/login.php',
             data: {
-              name: "káresz",
               email: $scope.email_login,
               password: $scope.password_login
             }
@@ -615,11 +620,20 @@
             $scope.students = response.data.data;
             $scope.studentsFolder = [];
             for (let i = 0; i < $scope.students.length; i++) {
-              $scope.studentEdit = $scope.students[i].name.replaceAll(" ", "_").replace().toLowerCase();
+              $scope.studentEdit = $scope.students[i].name.replaceAll(" ", "_").toLowerCase();
               for (let j = 0; j < $scope.ekezet.length; j++) {
                 $scope.studentEdit = $scope.studentEdit.replaceAll($scope.ekezet[j], $scope.ekezetNelkul[j]);
               }
               $scope.studentsFolder.push($scope.studentEdit);
+
+              for(let k = 0; k < $scope.students.length; k ++)
+              {
+                if($scope.students[k].image.includes($scope.studentEdit))
+                {
+                  $scope.students[k].folder = $scope.studentEdit;
+                  break;
+                }
+              }
             }
             $scope.hasBoys = $scope.students.some(x => x.gender === 'M');
             $scope.hasGirls = $scope.students.some(x => x.gender === 'F');

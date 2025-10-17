@@ -1,7 +1,7 @@
 <!-- Oldal container -->
- <div class="row justify-content-center my-3 mx-2">
+ <div class="row justify-content-center my-3 mx-2 event-container">
   <div class="col-12 d-flex justify-content-center mt-1">
-    <ul class="nav justify-content-center my-3">
+    <ul class="nav nav-tabs justify-content-center my-3">
       <li ng-repeat="x in classes"
           class="nav-item">
         <button class="btn btn-outline-primary mx-2 rounded-pill" 
@@ -10,71 +10,75 @@
           {{x}}
         </button>
       </li>
-    </ul>
-  </div>
-</div>
-<div class="team-boxed">
-  <div class="container-fluid">
-    <div class="intro ">
-      <!-- Jelenlegi osztály kiírása -->
-      <h2 class="text-center display-3">
-        {{className}} {{currentLang.classes.class}}
-      </h2>
-      <div class="text-center">
-    <!-- Férfi gomb: csak ha van fiú -->
-    <button type="button"
-            class="btn btn-primary"
-            ng-show="hasBoys"
-            ng-click="genderFilter = 'M'"
-             ng-disabled="genderFilter == 'M' || className == '13C'">
-        {{currentLang.classes.man}}
-    </button>
-    <!-- Mind gomb: csak ha van fiú ÉS lány is -->
-    <button type="button"
-            class="btn btn-danger"
-            ng-show="hasBoth"
-            ng-click="genderFilter = null"
-            ng-disabled="genderFilter == null">
-        {{currentLang.classes.all}}
-    </button>
-    <!-- Nő gomb: csak ha van lány -->
-    <button type="button"
-            class="btn btn-primary"
-            ng-show="hasGirls"
-            ng-click="genderFilter = 'F'"
-            ng-disabled="genderFilter === 'F'">
-        {{currentLang.classes.woman}}
-    </button>
-</div>
-    </div>
-
-    </div>
-    <!-- Student kártyák megjelenítése -->
-    <div class="row flex-wrap gap-4 justify-content-center">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 border border-1 rounded my-3 zoom"
-           ng-repeat="student in students track by $index"
-           ng-show="genderFilter == null || student.gender === genderFilter">
-        <div class="py-3 ">
-          <div class="text-center">
-            <img class="rounded-circle img-thumbnail" 
-                 style="width: 160px; height: 160px;"
-                 ng-src="assets/pics/{{className}}/{{studentsFolder[$index]}}/{{studentsFolder[$index]}}.jpg">
-          </div>
-          <h5 class="text-center my-4">
-            {{student.name}}
-          </h5>
-          <div class="text-end justify-content-center d-flex">
-            <button type="button" 
-                    ng-click="showStudentModal(student)" 
-                    class="btn btn-primary" 
-                    data-bs-toggle="modal"
-                    data-bs-target="#studentModal">
-              {{currentLang.classes.more}}
-            </button>
+      <li class="nav-item col-12">
+        <div class="team-boxed">
+          <div class="container-fluid">
+            <div class="intro ">
+              <!-- Jelenlegi osztály kiírása -->
+              <h2 class="text-center display-3">
+                {{className}} {{currentLang.classes.class}}
+              </h2>
+              <div class="text-center">
+                <!-- Férfi gomb: csak ha van fiú -->
+                <button type="button"
+                        class="btn btn-primary"
+                        ng-show="hasBoys"
+                        ng-click="genderFilter = 'M'"
+                        ng-disabled="genderFilter == 'M' || className == '13C'">
+                    {{currentLang.classes.man}}
+                </button>
+                <!-- Mind gomb: csak ha van fiú ÉS lány is -->
+                <button type="button"
+                        class="btn btn-danger"
+                        ng-show="hasBoth"
+                        ng-click="genderFilter = null"
+                        ng-disabled="genderFilter == null">
+                    {{currentLang.classes.all}}
+                </button>
+                <!-- Nő gomb: csak ha van lány -->
+                <button type="button"
+                        class="btn btn-primary"
+                        ng-show="hasGirls"
+                        ng-click="genderFilter = 'F'"
+                        ng-disabled="genderFilter === 'F'">
+                    {{currentLang.classes.woman}}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </li>
+      <li class="nav-item">
+        <div class="team-boxed">
+          <!-- Student kártyák megjelenítése -->
+          <div class="row flex-wrap gap-4 justify-content-center">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 border border-1 rounded my-3 zoom"
+                  ng-repeat="student in students track by $index"
+                  ng-show="genderFilter == null || student.gender === genderFilter">
+              <div class="py-3 ">
+                <div class="text-center">
+                  <img class="rounded-circle img-thumbnail" 
+                        style="width: 160px; height: 160px;"
+                        ng-src="assets/pics/{{className}}/{{studentsFolder[$index]}}/{{studentsFolder[$index]}}.jpg">
+                </div>
+                <h5 class="text-center my-4">
+                  {{student.name}}
+                </h5>
+                <div class="text-end justify-content-center d-flex">
+                  <button type="button" 
+                          ng-click="showStudentModal(student)" 
+                          class="btn btn-primary" 
+                          data-bs-toggle="modal"
+                          data-bs-target="#studentModal">
+                    {{currentLang.classes.more}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 
@@ -103,6 +107,12 @@
 
       <!-- Tanuló adatai -->
       <div class="modal-body px-4 py-3 text-center">
+
+        <img class=" img-thumbnail mx-auto mb-3" 
+              style="width: 250px; height: 300px;"
+              ng-src="assets/pics/{{currentStudent.class}}/{{currentStudent.folder}}/{{currentStudent.folder}}.jpg">
+
+
         <p class="fs-5 mb-2">
           <i class="fa-solid fa-venus-mars me-2 text-secondary"></i>
           {{currentLang.classes.gender}}:
@@ -130,7 +140,7 @@
         <button type="button"
                 ng-click="modalClassLoad('A')"
                 class="btn btn-outline-light px-4 fw-semibold"
-                ng-show="currentStudent.id == $root.user.id || $root.user.id === 999"
+                ng-show="currentStudent.id == $root.user.id || $root.user.type == 'ADMIN'"
                 data-bs-target="#operationsModal"
                 data-bs-toggle="modal"
                 data-bs-dismiss="modal">

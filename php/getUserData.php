@@ -8,11 +8,13 @@ if (!is_int($args["id"]))
 
 $db = new Database();
 
-$query = 'SELECT students.image, students.class 
-          FROM students 
-          INNER JOIN users 
-          ON students.id = users.id 
-          WHERE users.id = :id';
+$query = "SELECT `students`.`image`,`students`.`class`,`users`.`email`,
+                 `users`.`first_name`,`users`.`last_name`,`users`.`phone`,
+                 `users`.`description`,`users`.`id`
+          FROM `users`
+          LEFT JOIN `students`
+          ON `students`.`id` = `users`.`student_id`
+          WHERE `users`.`id` = :id";
 
 $result = $db -> execute($query,$args);
 
