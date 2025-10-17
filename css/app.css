@@ -292,7 +292,6 @@ body{
 	aspect-ratio: 1 / 1;
 	object-fit: cover;
 	transition: transform 1000ms;
-  border: 2px solid black;
 }
 
 .ul-gallery {
@@ -308,7 +307,7 @@ body{
 	left: 50%;
 	width: 200%;
 	height: 200%;
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.2);
 	transform-origin: center;
 	opacity: 0;
 	transform: scale(2);
@@ -783,7 +782,6 @@ body{
 .animated-bg-container {
   position: relative;
   overflow: hidden;
-  border-radius: .5em;
   height: 100px;
   display: flex;
   justify-content: center;
@@ -836,7 +834,6 @@ body{
   align-items: center;
   height: 100px;
   background: #000;
-  border-radius: .5em;
   overflow: hidden;
   position: relative;
 }

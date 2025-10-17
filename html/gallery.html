@@ -20,18 +20,6 @@
             <img class="img-gallery w-100 d-block" 
                  ng-src="{{image}}" 
                  alt="Galéria Kép {{$index+1}}">
-            <figcaption ng-if="galleryImagesName.length == 0 || galleryImagesName == undefined"
-                        class="figcaption-gallery position-absolute 
-                              start-0 top-0 d-flex justify-content-center 
-                              align-items-center w-100 h-100 text-center p-3">
-              {{currentLang.gallery.gallery_picture}} {{$index+1}}
-            </figcaption>
-            <figcaption ng-if="galleryImagesName.length != 0"
-                        class="figcaption-gallery position-absolute 
-                              start-0 top-0 d-flex justify-content-center 
-                              align-items-center w-100 h-100 text-center p-3">
-              {{galleryImagesName[$index]}}
-            </figcaption>
           </figure>
         </a>
       </div>

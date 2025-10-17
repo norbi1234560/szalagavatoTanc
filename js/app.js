@@ -508,18 +508,6 @@
           .then(function (response) {
 
             $scope.galleryImages = response;
-            $scope.galleryImagesName = [];
-
-            $scope.galleryImages.forEach(forras=>{
-
-              let nevKiterjesztes =  forras.split("/")[forras.split("/").length-1];
-
-              if(nevKiterjesztes.includes(".jpg") ||nevKiterjesztes.includes(".png")){
-
-                let nev = nevKiterjesztes.split(".")[0];
-                $scope.galleryImagesName.push(nev);
-              }
-            })
             $scope.$applyAsync();
           })
           .catch(error => {
