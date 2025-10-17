@@ -22,7 +22,8 @@
                 templateUrl: './html/root.html'
               },
               'header@root': {
-                templateUrl: './html/header.html'
+                templateUrl: './html/header.html',
+                controller: 'headerController'
               },
               'footer@root': {
                 templateUrl: './html/footer.html'
@@ -69,11 +70,11 @@
             templateUrl: './html/login.html'
           })
 
-          .state('register', {
-            url: '/register',
-            parent: 'root',
-            templateUrl: './html/register.html'
-          })
+          // .state('register', {
+          //   url: '/register',
+          //   parent: 'root',
+          //   templateUrl: './html/register.html'
+          //})
 
           .state('profile', {
             url: '/profile',
@@ -432,15 +433,16 @@
           id: $rootScope.user.id
         }).then(
           function (response) {
-            $scope.userClass = response.data.data.class;
-            $scope.userImage = response.data.data.image;
-            $scope.userFolder = response.data.data.image.split(".")[0];
-            console.log($scope.userClass);
-            console.log($scope.userImage);
-            console.log($scope.userFolder);
-
+            if (!response.data.error) {
+              $scope.userClass = response.data.data.class;
+              $scope.userImage = response.data.data.image;
+              $scope.userFolder = response.data.data.image.split(".")[0];
+              console.log($scope.userClass);
+              console.log($scope.userImage);
+              console.log($scope.userFolder);
+            } else console.log(response.data.error);
           })
-          .catch(error => { console.log(error) });
+          .catch(error => console.log(error));
 
         $http.post("./php/editUser.php", {
           id:"asd",
@@ -721,6 +723,99 @@
         $scope.currentDate = new Date();
         $scope.eventDate = new Date('2025-10-05');
         $scope.isEvent = $scope.currentDate < $scope.eventDate;
+      }
+    ])
+
+    // Header conroller
+    .controller('headerController', [
+      '$rootScope',
+      '$scope',
+      '$state',
+      '$interval',
+      function ($rootScope, $scope, $state, $interval) {
+
+        // Set properties for state slideshow
+        let stateSlideshow = {
+          promise: null,
+          states: [],
+          index: 0,
+          intervalMs: 10000,
+        };
+
+        // Set local methods
+        let methods = {
+
+          // Get available states for slideshow
+          prepareSlideshowStates: () => {
+            let states = $state.get().filter(s =>
+              s && s.name && !s.abstract && s.url && 
+              s.url.indexOf(':') === -1 && s.name !== 'root'
+            );
+            stateSlideshow.states = states.map((state) => {
+              return {name: state.name, params: null}
+            });
+            stateSlideshow.states.push({name: 'classes', params: '13A'});
+            stateSlideshow.states.push({name: 'classes', params: '13B'});
+            stateSlideshow.states.push({name: 'classes', params: '13C'});
+            
+            let cur = $state.current && $state.current.name;
+            stateSlideshow.index = Math.max(0, stateSlideshow.states.findIndex(
+                                    (i) => i.name === cur));
+          },
+
+          // Start state slideshow
+          startStateSlideshow: (intervalMs = 10000, statesList) =>{
+            if (stateSlideshow.promise) return;
+            stateSlideshow.intervalMs = intervalMs;
+            if (Array.isArray(statesList) && statesList.length)
+                    stateSlideshow.states = statesList;
+            else    methods.prepareSlideshowStates();
+            if (!stateSlideshow.states.length) return;
+            $scope.slideshowPlaying = true;
+            stateSlideshow.promise = $interval(() => {
+              let len = stateSlideshow.states.length;
+              let nextIndex = (stateSlideshow.index + 1) % len;
+              stateSlideshow.index = nextIndex;
+              if (nextIndex === 0) methods.changeLanguage();
+              if (stateSlideshow.states[stateSlideshow.index].params)
+                    $state.go(stateSlideshow.states[stateSlideshow.index].name, 
+                              {class: stateSlideshow.states[stateSlideshow.index].params});
+              else  $state.go(stateSlideshow.states[stateSlideshow.index].name); 
+            }, stateSlideshow.intervalMs);
+          },
+
+          // Stop state slideshow
+          stopStateSlideshow: () =>{
+            if (stateSlideshow.promise) {
+              $interval.cancel(stateSlideshow.promise);
+              stateSlideshow.promise = null;
+            }
+            $scope.slideshowPlaying = false;
+          },
+
+          // Change language
+          changeLanguage: () =>{
+            if (!Array.isArray($rootScope.languages) || !$rootScope.languages.length) return;
+            let curFlag = $rootScope.currentFlag || ($rootScope.languages[0] && $rootScope.languages[0].language);
+            let idx = $rootScope.languages.findIndex(l => l.language === curFlag);
+            if (idx === -1) idx = 0;
+            idx = (idx + 1) % $rootScope.languages.length;
+            $rootScope.currentFlag = $rootScope.languages[idx].language;
+            $rootScope.currentLang = $rootScope.languages[idx].data;
+            $rootScope.$applyAsync();
+          }
+        };
+
+
+        // Initialize slideshow playing
+        $scope.slideshowPlaying = false;
+
+        // Toggle slideshow (start/stop)
+        $scope.toggleStateSlideshow = function (intervalMs) {
+          if (stateSlideshow.promise)
+                methods.stopStateSlideshow();
+          else  methods.startStateSlideshow(intervalMs);
+        };
       }
     ])
 

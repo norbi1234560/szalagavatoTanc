@@ -16,7 +16,7 @@ $query = 'SELECT students.image, students.class
 
 $result = $db -> execute($query,$args);
 
-if (count($result) == 0) 
-    Util::setResponse('A meglévő felhasználó nem tagja a KERI-nek');
+if (!$result) 
+    Util::setError('A meglévő felhasználó nem tagja a KERI-nek');
 
 Util::setResponse($result[0]);

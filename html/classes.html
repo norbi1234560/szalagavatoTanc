@@ -1,5 +1,5 @@
 <!-- Oldal container -->
- <div class="row justify-content-center my-3 mx-2">
+ <div class="row justify-content-center mt-3 mx-2">
   <div class="col-12 d-flex justify-content-center mt-1">
     <ul class="nav justify-content-center my-3">
       <li ng-repeat="x in classes"
@@ -15,11 +15,11 @@
 </div>
 <div class="team-boxed">
   <div class="container-fluid">
-    <div class="intro ">
+    <div class="intro mb-3">
       <!-- Jelenlegi osztály kiírása -->
-      <h2 class="text-center display-3">
+      <h6 class="text-center display-6">
         {{className}} {{currentLang.classes.class}}
-      </h2>
+      </h6>
       <div class="text-center">
     <!-- Férfi gomb: csak ha van fiú -->
     <button type="button"
@@ -50,11 +50,11 @@
 
     </div>
     <!-- Student kártyák megjelenítése -->
-    <div class="row flex-wrap gap-4 justify-content-center">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 border border-1 rounded my-3 zoom"
+    <div class="row flex-wrap gap-3 justify-content-center">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 border border-1 rounded zoom"
            ng-repeat="student in students track by $index"
            ng-show="genderFilter == null || student.gender === genderFilter">
-        <div class="py-3 ">
+        <div class="py-3">
           <div class="text-center">
             <img class="rounded-circle img-thumbnail" 
                  style="width: 160px; height: 160px;"
