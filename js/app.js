@@ -314,6 +314,9 @@
 
         $scope.makePairs = () => {
 
+          if (!confirm("Biztosan újra szeretné párosítani a tanulókat? A régi párok törlődnek!")) {
+            return;
+          }
           $scope.allStudents = []
           $http.post("./php/removePairs.php")
             .then(() => {

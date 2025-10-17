@@ -21,4 +21,6 @@ foreach ($files as $classes) {
   }
 }
 
+shuffle($galleryImages);
+
 Util::SetResponse($galleryImages);
