@@ -10,7 +10,7 @@ $db = new Database();
 
 $query = "SELECT `students`.`image`,`students`.`class`,`users`.`email`,
                  `users`.`first_name`,`users`.`last_name`,`users`.`phone`,
-                 `users`.`description`,`users`.`id`
+                 `users`.`description`,`users`.`id`,`users`.`name`
           FROM `users`
           LEFT JOIN `students`
           ON `students`.`id` = `users`.`student_id`

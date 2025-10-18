@@ -470,7 +470,8 @@
               else
               {
                 $location.path('/');
-                $rootScope.msg = "Sikeresen módosította a fiókját" + $scope.name + "!";
+                console.log($scope.profile);
+                $rootScope.msg = "Sikeresen módosította a fiókját" +' '+ $scope.profile.name + "!";
                 $rootScope.loginUser($scope.profile, $rootScope.msg);
                 $scope.$applyAsync();
                 

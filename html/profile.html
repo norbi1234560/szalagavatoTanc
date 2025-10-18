@@ -142,12 +142,12 @@
 						<button class="btn btn-primary mx-2 mb-3 w-auto"
 										ng-disabled="!profile.phone || !profile.email || !isChanged"
 										ng-click="modify()"
+										data-bs-toggle="modal"
 										data-bs-target="#userModal">
 							{{currentLang.profile.save_changes}}
 						</button>
 						<button class="btn btn-danger mx-2 mb-3 w-auto"
-										ng-click="discardProfile()"
-										data-bs-target="#userModal">
+										ng-click="discardProfile()">
 							{{currentLang.profile.discard_changes}}
 						</button>
 					</div>
